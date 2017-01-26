@@ -1,0 +1,50 @@
+---
+MooringID: 07BST-2A
+Date_Ticks: multi_month
+start_time: 2007-04-25
+end_time: 2007-09-27
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+colors:
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- y-
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+dtype: mooring
+legend:
+- 67m rcm 
+- 18m ecf 
+- 56m ecf 
+- 18m s37 
+- 56m s37 
+legend_loc: upper center
+legend_off: false
+nominal_depth:
+- ''
+mooring_data_path:
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bst2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bst2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bst2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bst2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bst2a/final_data/
+mooring_files:
+- 07bst2a_an9_0067m.nc
+- 07bst2a_ecf_0018m.nc
+- 07bst2a_ecf_0056m.nc
+- 07bst2a_s37_0018m.nc
+- 07bst2a_s37_0056m.nc
+notes:
+output_type: png
+plot_stylesheet: seaborn-poster
+

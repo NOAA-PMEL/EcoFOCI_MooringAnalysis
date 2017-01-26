@@ -1,0 +1,25 @@
+{
+    "MooringID": "15BS-2C_sctimetest", 
+    "mooring_data_path": [
+    "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs2c/working/elapsed_seconds/",
+    "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs2c/working/instrument_doy/",
+    "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs2c/working/instrument_seconds/"],
+    "mooring_files": [
+    "15bs2c_sc_0012m.unqcd.interpolated.trimmed_missing.nc",
+    "15bs2c_sc_0012m.unqcd.interpolated.trimmed_missing.nc",
+    "15bs2c_sc_0012m.unqcd.interpolated.trimmed_missing.nc"], 
+    "ctd_data_path": [],
+    "ctd_files": [], 
+    "legend_off": false, 
+    "legend": ["elapsed seconds","instrument doy","instrument seconds"], 
+    "colors": ["k-", "b-", "m-", "g-", "y-","b-.","g-.","r-","y-.","r-.","m-.","k-."],
+    "dtype": "unqcd",
+    "EPIC_Key_ctd": "T_28",
+    "EPIC_Key": "T_20",
+    "Ylabel": "Temperature",
+    "Date_Ticks": "multi_month",
+    "plot_stylesheet": "seaborn-poster",
+    "legend_loc": "lower center", 
+    "output_type": "png"
+
+}

@@ -1,0 +1,14 @@
+{
+    "MooringID": "M2_BTM", 
+    "mooring_data_path": [
+    "/Users/bell/in_and_outbox/scott_goodman/M2bottom_temp_through2016/temp_only_submission/"],
+    "mooring_files": [
+    "m2_bt_1995_2016.nc"], 
+    "legend": [], 
+    "legend_off": ["merged filtered M2 btm temps"], 
+    "colors": ["b-"],
+    "dtype": "unqcd",
+    "EPIC_Key": "T_20",
+    "Date_Ticks": "multi_year",
+    "plot_stylesheet": "seaborn-poster"
+}

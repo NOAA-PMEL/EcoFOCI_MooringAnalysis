@@ -1,0 +1,119 @@
+---
+MooringID: 08BSM-2A
+Date_Ticks: multi_month
+start_time: 2008-05-07
+end_time: 2009-09-28
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+colors:
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- y-
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- y-
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- y-
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- y-
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+dtype: mooring
+legend:
+- 8m rcm
+- 13m ecf 
+- 25m ecf 
+- 4m mt 
+- 1m s37 
+- 62m s37 
+- 15m s39
+- 18m s39
+- 21m s39
+- 28m s39
+- 32m s39
+- 35m s39
+- 39m s39
+- 50m s39
+- 55m s39
+- 60m s39
+- 6m sc
+- 12m sc
+- 24m sc
+- 44m sc
+- sfc wpak 
+legend_loc: upper center
+legend_off: false
+nominal_depth:
+- ''
+mooring_data_path:
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bsm2a/final_data/
+mooring_files:
+- 08bsm2a_an9_0008m.nc
+- 08bsm2a_ecf_0013m.nc
+- 08bsm2a_ecf_0025m.nc
+- 08bsm2a_mt_0004m.nc
+- 08bsm2a_s37_0001m.nc
+- 08bsm2a_s37_0062m.nc
+- 08bsm2a_s39_0015m.nc
+- 08bsm2a_s39_0018m.nc
+- 08bsm2a_s39_0021m.nc
+- 08bsm2a_s39_0028m.nc
+- 08bsm2a_s39_0032m.nc
+- 08bsm2a_s39_0035m.nc
+- 08bsm2a_s39_0039m.nc
+- 08bsm2a_s39_0050m.nc
+- 08bsm2a_s39_0055m.nc
+- 08bsm2a_s39_0060m.nc
+- 08bsm2a_sc_0006m.nc
+- 08bsm2a_sc_0012m.nc
+- 08bsm2a_sc_0024m.nc
+- 08bsm2a_sc_0044m.nc
+- 08bsm2a_wpak.nc
+notes:
+output_type: png
+plot_stylesheet: seaborn-poster
+

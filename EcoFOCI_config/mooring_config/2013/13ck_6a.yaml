@@ -1,0 +1,40 @@
+Date_Ticks: multi_day
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+EPIC_Key: S_41
+EPIC_Key_ctd: S_41
+Ylabel: Salinity
+MooringID: 13CK_6A
+colors:
+- k-
+- b-
+- m-
+- g-
+ctd_data_path:
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/CTDCasts/aq1301/final_data/ctd/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/CTDCasts/aq1401l2/final_data/ctd/
+ctd_files:
+- aq1301c019_ctd.nc
+- aq1401l2c047_ctd.nc
+dtype: mooring
+legend:
+- 39m sc 13ckp
+- 39m s37 13ckt
+- 38m an9 13ckip
+legend_loc: upper center
+legend_off: false
+mooring_data_path:
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13ckp6a/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13ckt6a/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13ckip6a/final_data/
+mooring_files:
+- 13ckp6a_sc_0039m.unqcd.trimmed_missing.nc
+- 13ckt6a_s37_0039m.unqcd.trimmed_missing.nc
+- 13ckip6a_an9_0038m.nc
+notes: No sal at 13ckip and temp looks questionable on rcm
+output_type: png
+plot_stylesheet: seaborn-poster
+
+
+

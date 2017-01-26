@@ -1,0 +1,46 @@
+---
+MooringID: 15CK1
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+mooring_data_path:
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15ckip1a/working/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15ckip1a/working/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15ckp1a/working/"
+mooring_files:
+- 15ckip1a_s37_0040m.unqcd.trimmed_missing.nc
+- 15ckip1a_sg_0039.unqcd.trimmed_missing.nc
+- 15ckp1a_sc_0039m.interpolated.trimmed_missing.nc
+nominal_depth:
+- 40
+- 39
+- 39
+colors:
+- k-
+- b-
+- m-
+legend:
+- 40m s37
+- 39m sg
+- 39m sc
+dtype: mooring
+legend_loc: upper center
+legend_off: false
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+#EPIC_Key: P_1
+#EPIC_Key_ctd: P_1
+#Ylabel: Pressure (dB)
+Date_Ticks: multi_month
+plot_stylesheet: seaborn-poster
+output_type: png
+start_time: '2015-09-18'
+end_time: '2016-09-15'
+depth_interval_m: 1
+depth_m: 42
+

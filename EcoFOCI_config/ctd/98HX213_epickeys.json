@@ -1,0 +1,106 @@
+{
+	"S_42": {
+		"name": "S",
+		"generic_name": "sal",
+		"fortran": "",
+		"EPIC_KEY": 42,
+		"units": "psu",
+		"longname": "SALINITY (PSU)"
+	},
+	"S_41": {
+		"name": "S",
+		"generic_name": "sal",
+		"fortran": "",
+		"EPIC_KEY": 41,
+		"units": "psu",
+		"longname": "SALINITY (PSU)"
+	},
+	"T_28": {
+		"name": "T",
+		"generic_name": "temp",
+		"fortran": "f10.2",
+		"EPIC_KEY": 28,
+		"units": "C",
+		"longname": "TEMPERATURE (C)"
+	},
+	"T2_35": {
+		"name": "T2",
+		"generic_name": "temp",
+		"fortran": "f10.2",
+		"EPIC_KEY": 35,
+		"units": "C",
+		"longname": "Secondary Temperature"
+	},
+	"Fch_906": {
+		"name": "Fch",
+		"generic_name": "",
+		"fortran": "",
+		"EPIC_KEY": 906,
+		"units": "ugrams/l",
+		"longname": "Chlorophyll A"
+	},
+	"PAR_905": {
+		"name": "PAR",
+		"generic_name": "par",
+		"fortran": "",
+		"EPIC_KEY": 905,
+		"units": "uEin m-2 s-1",
+		"longname": "Photosynthetic Active Radiation"
+	},
+	"ST_70": {
+		"name": "ST",
+		"generic_name": "den",
+		"fortran": "f10.2",
+		"EPIC_KEY": 70,
+		"units": "kg m-3",
+		"longname": "SIGMA-T (KG/M**3)"
+	},
+		"BTL_103": {
+		"name": "BTL",
+		"generic_name": "",
+		"fortran": "",
+		"EPIC_KEY": 103,
+		"units": "",
+		"longname": "NISKIN BOTTLE NUMBER"
+	},
+	"NH4_189": {
+		"name": "NH4",
+		"generic_name": "NH4",
+		"fortran": "",
+		"EPIC_KEY": 189,
+		"units": "uM/l",
+		"longname": "AMMONIUM (micromoles/l)"
+	},
+	"NO3_182": {
+		"name": "NO3",
+		"generic_name": "NO3",
+		"fortran": "",
+		"EPIC_KEY": 182,
+		"units": "uM/l",
+		"longname": "NITRATE (micromoles/l)"
+	},
+	"SI_188": {
+		"name": "SI",
+		"generic_name": "SI",
+		"fortran": "",
+		"EPIC_KEY": 188,
+		"units": "uM/l",
+		"longname": "SILICATE (micromoles/l)"
+	},
+	"PO4_186": {
+		"name": "PO4",
+		"generic_name": "PO4",
+		"fortran": "",
+		"EPIC_KEY": 186,
+		"units": "uM/l",
+		"longname": "PHOSPHATE (micromoles/l)"
+	},
+	"NO2_184": {
+		"name": "NO2",
+		"generic_name": "NO2",
+		"fortran": "",
+		"EPIC_KEY": 184,
+		"units": "uM/l",
+		"longname": "NITRITE (micromoles/l)"
+	}	
+}

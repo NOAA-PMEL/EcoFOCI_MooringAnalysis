@@ -1,0 +1,18 @@
+{
+    "MooringID": "Chuckchi", 
+    "mooring_data_path": [
+    "/Users/bell/in_and_outbox/2016/moore/apr/",
+    "/Users/bell/in_and_outbox/2016/moore/apr/"],
+    "mooring_files": [
+    "microcat_ebc2010-11_amp.nc",
+    "microcat_ebc2011-12_amp.nc"], 
+    "legend": [], 
+    "legend_off": [""], 
+    "colors": ["k-", "k-"],
+    "dtype": "unqcd",
+    "EPIC_Key": "S_41",
+    "Ylabel": "Salinity",
+    "Date_Ticks": "multi_month",
+    "plot_stylesheet": "seaborn-poster",
+    "output_type": "png"
+}

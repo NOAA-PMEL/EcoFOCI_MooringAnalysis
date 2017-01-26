@@ -1,0 +1,62 @@
+---
+MooringID: 16BSM-2A_mtr
+Date_Ticks: multi_month
+start_time: 2016-05-01
+end_time: 2016-10-01
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
+colors:
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- k--
+- b--
+- m--
+- g--
+- r--
+- c--
+- k-.
+- b-.
+- m-.
+- g-.
+- r-.
+- c-.
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+dtype: mooring
+legend:
+- 4m mtr 
+- 6m sc
+- 11m sc
+- 32m mtr
+- 28m s39
+legend_loc: upper center
+legend_off: false
+nominal_depth:
+- 4 
+- 6
+- 11
+- 32
+- 28
+mooring_data_path:
+- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+mooring_files:
+- 16bsm2a_mt3276_0004m.interpolated.trimmed_missing.nc
+- 16bsm2a_sc_0006m.interpolated.trimmed_missing.nc
+- 16bsm2a_sc_0011m.interpolated.time_corrected.trimmed_missing.nc
+- 16bsm2a_mt4068_0032m.interpolated.trimmed_missing.nc
+- 16bsm2a_s39_0028m.nc
+notes:
+output_type: png
+plot_stylesheet: seaborn-poster
+

@@ -1,0 +1,66 @@
+Readme
+======
+
+Purpose:
+--------
+
+Changing/updating depths in existing netcdf files.
+
+Program:
+--------
+
+NetCDF_variable_editor.py
+
+Usage:
+------
+
+find the path with the program in it (for me its at '/home/pavlof/bell/Python/MooringDataProcessing/utilities/NetCDF_variable_editor.py') and copy
+
+python NetCDF_variable_editor.py -h
+usage: NetCDF_variable_editor.py [-h] [-s] [-o] [-in] sourcefile
+
+Edit/View Chosen Instrument Depth Data
+
+positional arguments:
+  sourcefile        complete path to netcdf file
+
+optional arguments:
+  -h, --help        show this help message and exit
+  -s, --screen      output to screen
+  -o, --out_config  output to config file
+  -in, --in_config  modify using current config file
+
+Examples:
+---------
+
+Run the program initially to create a configuration file for editing
+
+python NetCDF_variable_editor.py {/full/path/to/file.nc} -s -o
+
+(the -s flag is equivalent to "verbose" and outputs the depths to the screen)
+(the -o flag will write a file called instrument_depth_config.pyini to your local working dir)
+
+
+$ python NetCDF_variable_editor.py /Users/bell/ecoraid/2014/Moorings/14bsp5a/initial_archive/14bsp5a_wcp_vel.unqcd.nc -s -o
+depth: [-16. -12.  -8.  -4.   0.   4.   8.  12.  16.  20.  24.  28.  32.  36.  40.
+  44.  48.]
+
+the instrument_depth_config.pyini file is just a JSON formatted text file ---
+
+{
+    "depth": "[-16. -12.  -8.  -4.   0.   4.   8.  12.  16.  20.  24.  28.  32.  36.  40.\n  44.  48.]"
+}  
+(do not worry about the \n - it doesn't get interpreted by the program whether or not its there)
+
+This file can be edited to update the depths ---
+(for example, moving everything up 4 meters)
+
+{
+    "depth": "[-12. -8.  -4.   0.   4.   8.  12.  16.  20.  24.  28.  32.  36.  40.  44.  48.	52.]"
+}  
+
+Then use this as the input file for the same routine ---
+
+python NetCDF_variable_editor.py {/full/path/to/file.nc} -in
+
+The program will output the values it has changed the depths to as confirmation.

@@ -1,0 +1,90 @@
+---
+MooringID: 15BS-8A
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+mooring_data_path:
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs8a/working/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs8a/working/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs8a/working/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs8a/working/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs8a/working/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs8a/working/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs8a/working/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs8a/working/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs8a/working/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs8a/working/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs8a/working/"
+mooring_files:
+- 15bs8a_sc_0020m.interpolated.trimmed_missing.nc
+- 15bs8a_s37_0031m.unqcd.trimmed_missing.nc
+- 15bs8a_s37_0055m.unqcd.trimmed_missing.nc
+- 15bs8a_s39_0023m.unqcd.trimmed_missing.nc
+- 15bs8a_s39_0027m.unqcd.trimmed_missing.nc
+- 15bs8a_s39_0035m.unqcd.trimmed_missing.nc
+- 15bs8a_s39_0040m.unqcd.trimmed_missing.nc
+- 15bs8a_s39_0045m.unqcd.trimmed_missing.nc
+- 15bs8a_s39_0050m.unqcd.trimmed_missing.nc
+- 15bs8a_s39_0060m.unqcd.trimmed_missing.nc
+- 15bs8a_s39_0067m.unqcd.trimmed_missing.nc
+nominal_depth:
+- 20
+- 31
+- 55
+- 23
+- 27
+- 35
+- 40
+- 45
+- 50
+- 60
+- 67
+colors:
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- k-.
+- b-.
+- m-.
+- g-.
+- r-.
+- c-.
+legend:
+- 20m sc
+- 31m s37
+- 55m s37
+- 23m s39
+- 27m s39
+- 35m s39
+- 40m s39
+- 45m s39
+- 50m s39
+- 60m s39
+- 67m s39
+dtype: mooring
+legend_loc: upper center
+legend_off: false
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+EPIC_Key: P_1
+EPIC_Key_ctd: P_1
+Ylabel: Pressure (dB)
+Date_Ticks: multi_month
+plot_stylesheet: seaborn-poster
+output_type: png
+start_time: '2015-09-24'
+end_time: '2016-09-25'
+depth_interval_m: 1
+depth_m: 73
+

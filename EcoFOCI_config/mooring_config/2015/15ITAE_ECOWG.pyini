@@ -1,0 +1,23 @@
+{
+    "MooringID": "15-ECO_WG", 
+    "mooring_data_path": ["/Users/bell/ecoraid/2015/AlongTrack/ITAE_2015/Waveglider/ECO_WG/initial_archive/"],
+    "mooring_files": [
+    "15eco_wg_float_2015.unqcd.nc",
+    "15eco_wg_tractor_2015.unqcd.nc",
+    "15eco_wg_s56_0001m.unqcd.nc",
+    "15eco_wg_s56_0002m.unqcd.nc",
+    "15eco_wg_s56_0003m.unqcd.nc",
+    "15eco_wg_s56_0004m.unqcd.nc",
+    "15eco_wg_s56_0005m.unqcd.nc"], 
+    "ctd_data_path": [
+    "/Users/bell/ecoraid/2015/CTDCasts/dy1504/initialarchive/",
+    "/Users/bell/ecoraid/2014/CTDCasts/dy1405/final_data/ctd_epic_only/"],
+    "ctd_files": [
+    "dy1504c065_ctd.nc",
+    "dy1405c080_ctd.nc"], 
+    "legend": ["float ctd", "tractor ctd", "0001 s56","0002 s56","0003 s56","0004 s56","0005 s56"], 
+    "colors": ["k-", "b-", "m-", "g-", "y-","r-","b-.","g-.","y-.","r-.","m-.","k-."],
+    "dtype": "unqcd",
+    "EPIC_Key_ctd": "T_28",
+    "EPIC_Key": "T_20"
+}

@@ -1,0 +1,29 @@
+---
+MooringID: 15CB-1A
+mooring_data_path:
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15cb1a/working/"
+mooring_files:
+- 15cb1a_s37_0188m.unqcd.trimmed_missing.nc
+nominal_depth:
+- 188
+colors:
+- k-
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
+Date_Ticks: multi_month
+plot_stylesheet: seaborn-poster
+output_type: png
+start_time: ''
+end_time: ''
+depth_interval_m: 1
+depth_m: -99
+legend_loc: upper center
+legend_off: true
+legend:
+- 188m
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+dtype: mooring

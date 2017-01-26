@@ -1,0 +1,24 @@
+{
+    "MooringID": "12CK_2A", 
+    "mooring_data_path": [
+    "/Users/bell/ecoraid/2012/Moorings/12ckip2a/final_data/",
+    "/Users/bell/ecoraid/2012/Moorings/12ckp2a/final_data/",
+    "/Users/bell/ecoraid/2012/Moorings/12ckp2a/final_data/",
+    "/Users/bell/ecoraid/2012/Moorings/12ckp2a/final_data/"],
+    "mooring_files": [
+    "12ckip2a_an9_0041m.nc",
+    "12ckp2a_s37_0040m.nc",
+    "12ckp2a_ecf_0039m.nc",
+    "12ckp2a_sc_0040m.nc"], 
+    "ctd_data_path": [
+    "/Users/bell/ecoraid/2012/CTDCasts/aq1201/final_data/ctd/",
+    "/Users/bell/ecoraid/2013/CTDCasts/aq1301/final_data/ctd/"],
+    "ctd_files": [
+    "aq1201c030_ctd.nc",
+    "aq1301c009_ctd.nc"], 
+    "legend": ["41m an 12ckip", "40m s37 13ckp","39m ecf 13ckp", "40m sc 12ckp"], 
+    "colors": ["k-", "b-", "m-", "g-", "y-","b-.","g-.","r-","y-.","r-.","m-.","k-."],
+    "dtype": "12CK2A_all",
+    "EPIC_Key": "S_41",
+    "EPIC_Key_ctd": "S_41"
+}

@@ -1,0 +1,94 @@
+---
+MooringID: 07BS-2C
+Date_Ticks: multi_month
+start_time: 2007-09-26
+end_time: 2008-05-08
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+colors:
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- y-
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- y-
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- y-
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+dtype: mooring
+legend:
+- 13m rcm
+- 10m ecf
+- 31m ecf
+- 29m s37
+- 53m s37
+- 17m s39
+- 21m s39
+- 25m s39
+- 33m s39
+- 38m s39
+- 43m s39
+- 48m s39
+- 58m s39
+- 65m s39
+- 09m sc
+legend_loc: upper center
+legend_off: false
+nominal_depth:
+- ''
+mooring_data_path:
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs2c/final_data/
+mooring_files:
+- 07bs2c_an9_0013m.nc
+- 07bs2c_ecf_0010m.nc
+- 07bs2c_ecf_0031m.nc
+- 07bs2c_s37_0029m.nc
+- 07bs2c_s37_0053m.nc
+- 07bs2c_s39_0017m.nc
+- 07bs2c_s39_0021m.nc
+- 07bs2c_s39_0025m.nc
+- 07bs2c_s39_0033m.nc
+- 07bs2c_s39_0038m.nc
+- 07bs2c_s39_0043m.nc
+- 07bs2c_s39_0048m.nc
+- 07bs2c_s39_0058m.nc
+- 07bs2c_s39_0065m.nc
+- 07bs2c_sc_0009m.nc
+notes:
+output_type: png
+plot_stylesheet: seaborn-poster
+

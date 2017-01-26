@@ -1,0 +1,18 @@
+{
+    "MooringID": "13BS8A", 
+    "mooring_data_path": ["/Users/bell/ecoraid/2013/Moorings/13bs8a/working/"],
+    "mooring_files": ["13bs8a_sc_0021m.unqcd.trimmed_missing.nc",
+    "13bs8a_s37_0031m.unqcd.trimmed_missing.nc",
+    "13bs8a_s37_0055m.unqcd.trimmed_missing.nc"], 
+    "ctd_data_path": [
+    "/Users/bell/CTD_unvetted/2012/dy1208/",
+    "/Users/bell/ecoraid/2014/CTDCasts/dy1408l3/final_data/final/"],
+    "ctd_files": [
+    "dy1208c081_ctd.nc",
+    "dy1408l3c140_ctd.nc"], 
+    "legend": ["21m sc", "31m s37", "55m s37", "23m s39", "27m s39", "35m s39", "40m s39", "45m s39", "50m s39", "60m s39", "67m s39"], 
+    "colors": ["k-", "b-", "m-", "g-", "y-","c-","k-.", "b-.", "m-.", "g-.", "y-.","c-.","k--","b--","m--"],
+    "dtype": "trimmed",
+    "EPIC_Key": "S_41",
+    "EPIC_Key_ctd": "S_41"
+}

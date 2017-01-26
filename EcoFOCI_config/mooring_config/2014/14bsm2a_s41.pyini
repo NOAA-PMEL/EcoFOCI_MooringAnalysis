@@ -1,0 +1,18 @@
+{
+    "MooringID": "14BSM2A", 
+    "mooring_data_path": ["/Users/bell/ecoraid/2014/Moorings/14bsm2a/working/"],
+    "mooring_files": ["14bsm2a_sc_0044m.trimmed_missing.despiked.nc",
+     "14bsm2a_s37_0061m.unqcd.trimmed_missing.nc",
+    "14bsm2a_sc_0006m.unqcd.trimmed_missing.nc", 
+    "14bsm2a_sc_0024m.unqcd.trimmed_missing.nc"], 
+    "ctd_data_path": [
+    "/Users/bell/ecoraid/2014/CTDCasts/dy1405/final_data/epic_only/",
+    "/Users/bell/ecoraid/2014/CTDCasts/dy1408l3/final_data/final/"],
+    "ctd_files": [
+    "dy1405c020_ctd.nc",
+    "dy1408l3c072_ctd.nc"], 
+    "legend": ["44m sc","61m s37","6m sc","24m sc"], 
+    "colors": ["k-", "b-", "m-", "g-", "y-","b-.","g-.","r-","y-.","r-.","m-.","k-."],
+    "dtype": "trimmed",
+    "EPIC_Key": "S_41"
+}

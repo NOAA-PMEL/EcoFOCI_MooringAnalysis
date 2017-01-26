@@ -1,0 +1,28 @@
+{
+    "MooringID": "14ULP1A", 
+    "mooring_data_path": [
+    "/Users/bell/ecoraid/2014/Moorings/14ulp1a/working/",
+    "/Users/bell/ecoraid/2014/Moorings/14ulp1a/working/",
+    "/Users/bell/ecoraid/2014/Moorings/14ulp1a/initial_archive/",
+    "/Users/bell/ecoraid/2014/Moorings/14ulp1a/initial_archive/",
+    "/Users/bell/ecoraid/2014/Moorings/14ulp1a/initial_archive/"],
+    "mooring_files": [
+    "14ulp1a_s37_0152m.unqcd.trimmed_missing.nc",
+    "14ulp1a_s37_0401m.unqcd.trimmed_missing.nc",
+    "14ulp1a_an9_0151m.unqcd.nc",
+    "14ulp1a_an9_0400m.unqcd.nc",
+    "14ulp1a_an9_0750m.unqcd.nc"], 
+    "ctd_data_path": [
+    "/Users/bell/ecoraid/2015/CTDCasts/dy1504/initial_archive/EPIC_parameters/",
+    "/Users/bell/ecoraid/2014/CTDCasts/dy1408l3/final_data/ctd_files/",
+    "/Users/bell/ecoraid/2014/CTDCasts/dy1405/final_data/ctd_epic_only/"],
+    "ctd_files": [
+    "dy1504c020_ctd.nc",
+    "dy1408l3c164_ctd.nc",
+    "dy1405c082_ctd.nc"], 
+    "legend": ["152m s37","401m s37", "151m an9", "400m an9", "750m an9"], 
+    "colors": ["k-", "b-", "m-", "g-", "y-","b-.","g-.","r-","y-.","r-.","m-.","k-."],
+    "dtype": "unqcd",
+    "EPIC_Key_ctd": "S_41",
+    "EPIC_Key": "S_41"
+}

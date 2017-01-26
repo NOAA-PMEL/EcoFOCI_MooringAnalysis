@@ -1,0 +1,11 @@
+{
+    "MooringID": "14BSM2A", 
+    "mooring_data_path": ["/Users/bell/ecoraid/2014/Moorings/14bsm2a/processed/"],
+    "mooring_files": ["14bsm2a_an9_0008m.unqcd.nc",
+    "14bsm2a_s39_0015m.unqcd.trimmed_missing.nc", 
+    "14bsm2a_sc_0006m.unqcd.trimmed_missing.nc"], 
+    "legend": ["08m rcm", "15m s39","6m sc"], 
+    "colors": ["k-", "b-", "m-", "g-", "y-","b-.","g-.","r-","y-.","r-.","m-.","k-."],
+    "dtype": "rcm_compare",
+    "EPIC_Key": "T_20"
+}

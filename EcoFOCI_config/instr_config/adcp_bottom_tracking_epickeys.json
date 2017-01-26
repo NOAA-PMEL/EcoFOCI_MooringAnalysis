@@ -1,0 +1,50 @@
+{	
+    "u_1205": {
+        "EPIC_KEY": 1205, 
+        "fortran": "", 
+        "generic_name": "u", 
+        "longname": "Eastward Velocity", 
+        "name": "u", 
+		"units": "cm/s"
+    }, 
+    "v_1206": {
+        "EPIC_KEY": 1206, 
+        "fortran": "", 
+        "generic_name": "v", 
+        "longname": "Northward Velocity", 
+        "name": "v", 
+		"units": "cm/s"
+    },
+	"w_1204": {
+		"name": "w",
+		"generic_name": "w",
+		"fortran": "f8.2",
+		"EPIC_KEY": 1204,
+		"units": "cm/s",
+		"longname": "Vertical Velocity"
+	},
+    "CD_310": {
+        "EPIC_KEY": 310, 
+        "fortran": "f8.2", 
+        "generic_name": "vdir", 
+        "longname": "CURRENT DIRECTION (T)", 
+        "name": "CD", 
+        "units": "degrees"
+    }, 
+    "CS_300": {
+        "EPIC_KEY": 300, 
+        "fortran": "f8.2", 
+        "generic_name": "vspd", 
+        "longname": "CURRENT SPEED (CM/S)", 
+        "name": "CS", 
+        "units": "cm s-1"
+    },
+	"Werr_1201": {
+		"EPIC_KEY": 1201,
+		"fortran": "F8.1",
+		"generic_name": "w",
+		"longname": "Error Velocity",
+		"name": "Werr",
+		"units": "cm/s"
+	}    
+}

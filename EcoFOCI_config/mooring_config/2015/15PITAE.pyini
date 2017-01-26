@@ -1,0 +1,28 @@
+{
+    "MooringID": "15CK-PITAE", 
+    "mooring_data_path": [
+    "/Users/bell/ecoraid/2015/Moorings/15ckpitae/final_data/",
+    "/Users/bell/ecoraid/2015/Moorings/15ckpitae/final_data/",
+    "/Users/bell/ecoraid/2015/Moorings/15ckpitae/working/",
+    "/Users/bell/ecoraid/2015/Moorings/15ckpitae/working/"],
+    "mooring_files": [
+    "15ckpitae_mt4044_0034m.nc",
+    "15ckpitae_mt4066_0034m.nc",
+    "15ckpitae_s37_0001m.unqcd.trimmed_missing.nc",
+    "15ckpitae_s37_0025m.unqcd.nc"], 
+    "ctd_data_path": [
+    "/Users/bell/ecoraid/2015/CTDCasts/hly1501/final_data/ctd/",
+    "/Users/bell/ecoraid/2015/CTDCasts/hly1501/final_data/ctd/",
+    "/Users/bell/ecoraid/2015/CTDCasts/rb1505/final_data/ctd/",
+    "/Users/bell/ecoraid/2015/CTDCasts/aq1501/initial_archive/allparameters/"],
+    "ctd_files": [
+    "hly1501c001_ctd.nc",
+    "hly1501c010_ctd.nc",
+    "rb1505c053_ctd.nc", 
+    "aq1501c001_ctd.nc"], 
+    "legend": ["0034m mtr","0034m mtr","0001m s37","0025m s37"], 
+    "colors": ["k-", "b-", "m-", "g-", "y-","b-.","g-.","r-","y-.","r-.","m-.","k-."],
+    "dtype": "unqcd",
+    "EPIC_Key_ctd": "T_28",
+    "EPIC_Key": "T_20"
+}

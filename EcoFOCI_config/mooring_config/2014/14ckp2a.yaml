@@ -1,0 +1,40 @@
+Date_Ticks: multi_day
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+EPIC_Key: S_41
+EPIC_Key_ctd: S_41
+Ylabel: Salinity
+MooringID: 14CK_2A
+colors:
+- k-
+- b-
+- m-
+- g-
+ctd_data_path:
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/CTDCasts/aq1401l2/final_data/ctd/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2015/CTDCasts/hly1501/final_data/ctd/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2015/CTDCasts/aq1501/final_data/ctd/
+ctd_files:
+- aq1401l2c004_ctd.nc
+- hly1501c010_ctd.nc
+- aq1501c001_ctd.nc
+dtype: mooring
+legend:
+- 39m sc 14ckp2a
+- 37m s37 14ckt2a
+- 39m an9 14ckip2a
+legend_loc: upper center
+legend_off: false
+mooring_data_path:
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14ckp2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14ckt2a/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14ckip2a/final_data/
+mooring_files:
+- 14ckp2a_sc_0039m.nc
+- 14ckt2a_s37_0037m.unqcd.trimmed_missing.nc
+- 14ckip2a_an9_0039m.nc
+notes: 
+output_type: png
+plot_stylesheet: seaborn-poster
+

@@ -1,0 +1,18 @@
+{
+    "MooringID": "14CKP1A", 
+    "mooring_data_path": [
+    "/Users/bell/ecoraid/2014/Moorings/14ckp1a/working/",
+    "/Users/bell/ecoraid/2014/Moorings/14ckt1a/working/"],
+    "mooring_files": [
+    "14ckp1a_sc_0039m.unqcd.interpolated.trimmed_missing.nc",
+    "14ckt1a_s37_0037m.unqcd.trimmed_missing.nc"],
+    "ctd_data_path": ["/Users/bell/ecoraid/2014/CTDCasts/aq1401l2/final_data/ctd/",
+    "/Users/bell/ecoraid/2015/CTDcasts/rb1505/final_data/ctd/"],
+    "ctd_files": ["aq1401l2c003_ctd.nc",
+    "rb1505c050_ctd.nc"], 
+    "legend": ["39m sc","37m s37"], 
+    "colors": ["k-", "b-", "m-", "g-", "y-","b-.","g-.","r-","y-.","r-.","m-.","k-."],
+    "dtype": "14CKP1A",
+    "EPIC_Key": "S_41",
+    "EPIC_Key_ctd": "S_42"
+}

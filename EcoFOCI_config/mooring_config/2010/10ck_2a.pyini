@@ -1,0 +1,20 @@
+{
+    "MooringID": "10CK_2A", 
+    "mooring_data_path": [
+    "/Users/bell/ecoraid/2010/Moorings/10ckip2a/final_data/",
+    "/Users/bell/ecoraid/2010/Moorings/10ckp2a/final_data/"],
+    "mooring_files": [
+    "10ckip2a_an9_0040m.nc",
+    "10ckp2a_sc_0039m.nc"], 
+    "ctd_data_path": [
+    "/Users/bell/ecoraid/2010/CTDCasts/ae1001/final_data/ctd/",
+    "/Users/bell/ecoraid/2011/CTDCasts/mb1101/final_data/ctd/"],
+    "ctd_files": [
+    "ch1001c023_ctd.nc",
+    "mb1101c031_ctd.nc"], 
+    "legend": ["40m an 10ckip", "39m sc 10ckp"], 
+    "colors": ["k-", "b-", "m-", "g-", "y-","b-.","g-.","r-","y-.","r-.","m-.","k-."],
+    "dtype": "10CK2A_all",
+    "EPIC_Key": "S_41",
+    "EPIC_Key_ctd": "S_41"
+}

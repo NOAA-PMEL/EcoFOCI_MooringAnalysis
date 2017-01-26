@@ -1,0 +1,71 @@
+---
+MooringID: 16BS-ITAE
+Date_Ticks: multi_month
+start_time: 2016-05-04
+end_time: 2016-09-29
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
+#EPIC_Key: Fch_906
+#EPIC_Key_ctd: Fch_906
+#Ylabel: Chlor
+EPIC_Key: OST_62
+EPIC_Key_ctd: OST_62
+Ylabel: Oxygen_PSat
+colors:
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- k--
+- b--
+- m--
+- g--
+- r--
+- c--
+- k-.
+- b-.
+- m-.
+- g-.
+- r-.
+- c-.
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+dtype: mooring
+legend:
+- 0m ecf
+- 52m ecf 
+- 54m rcmsg 
+- 0m s56 
+- 0m sc 
+legend_loc: upper center
+legend_off: false
+nominal_depth:
+- 0
+- 52 
+- 54
+- 0
+- 0 
+mooring_data_path:
+- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bspitae/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bspitae/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bspitae/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bspitae/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bspitae/working/
+mooring_files:
+- 16bsitae_ecf_0000m.interpolated.trimmed_missing.nc
+- 16bsitae_ecf_0052m.interpolated.trimmed_missing.nc
+- 16bsitae_rcmsg_0054m.unqcd.trimmed_missing.nc
+- 16bsitae_s56_0000m.unqcd.trimmed_missing.nc
+- 16bsitae_sc_0000m.interpolated.trimmed_missing.nc
+notes:
+output_type: png
+plot_stylesheet: seaborn-poster
+

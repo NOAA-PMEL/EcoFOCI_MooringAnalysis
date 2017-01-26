@@ -1,0 +1,16 @@
+{
+    "COMPOSITE": "1", 
+    "CREATION_DATE": "October 13, 2016 17:57 UTC", 
+    "DATA_CMNT": "16bsm2a_s56_0047m.xlsx", 
+    "EDIT_CMNT01": "", 
+    "EPIC_FILE_GENERATOR": "EcoFOCI_netCDF_write.pyc 0.3.0", 
+    "EXPERIMENT": "", 
+    "History": "", 
+    "INST_TYPE": "SBE-56", 
+    "MOORING": "16BSM-2A", 
+    "PROG_CMNT01": "", 
+    "PROJECT": "EcoFOCI", 
+    "SERIAL_NUMBER": "04737", 
+    "WATER_DEPTH": "71", 
+    "WATER_MASS": "B"
+}

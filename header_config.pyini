@@ -1,0 +1,14 @@
+{
+    "COMPOSITE": "1", 
+    "CREATION_DATE": "October 23, 2015 21:27 UTC", 
+    "DATA_CMNT": "14bs8a_sbe39_0040m_0986.asc", 
+    "EDIT_CMNT01": "", 
+    "EPIC_FILE_GENERATOR": "trim_netcdf.py V0.1.0", 
+    "EXPERIMENT": "EXPERIMENT", 
+    "INST_TYPE": "SBE39", 
+    "MOORING": "14BS-8A", 
+    "PROG_CMNT01": "", 
+    "PROJECT": "EXPERIMENT", 
+    "WATER_DEPTH": "70.0", 
+    "WATER_MASS": "B"
+}

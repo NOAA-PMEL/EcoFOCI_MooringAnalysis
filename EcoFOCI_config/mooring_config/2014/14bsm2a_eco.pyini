@@ -1,0 +1,19 @@
+{
+    "MooringID": "14BSM2A", 
+    "mooring_data_path": ["/Users/bell/ecoraid/2014/Moorings/14bsm2a/working/"],
+    "mooring_files": [
+    "14bsm2a_ecf_0013m.unqcd.interpolated.nc",
+    "14bsm2a_ecf_0024m.unqcd.interpolated.nc"], 
+    "ctd_data_path": [
+    "/Users/bell/ecoraid/2013/CTDCasts/aq1301/ctd/",
+    "/Users/bell/ecoraid/2014/CTDCasts/dy1408l3/processed/final/"],
+    "ctd_files": [
+    "aq1301c054_ctd.nc",
+    "dy1408l3c072_ctd.nc"], 
+    "legend": ["13 eco", "24 eco"], 
+    "colors": ["k-", "b-", "m-", "g-", "y-","c-","k-.", "b-.", "m-.", "g-.", "y-.","c-.","k--","b--","m--"],
+    "dtype": "ECO_Fluor",
+    "EPIC_Key": "fluor_3031",
+    "EPIC_Key_ctd": "fluor_3031"
+
+}

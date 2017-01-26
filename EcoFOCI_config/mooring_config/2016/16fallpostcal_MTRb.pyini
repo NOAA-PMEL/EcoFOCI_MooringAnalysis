@@ -1,0 +1,28 @@
+{
+    "MooringID": "16MTR_CalCheckb", 
+    "mooring_data_path": ["/Volumes/WDC_internal/Users/bell/in_and_outbox/2016/proctor/fall_mtr_check/"],
+    "mooring_files": [
+    "16bsm2a_mt3122_0000m.unqcd.nc",
+    "16bsm2a_mt3138_0000m.unqcd.nc",
+    "16bsm2a_mt3180_0000m.unqcd.nc",
+    "16bsm2a_mt3194_0000m.unqcd.nc",
+    "16bsm2a_mt3202_0000m.unqcd.nc",
+    "16bsm2a_mt3251_0000m.unqcd.nc",
+    "16bsm2a_mt3252_0000m.unqcd.nc",
+    "16bsm2a_mt3267_0000m.unqcd.nc",
+    "16bsm2a_mt3273_0000m.unqcd.nc",
+    "16bsm2a_mt3322_0000m.unqcd.nc",
+    "16bsm2a_mt4004_0000m.unqcd.nc"], 
+    "legend": ["3122", "3138", "3180", "3194", "3202", "3251", "3252", "3267", "3273", "3322", "4004"], 
+    "colors": ["k-", "b-", "m-", "g-", "y-","c-","r-", "b-.", "m-.", "g-.", "y-.","c-.","k--","b--","m--"],
+    "legend_loc": "upper right", 
+    "legend_off": false, 
+    "Ylabel": "Temperature",
+    "output_type": "png",
+    "notes": "pt 1 of 2",
+    "dtype": "2016 Fall MTR_CalCheckb",
+    "EPIC_Key": "T_20",
+    "plot_stylesheet": "seaborn-poster",
+    "Date_Ticks": "multi_day"
+}
+

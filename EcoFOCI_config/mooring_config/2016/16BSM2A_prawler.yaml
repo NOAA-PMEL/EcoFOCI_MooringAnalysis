@@ -1,0 +1,56 @@
+Date_Ticks: multi_month
+start_time: 2016-05-01
+end_time: 2016-10-01
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
+MooringID: 16BSM-2A Prawler
+colors:
+- k-
+- b-
+- m-
+- g-
+- r-
+- k--
+- b--
+- m--
+- g--
+- r--
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+dtype: mooring
+legend:
+- 05m 
+- 10m 
+- 15m 
+- 20m 
+- 25m 
+- 30m 
+- 35m 
+legend_loc: upper center
+legend_off: false
+mooring_data_path:
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/working/prawler_temp_heatcontent/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/working/prawler_temp_heatcontent/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/working/prawler_temp_heatcontent/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/working/prawler_temp_heatcontent/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/working/prawler_temp_heatcontent/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/working/prawler_temp_heatcontent/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/working/prawler_temp_heatcontent/
+mooring_files:
+- 2016_ITAE_all_prawler_0005.nc
+- 2016_ITAE_all_prawler_0010.nc
+- 2016_ITAE_all_prawler_0015.nc
+- 2016_ITAE_all_prawler_0020.nc
+- 2016_ITAE_all_prawler_0025.nc
+- 2016_ITAE_all_prawler_0030.nc
+- 2016_ITAE_all_prawler_0035.nc
+notes: Interpolated to be hourly(on the hour) and to half meter bins for depth.  Retrieve above subset.
+output_type: png
+plot_stylesheet: seaborn-poster
+

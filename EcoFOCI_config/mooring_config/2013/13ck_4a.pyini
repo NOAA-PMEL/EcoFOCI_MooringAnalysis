@@ -1,0 +1,30 @@
+{
+    "MooringID": "13CK_4A", 
+    "mooring_data_path": [
+    "/Users/bell/ecoraid/2013/Moorings/13ckp4a/working/",
+    "/Users/bell/ecoraid/2013/Moorings/13ckp4a/final_data/",
+    "/Users/bell/ecoraid/2013/Moorings/13ckt4a/working/",
+    "/Users/bell/ecoraid/2013/Moorings/13ckip4a/initialarchive/"],
+    "mooring_files": [
+    "13ckp4a_sc_0049m.unqcd.trimmed_missing.nc",
+    "13ckp4a_ecf_0048m.nc",
+    "13ckt4a_s37_0046m.unqcd.trimmed_missing.nc", 
+    "13ckip4a_an9_0049m.unqcd.nc"], 
+    "ctd_data_path": ["/Users/bell/ecoraid/2012/CTDCasts/aq1201/final_data/ctd/",
+                        "/Users/bell/ecoraid/2014/CTDCasts/aq1401l2/final_data/ctd/"],
+    "ctd_files": ["aq1201c053_ctd.nc",
+                  "aq1401l2c086_ctd.nc"], 
+    "legend_off": false, 
+    "legend": ["49m sc 13ckp", "49m ecf 13ckp", "46m s37 13ckt", "49m an9 13ckip"], 
+    "legend_loc": "lower center", 
+    "colors": ["k-", "b-", "m-", "g-", "y-","b-.","g-.","r-","y-.","r-.","m-.","k-."],
+    "dtype": "13CK4A_all",
+    "EPIC_Key": "S_41",
+    "EPIC_Key_ctd": "S_41",
+    "Ylabel": "Salinity",
+    "Date_Ticks": "multi_month",
+    "plot_stylesheet": "seaborn-poster",
+    "output_type": "svg",
+    "notes": "none"
+}
+

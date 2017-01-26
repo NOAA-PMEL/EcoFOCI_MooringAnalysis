@@ -1,0 +1,95 @@
+Date_Ticks: multi_month
+start_time: 2015-05-01
+end_time: 2015-10-01
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
+MooringID: 15BSM-2A
+colors:
+- k-
+- b-
+- m-
+- g-
+- r-
+- r--
+- r-
+- r--
+- k--
+- b--
+- m--
+- g--
+- k-.
+- b-.
+- m-.
+- g-.
+- r-.
+ctd_data_path:
+- /Users/bell/ecoraid/2015/CTDcasts/dy1504/final_data/ctd/
+- /Users/bell/ecoraid/2015/CTDcasts/dy1509/final_data/ctd/
+ctd_files:
+- dy1504c021_ctd.nc
+- dy1509c046_ctd.nc
+dtype: mooring
+legend:
+- 6m sc
+- 44m sc
+- 60m s37
+- 11m sc
+- 4m mtr
+- 4m mtr
+- 32m mtr
+- 32m mtr
+- 15m s39
+- 18m s39
+- 21m s39
+- 28m s39
+- 35m s39
+- 39m s39
+- 50m s39
+- 47m s56
+- 55m s56
+legend_loc: upper center
+legend_off: false
+mooring_data_path:
+- /Users/bell/ecoraid/2015/Moorings/15bsm2a/working/
+- /Users/bell/ecoraid/2015/Moorings/15bsm2a/working/
+- /Users/bell/ecoraid/2015/Moorings/15bsm2a/working/
+- /Users/bell/ecoraid/2015/Moorings/15bsm2a/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bsm2a/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bsm2a/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bsm2a/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bsm2a/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bsm2a/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bsm2a/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bsm2a/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bsm2a/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bsm2a/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bsm2a/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bsm2a/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bsm2a/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bsm2a/final_data/
+mooring_files:
+- 15bsm2a_sc_0006m.unqcd.interpolated.trimmed_missing.nc
+- 15bsm2a_sc_0044m.unqcd.interpolated.trimmed_missing.nc
+- 15bsm2a_s37_0060m.unqcd.trimmed_missing.nc
+- 15bsm2a_sc_0011m.nc
+- 15bsm2a_mt3194_0004m.nc
+- 15bsm2a_mt4004_0004m.nc
+- 15bsm2a_mt3167_0032m.nc
+- 15bsm2a_mt3273_0032m.nc
+- 15bsm2a_s39_0015m.nc
+- 15bsm2a_s39_0018m.nc
+- 15bsm2a_s39_0021m.nc
+- 15bsm2a_s39_0028m.nc
+- 15bsm2a_s39_0035m.nc
+- 15bsm2a_s39_0039m.nc
+- 15bsm2a_s39_0050m.nc
+- 15bsm2a_s56_0047m.nc
+- 15bsm2a_s56_0055m.nc
+notes: 
+output_type: png
+plot_stylesheet: seaborn-poster
+

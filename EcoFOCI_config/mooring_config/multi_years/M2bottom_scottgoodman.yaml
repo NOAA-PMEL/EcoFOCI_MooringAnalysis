@@ -1,0 +1,26 @@
+MooringID: M2_BTM
+mooring_data_path:
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2016/scott_goodman/M2bottom_temp_through2016/
+nominal_depth:
+- ''
+mooring_files:
+- m2_bt_1995_2016.nc
+legend: 
+legend_loc: upper center
+legend_off: true
+colors: 
+- r-
+dtype: unqcd
+EPIC_Key: 
+- T_20
+Ylabel: Temperature
+Date_Ticks: multi_year
+plot_stylesheet: seaborn-poster
+output_type: svg
+EPIC_Key_ctd: S_42
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+dtype: mooring
+

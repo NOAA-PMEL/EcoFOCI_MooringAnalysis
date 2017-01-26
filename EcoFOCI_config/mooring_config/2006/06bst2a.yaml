@@ -1,0 +1,38 @@
+---
+MooringID: 06BST-2A
+Date_Ticks: multi_month
+start_time: 2006-04-21
+end_time: 2006-09-26
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+colors:
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- y-
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+dtype: mooring
+legend:
+- 20m s37 
+legend_loc: upper center
+legend_off: false
+nominal_depth:
+- ''
+mooring_data_path:
+- /Volumes/WDC_internal/Users/bell/ecoraid/2006/Moorings/06bst2a/final_data/
+mooring_files:
+- 06bst2a_s37_0020m.nc
+notes:
+output_type: png
+plot_stylesheet: seaborn-poster
+

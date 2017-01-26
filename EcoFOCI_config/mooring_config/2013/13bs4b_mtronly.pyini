@@ -1,0 +1,27 @@
+{
+    "MooringID": "13BS4B", 
+    "mooring_data_path": ["/Users/bell/ecoraid/2013/Moorings/13bs4b/working/"],
+    "mooring_files": [
+    "13bs4b_mt3273_0040m.unqcd.interpolated.trimmed_missing.nc",
+    "13bs4b_mt4004_0040m.unqcd.interpolated.trimmed_missing.nc",
+    "13bs4b_mt4053_0045m.unqcd.interpolated.trimmed_missing.nc",
+    "13bs4b_mt4054_0045m.unqcd.interpolated.trimmed_missing.nc",
+    "13bs4b_mt4055_0050m.unqcd.interpolated.trimmed_missing.nc",
+    "13bs4b_mt4060_0050m.unqcd.interpolated.trimmed_missing.nc",
+    "13bs4b_mt4067_0060m.unqcd.interpolated.trimmed_missing.nc",
+    "13bs4b_mt4089_0060m.unqcd.interpolated.trimmed_missing.nc",
+    "13bs4b_mt4116_0067m.unqcd.interpolated.trimmed_missing.nc",
+    "13bs4b_mt4117_0067m.unqcd.interpolated.trimmed_missing.nc"], 
+    "ctd_data_path": [
+    "/Users/bell/ecoraid/2013/CTDCasts/aq1301/ctd/",
+    "/Users/bell/ecoraid/2014/CTDCasts/dy1408l3/processed/final/"],
+    "ctd_files": [
+    "aq1301c050_ctd.nc",
+    "dy1408l3c095_ctd.nc"], 
+    "legend": ["40m mt", "40m mt", "45m mt", "45m mt", "50m mt", "50m mt", "60m mt", "60m mt", "67m mt", "67m mt"], 
+    "colors": ["k-", "b-", "m-", "g-", "y-","c-","k-.", "b-.", "m-.", "g-.", "y-.","c-.","k--","b--","m--"],
+    "dtype": "MTR_ONLY_interpolated",
+    "EPIC_Key": "T_20",
+    "EPIC_Key_ctd": "T_28"
+
+}

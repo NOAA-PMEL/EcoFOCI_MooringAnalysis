@@ -1,0 +1,24 @@
+{
+    "MooringID": "C1-C2", 
+    "mooring_data_path": [
+    "/Users/bell/ecoraid/2010/Moorings/10ckp1a/final_data/",
+    "/Users/bell/ecoraid/2010/Moorings/10ckp2a/final_data/",
+    "/Users/bell/ecoraid/2011/Moorings/11ckp1a/final_data/",
+    "/Users/bell/ecoraid/2011/Moorings/11ckp2a/final_data/"],
+    "mooring_files": [
+    "10ckp1a_sc_0041m.nc",
+    "10ckp2a_sc_0039m.nc",
+    "11ckp1a_sc_0039m.nc",
+    "11ckp2a_sc_0038m.nc"], 
+    "legend_off": false, 
+    "legend": ["C1","C2"],
+    "legend_loc": "upper right", 
+    "colors": ["k-", "b-", "k-", "b-"],
+    "dtype": "unqcd",
+    "EPIC_Key": "T_20",
+    "Ylabel": "Temperature",
+    "Date_Ticks": "multi_month",
+    "plot_stylesheet": "seaborn-poster",
+    "output_type": "svg",
+    "notes": "C1-C2 temp/sal at depth"
+}

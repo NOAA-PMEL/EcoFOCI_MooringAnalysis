@@ -1,0 +1,34 @@
+{
+	"T_20": {
+		"name": "T",
+		"generic_name": "temp",
+		"fortran": "f10.2",
+		"EPIC_KEY": 20,
+		"units": "C",
+		"longname": "TEMPERATURE (C)"
+	},
+	"P_1": {
+		"name": "P",
+		"generic_name": "pres",
+		"fortran": "f10.1",
+		"EPIC_KEY": 1,
+		"units": "db",
+		"longname": "PRESSURE (DB)"
+	},
+	"C_50": {
+		"name": "C",
+		"generic_name": "con",
+		"fortran": "",
+		"EPIC_KEY": 50,
+		"units": "mmho/cm",
+		"longname": "CONDUCTIVITY"
+	},
+	"S_41": {
+		"name": "S",
+		"generic_name": "sal",
+		"fortran": "",
+		"EPIC_KEY": 41,
+		"units": "PSU",
+		"longname": "SALINITY (PSU)"
+	}
+}

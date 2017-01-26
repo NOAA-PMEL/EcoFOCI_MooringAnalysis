@@ -1,0 +1,20 @@
+{
+    "MooringID": "13BS4B", 
+    "mooring_data_path": ["/Users/bell/ecoraid/2013/Moorings/13bs4b/working/"],
+    "mooring_files": [
+    "13bs4b_ecf_0014m.unqcd.orig.nc",
+    "13bs4b_ecf_0014m.unqcd.nc",
+    "13bs4b_ecf_0014m.unqcd.interpolated.nc"], 
+    "ctd_data_path": [
+    "/Users/bell/ecoraid/2013/CTDCasts/aq1301/ctd/",
+    "/Users/bell/ecoraid/2014/CTDCasts/dy1408l3/processed/final/"],
+    "ctd_files": [
+    "aq1301c050_ctd.nc",
+    "dy1408l3c095_ctd.nc"], 
+    "legend": ["40m mt", "40m mt", "45m mt", "45m mt", "50m mt", "50m mt", "60m mt", "60m mt", "67m mt", "67m mt"], 
+    "colors": ["k-", "b-", "m-", "g-", "y-","c-","k-.", "b-.", "m-.", "g-.", "y-.","c-.","k--","b--","m--"],
+    "dtype": "ECO",
+    "EPIC_Key": "fluor_3031",
+    "EPIC_Key_ctd": "fluor_3031"
+
+}

@@ -1,0 +1,72 @@
+{
+	"time":{
+		"name": "time",
+		"generic_name": "time",
+		"longname": "date and time since reference time",
+		"time_origin": "1900-01-01 00:00:00",
+		"units": "hours since 1900-01-01T00:00:00Z"
+	},
+	"Depth": {
+		"name": "Depth",
+		"generic_name": "dep",
+		"units": "dbar",
+		"longname": "PRESSURE (DB)",
+		"instrument": "CTD"
+	},
+	"Salinity": {
+		"name": "Salinity",
+		"generic_name": "sal",
+		"units": "psu",
+		"longname": "SALINITY (PSU)",
+		"instrument": "CTD"
+	},
+	"Temperature": {
+		"name": "Temperature",
+		"generic_name": "temp",
+		"units": "C",
+		"longname": "TEMPERATURE (C)",
+		"instrument": "CTD"
+	},
+	"Chlorophyll": {
+		"name": "Chlorophyll",
+		"generic_name": "chl",
+		"units": "ugrams/l",
+		"longname": "Chlorophyll A",
+		"instrument": "WetLabs"
+	},
+	"Turbidity": {
+		"name": "Turbidity",
+		"generic_name": "turb",
+		"units": "FNU",
+		"longname": "Turbidity (FNU)",
+		"instrument": "WetLabs"
+	},
+	"SigmaT": {
+		"name": "SigmaT",
+		"generic_name": "den",
+		"units": "kg m-3",
+		"longname": "SIGMA-T (KG/M**3)",
+		"instrument": "derived"
+	},
+	"Oxy_Temperature": {
+		"name": "Oxy_Temperature",
+		"generic_name": "temp",
+		"units": "C",
+		"longname": "Oxy_Temperature (C)",
+		"instrument": "Aanderaa Optode"
+	},
+	"Oxy_Conc": {
+		"name": "Oxy_Conc",
+		"generic_name": "ox",
+		"units": "umol/kg",
+		"longname": "OXYGEN (UMOL/KG)",
+		"instrument": "Aanderaa Optode"
+	},
+	"Oxy_Sat": {
+		"name": "Oxy_Sat",
+		"generic_name": "ox",
+		"units": "%",
+		"longname": "OXYGEN, %SAT",
+		"instrument": "Aanderaa Optode"
+	}
+}

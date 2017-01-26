@@ -1,0 +1,86 @@
+MooringID: C2_C3_C4-BTM_TMP
+mooring_data_path:
+- /Volumes/WDC_internal/Users/bell/ecoraid/2010/Moorings/10ckp3a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11ckp3a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/Moorings/12ckp4a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13ckp4a/final_data/
+#- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14ckp4a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14ckt4a/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15ckp4a/working/
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2016/mordy/dec/
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2016/mordy/dec/
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2016/mordy/dec/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2010/Moorings/10ckp2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11ckp2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/Moorings/12ckp2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13ckp2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14ckp2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15ckp2a/working/
+nominal_depth:
+- ''
+mooring_files:
+- 10ckp3a_wcp_scal.nc
+- 11ckp3a_sc_0039m.nc
+- 12ckp4a_s37_0049m.nc
+- 13ckp4a_sc_0049m.nc
+#- 14ckp4a_wcp_scal.nc - temp looks to be negatively biased
+- 14ckt4a_s37_0037m.unqcd.trimmed_missing.nc
+- 15ckp4a_sc_0045m.interpolated.trimmed_missing.nc
+- ALAMO_9076_T20.nc
+- ALAMO_9085_T20.nc
+- ALAMO_9058_T20.nc
+- 10ckp2a_sc_0039m.nc
+- 11ckp2a_sc_0038m.nc
+- 12ckp2a_s37_0040m.nc
+- 13ckp2a_sc_0039m.nc
+- 14ckp2a_sc_0039m.nc
+- 15ckp2a_sc_0038m.interpolated.trimmed_missing.nc
+legend:
+- adcp 10ck3
+- 39m 11ck3
+- 49m 12ck4 
+- 49m 13ck4
+#- adcp 14ck4 - temp looks to be negatively biased
+- 37m 14ck4
+- 45m 15ck4
+- btm A9076
+- btm A9085
+- btm A9058
+- 39m 10ck2
+- 38m 11ck2
+- 40m 12ck2
+- 39m 13ck2
+- 39m 14ck2
+- 38m 15ck2
+legend_loc: upper center
+legend_off: true
+colors: 
+- r-
+- r-
+- b-
+- b-
+#- b-
+- b-
+- b-
+- g-
+- g-
+- g-
+- k-
+- k-
+- k-
+- k-
+- k-
+- k-
+dtype: unqcd
+EPIC_Key: T_20
+Ylabel: Temperature
+Date_Ticks: multi_year
+plot_stylesheet: seaborn-poster
+output_type: png
+EPIC_Key_ctd: T_28
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+dtype: mooring
+

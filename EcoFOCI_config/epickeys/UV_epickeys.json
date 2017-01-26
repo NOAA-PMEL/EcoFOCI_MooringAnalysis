@@ -1,0 +1,34 @@
+{
+    "CD_310": {
+        "EPIC_KEY": 310, 
+        "fortran": "f8.2", 
+        "generic_name": "vdir", 
+        "longname": "CURRENT DIRECTION (T)", 
+        "name": "CD", 
+        "units": "degrees"
+    }, 
+    "CS_300": {
+        "EPIC_KEY": 300, 
+        "fortran": "f8.2", 
+        "generic_name": "vspd", 
+        "longname": "CURRENT SPEED (CM/S)", 
+        "name": "CS", 
+        "units": "cm s-1"
+    }, 
+    "U_320": {
+        "EPIC_KEY": 320, 
+        "fortran": "", 
+        "generic_name": "u", 
+        "longname": "ZONAL CURRENT (CM/S)", 
+        "name": "U", 
+        "units": "cm s-1"
+    }, 
+    "V_321": {
+        "EPIC_KEY": 321, 
+        "fortran": "", 
+        "generic_name": "v", 
+        "longname": "MERIDIONAL CURRENT (CM/S)", 
+        "name": "V", 
+        "units": "cm s-1"
+    }
+}

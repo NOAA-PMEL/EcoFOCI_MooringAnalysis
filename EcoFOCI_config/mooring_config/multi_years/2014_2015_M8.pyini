@@ -1,0 +1,14 @@
+{
+    "MooringID": "M2M4_2014_2015", 
+    "mooring_data_path": [
+    "/Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/",
+    "/Users/bell/ecoraid/2015/Moorings/15bsm2a/final_data/"],
+    "mooring_files": [
+    "13bs8a_s39_0067m.nc",
+    "14bs8a_s39_0067m.nc"], 
+    "legend": ["2014 s39 67m", "2015 s39 67m"], 
+    "colors": ["k-", "k-"],
+    "dtype": "unqcd",
+    "EPIC_Key": "T_20",
+    "Date_Ticks": "multi_year"
+}
