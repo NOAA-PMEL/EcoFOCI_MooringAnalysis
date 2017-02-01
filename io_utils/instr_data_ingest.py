@@ -542,7 +542,8 @@ class sbe16(object):
 			elif var_id[var_index] == 'wetStar:':
 				print "Processing {0}".format(var_id[var_index])
 				for k,v in sbe16data.items():
-					chl_a[k] = float(v[var_index]) / 1000. #units are ug/m^3 -> converted to ug/l
+					#chl_a[k] = float(v[var_index]) / 1000. #units are ug/m^3 -> converted to ug/l
+					chl_a[k] = float(v[var_index])  #units are mg/m^3 -> converted to ug/l
 			elif var_id[var_index] == 'flECO-AFL:':
 				print "Processing {0}".format(var_id[var_index])
 				for k,v in sbe16data.items():
