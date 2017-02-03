@@ -59,10 +59,11 @@ parser = argparse.ArgumentParser(description='Tools to manipulate Time in files'
 parser.add_argument('sourcefile', metavar='sourcefile', type=str,
 			   help='complete path to epic file')
 parser.add_argument('operation', metavar='operation', type=str,
-			   help='CF_Convert, RoundTime to nearest hour, Interpolate to nearest hour')
+			   help='"CF_Convert", "RoundTime" to nearest hour, "Interpolate" to nearest hour, Add "Offset"')
 parser.add_argument('--time_since_str', nargs='+', type=str, help='cf compliant time since str (eg. "days since 1800-01-01"')
 parser.add_argument('-is2D','--is2D', action="store_true",
 			   help='convert files like ADCP that have two varying dimensions')
+parser.add_argument('--offset', type=int, help='offset in seconds if chosen as operation')
 args = parser.parse_args()
 
 
@@ -184,6 +185,26 @@ elif args.operation in ['RoundTime','roundtime','round_time']:
 		print "History attribute does not exist to edit"
 	df.close()
 
+elif args.operation in ['offset','Offset']:
+	#Modifies original file
+	#read in 1d data file
+
+	df = EcoFOCI_netCDF( args.sourcefile )
+	global_atts = df.get_global_atts()
+	vars_dic = df.get_vars()
+	ncdata = df.ncreadfile_dic()
+
+	#Convert two word EPIC time to python datetime.datetime representation and then format for CF standards
+	dt_from_epic =  EPIC2Datetime(ncdata['time'], ncdata['time2'])
+	dt_updated = [x+datetime.timedelta(seconds=args.offset) for x in dt_from_epic]
+	(etime1,etime2) = Datetime2EPIC(dt_updated)
+	df.update_epic_time(time=etime1,time2=etime2)
+	try:
+		df.add_history(global_atts['History'], 'Time Offset Applied (seconds):' + args.offset)
+	except:
+		print "History attribute does not exist to edit"
+	df.close()
+
 elif args.operation in ['Interpolate','interpolate']:
 	#creates new file
 	if args.is2D:
@@ -245,6 +266,8 @@ elif args.operation in ['Interpolate','interpolate']:
 		ncinstance.add_history('Data Interpolated Linearly to be on the hour')
 		ncinstance.close()
 		df.close()  
+	
+
 
 	else:
 
