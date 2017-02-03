@@ -6,15 +6,15 @@ end_time: 2016-09-29
 EPIC_Key: S_41
 EPIC_Key_ctd: S_42
 Ylabel: Salinity
-#EPIC_Key: T_20
-#EPIC_Key_ctd: T_28
-#Ylabel: Temperature
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
 #EPIC_Key: Fch_906
 #EPIC_Key_ctd: F_903
 #Ylabel: Chlor
-#EPIC_Key: OST_62
-#EPIC_Key_ctd: OST_62
-#Ylabel: Oxygen_PSat
+EPIC_Key: OST_62
+EPIC_Key_ctd: OST_62
+Ylabel: Oxygen_PSat
 colors:
 - k-
 - b-
@@ -81,11 +81,11 @@ mooring_data_path:
 - /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
 - /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
 - /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
-- /Users/bell/ecoraid/2016/Moorings/16bsm2a/working/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
 mooring_files:
 - 16bsitae_ecf_0000m.nc
 - 16bsitae_ecf_0052m.nc
-- 16bsitae_rcmsg_0054m.unqcd.trimmed_missing.nc
+- 16bsitae_rcmsg_0054m.nc
 - 16bsitae_s56_0000m.nc
 - 16bsitae_sc_0000m.nc
 - 16bsm2a_s37_0024m.unqcd.trimmed_missing.nc
@@ -94,7 +94,7 @@ mooring_files:
 - 16bsm2a_sc_0044m.nc
 - 16bsm2a_ecf_0011m.nc
 - 16bsm2a_ecf_0024m.nc
-- 16bsm2a_sc_0011m.interpolated.time_corrected.trimmed_missing.nc
+- 16bsm2a_sc_0011m.nc
 notes:
 output_type: png
 plot_stylesheet: seaborn-poster

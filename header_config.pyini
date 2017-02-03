@@ -1,14 +1,16 @@
 {
     "COMPOSITE": "1", 
-    "CREATION_DATE": "October 23, 2015 21:27 UTC", 
-    "DATA_CMNT": "14bs8a_sbe39_0040m_0986.asc", 
+    "CREATION_DATE": "February 02, 2017 21:43 UTC", 
+    "DATA_CMNT": "16bsitae_rcmsg_0054m.unqcd.trimmed_missing.1H.xlsx", 
     "EDIT_CMNT01": "", 
-    "EPIC_FILE_GENERATOR": "trim_netcdf.py V0.1.0", 
-    "EXPERIMENT": "EXPERIMENT", 
-    "INST_TYPE": "SBE39", 
-    "MOORING": "14BS-8A", 
+    "EPIC_FILE_GENERATOR": "EcoFOCI_netCDF_write.pyc 0.4.0", 
+    "EXPERIMENT": "", 
+    "History": "\nFebruary 02, 2017 18:00 UTC - Data Decimated to hourly from 6min sample frequency\nFebruary 02, 2017 21:43 UTC - Oxygen Concentration and Saturation corrected for salinity using 16BSM-2A 60m s37", 
+    "INST_TYPE": "", 
+    "MOORING": "", 
     "PROG_CMNT01": "", 
-    "PROJECT": "EXPERIMENT", 
-    "WATER_DEPTH": "70.0", 
-    "WATER_MASS": "B"
+    "PROJECT": "", 
+    "SERIAL_NUMBER": "", 
+    "WATER_DEPTH": "9999", 
+    "WATER_MASS": ""
 }
