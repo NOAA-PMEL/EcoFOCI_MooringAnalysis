@@ -97,9 +97,12 @@ legend_off: false
 #EPIC_Key: P_1
 #EPIC_Key_ctd: P_1
 #Ylabel: Pressure (dB)
-EPIC_Key: Fch_906
-EPIC_Key_ctd: F_903
-Ylabel: Chlor
+#EPIC_Key: Fch_906
+#EPIC_Key_ctd: F_903
+#Ylabel: Chlor
+EPIC_Key: O_65
+EPIC_Key_ctd: O_65
+Ylabel: Oxygen_Conc
 Date_Ticks: multi_month
 plot_stylesheet: seaborn-poster
 output_type: png
