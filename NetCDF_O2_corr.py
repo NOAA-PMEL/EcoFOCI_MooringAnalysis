@@ -30,7 +30,7 @@ __keywords__ = 'O2', 'salinity correction'
 
 """------------------------------- MAIN--------------------------------------------"""
 
-parser = argparse.ArgumentParser(description='Oxygen in Timeseries using salinity')
+parser = argparse.ArgumentParser(description='Correct Oxygen in Timeseries using salinity but not depth')
 parser.add_argument('sourcefile', metavar='sourcefile', type=str,
                help='complete path to epic file')
 parser.add_argument('sal_source', metavar='sal_source', type=str,
