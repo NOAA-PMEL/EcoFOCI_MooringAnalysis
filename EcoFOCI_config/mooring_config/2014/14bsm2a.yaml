@@ -1,0 +1,100 @@
+---
+MooringID: 14BSM-2A
+Date_Ticks: multi_month
+start_time: 2014-05-19
+end_time: 2014-10-18
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+colors:
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- y-
+- k--
+- b--
+- m--
+- g--
+- r--
+- c--
+- y--
+- k-.
+- b-.
+- m-.
+- g-.
+- r-.
+ctd_data_path:
+- /Users/bell/ecoraid/2014/CTDcasts/dy1405/final_data/ctd/
+- /Users/bell/ecoraid/2014/CTDcasts/dy1408l3/final_data/ctd/
+- /Users/bell/ecoraid/2014/CTDcasts/aq1401l3/final_data/ctd/
+ctd_files:
+- dy1405c020_ctd.nc
+- dy1408l3c072_ctd.nc
+- aq1401l3c090_ctd.nc
+dtype: mooring
+legend:
+- 8m an9
+- 32m mtr
+- 4m mtr
+- 55m mtr
+- 15m s39
+- 18m s39
+- 21m s39
+- 28m s39
+- 35m s39
+- 49m s39
+- 50m s39
+- 60m s39
+- 44m sc
+- 24m sc
+- 6m sc
+- 61m s37
+legend_loc: upper center
+legend_off: false
+mooring_data_path:
+- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bsm2a/working/
+- /Users/bell/ecoraid/2014/Moorings/14bsm2a/working/
+- /Users/bell/ecoraid/2014/Moorings/14bsm2a/working/
+mooring_files:
+- 14bsm2a_an9_0008m.nc
+- 14bsm2a_mt3194_0032m.nc
+- 14bsm2a_mt4019_0004m.nc
+- 14bsm2a_mt4033_0055m.nc
+- 14bsm2a_s39_0015m.nc
+- 14bsm2a_s39_0018m.nc
+- 14bsm2a_s39_0021m.nc
+- 14bsm2a_s39_0028m.nc
+- 14bsm2a_s39_0035m.nc
+- 14bsm2a_s39_0039m.nc
+- 14bsm2a_s39_0050m.nc
+- 14bsm2a_s39_0060m.nc
+- 14bsm2a_sc_0044m.nc
+- 14bsm2a_sc_0024m.unqcd.trimmed_missing.nc
+- 14bsm2a_sc_0006m.unqcd.trimmed_missing.nc
+- 14bsm2a_s37_0061m.unqcd.trimmed_missing.nc
+notes: 
+output_type: png
+plot_stylesheet: seaborn-poster
+depth_interval_m: 1
+depth_m: 72
+
+
