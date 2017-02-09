@@ -618,7 +618,6 @@ class sbe16(object):
 				'Conductivity':cond.values(), 'Salinity':sal.values(), 'Chlor_a':chl_a.values(), 
 				'PAR':par.values(), 'Volts0':V0.values(),'AAN_OXY':aan_opt_4831.values()})
 
-
 class sbe37(object):
 	r"""Seabird 37 Microcat / SBE-37 Temperature/Conductivity (with optional pressure)"""
 

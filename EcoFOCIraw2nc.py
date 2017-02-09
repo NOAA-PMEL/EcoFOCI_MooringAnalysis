@@ -13,6 +13,7 @@
  History:
  --------
 
+  2017-02-08 : Correct Vector2Wind conversion to get met wind conventions from cartesion vectors
  2016-10-31 : Add RCM-SG
  2016-12-09 : Add ADCP Icetracking datastream
 """
@@ -72,23 +73,32 @@ def wind2vector(ws,wd):
 
     return (uu, vv)
 
-def vector2wind(u,v):
+def vector2wind(u,v,firstdefinition=False):
 	""" 
+	Update: 
 
+	conversion available from:
+	https://www.e-education.psu.edu/meteo300/node/719
+	http://tornado.sfsu.edu/geosciences/classes/m430/Wind/WindDirection.html
 	"""
 	u_ind = (u == 1e35)
 	v_ind = (v == 1e35)
 
 	ws = np.sqrt(u*u + v*v)
-	wd = 270. - np.rad2deg(np.arctan2(v,u))
-	wd[np.where(wd<0)] = wd[np.where(wd<0)] + 360.
+	if firstdefinition:
+		wd = 270. - np.rad2deg(np.arctan2(v,u))
+		wd[np.where(wd<0)] = wd[np.where(wd<0)] + 360.
+	else:
+		wd = np.rad2deg(np.arctan2(u,v))+180
 
 	ws[u_ind] = 1e35
 	wd[u_ind] = 1e35
 	ws[v_ind] = 1e35
 	wd[v_ind] = 1e35
 
+
 	return (ws, wd)
+
 
 def rotate_coord(u,v, declination_corr=0):
     """ 
