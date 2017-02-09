@@ -3,7 +3,7 @@
 data_dir="/Volumes/WDC_internal/Users/bell/ecoraid/1998/CTDCasts/hx213/working/*.xlsx"
 meta_dir="/Volumes/WDC_internal/Users/bell/ecoraid/1998/CTDCasts/hx213/final_data/ctd/"
 out_dir="/Volumes/WDC_internal/Users/bell/ecoraid/1998/CTDCasts/hx213/working/"
-prog_dir="/Volumes/WDC_internal/Users/bell/Programs/Python/MooringDataProcessing/EcoFOCI_MooringAnalysis/"
+prog_dir="/Volumes/WDC_internal/Users/bell/Programs/Python/EcoFOCI_MooringAnalysis/"
 
 
 for files in $data_dir

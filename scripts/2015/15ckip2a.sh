@@ -1,7 +1,7 @@
 #!/bin/bash
 
 data_dir="/Volumes/WDC_internal/Users/bell/ecoraid/"
-prog_dir="/Volumes/WDC_internal/Users/bell/Programs/Python/MooringDataProcessing/EcoFOCI_MooringAnalysis/"
+prog_dir="/Volumes/WDC_internal/Users/bell/Programs/Python/EcoFOCI_MooringAnalysis/"
 
 mooringID='15ckip2a'
 mooringYear='2015'

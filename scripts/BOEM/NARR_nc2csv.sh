@@ -1,7 +1,7 @@
 #!/bin/bash
 
 data_dir="/Volumes/WDC_internal/Users/bell/in_and_outbox/2016/BOEM_arcwest_chaosx/"
-prog_dir="/Volumes/WDC_internal/Users/bell/Programs/Python/MooringDataProcessing/EcoFOCI_MooringAnalysis/"
+prog_dir="/Volumes/WDC_internal/Users/bell/Programs/Python/EcoFOCI_MooringAnalysis/"
 
 python ${prog_dir}nc2csv.py -timeseries -units_meta ${data_dir}NARR_SFCuv_daily/NARR_C2_2010.nc -EPIC WU_422 WV_423 > ${data_dir}NARR_SFCuv_daily/NARR_C2_2010.csv
 python ${prog_dir}nc2csv.py -timeseries -units_meta ${data_dir}NARR_SFCuv_daily/NARR_C2_2011.nc -EPIC WU_422 WV_423 > ${data_dir}NARR_SFCuv_daily/NARR_C2_2011.csv
