@@ -37,7 +37,7 @@ def available_data_sources():
 			   'microcat':sbe37, 'sbe37':sbe37, 'sbe-37':sbe37, 'SBE37':sbe37, 'SBE-37':sbe37, 's37':sbe37, 
 			   'sbe39':sbe39, 'sbe-39':sbe39, 'SBE39':sbe39, 'SBE-39':sbe39, 's39':sbe39,
 			   'sbe56':sbe56, 'sbe-56':sbe56, 'SBE56':sbe56, 'SBE-56':sbe56, 's56':sbe56,
-			   'rcm7':'rcm','rcm9':'rcm', 'rcm11':'rcm',
+			   'rcm7':rcm,'rcm9':rcm, 'rcm11':rcm,
 			   'rcmsg':rcmsg,'rcm-sg':rcmsg,'rcm_sg':rcmsg,'sg':rcmsg,
 			   'wpak':wpak,'met':wpak, 'atrh':'atrh', 'prawler_met':'atrh',
 			   'par':'par',
@@ -933,7 +933,8 @@ class rcmsg(object):
 
 class rcm(object):
 	r""" Anderaa instruments (RCM 4, 7, 9, 11's
-	EcoFOCI QC procedure developed by Dave P."""
+	EcoFOCI QC procedure developed by Dave P. and done within excel spreadsheet"""
+	pass
 
 class wpak(object):
 	r""" MetOcean WeatherPak"""

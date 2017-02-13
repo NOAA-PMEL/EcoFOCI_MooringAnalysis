@@ -1,30 +1,39 @@
 ---
 MooringID: 15CK2
 ctd_data_path:
-- ''
+- '/Volumes/WDC_internal/Users/bell/ecoraid/2015/CTDcasts/aq1501/final_data/ctd/'
+- '/Volumes/WDC_internal/Users/bell/ecoraid/2015/CTDcasts/aq1501/final_data/ctd/'
+#- '/Volumes/WDC_internal/Users/bell/ecoraid/2015/CTDcasts/aq1601/initial_archive/'
 ctd_files:
-- ''
+- 'aq1501c001_ctd.nc'
+- 'aq1501c010_ctd.nc'
+#- 'aq1601c041_ctd.nc'
 mooring_data_path:
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15ckip2a/working/"
 - "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15ckip2a/working/"
 - "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15ckp2a/working/"
 - "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15ckp2a/working/"
 - "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15ckt2a/working/"
 mooring_files:
+- 15ckip2a_an9_0038m.unqcd.nc
 - 15ckip2a_s37_0039m.unqcd.trimmed_missing.nc
 - 15ckp2a_sc_0038m.interpolated.trimmed_missing.nc
 - 15ckp2a_ecf_0038m.interpolated.trimmed_missing.nc
 - 15ckt2a_s37_0037m.unqcd.trimmed_missing.nc
 nominal_depth:
+- 38
 - 39
 - 38
 - 38
 - 37
 colors:
+- r-
 - k-
 - b-
 - g-
 - m-
 legend:
+- 38m an9
 - 39m s37
 - 38m sc
 - 38m ecf
@@ -38,18 +47,18 @@ legend_off: false
 #EPIC_Key: S_41
 #EPIC_Key_ctd: S_42
 #Ylabel: Salinity
-#EPIC_Key: T_20
-#EPIC_Key_ctd: T_28
-#Ylabel: Temperature
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
 #EPIC_Key: P_1
 #EPIC_Key_ctd: P_1
 #Ylabel: Pressure (dB)
 #EPIC_Key: PAR_908
 #EPIC_Key_ctd: PAR_905
 #Ylabel: PAR
-EPIC_Key: O_65
-EPIC_Key_ctd: O_65
-Ylabel: Oxygen_Conc
+#EPIC_Key: O_65
+#EPIC_Key_ctd: O_65
+#Ylabel: Oxygen_Conc
 Date_Ticks: multi_month
 plot_stylesheet: seaborn-poster
 output_type: png
