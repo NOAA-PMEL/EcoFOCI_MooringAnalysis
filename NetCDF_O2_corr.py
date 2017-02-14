@@ -64,13 +64,14 @@ O2psat_corr[np.where(np.isnan(O2psat_corr))] = 1e35
 nchandle.variables['O_65'][:,0,0,0] = O2_corr_umkg
 nchandle.variables['OST_62'][:,0,0,0] = O2psat_corr
 
-print "adding history attribute"
 update = 'Oxygen Concentration and Saturation corrected for salinity using {0}'.format(args.sal_source)
 
 if not 'History' in global_atts.keys():
+    print "adding history attribute"
     histtime=datetime.datetime.utcnow()
     nchandle.setncattr('History','{histtime:%B %d, %Y %H:%M} UTC - {history} '.format(histtime=histtime,history=update))
 else:
+    print "updating history attribute"
     histtime=datetime.datetime.utcnow()
     nchandle.setncattr('History', global_atts['History'] +'\n'+ '{histtime:%B %d, %Y %H:%M} UTC - {history}'.format(histtime=histtime,history=update))
 
