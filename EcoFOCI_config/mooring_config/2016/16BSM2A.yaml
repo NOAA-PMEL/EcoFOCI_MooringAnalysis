@@ -26,9 +26,11 @@ colors:
 - r-.
 - c-.
 ctd_data_path:
-- ''
+- /Users/bell/ecoraid/2016/CTDcasts/dy1606/initial_archive/allparameters/
+- /Users/bell/ecoraid/2016/CTDcasts/dy1610/initial_archive/allparameters/
 ctd_files:
-- ''
+- dy1606c002_ctd.nc
+- dy1610c007_ctd.nc
 dtype: mooring
 legend:
 - 11m ecf
@@ -71,28 +73,28 @@ nominal_depth:
 - 4
 - 32
 mooring_data_path:
-- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/working/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/working/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
 mooring_files:
-- 16bsm2a_ecf_0011m.interpolated.trimmed_missing.nc
-- 16bsm2a_ecf_0024m.interpolated.trimmed_missing.nc
+- 16bsm2a_ecf_0011m.nc
+- 16bsm2a_ecf_0024m.nc
 - 16bsm2a_s37_0024m.unqcd.trimmed_missing.nc
-- 16bsm2a_s37_0060m.unqcd.trimmed_missing.nc
+- 16bsm2a_s37_0060m.nc
 - 16bsm2a_s39_0015m.nc
 - 16bsm2a_s39_0018m.nc
 - 16bsm2a_s39_0021m.nc
@@ -103,7 +105,7 @@ mooring_files:
 - 16bsm2a_s56_0047m.nc
 - 16bsm2a_s56_0055m.nc
 - 16bsm2a_sc_0006m.interpolated.trimmed_missing.nc
-- 16bsm2a_sc_0044m.interpolated.trimmed_missing.nc
+- 16bsm2a_sc_0044m.nc
 - 16bsm2a_mt3276_0004m.nc
 - 16bsm2a_mt4068_0032m.nc
 notes:

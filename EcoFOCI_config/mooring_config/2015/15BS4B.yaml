@@ -1,34 +1,38 @@
 ---
 MooringID: 15BS-4B
 ctd_data_path:
-- ''
+#- /Users/bell/ecoraid/2015/CTDcasts/aq1501/final_data/ctd/
+- /Users/bell/ecoraid/2015/CTDcasts/dy1509/final_data/ctd/
+- /Users/bell/ecoraid/2016/CTDcasts/aq1601/initial_archive/pri_sec/
 ctd_files:
-- ''
+#- aq1501c018_ctd.nc --- bucket only
+- dy1509c068_ctd.nc
+- aq1601c069_ctd.nc
 mooring_data_path:
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs4b/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs4b/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs4b/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs4b/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs4b/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs4b/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs4b/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs4b/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs4b/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs4b/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs4b/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs4b/final_data/"
+- /Users/bell/ecoraid/2015/Moorings/15bs4b/working/
+- /Users/bell/ecoraid/2015/Moorings/15bs4b/working/
+- /Users/bell/ecoraid/2015/Moorings/15bs4b/working/
+- /Users/bell/ecoraid/2015/Moorings/15bs4b/working/
+- /Users/bell/ecoraid/2015/Moorings/15bs4b/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bs4b/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bs4b/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bs4b/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bs4b/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bs4b/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bs4b/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bs4b/final_data/
 mooring_files:
 - 15bs4b_sc_0012m.interpolated.trimmed_missing.nc
 - 15bs4b_s37_0018m.unqcd.trimmed_missing.nc
 - 15bs4b_s37_0031m.unqcd.trimmed_missing.nc
 - 15bs4b_s37_0055m.unqcd.trimmed_missing.nc
-- 15bs4b_s39_0015m.unqcd.trimmed_missing.nc
-- 15bs4b_s39_0019m.unqcd.trimmed_missing.nc
-- 15bs4b_s39_0023m.unqcd.trimmed_missing.nc
-- 15bs4b_s39_0027m.unqcd.trimmed_missing.nc
-- 15bs4b_s39_0035m.unqcd.trimmed_missing.nc
-- 15bs4b_s39_0045m.unqcd.trimmed_missing.nc
-- 15bs4b_s39_0060m.unqcd.trimmed_missing.nc
+- 15bs4b_s39_0015m.nc
+- 15bs4b_s39_0019m.nc
+- 15bs4b_s39_0023m.nc
+- 15bs4b_s39_0027m.nc
+- 15bs4b_s39_0035m.nc
+- 15bs4b_s39_0045m.nc
+- 15bs4b_s39_0060m.nc
 - 15bs4b_s56_0040m.nc
 nominal_depth:
 - 12
