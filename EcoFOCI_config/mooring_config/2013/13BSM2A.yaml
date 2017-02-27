@@ -1,0 +1,170 @@
+---
+MooringID: 16BSM-2A
+Date_Ticks: multi_month
+start_time: 2016-05-01 00:00:00
+end_time: 2016-10-01 00:00:00
+EPIC_Key: S_41
+EPIC_Key_ctd: S_41
+Ylabel: Salinity
+colors:
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- k--
+- b--
+- m--
+- g--
+- r--
+- c--
+- k-.
+- b-.
+- m-.
+- g-.
+- r-.
+- c-.
+ctd_data_path:
+- /Users/bell/ecoraid/2016/CTDcasts/dy1606/initial_archive/allparameters/
+- /Users/bell/ecoraid/2016/CTDcasts/dy1610/initial_archive/allparameters/
+ctd_files:
+- dy1606c002_ctd.nc
+- dy1610c007_ctd.nc
+dtype: mooring
+legend:
+- 11m ecf
+- 24m ecf 
+- 24m s37 
+- 60m s37 
+- 15m s39 
+- 18m s39 
+- 21m s39 
+- 28m s39
+- 35m s39
+- 39m s39
+- 50m s39
+- 47m s56
+- 55m s56
+- 6m sc
+- 44m sc
+- 4m mt
+- 32m mt 
+legend_loc: upper center
+legend_off: false
+depth_interval_m: 1
+depth_m: 71
+nominal_depth:
+- 11
+- 24 
+- 24
+- 60
+- 15 
+- 18 
+- 21 
+- 28
+- 35
+- 39
+- 50
+- 47
+- 55
+- 6
+- 44
+- 4
+- 32
+mooring_data_path:
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/working/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/working/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bsm2a/final_data/
+mooring_files:
+- 16bsm2a_ecf_0011m.nc
+- 16bsm2a_ecf_0024m.nc
+- 16bsm2a_s37_0024m.unqcd.trimmed_missing.nc
+- 16bsm2a_s37_0060m.nc
+- 16bsm2a_s39_0015m.nc
+- 16bsm2a_s39_0018m.nc
+- 16bsm2a_s39_0021m.nc
+- 16bsm2a_s39_0028m.nc
+- 16bsm2a_s39_0035m.nc
+- 16bsm2a_s39_0039m.nc
+- 16bsm2a_s39_0050m.nc
+- 16bsm2a_s56_0047m.nc
+- 16bsm2a_s56_0055m.nc
+- 16bsm2a_sc_0006m.interpolated.trimmed_missing.nc
+- 16bsm2a_sc_0044m.nc
+- 16bsm2a_mt3276_0004m.nc
+- 16bsm2a_mt4068_0032m.nc
+notes:
+output_type: png
+plot_stylesheet: seaborn-poster
+
+
+
+{
+    "MooringID": "13BSM-2A", 
+    "mooring_data_path": [
+    "/Users/bell/ecoraid/2013/Moorings/13bsm2a/final_data/",
+    "/Users/bell/ecoraid/2013/Moorings/13bsm2a/final_data/",
+    "/Users/bell/ecoraid/2013/Moorings/13bsm2a/final_data/",
+    "/Users/bell/ecoraid/2013/Moorings/13bsm2a/final_data/",
+    "/Users/bell/ecoraid/2013/Moorings/13bsm2a/final_data/",
+    "/Users/bell/ecoraid/2013/Moorings/13bsm2a/final_data/",
+    "/Users/bell/ecoraid/2013/Moorings/13bsm2a/final_data/",
+    "/Users/bell/ecoraid/2013/Moorings/13bsm2a/final_data/",
+    "/Users/bell/ecoraid/2013/Moorings/13bsm2a/final_data/",
+    "/Users/bell/ecoraid/2013/Moorings/13bsm2a/final_data/",
+    "/Users/bell/ecoraid/2013/Moorings/13bsm2a/final_data/",
+    "/Users/bell/ecoraid/2013/Moorings/13bsm2a/final_data/",
+    "/Users/bell/ecoraid/2013/Moorings/13bsm2a/final_data/",
+    "/Users/bell/ecoraid/2013/Moorings/13bsm2a/final_data/",
+    "/Users/bell/ecoraid/2013/Moorings/13bsm2a/final_data/",
+    "/Users/bell/ecoraid/2013/Moorings/13bsm2a/final_data/",
+    "/Users/bell/ecoraid/2013/Moorings/13bsm2a/final_data/",
+    "/Users/bell/ecoraid/2013/Moorings/13bsm2a/final_data/",
+    "/Users/bell/ecoraid/2013/Moorings/13bsm2a/final_data/",
+    "/Users/bell/ecoraid/2013/Moorings/13bsm2a/final_data/"],
+    "mooring_files": [
+    "13bsm2a_an9_0008m.nc",
+    "13bsm2a_mt_0004m.nc",
+    "13bsm2a_mt_0032m.nc",
+    "13bsm2a_mt_0033m.nc",
+    "13bsm2a_mt_0055m.nc",
+    "13bsm2a_mt_0056m.nc",
+    "13bsm2a_s37_0012m.nc",
+    "13bsm2a_s37_0061m.nc",
+    "13bsm2a_s39_0015m.nc",
+    "13bsm2a_s39_0018m.nc",
+    "13bsm2a_s39_0021m.nc",
+    "13bsm2a_s39_0028m.nc",
+    "13bsm2a_s39_0035m.nc",
+    "13bsm2a_s39_0039m.nc",
+    "13bsm2a_s39_0050m.nc",
+    "13bsm2a_s39_0060m.nc",
+    "13bsm2a_sc_0006m.nc",
+    "13bsm2a_sc_0024m.nc",
+    "13bsm2a_sc_0044m.nc"], 
+    "nominal_depth": [8,4,32,33,55,56,12,61,15,18,21,28,35,39,50,60,6,24,44], 
+    "EPIC_Key": "S_41",
+    "Ylabel": "Salinity",
+    "Date_Ticks": "multi_month",
+    "plot_stylesheet": "seaborn-poster",
+    "output_type": "png",
+    "start_time": "2013-05-05",
+    "end_time": "2013-09-14",
+    "depth_interval_m": 1,
+    "depth_m": 72
+}
