@@ -1,0 +1,110 @@
+---
+MooringID: 13BS-4B
+ctd_data_path:
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/CTDcasts/aq1401l3/final_data/ctd/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2015/CTDcasts/dy1504/final_data/ctd/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2015/CTDcasts/dy1509/final_data/ctd/
+ctd_files:
+- aq1401l3c089_ctd.nc
+- dy1504c046_ctd.nc
+- dy1509c068_ctd.nc
+mooring_data_path:
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs4b/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs4b/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs4b/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs4b/working/
+mooring_files:
+- 13bs4b_ecf_0014m.nc
+- 13bs4b_mt3273_0040m.nc
+- 13bs4b_mt4004_0040m.nc
+- 13bs4b_mt4053_0045m.nc
+- 13bs4b_mt4054_0045m.nc
+- 13bs4b_mt4055_0050m.nc
+- 13bs4b_mt4060_0050m.nc
+- 13bs4b_mt4067_0060m.nc
+- 13bs4b_mt4089_0060m.nc
+- 13bs4b_mt4116_0067m.nc
+- 13bs4b_mt4117_0067m.nc
+- 13bs4b_s39_0019m.nc
+- 13bs4b_s56_0015m.nc
+- 13bs4b_s56_0023m.nc
+- 13bs4b_s56_0027m.nc
+- 13bs4b_s56_0035m.nc
+- 13bs4b_s37_0018m.unqcd.trimmed_missing.nc
+- 13bs4b_s37_0031m.unqcd.trimmed_missing.nc
+- 13bs4b_s37_0055m.unqcd.trimmed_missing.nc
+- 13bs4b_sc_0013m.unqcd.trimmed_missing.nc
+nominal_depth:
+- 50
+- 60
+- 60
+- 35
+- 45
+- 23
+- 40
+- 60
+- 18
+- 31
+- 55
+colors:
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- k-.
+- b-.
+- m-.
+- g-.
+- r-.
+- c-.
+legend:
+- 50m mt
+- 60m mt
+- 60m mt
+- 35m s39
+- 45m s39
+- 23m s56
+- 40m s56
+- 60m s56
+- 18m s37
+- 31m s37
+- 55m s37
+dtype: mooring
+legend_loc: upper center
+legend_off: false
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+#EPIC_Key: P_1
+#EPIC_Key_ctd: P_1
+#Ylabel: Pressure (dB)
+Date_Ticks: multi_month
+plot_stylesheet: seaborn-poster
+output_type: png
+start_time: '2014-10-18'
+end_time: '2015-09-24'
+depth_interval_m: 1
+depth_m: 70
+notes: >
+  last year of 'A' and 'B' moorings
