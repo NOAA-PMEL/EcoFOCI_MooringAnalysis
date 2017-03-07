@@ -1,7 +1,0 @@
-{
-    "database": "EcoFOCI_instruments", 
-    "host": "localhost", 
-    "password": "e43mqS4fusEaGJLE", 
-    "user": "pythonuser",
-    "port": 8889
-}
