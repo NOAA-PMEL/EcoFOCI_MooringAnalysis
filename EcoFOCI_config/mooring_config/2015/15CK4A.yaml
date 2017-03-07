@@ -7,6 +7,8 @@ ctd_files:
 mooring_data_path:
 - "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15ckip4a/working/"
 - "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15ckp4a/working/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15ckp4a/working/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15ckp4a/working/"
 mooring_files:
 - 15ckip4a_s37_0046m.unqcd.trimmed_missing.nc
 - 15ckp4a_sc_0045m.interpolated.trimmed_missing.nc
