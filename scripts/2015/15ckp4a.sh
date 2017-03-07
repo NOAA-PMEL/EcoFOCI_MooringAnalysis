@@ -34,7 +34,7 @@ echo "-------------------------------------------------------------"
 
 serial_no=flsb_3072
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/eco_fluor/15ckp4a_flsb3072_39m.txt
-output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/15ckp2a_ecf_0045m
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/15ckp4a_ecf_0045m
 
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc eco 0045 -kw 0 median 0.0072 48 False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc eco 0045 -kw 298 median 0.0072 48 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
