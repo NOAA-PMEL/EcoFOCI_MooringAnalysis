@@ -1,0 +1,110 @@
+---
+MooringID: 12BSM-2A
+ctd_data_path:
+- /Users/bell/ecoraid/2012/CTDcasts/dy1204/final_data/ctd/
+#- /Users/bell/ecoraid/2012/CTDcasts/dy1205/final_data/ctd/
+#- /Users/bell/ecoraid/2012/CTDcasts/dy1207/final_data/ctd/
+- /Users/bell/ecoraid/2012/CTDcasts/dy1208/final_data/ctd/
+- /Users/bell/ecoraid/2012/CTDcasts/aq1201/final_data/ctd/
+ctd_files:
+- dy1204c048_ctd.nc
+#- dy1205c006_ctd.nc
+#- dy1207c004_ctd.nc
+- dy1208c151_ctd.nc
+- aq1201c070_ctd.nc
+mooring_data_path:
+- /Users/bell/ecoraid/2012/Moorings/12bsm2a/final_data/
+- /Users/bell/ecoraid/2012/Moorings/12bsm2a/final_data/
+- /Users/bell/ecoraid/2012/Moorings/12bsm2a/final_data/
+- /Users/bell/ecoraid/2012/Moorings/12bsm2a/final_data/
+- /Users/bell/ecoraid/2012/Moorings/12bsm2a/final_data/
+- /Users/bell/ecoraid/2012/Moorings/12bsm2a/final_data/
+- /Users/bell/ecoraid/2012/Moorings/12bsm2a/final_data/
+- /Users/bell/ecoraid/2012/Moorings/12bsm2a/final_data/
+- /Users/bell/ecoraid/2012/Moorings/12bsm2a/final_data/
+- /Users/bell/ecoraid/2012/Moorings/12bsm2a/final_data/
+- /Users/bell/ecoraid/2012/Moorings/12bsm2a/final_data/
+- /Users/bell/ecoraid/2012/Moorings/12bsm2a/final_data/
+- /Users/bell/ecoraid/2012/Moorings/12bsm2a/final_data/
+- /Users/bell/ecoraid/2012/Moorings/12bsm2a/final_data/
+- /Users/bell/ecoraid/2012/Moorings/12bsm2a/final_data/
+- /Users/bell/ecoraid/2012/Moorings/12bsm2a/final_data/
+- /Users/bell/ecoraid/2012/Moorings/12bsm2a/final_data/
+- /Users/bell/ecoraid/2012/Moorings/12bsm2a/final_data/
+- /Users/bell/ecoraid/2012/Moorings/12bsm2a/final_data/
+- /Users/bell/ecoraid/2012/Moorings/12bsm2a/final_data/
+- /Users/bell/ecoraid/2012/Moorings/12bsm2a/final_data/
+mooring_files:
+- 12bsm2a_ecf_0013m.nc
+- 12bsm2a_ecf_0024m.nc
+- 12bsm2a_mt_0004m.nc
+- 12bsm2a_s37_0001m.nc
+- 12bsm2a_s37_0002m.nc
+- 12bsm2a_s37_0061m.nc
+- 12bsm2a_s39_0015m.nc
+- 12bsm2a_s39_0018m.nc
+- 12bsm2a_s39_0021m.nc
+- 12bsm2a_s39_0028m.nc
+- 12bsm2a_s39_0032m.nc
+- 12bsm2a_s39_0035m.nc
+- 12bsm2a_s39_0039m.nc
+- 12bsm2a_s39_0050m.nc
+- 12bsm2a_s39_0055m.nc
+- 12bsm2a_s39_0060m.nc
+- 12bsm2a_sc_0006m.nc
+- 12bsm2a_sc_0012m.nc
+- 12bsm2a_sc_0024m.nc
+- 12bsm2a_sc_0044m.nc
+- 12bsm2a_sg_0008m.nc
+nominal_depth: [13,24,4,1,2,61,15,18,21,28,32,35,39,50,55,60,6,12,24,44,8]
+colors: [k-,b-,m-,g-,r-,c-,k--,b--,m--,g--,r--,c--,k-.,b-.,m-.,g-.,r-.,c-.,'k:','b:','m:','g:','r:','c:']
+legend: 
+- 13m ecf
+- 24m ecf
+- 4m mt
+- 1m s37
+- 2m s37
+- 61m s37
+- 15m s39
+- 18m s39
+- 21m s39
+- 28m s39
+- 32m s39
+- 35m s39
+- 39m s39
+- 50m s39
+- 55m s39
+- 60m s39
+- 6m sc
+- 12m sc
+- 24m sc
+- 44m sc
+- 8m sg
+dtype: mooring
+legend_loc: upper center
+legend_off: false
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+EPIC_Key: P_1
+EPIC_Key_ctd: P_1
+Ylabel: Pressure (dB)
+#EPIC_Key: Fch_906
+#EPIC_Key_ctd: Fch_906
+#Ylabel: Chlor
+#EPIC_Key: OST_62
+#EPIC_Key_ctd: OST_62
+#Ylabel: Oxygen_PSat
+Date_Ticks: multi_month
+plot_stylesheet: seaborn-poster
+output_type: png
+start_time: 2012-05-20 00:00:00
+end_time: 2012-09-07 00:00:00
+depth_interval_m: 1
+depth_m: 72
+notes: 
+
+
