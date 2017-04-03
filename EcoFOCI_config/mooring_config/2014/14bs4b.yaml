@@ -1,27 +1,28 @@
 ---
 MooringID: 14BS-4B
 ctd_data_path:
-- /Volumes/WDC_internal/Users/bell/ecoraid/2014/CTDcasts/aq1401l3/final_data/ctd/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2015/CTDcasts/dy1504/final_data/ctd/
-#- /Volumes/WDC_internal/Users/bell/ecoraid/2015/CTDcasts/aq1501/final_data/ctd/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2015/CTDcasts/dy1509/final_data/ctd/
+- /Users/bell/ecoraid/2014/CTDcasts/aq1401l3/final_data/ctd/
+- /Users/bell/ecoraid/2015/CTDcasts/dy1504/final_data/ctd/
+#- /Users/bell/ecoraid/2015/CTDcasts/aq1501/final_data/ctd/
+- /Users/bell/ecoraid/2015/CTDcasts/dy1509/final_data/ctd/
 ctd_files:
 - aq1401l3c089_ctd.nc
 - dy1504c046_ctd.nc
 #- aq1501c018_ctd.nc
 - dy1509c068_ctd.nc
 mooring_data_path:
-- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bs4b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bs4b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bs4b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bs4b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bs4b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bs4b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bs4b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bs4b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bs4b/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bs4b/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bs4b/working/
+- /Users/bell/ecoraid/2014/Moorings/14bs4b/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bs4b/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bs4b/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bs4b/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bs4b/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bs4b/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bs4b/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bs4b/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bs4b/working/
+- /Users/bell/ecoraid/2014/Moorings/14bs4b/working/
+- /Users/bell/ecoraid/2014/Moorings/14bs4b/working/
+- /Users/bell/ecoraid/2014/Moorings/14bs4b/final_data/
 mooring_files:
 - 14bs4b_mt3322_0050m.nc
 - 14bs4b_mt3255_0060m.nc
@@ -34,6 +35,7 @@ mooring_files:
 - 14bs4b_s37_0018m.unqcd.trimmed_missing.nc
 - 14bs4b_s37_0031m.unqcd.trimmed_missing.nc
 - 14bs4b_s37_0055m.unqcd.trimmed_missing.nc
+- 14bs4b_sc_0013m.nc
 nominal_depth:
 - 50
 - 60
@@ -46,6 +48,7 @@ nominal_depth:
 - 18
 - 31
 - 55
+- 13
 colors:
 - k-
 - b-
@@ -59,6 +62,7 @@ colors:
 - g-.
 - r-.
 - c-.
+- k--
 legend:
 - 50m mt
 - 60m mt
@@ -71,6 +75,7 @@ legend:
 - 18m s37
 - 31m s37
 - 55m s37
+- 13m sc
 dtype: mooring
 legend_loc: upper center
 legend_off: false
