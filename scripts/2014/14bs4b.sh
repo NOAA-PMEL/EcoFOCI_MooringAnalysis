@@ -22,7 +22,7 @@ echo "SBE16 Processing"
 echo "-------------------------------------------------------------"
 
 serial_no=4607
-input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe16/14bs4b_sbe16_4607_12_5m.cnv.cnv
+input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe16/14bs4b_sbe16_4607_12_5m.cnv
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/14bs4b_sc_0013m
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc sc 0013 -kw 0 time_elapsed_s False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc sc 0013 -kw 0 time_elapsed_s True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
