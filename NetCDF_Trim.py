@@ -13,9 +13,10 @@
  Modifications:
  --------------
 
- 2016-07-29 - SW Bell: simplify EPIC->python time conversion
- 2016-09-12 - SW Bell: move to EcoFOCI_MooringAnalysis package and keep only index option for now
+ 2017-04-05 - SW Bell: Rename utility and remove mooring id requirement
  2016-11-14 - SW Bell: add options to trim based on first/last good time
+ 2016-09-12 - SW Bell: move to EcoFOCI_MooringAnalysis package and keep only index option for now
+ 2016-07-29 - SW Bell: simplify EPIC->python time conversion
 
 """
 
@@ -48,7 +49,6 @@ __keywords__ = 'netCDF','meta','header', 'deployment', 'recovery'
 
 parser = argparse.ArgumentParser(description='Trim NC files')
 parser.add_argument('inputpath', metavar='inputpath', type=str, help='path to .nc file')
-parser.add_argument('MooringID', metavar='MooringID', type=str, help='MooringID: eg 14BSM-2A')
 parser.add_argument('-sd','--start_date',  nargs='+', type=str, help='date of first good point YYYY-MM-DD HH:MM:SS')
 parser.add_argument('-ed','--end_date',  nargs='+', type=str, help='date of last good point YYYY-MM-DD HH:MM:SS')
 parser.add_argument('--index',  nargs='+', type=int, help='use initial and final index values (0 starting) to trim data')
