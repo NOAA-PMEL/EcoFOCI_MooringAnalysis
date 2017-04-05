@@ -26,7 +26,7 @@ input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe16/15ckp4a
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/15ckp4a_sc_0045m
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc sc 0045 -kw 0 time_elapsed_s False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc sc 0045 -kw 0 time_elapsed_s True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}Trim_netcdf.py ${output}.interpolated.nc $mooringID -sd ${deployment_date} -ed ${recovery_date}
+python ${prog_dir}NetCDF_Trim.py ${output}.interpolated.nc $mooringID -sd ${deployment_date} -ed ${recovery_date}
 
 echo "-------------------------------------------------------------"
 echo "Wetlabs Processing"
@@ -38,4 +38,4 @@ output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/15ckp4a_ecf_0045m
 
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc eco 0045 -kw 0 median 0.0072 48 False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc eco 0045 -kw 298 median 0.0072 48 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}Trim_netcdf.py ${output}.interpolated.nc $mooringID -sd ${deployment_date} -ed ${recovery_date}
+python ${prog_dir}NetCDF_Trim.py ${output}.interpolated.nc $mooringID -sd ${deployment_date} -ed ${recovery_date}

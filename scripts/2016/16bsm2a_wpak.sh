@@ -26,5 +26,5 @@ serial_no=1361
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/weatherpak/16bsm2a_weatherpak.txt
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/16bsm2a_wpak.unqcd.nc
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} wpak 0003 -dec 56.870 164.048 -kw False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}Trim_netcdf.py ${output} $mooringID -sd ${deployment_date} -ed ${recovery_date}
+python ${prog_dir}NetCDF_Trim.py ${output} -sd ${deployment_date} -ed ${recovery_date}
 

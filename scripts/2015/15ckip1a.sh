@@ -26,7 +26,7 @@ serial_no=1865
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe37/15ckip1a_sbe37_1865_40m.asc
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/15ckip1a_s37_0040m.unqcd.nc
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s37 0040 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}Trim_netcdf.py ${output} $mooringID -sd ${deployment_date} -ed ${recovery_date}
+python ${prog_dir}NetCDF_Trim.py ${output} -sd ${deployment_date} -ed ${recovery_date}
 
 echo "-------------------------------------------------------------"
 echo "RCMSG Processing"
@@ -36,4 +36,4 @@ serial_no=169SG
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/rcm_sg/15ckip1a_rcm_169SG.txt
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/15ckip1a_sg_0039.unqcd.nc
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} rcmsg 0039 -dec 70.836 163.124 -kw false True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth 
-python ${prog_dir}Trim_netcdf.py ${output} $mooringID -sd ${deployment_date} -ed ${recovery_date}
+python ${prog_dir}NetCDF_Trim.py ${output} -sd ${deployment_date} -ed ${recovery_date}

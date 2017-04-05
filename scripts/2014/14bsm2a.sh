@@ -25,4 +25,4 @@ serial_no=2327
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe37/14bsm2a_sbe37_2327_0061.asc
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/14bsm2a_s37_0061m.unqcd.nc
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s37 0061 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}Trim_netcdf.py ${output} $mooringID -sd ${deployment_date} -ed ${recovery_date}
+python ${prog_dir}NetCDF_Trim.py ${output} -sd ${deployment_date} -ed ${recovery_date}
