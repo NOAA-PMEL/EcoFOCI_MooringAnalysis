@@ -81,28 +81,185 @@ def PointerReader(pointer_file_path):
 
     """
 
-    if pointer_file.split('.')[-1] == 'pyini':
+    if pointer_file_path.split('.')[-1] == 'pyini':
         pointer_file = ConfigParserLocal.get_config(pointer_file_path)
-    elif pointer_file.split('.')[-1] == 'yaml':
+    elif pointer_file_path.split('.')[-1] == 'yaml':
         pointer_file = ConfigParserLocal.get_config_yaml(pointer_file_path)
     else:
         print "PointerFile format not recognized"
         sys.exit()  
 
-    pointer_dic = {}
-    pointer_dic['files'] = pointer_file['mooring_files']
-    pointer_dic['MooringID'] = pointer_file['MooringID']
-    pointer_dic['plot_var'] = pointer_file['EPIC_Key']
-    pointer_dic['LocatorInterval'] = pointer_file['Date_Ticks']
-    pointer_dic['Ylabel'] = pointer_file['Ylabel']
-    pointer_dic['output_type'] = pointer_file['output_type']
-    pointer_dic['nominal_depth'] = pointer_file['nominal_depth']
-    pointer_dic['start_time'] = pointer_file['start_time']
-    pointer_dic['end_time'] = pointer_file['end_time']
-    pointer_dic['depth_interval_m'] = pointer_file['depth_interval_m']
-    pointer_dic['depth_m'] = pointer_file['depth_m']  
-
     return pointer_file
+
+class Data2Grid(object):
+    r""" TODO: """
+
+
+    def __init__(self, pointer_dic=None):
+        """Initialize opening of netcdf file.
+
+        Parameters
+        ----------
+        file_name : str
+            full path to file on disk
+
+        """
+
+        self.pointer_dic = pointer_dic
+        self.gaps_filled = False
+        self.files_path = [a+b for a,b in zip(self.pointer_dic['mooring_data_path'],self.pointer_dic['mooring_files'])]
+        self.plot_var = self.pointer_dic['EPIC_Key']
+        self.history = ''
+        self.MooringID = pointer_dic['MooringID'].replace('-','')
+
+    def load(self):
+        self.data = {}
+        for ind, ncfile in enumerate(self.files_path):
+            print "Working on {0}".format(ncfile)
+
+            df = EcoFOCI_netCDF(ncfile)
+            global_atts = df.get_global_atts()
+            vars_dic = df.get_vars()
+            if self.plot_var in vars_dic:
+                ncdata = df.ncreadfile_dic()
+                df.close()
+                ncdata[self.plot_var][np.where(ncdata[self.plot_var] >1e34)] = np.nan
+            else:
+                continue
+
+            self.ncdata = ncdata #only save last file
+            self.data[self.pointer_dic['nominal_depth'][ind]] = {'data': ncdata[self.plot_var][:,0,0,0],'time': EPIC2Datetime(ncdata['time'],ncdata['time2'])}
+
+    def gridTime(self,dt_hour=1,dt_error_min=5):
+        
+        #convert datetime
+        start_time_int = date2num(datetime.datetime.strptime(self.pointer_dic['start_time'],"%Y-%m-%d"),'days since 0001-01-01')
+        end_time_int = date2num(datetime.datetime.strptime(self.pointer_dic['end_time'],"%Y-%m-%d"),'days since 0001-01-01')
+
+        #build time array
+        self.dt = dt_hour/24.
+        self.dte = dt_error_min/(24.*60.)
+        self.time_array = np.arange(start_time_int, end_time_int+self.dt, self.dt)
+        #convert to python serial date
+        for key in self.data.keys():
+            # have to add one because the num2date function is a delta function
+            self.data[key]['time'] = [date2num(x,'days since 0001-01-01') for x in self.data[key]['time']]
+
+    def GridData(self):
+
+        ### vertically grid data to evenly space gridspoints
+        self.press_grid = np.arange(0,self.pointer_dic['depth_m']  +self.pointer_dic['depth_interval_m'],self.pointer_dic['depth_interval_m']) 
+
+        mesh_grid_data = np.array([])
+        mesh_grid_data2 = np.array([])
+        date_time = []
+        #after reading the data into dictionary sort and match times
+        for i, st in enumerate(self.time_array):
+            if (datetime.datetime.fromordinal(int(st))).day == 1:
+                print datetime.datetime.fromordinal(int(st))
+            mesh_depth_data = np.array([])
+            mesh_depth_data2 = np.array([])
+            self.press_grid_data = np.array([])
+            for key in sorted(self.data):
+                irreg_depth = np.array(key)
+                irreg_data = self.data[key]['data'][np.where((self.data[key]['time'] >= st - self.dte) & (self.data[key]['time'] <= st + self.dte))]
+                if irreg_data.size != 0:
+                    irreg_data=np.nanmean([irreg_data])
+                else:
+                    irreg_data=np.array([np.nan])
+
+                mesh_depth_data = np.hstack((mesh_depth_data, irreg_data))
+                self.press_grid_data = np.hstack((self.press_grid_data, irreg_depth))
+
+
+            for pg in self.press_grid:
+                ireg_ind = np.where((self.press_grid_data > pg) & (self.press_grid_data <= pg+self.pointer_dic['depth_interval_m']))
+                if not mesh_depth_data[ireg_ind]:
+                    mesh_depth_data2 = np.hstack((mesh_depth_data2, np.nan))
+                else:
+                    mesh_depth_data2 = np.hstack((mesh_depth_data2, np.median(mesh_depth_data[ireg_ind])))
+                    
+            if i==0:
+                mesh_grid_data = mesh_depth_data
+                mesh_grid_data2 = mesh_depth_data2
+            else:
+                mesh_grid_data=np.vstack((mesh_grid_data, mesh_depth_data))
+                mesh_grid_data2=np.vstack((mesh_grid_data2, mesh_depth_data2))  
+
+                self.mesh_grid_data = mesh_grid_data
+                self.mesh_grid_data2 = mesh_grid_data2
+
+    def fillgaps(self):
+        mesh_grid_data_fg = self.mesh_grid_data
+        mask = np.isnan(self.mesh_grid_data)
+        mesh_grid_data_fg[mask] = np.interp(np.flatnonzero(mask), np.flatnonzero(~mask), self.mesh_grid_data[~mask])
+
+        self.mesh_grid_data = mesh_grid_data_fg
+        self.gaps_filled = True
+
+    def save2nc(self,PointerFile=None):
+
+        inst_type = self.pointer_dic['Ylabel']
+        EPIC_VARS_dict = ConfigParserLocal.get_config('EcoFOCI_config/epickeys/' + self.plot_var + '_epickeys.json')
+
+        epic_dt = Datetime2EPIC((num2date(self.time_array,'days since 0001-01-01')).tolist())
+
+        data_dic = {}
+        self.mesh_grid_data[np.isnan(self.mesh_grid_data)] = 1e35
+        data_dic[self.plot_var] = self.mesh_grid_data
+        ncinstance = GriddedNC(savefile=self.MooringID+'_'+self.plot_var+'_gridded.nc')
+        ncinstance.file_create()
+        ncinstance.sbeglobal_atts(raw_data_file='', Station_Name = self.MooringID, Water_Depth=self.pointer_dic['depth_m'], InstType=inst_type)
+        ncinstance.dimension_init(time_len=len(self.time_array),depth_len=len(self.data.keys()))
+        ncinstance.variable_init(EPIC_VARS_dict)
+        try:
+            ncinstance.add_coord_data(depth=sorted(self.data.keys()), latitude=self.ncdata['lat'][0], longitude=self.ncdata['lon'][0], time1=epic_dt[0], time2=epic_dt[1])
+        except:
+            ncinstance.add_coord_data(depth=sorted(self.data.keys()), latitude=self.ncdata['latitude'][0], longitude=self.ncdata['longitude'][0], time1=epic_dt[0], time2=epic_dt[1])
+        ncinstance.add_data(EPIC_VARS_dict,data_dic=data_dic)
+        if self.gaps_filled:
+            ncinstance.add_history('Gridded using:{program}, Config file used:{file}\n'.format(program=__file__,file=PointerFile))
+        else:
+            ncinstance.add_history('Gridded using:{program}, Config file used:{file}\n Gaps filled Linearly\n'.format(program=__file__,file=PointerFile))
+        ncinstance.close()
+
+    def contour(self):
+
+    #find small overlap period and replace with np.nan
+
+        overlap_t=self.time_array[3645]
+        self.mesh_grid_data[np.where((self.time_array>=overlap_t)&(self.time_array<=overlap_t+1))]=np.nan
+
+        fig = plt.figure()
+        ax = plt.subplot(111)
+        extent = (self.time_array.min(), self.time_array.max(), self.press_grid.max(), self.press_grid.min()) # extent of the plots
+        plt.contourf(self.time_array, self.press_grid_data,np.transpose(self.mesh_grid_data),extent=extent,cmap=cmocean.cm.thermal, levels=np.arange(-2.0,15.0,1.0))
+        ax.xaxis.set_major_locator(MonthLocator(interval=1))
+        ax.xaxis.set_minor_locator(DayLocator(bymonthday=15))
+        ax.xaxis.set_major_formatter(ticker.NullFormatter())
+        ax.xaxis.set_minor_formatter(DateFormatter('%b %y'))
+        cbar = plt.colorbar()
+        cbar.set_label('Temperature (C)')
+        plt.gca().invert_yaxis()
+        DefaultSize = fig.get_size_inches()
+        fig.set_size_inches( (DefaultSize[0]*5, DefaultSize[1]) )
+        plt.savefig('images/'+self.MooringID+'_contour.png',bbox_inches='tight', dpi=(300))
+
+    def image(self):
+
+        fig = plt.figure()
+        ax = plt.subplot(111)
+        extent = (self.time_array.min(), self.time_array.max(), self.press_grid.max(), self.press_grid.min()) # extent of the plots
+        plt.imshow(np.transpose(self.mesh_grid_data2),extent=extent, cmap=cmocean.cm.thermal, vmin=-2.0, vmax=15.0, aspect='auto')
+        ax.xaxis.set_major_locator(MonthLocator(interval=1))
+        ax.xaxis.set_minor_locator(DayLocator(bymonthday=15))
+        ax.xaxis.set_major_formatter(ticker.NullFormatter())
+        ax.xaxis.set_minor_formatter(DateFormatter('%b %y'))
+        cbar = plt.colorbar()
+        cbar.set_label('Temperature (C)')
+        DefaultSize = fig.get_size_inches()
+        fig.set_size_inches( (DefaultSize[0]*5, DefaultSize[1]) )
+        plt.savefig('images/'+self.MooringID+'_image.png',bbox_inches='tight', dpi=(300))
 
 """--------------------------------main Routines---------------------------------------"""
 
@@ -122,198 +279,32 @@ args = parser.parse_args()
 
 
 pdic = PointerReader(args.PointerFile)
+plt.style.use(pdic['plot_stylesheet'])
 
+MData = Data2Grid(pointer_dic=pdic)
+MData.load()
+MData.gridTime()
+MData.GridData()
 
+if args.contour and not args.FillGaps:
 
-files_path = [a+b for a,b in zip(pdic['mooring_data_path'],pdic['mooring_files'])]
-start_time_int = date2num(datetime.datetime.strptime(start_time,"%Y-%m-%d"),'days since 0001-01-01')
-end_time_int = date2num(datetime.datetime.strptime(end_time,"%Y-%m-%d"),'days since 0001-01-01')
-
-
-### some mpl specif settings for fonts and plot style
-#mpl.rcParams['svg.fonttype'] = 'none'
-plt.style.use(pointer_file['plot_stylesheet'])
-#seaborn-poster -- fonts are smaller
-#ggplot -- grey border, better axis frame
-#bmh -- slightly heavier than ggplot for line weights
-
-### cycle through all files, retrieve data
-print files_path
-data = {}
-for ind, ncfile in enumerate(files_path):
-    print "Working on {0}".format(ncfile)
-
-    df = EcoFOCI_netCDF(ncfile)
-    global_atts = df.get_global_atts()
-    vars_dic = df.get_vars()
-    ncdata = df.ncreadfile_dic()
-    df.close()
-
-    #find and replace missing values with nans so they don't plot
-    try:
-        ncdata[plot_var][np.where(ncdata[plot_var] >1e34)] = np.nan
-    except KeyError:
-        continue
-    data[nominal_depth[ind]] = {'data': ncdata[plot_var][:,0,0,0],'time': EPIC2Datetime(ncdata['time'],ncdata['time2'])}
-
-#build time array
-dt = 1./24.
-dte = 5./(24.*60.)
-time_array = np.arange(start_time_int, end_time_int+dt, dt)
-#convert to python serial date
-for key in data.keys():
-    # have to add one because the num2date function is a delta function
-    data[key]['time'] = [date2num(x,'days since 0001-01-01') for x in data[key]['time']]
-
-
-#build data array
-### vertically grid data to evenly space gridspoints
-press_grid = np.arange(0,depth_m+depth_interval_m,depth_interval_m) 
-
-mesh_grid_data = np.array([])
-mesh_grid_data2 = np.array([])
-date_time = []
-#after reading the data into dictionary sort and match times
-for i, st in enumerate(time_array):
-    if (datetime.datetime.fromordinal(int(st))).day == 1:
-        print datetime.datetime.fromordinal(int(st))
-    mesh_depth_data = np.array([])
-    mesh_depth_data2 = np.array([])
-    press_grid_data = np.array([])
-    for key in sorted(data):
-        irreg_depth = np.array(key)
-        irreg_data = data[key]['data'][np.where((data[key]['time'] >= st - dte) & (data[key]['time'] <= st + dte))]
-        if irreg_data.size != 0:
-            irreg_data=np.nanmean([irreg_data])
-        else:
-            irreg_data=np.array([np.nan])
-
-        mesh_depth_data = np.hstack((mesh_depth_data, irreg_data))
-        press_grid_data = np.hstack((press_grid_data, irreg_depth))
-
-
-    for pg in press_grid:
-        ireg_ind = np.where((press_grid_data > pg) & (press_grid_data <= pg+depth_interval_m))
-        if not mesh_depth_data[ireg_ind]:
-            mesh_depth_data2 = np.hstack((mesh_depth_data2, np.nan))
-        else:
-            mesh_depth_data2 = np.hstack((mesh_depth_data2, np.median(mesh_depth_data[ireg_ind])))
-            
-    if i==0:
-        mesh_grid_data = mesh_depth_data
-        mesh_grid_data2 = mesh_depth_data2
-    else:
-        mesh_grid_data=np.vstack((mesh_grid_data, mesh_depth_data))
-        mesh_grid_data2=np.vstack((mesh_grid_data2, mesh_depth_data2))  
-
-if args.FillGaps:
-    mesh_grid_data_fg = mesh_grid_data
-    mask = np.isnan(mesh_grid_data)
-    mesh_grid_data_fg[mask] = np.interp(np.flatnonzero(mask), np.flatnonzero(~mask), mesh_grid_data[~mask])
-        
-if args.contour:
-
-    #find small overlap period and replace with np.nan
-
-    overlap_t=time_array[3645]
-    mesh_grid_data[np.where((time_array>=overlap_t)&(time_array<=overlap_t+1))]=np.nan
-
-    fig = plt.figure()
-    ax = plt.subplot(111)
-    extent = (time_array.min(), time_array.max(), press_grid.max(), press_grid.min()) # extent of the plots
-    plt.contourf(time_array, press_grid_data,np.transpose(mesh_grid_data),extent=extent,cmap=cmocean.cm.thermal, levels=np.arange(-2.0,15.0,1.0))
-    ax.xaxis.set_major_locator(MonthLocator(interval=1))
-    ax.xaxis.set_minor_locator(DayLocator(bymonthday=15))
-    ax.xaxis.set_major_formatter(ticker.NullFormatter())
-    ax.xaxis.set_minor_formatter(DateFormatter('%b %y'))
-    cbar = plt.colorbar()
-    cbar.set_label('Temperature (C)')
-    #plt.contour(time_array, press_grid_data,np.transpose(mesh_grid_data),extent=extent, colors='k', levels=np.arange(1.0,14.0,1.0))
-    plt.gca().invert_yaxis()
-    DefaultSize = fig.get_size_inches()
-    fig.set_size_inches( (DefaultSize[0]*5, DefaultSize[1]) )
-    plt.savefig('contour.png',bbox_inches='tight', dpi=(300))
+    MData.contour()
         
 if args.contour and args.FillGaps:
 
-    #find small overlap period and replace with np.nan
-
-    overlap_t=time_array[3645]
-    mesh_grid_data[np.where((time_array>=overlap_t)&(time_array<=overlap_t+1))]=np.nan
-
-    fig = plt.figure()
-    ax = plt.subplot(111)
-    extent = (time_array.min(), time_array.max(), press_grid.max(), press_grid.min()) # extent of the plots
-    plt.contourf(time_array, press_grid_data,np.transpose(mesh_grid_data_fg),extent=extent,cmap=cmocean.cm.thermal, levels=np.arange(-2.0,15.0,1.0))
-    ax.xaxis.set_major_locator(MonthLocator(interval=1))
-    ax.xaxis.set_minor_locator(DayLocator(bymonthday=15))
-    ax.xaxis.set_major_formatter(ticker.NullFormatter())
-    ax.xaxis.set_minor_formatter(DateFormatter('%b %y'))
-    cbar = plt.colorbar()
-    cbar.set_label('Temperature (C)')
-    #plt.contour(time_array, press_grid_data,np.transpose(mesh_grid_data),extent=extent, colors='k', levels=np.arange(1.0,14.0,1.0))
-    plt.gca().invert_yaxis()
-    DefaultSize = fig.get_size_inches()
-    fig.set_size_inches( (DefaultSize[0]*5, DefaultSize[1]) )
-    plt.savefig('contour.png',bbox_inches='tight', dpi=(300))
+    MData.fillgaps()
+    MData.contour()
 
 if args.image:
-    fig = plt.figure()
-    ax = plt.subplot(111)
-    extent = (time_array.min(), time_array.max(), press_grid.max(), press_grid.min()) # extent of the plots
-    plt.imshow(np.transpose(mesh_grid_data2),extent=extent, cmap=cmocean.cm.thermal, vmin=-2.0, vmax=15.0, aspect='auto')
-    ax.xaxis.set_major_locator(MonthLocator(interval=1))
-    ax.xaxis.set_minor_locator(DayLocator(bymonthday=15))
-    ax.xaxis.set_major_formatter(ticker.NullFormatter())
-    ax.xaxis.set_minor_formatter(DateFormatter('%b %y'))
-    cbar = plt.colorbar()
-    cbar.set_label('Temperature (C)')
-    DefaultSize = fig.get_size_inches()
-    fig.set_size_inches( (DefaultSize[0]*5, DefaultSize[1]) )
-    plt.savefig('image.png',bbox_inches='tight', dpi=(300))
+
+    MData.image()
 
 if args.netcdf:
 
-    inst_type = Ylabel
-    EPIC_VARS_dict = ConfigParserLocal.get_config('EcoFOCI_config/epickeys/' + plot_var + '_epickeys.json')
-
-    epic_dt = Datetime2EPIC((num2date(time_array,'days since 0001-01-01')).tolist())
-
-    data_dic = {}
-    mesh_grid_data[np.isnan(mesh_grid_data)] = 1e35
-    data_dic[plot_var] = mesh_grid_data
-    ncinstance = GriddedNC(savefile=inst_type+'_gridded.nc')
-    ncinstance.file_create()
-    ncinstance.sbeglobal_atts(raw_data_file='', Station_Name = MooringID, Water_Depth=depth_m, InstType=inst_type)
-    ncinstance.dimension_init(time_len=len(time_array),depth_len=len(data.keys()))
-    ncinstance.variable_init(EPIC_VARS_dict)
-    try:
-        ncinstance.add_coord_data(depth=sorted(data.keys()), latitude=ncdata['lat'][0], longitude=ncdata['lon'][0], time1=epic_dt[0], time2=epic_dt[1])
-    except:
-        ncinstance.add_coord_data(depth=sorted(data.keys()), latitude=ncdata['latitude'][0], longitude=ncdata['longitude'][0], time1=epic_dt[0], time2=epic_dt[1])
-    ncinstance.add_data(EPIC_VARS_dict,data_dic=data_dic)
-    ncinstance.add_history('Gridded using:{program}, Config file used:{file}\n'.format(program=__file__,file=args.PointerFile))
-    ncinstance.close()
+    MData.save2nc()
 
 if args.FillGaps and args.netcdf:
 
-    inst_type = Ylabel
-    EPIC_VARS_dict = ConfigParserLocal.get_config('EcoFOCI_config/epickeys/' + plot_var + '_epickeys.json')
-
-    epic_dt = Datetime2EPIC((num2date(time_array,'days since 0001-01-01')).tolist())
-
-    data_dic = {}
-    mesh_grid_data[np.isnan(mesh_grid_data)] = 1e35
-    data_dic[plot_var] = mesh_grid_data
-    ncinstance = GriddedNC(savefile=inst_type+'_gridded.nc')
-    ncinstance.file_create()
-    ncinstance.sbeglobal_atts(raw_data_file='', Station_Name = MooringID, Water_Depth=depth_m, InstType=inst_type)
-    ncinstance.dimension_init(time_len=len(time_array),depth_len=len(data.keys()))
-    ncinstance.variable_init(EPIC_VARS_dict)
-    try:
-        ncinstance.add_coord_data(depth=sorted(data.keys()), latitude=ncdata['lat'][0], longitude=ncdata['lon'][0], time1=epic_dt[0], time2=epic_dt[1])
-    except:
-        ncinstance.add_coord_data(depth=sorted(data.keys()), latitude=ncdata['latitude'][0], longitude=ncdata['longitude'][0], time1=epic_dt[0], time2=epic_dt[1])
-    ncinstance.add_data(EPIC_VARS_dict,data_dic=data_dic)
-    ncinstance.add_history('Gridded using:{program}, Config file used:{file}\n Gaps filled Linearly\n'.format(program=__file__,file=args.PointerFile))
-    ncinstance.close()    
+    MData.fillgaps()
+    MData.save2nc()
+   
