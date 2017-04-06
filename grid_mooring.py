@@ -119,8 +119,8 @@ if args.PointerFile.split('.')[-1] == 'pyini':
     start_time_int = date2num(datetime.datetime.strptime(start_time,"%Y-%m-%d"),'days since 0001-01-01')
     end_time_int = date2num(datetime.datetime.strptime(end_time,"%Y-%m-%d"),'days since 0001-01-01')
 elif args.PointerFile.split('.')[-1] == 'yaml':
-    start_time_int = date2num(start_time,'days since 0001-01-01')
-    end_time_int = date2num(end_time,'days since 0001-01-01')
+    start_time_int = date2num(datetime.datetime.strptime(start_time,"%Y-%m-%d"),'days since 0001-01-01')
+    end_time_int = date2num(datetime.datetime.strptime(end_time,"%Y-%m-%d"),'days since 0001-01-01')
 
 
 ### some mpl specif settings for fonts and plot style
@@ -203,7 +203,6 @@ if args.FillGaps:
     mesh_grid_data_fg = mesh_grid_data
     mask = np.isnan(mesh_grid_data)
     mesh_grid_data_fg[mask] = np.interp(np.flatnonzero(mask), np.flatnonzero(~mask), mesh_grid_data[~mask])
-  
         
 if args.contour:
 
