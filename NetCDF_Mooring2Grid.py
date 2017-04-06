@@ -1,7 +1,7 @@
 #!/usr/bin/env
 
 """
-grid_mooring.py
+NetCDF_Mooring2Grid.py
 
 Usage:
 ------
@@ -33,6 +33,7 @@ example pointer-file format:
 
  History:
  --------
+ 2017-04-06: SBELL Rename, convert to classes and clean routines
  2016-08-02: update EPIC to CF time routines to be in EPIC2Datetime.py and removed time calls
     in this routine.
 
@@ -69,7 +70,40 @@ __version__  = "0.1.0"
 __status__   = "Development"
 __keywords__ = 'Mooring', 'gridded', '2d', 'plots'
 
-    
+
+"""--------------------------------main Routines---------------------------------------"""
+
+def PointerReader(pointer_file_path):
+    """
+    Get parameters from specified pointerfile: 
+        An example is shown in the header description of
+        this program.
+
+    """
+
+    if pointer_file.split('.')[-1] == 'pyini':
+        pointer_file = ConfigParserLocal.get_config(pointer_file_path)
+    elif pointer_file.split('.')[-1] == 'yaml':
+        pointer_file = ConfigParserLocal.get_config_yaml(pointer_file_path)
+    else:
+        print "PointerFile format not recognized"
+        sys.exit()  
+
+    pointer_dic = {}
+    pointer_dic['files'] = pointer_file['mooring_files']
+    pointer_dic['MooringID'] = pointer_file['MooringID']
+    pointer_dic['plot_var'] = pointer_file['EPIC_Key']
+    pointer_dic['LocatorInterval'] = pointer_file['Date_Ticks']
+    pointer_dic['Ylabel'] = pointer_file['Ylabel']
+    pointer_dic['output_type'] = pointer_file['output_type']
+    pointer_dic['nominal_depth'] = pointer_file['nominal_depth']
+    pointer_dic['start_time'] = pointer_file['start_time']
+    pointer_dic['end_time'] = pointer_file['end_time']
+    pointer_dic['depth_interval_m'] = pointer_file['depth_interval_m']
+    pointer_dic['depth_m'] = pointer_file['depth_m']  
+
+    return pointer_file
+
 """--------------------------------main Routines---------------------------------------"""
 
 parser = argparse.ArgumentParser(description='Grid and plot data from multiple instruments on a mooring')
@@ -86,41 +120,14 @@ parser.add_argument('-nc','--netcdf', action="store_true",
                
 args = parser.parse_args()
 
-"""
-Get parameters from specified pointerfile: 
-    An example is shown in the header description of
-    this program.
 
-"""
-if args.PointerFile.split('.')[-1] == 'pyini':
-    pointer_file = ConfigParserLocal.get_config(args.PointerFile)
-elif args.PointerFile.split('.')[-1] == 'yaml':
-    pointer_file = ConfigParserLocal.get_config_yaml(args.PointerFile)
-else:
-    print "PointerFile format not recognized"
-    sys.exit()
-
-MooringDataPath = pointer_file['mooring_data_path']
-files = pointer_file['mooring_files']
-MooringID = pointer_file['MooringID']
-plot_var = pointer_file['EPIC_Key']
-LocatorInterval = pointer_file['Date_Ticks']
-Ylabel = pointer_file['Ylabel']
-output_type = pointer_file['output_type']
-nominal_depth = pointer_file['nominal_depth']
-start_time = pointer_file['start_time']
-end_time = pointer_file['end_time']
-depth_interval_m = pointer_file['depth_interval_m']
-depth_m = pointer_file['depth_m']
+pdic = PointerReader(args.PointerFile)
 
 
-files_path = [a+b for a,b in zip(MooringDataPath,files)]
-if args.PointerFile.split('.')[-1] == 'pyini':
-    start_time_int = date2num(datetime.datetime.strptime(start_time,"%Y-%m-%d"),'days since 0001-01-01')
-    end_time_int = date2num(datetime.datetime.strptime(end_time,"%Y-%m-%d"),'days since 0001-01-01')
-elif args.PointerFile.split('.')[-1] == 'yaml':
-    start_time_int = date2num(datetime.datetime.strptime(start_time,"%Y-%m-%d"),'days since 0001-01-01')
-    end_time_int = date2num(datetime.datetime.strptime(end_time,"%Y-%m-%d"),'days since 0001-01-01')
+
+files_path = [a+b for a,b in zip(pdic['mooring_data_path'],pdic['mooring_files'])]
+start_time_int = date2num(datetime.datetime.strptime(start_time,"%Y-%m-%d"),'days since 0001-01-01')
+end_time_int = date2num(datetime.datetime.strptime(end_time,"%Y-%m-%d"),'days since 0001-01-01')
 
 
 ### some mpl specif settings for fonts and plot style
