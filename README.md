@@ -74,8 +74,9 @@ EcoFOCI timeseries processing tools
 -----
 
 *** (truncate report)
+`
 .
-   ├── Docs   
+├── Docs   
 │   └── instrument_depth_config.readme   
 ├── EcoFOCI_config   
 │   ├── db_config   
@@ -141,3 +142,4 @@ EcoFOCI timeseries processing tools
 ├── timeseries_1varplot.py   
 ├── timeseries_2varplot.py   
 └── timeseries_3varplot.py   
+`
