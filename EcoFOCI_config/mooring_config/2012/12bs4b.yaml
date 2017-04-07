@@ -1,31 +1,31 @@
 ---
 MooringID: 12BS-4B
 ctd_data_path:
-- /Users/bell/ecoraid/2012/CTDcasts/dy1208/final_data/ctd/
-- /Users/bell/ecoraid/2013/CTDcasts/dy1305/final_data/ctd/
-- /Users/bell/ecoraid/2013/CTDcasts/aq1301/final_data/ctd/
-- /Users/bell/ecoraid/2012/CTDcasts/aq1201/final_data/ctd/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/CTDcasts/dy1208/final_data/ctd/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/CTDcasts/dy1305/final_data/ctd/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/CTDcasts/aq1301/final_data/ctd/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/CTDcasts/aq1201/final_data/ctd/
 ctd_files:
 - dy1208c128_ctd.nc
 - dy1305c032_ctd.nc
 - aq1301c050_ctd.nc
 - aq1201c068_ctd.nc
 mooring_data_path:
-- /Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
-- /Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
-- /Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
-- /Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
-- /Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
-- /Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
-- /Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
-- /Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
-- /Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
-- /Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
-- /Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
-- /Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
-- /Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
-- /Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
-- /Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/Moorings/12bs4b/final_data/
 mooring_files:
 - 12bs4b_ecf_0013m.nc
 - 12bs4b_s37_0013m.nc
@@ -42,8 +42,7 @@ mooring_files:
 - 12bs4b_s39_0060m.nc
 - 12bs4b_s39_0067m.nc
 - 12bs4b_sc_0031m.nc
-nominal_depth:
-- [13,13,18,55,15,19,23,27,35,40,45,50,60,67,31]
+nominal_depth: [13,13,18,55,15,19,23,27,35,40,45,50,60,67,31]
 colors:
 - k-
 - b-

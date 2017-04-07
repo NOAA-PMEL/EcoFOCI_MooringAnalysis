@@ -239,27 +239,39 @@ class Data2Grid(object):
         ax.xaxis.set_major_formatter(ticker.NullFormatter())
         ax.xaxis.set_minor_formatter(DateFormatter('%b %y'))
         cbar = plt.colorbar()
-        cbar.set_label('Temperature (C)')
+        cbar.set_label(self.pointer_dic['Ylabel'])
         plt.gca().invert_yaxis()
         DefaultSize = fig.get_size_inches()
         fig.set_size_inches( (DefaultSize[0]*5, DefaultSize[1]) )
-        plt.savefig('images/'+self.MooringID+'_contour.png',bbox_inches='tight', dpi=(300))
+        plt.savefig('images/'+self.MooringID+'_'+self.pointer_dic['EPIC_Key']+'_contour.png',bbox_inches='tight', dpi=(300))
 
     def image(self):
+
+        if self.pointer_dic['Ylabel'].lower() == 'temperature':
+            cmap=cmocean.cm.thermal
+            vmin = -2.0
+            vmax = 15.0
+        elif self.pointer_dic['Ylabel'].lower() == 'salinity':
+            cmap=cmocean.cm.haline
+            vmin = 30
+            vmax = 34
+        else:
+            cmap='viridis'
+
 
         fig = plt.figure()
         ax = plt.subplot(111)
         extent = (self.time_array.min(), self.time_array.max(), self.press_grid.max(), self.press_grid.min()) # extent of the plots
-        plt.imshow(np.transpose(self.mesh_grid_data2),extent=extent, cmap=cmocean.cm.thermal, vmin=-2.0, vmax=15.0, aspect='auto')
+        plt.imshow(np.transpose(self.mesh_grid_data2),extent=extent, cmap=cmap, vmin=vmin, vmax=vmax, aspect='auto')
         ax.xaxis.set_major_locator(MonthLocator(interval=1))
         ax.xaxis.set_minor_locator(DayLocator(bymonthday=15))
         ax.xaxis.set_major_formatter(ticker.NullFormatter())
         ax.xaxis.set_minor_formatter(DateFormatter('%b %y'))
         cbar = plt.colorbar()
-        cbar.set_label('Temperature (C)')
+        cbar.set_label(self.pointer_dic['Ylabel'])
         DefaultSize = fig.get_size_inches()
         fig.set_size_inches( (DefaultSize[0]*5, DefaultSize[1]) )
-        plt.savefig('images/'+self.MooringID+'_image.png',bbox_inches='tight', dpi=(300))
+        plt.savefig('images/'+self.MooringID+'_'+self.pointer_dic['EPIC_Key']+'_image.png',bbox_inches='tight', dpi=(300))
 
 """--------------------------------main Routines---------------------------------------"""
 
