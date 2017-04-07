@@ -40,7 +40,7 @@ example pointer-file format:
 """
 
 #System Stack
-import os
+import sys
 import datetime
 import argparse
 
@@ -86,7 +86,7 @@ def PointerReader(pointer_file_path):
     elif pointer_file_path.split('.')[-1] == 'yaml':
         pointer_file = ConfigParserLocal.get_config_yaml(pointer_file_path)
     else:
-        print "PointerFile format not recognized"
+        print("PointerFile format not recognized")
         sys.exit()  
 
     return pointer_file
@@ -115,10 +115,10 @@ class Data2Grid(object):
     def load(self):
         self.data = {}
         for ind, ncfile in enumerate(self.files_path):
-            print "Working on {0}".format(ncfile)
+            print("Working on {0}").format(ncfile)
 
             df = EcoFOCI_netCDF(ncfile)
-            global_atts = df.get_global_atts()
+            df.get_global_atts()
             vars_dic = df.get_vars()
             if self.plot_var in vars_dic:
                 ncdata = df.ncreadfile_dic()
@@ -152,11 +152,10 @@ class Data2Grid(object):
 
         mesh_grid_data = np.array([])
         mesh_grid_data2 = np.array([])
-        date_time = []
         #after reading the data into dictionary sort and match times
         for i, st in enumerate(self.time_array):
             if (datetime.datetime.fromordinal(int(st))).day == 1:
-                print datetime.datetime.fromordinal(int(st))
+                print(datetime.datetime.fromordinal(int(st)))
             mesh_depth_data = np.array([])
             mesh_depth_data2 = np.array([])
             self.press_grid_data = np.array([])
@@ -189,6 +188,7 @@ class Data2Grid(object):
                 self.mesh_grid_data = mesh_grid_data
                 self.mesh_grid_data2 = mesh_grid_data2
 
+
     def fillgaps(self):
         mesh_grid_data_fg = self.mesh_grid_data
         mask = np.isnan(self.mesh_grid_data)
@@ -207,7 +207,7 @@ class Data2Grid(object):
         data_dic = {}
         self.mesh_grid_data[np.isnan(self.mesh_grid_data)] = 1e35
         data_dic[self.plot_var] = self.mesh_grid_data
-        ncinstance = GriddedNC(savefile=self.MooringID+'_'+self.plot_var+'_gridded.nc')
+        ncinstance = GriddedNC(savefile='data/'+self.MooringID+'_'+self.plot_var+'_gridded.nc')
         ncinstance.file_create()
         ncinstance.sbeglobal_atts(raw_data_file='', Station_Name = self.MooringID, Water_Depth=self.pointer_dic['depth_m'], InstType=inst_type)
         ncinstance.dimension_init(time_len=len(self.time_array),depth_len=len(self.data.keys()))
@@ -225,7 +225,7 @@ class Data2Grid(object):
 
     def contour(self):
 
-    #find small overlap period and replace with np.nan
+        #find small overlap period and replace with np.nan
 
         overlap_t=self.time_array[3645]
         self.mesh_grid_data[np.where((self.time_array>=overlap_t)&(self.time_array<=overlap_t+1))]=np.nan
@@ -249,14 +249,16 @@ class Data2Grid(object):
 
         if self.pointer_dic['Ylabel'].lower() == 'temperature':
             cmap=cmocean.cm.thermal
-            vmin = -2.0
-            vmax = 15.0
+            vmin = np.nanmin(self.mesh_grid_data2)
+            vmax = np.nanmax(self.mesh_grid_data2)
         elif self.pointer_dic['Ylabel'].lower() == 'salinity':
             cmap=cmocean.cm.haline
-            vmin = 30
-            vmax = 34
+            vmin = np.nanmin(self.mesh_grid_data2)
+            vmax = np.nanmax(self.mesh_grid_data2)
         else:
             cmap='viridis'
+            vmin = np.nanmin(self.mesh_grid_data2)
+            vmax = np.nanmax(self.mesh_grid_data2)
 
 
         fig = plt.figure()
@@ -270,7 +272,7 @@ class Data2Grid(object):
         cbar = plt.colorbar()
         cbar.set_label(self.pointer_dic['Ylabel'])
         DefaultSize = fig.get_size_inches()
-        fig.set_size_inches( (DefaultSize[0]*5, DefaultSize[1]) )
+        fig.set_size_inches( (DefaultSize[0]*2.5, DefaultSize[1]/2.5) )
         plt.savefig('images/'+self.MooringID+'_'+self.pointer_dic['EPIC_Key']+'_image.png',bbox_inches='tight', dpi=(300))
 
 """--------------------------------main Routines---------------------------------------"""
