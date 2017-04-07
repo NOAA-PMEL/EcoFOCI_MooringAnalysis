@@ -1,0 +1,107 @@
+---
+MooringID: 11BS-4A
+ctd_data_path:
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/CTDcasts/dy1205/final_data/ctd/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/CTDcasts/dy1205/final_data/ctd/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2012/CTDcasts/aq1201/final_data/ctd/
+ctd_files:
+- dy1205c017_ctd.nc
+- dy1205c019_ctd.nc
+- aq1201c068_ctd.nc
+mooring_data_path:
+- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+mooring_files:
+- 11bs4a_ecft_0032m.nc
+- 11bs4a_mt_0045m.nc
+- 11bs4a_mt_0046m.nc
+- 11bs4a_mt_0060m.nc
+- 11bs4a_mt_0061m.nc
+- 11bs4a_s37_0013m.nc
+- 11bs4a_s37_0018m.nc
+- 11bs4a_s37_0055m.nc
+- 11bs4a_s39_0015m.nc
+- 11bs4a_s39_0019m.nc
+- 11bs4a_s39_0023m.nc
+- 11bs4a_s39_0027m.nc
+- 11bs4a_s39_0035m.nc
+- 11bs4a_s39_0040m.nc
+- 11bs4a_s39_0050m.nc
+- 11bs4a_s39_0070m.nc
+nominal_depth: [32,45,46,60,61,13,18,55,15,19,23,27,35,40,50,70]
+colors:
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- k--
+- b--
+- m--
+- g--
+- r--
+- c--
+- k-.
+- b-.
+- m-.
+- g-.
+- r-.
+- c-.
+- 'k:'
+- 'b:'
+- 'm:'
+- 'g:'
+- 'r:'
+- 'c:'
+legend:
+- 32m ecf
+- 45m mt
+- 46m mt
+- 60m mt
+- 61m mt
+- 13m s37
+- 18m s37
+- 55m s37
+- 15m s39
+- 19m s39
+- 23m s39
+- 27m s39
+- 35m s39
+- 40m s39
+- 50m s39
+- 70m s39
+dtype: mooring
+legend_loc: upper center
+legend_off: false
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+#EPIC_Key: P_1
+#EPIC_Key_ctd: P_1
+#Ylabel: Pressure (dB)
+Date_Ticks: multi_month
+plot_stylesheet: seaborn-poster
+output_type: png
+start_time: '2011-09-25'
+end_time: '2012-05-26'
+depth_interval_m: 1
+depth_m: 70
+notes: >
