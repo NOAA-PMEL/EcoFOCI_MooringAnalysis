@@ -62,7 +62,10 @@ data = df.ncreadfile_dic()
 try :
     epic_var_ind = (args.add_epic_var).split('_')[1]
     print "Adding {0} by searching for {1}".format(args.add_epic_var, epic_var_ind)
-    newvar = nchandle.createVariable(EPIC_VARS_dict[epic_var_ind]['EPIC_KEY'],'f4',('time','depth','lat','lon'))
+    try:
+        newvar = nchandle.createVariable(EPIC_VARS_dict[epic_var_ind]['EPIC_KEY'],'f4',('time','depth','lat','lon'))
+    except:
+        newvar = nchandle.createVariable(EPIC_VARS_dict[epic_var_ind]['EPIC_KEY'],'f4',('time','dep','lat','lon'))
     newvar.setncattr('name',EPIC_VARS_dict[epic_var_ind]['NAME'])
     newvar.long_name = EPIC_VARS_dict[epic_var_ind]['LONGNAME']
     newvar.generic_name = EPIC_VARS_dict[epic_var_ind]['GENERIC_NAME']
