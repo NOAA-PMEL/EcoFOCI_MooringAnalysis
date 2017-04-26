@@ -46,7 +46,7 @@ parser.add_argument('epickey', metavar='epickey', nargs=2, type=str,
                help='epic key code of data parameter to plot')
 parser.add_argument('instname', metavar='instname', type=str,
                help='instrument name')
-parser.add_argument("-fp",'--full_path', action="store_true", help='provides full path to program: used if run as script')
+parser.add_argument("-rot",'--rotate', type=float, help='rotate vectors angle provided', default=0.0)
 parser.add_argument("-di",'--depth_index', type=int, help='0 indexed value for depth parameter to plot if 2d')
           
 args = parser.parse_args()
@@ -89,7 +89,8 @@ except KeyError:
 
 plt1, fig1 = p1.plot(timedata=nctime, 
                      udata=ncdata[args.epickey[0]][:,depth_index,0,0], 
-                     vdata=ncdata[args.epickey[1]][:,depth_index,0,0])
+                     vdata=ncdata[args.epickey[1]][:,depth_index,0,0],
+                     rotate=args.rotate)
 
 
 t = fig1.suptitle(t1)
@@ -99,11 +100,7 @@ fig1.autofmt_xdate()
 DefaultSize = fig1.get_size_inches()
 fig1.set_size_inches( (DefaultSize[0]*2, DefaultSize[1]) )
 
-if not args.full_path:
-    plt1.savefig('images/'+ args.DataPath.split('/')[-1] + '_quiver.png', bbox_inches='tight', dpi = (300))
-else:
-    parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    plt1.savefig(parent_dir + '/EcoFOCI_MooringAnalysis/images/'+ args.DataPath.split('/')[-1] + '_quiver.png', bbox_inches='tight', dpi = (300))
+plt1.savefig('images/'+ args.DataPath.split('/')[-1] + '_quiver.png', bbox_inches='tight', dpi = (300))
 
 plt1.close()
 

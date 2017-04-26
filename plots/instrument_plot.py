@@ -367,6 +367,12 @@ class Timeseries1dStickPlot(object):
 
     def plot(self, timedata=None, udata=None, vdata=None, ylabel=None, **kwargs):
 
+      if kwargs['rotate'] != 0.0:
+          print "rotating vectors"
+          angle_offset_rad = np.deg2rad(kwargs['rotate'])
+          udata = udata*np.cos(angle_offset_rad) + vdata*np.sin(angle_offset_rad)
+          vdata = -1*udata*np.sin(angle_offset_rad) + vdata*np.cos(angle_offset_rad)
+
       magnitude = np.sqrt(udata**2 + vdata**2)
 
       fig = plt.figure(1)
