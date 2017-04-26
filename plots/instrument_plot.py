@@ -395,6 +395,7 @@ class Timeseries1dStickPlot(object):
       qk = plt.quiverkey(q,0.2, 0.05, 5,r'$5 \frac{cm}{s}$',labelpos='W',
                      fontproperties={'weight': 'bold'})
 
+
       # Plot u and v components
       ax1.set_xticklabels(ax1.get_xticklabels(), visible=False)
       ax2.set_xticklabels(ax2.get_xticklabels(), visible=True)
@@ -417,7 +418,9 @@ class Timeseries1dStickPlot(object):
       ax2.yaxis.set_ticks_position('both')
       ax2.tick_params(axis='both', which='minor', labelsize=self.labelsize)
       ax1.tick_params(axis='both', which='minor', labelsize=self.labelsize)
-
+      #manual time limit sets
+      #ax1.set_xlim([datetime.datetime(2016,2,1),datetime.datetime(2016,9,15)])
+      #ax2.set_xlim([datetime.datetime(2016,2,1),datetime.datetime(2016,9,15)])
       # Set legend location - See: http://matplotlib.org/Volumes/WDC_internal/users/legend_guide.html#legend-location
       leg2 = plt.legend(['v','u'],loc='upper left')
       leg2._drawFrame=False

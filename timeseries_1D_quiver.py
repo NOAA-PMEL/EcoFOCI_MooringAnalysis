@@ -43,7 +43,7 @@ parser = argparse.ArgumentParser(description='Timeseries plotting')
 parser.add_argument('DataPath', metavar='DataPath', type=str,
                help='full path to file')
 parser.add_argument('epickey', metavar='epickey', nargs=2, type=str, 
-               help='epic key code of data parameter to plot')
+               help='epic key code of data parameter to plot (u,v)')
 parser.add_argument('instname', metavar='instname', type=str,
                help='instrument name')
 parser.add_argument("-rot",'--rotate', type=float, help='rotate vectors angle provided', default=0.0)
