@@ -101,6 +101,7 @@ else:
 MooringID = pointer_file['MooringID']
 color_options = pointer_file['colors']
 label = pointer_file['legend']
+nominal_depth = pointer_file['nominal_depth']
 legend_loc = pointer_file['legend_loc']
 legend_off = pointer_file['legend_off']
 datatype = pointer_file['dtype']
@@ -295,7 +296,7 @@ if args.ctd_calibration_plots:
 		### CTD cal data retrieval
 		for ind_ctd, ncfile_ctd in enumerate(ctd_files_path):
 			print "Adding CTD cast {active_ctd_file} at depth {depth}".format(active_ctd_file=ncfile_ctd,
-				depth=int(label[ind].split('m')[0]))
+				depth=int(nominal_depth[ind]))
 			df_ctd = EcoFOCI_netCDF(ncfile_ctd)
 			global_atts = df_ctd.get_global_atts()
 			vars_dic = df_ctd.get_vars()
@@ -306,11 +307,11 @@ if args.ctd_calibration_plots:
 			### plot ctd data on top of mooring data
 			plt.hold(True)
 			try:
-				plt.scatter(nctime_ctd, ncdata_ctd[plot_var_ctd][0,int(label[ind].split('m')[0]),0,0],s=200,edgecolor='r',facecolor='none')
-				plt.scatter(nctime_ctd, ncdata_ctd[plot_var_ctd][0,int(label[ind].split('m')[0]),0,0],s=50,edgecolor='r',facecolor='r',marker='+')
-				print ncdata_ctd[plot_var_ctd][0,int(label[ind].split('m')[0]),0,0]
+				plt.scatter(nctime_ctd, ncdata_ctd[plot_var_ctd][0,int(nominal_depth[ind]),0,0],s=200,edgecolor='r',facecolor='none')
+				plt.scatter(nctime_ctd, ncdata_ctd[plot_var_ctd][0,int(nominal_depth[ind]),0,0],s=50,edgecolor='r',facecolor='r',marker='+')
+				print ncdata_ctd[plot_var_ctd][0,int(nominal_depth[ind]),0,0]
 			except IndexError:
-				print "Likely no matching depth {0} - cast only reaches {1}m".format(int(label[ind].split('m')[0]),len(ncdata_ctd[plot_var_ctd][0,:,0,0])-1)
+				print "Likely no matching depth {0} - cast only reaches {1}m".format(int(nominal_depth[ind]),len(ncdata_ctd[plot_var_ctd][0,:,0,0])-1)
 				continue
 
 		#set bounds if estabilshed by user

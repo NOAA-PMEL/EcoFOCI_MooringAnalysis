@@ -2,9 +2,12 @@ Date_Ticks: multi_day
 #EPIC_Key: T_20
 #EPIC_Key_ctd: T_28
 #Ylabel: Temperature
-EPIC_Key: S_41
-EPIC_Key_ctd: S_41
-Ylabel: Salinity
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_41
+#Ylabel: Salinity
+EPIC_Key: PAR_908
+EPIC_Key_ctd: PAR_905
+Ylabel: PAR
 MooringID: 14CK_7A
 colors:
 - k-
@@ -23,6 +26,9 @@ dtype: mooring
 legend:
 - 38m sc 14ckp7a
 - 39m an9 14ckip6a
+nominal_depth:
+- 38
+- 39
 legend_loc: upper center
 legend_off: false
 mooring_data_path:

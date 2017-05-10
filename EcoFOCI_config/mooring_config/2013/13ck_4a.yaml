@@ -1,10 +1,19 @@
 Date_Ticks: multi_day
-# EPIC_Key: T_20
-# EPIC_Key_ctd: T_28
-# Ylabel: Temperature
-EPIC_Key: S_41
-EPIC_Key_ctd: S_41
-Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+#EPIC_Key: OST_62
+#EPIC_Key_ctd: OST_62
+#Ylabel: OxySat (%)
+#EPIC_Key: O_65
+#EPIC_Key_ctd: O_65
+#Ylabel: OxyConc
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_41
+#Ylabel: Salinity
+EPIC_Key: Fch_906
+EPIC_Key_ctd: fWS_973
+Ylabel: Flurometric Chl
 MooringID: 13CK_4A
 colors:
 - k-
@@ -18,14 +27,22 @@ ctd_files:
 dtype: mooring
 legend:
 - 49m sc 13ckp
+- 48m ecf 13ckp
 - 46m s37 13ckt
+nominal_depth:
+# depths are maxed at deepest ctd values for comparisons
+- 46
+- 46
+- 46
 legend_loc: upper center
 legend_off: false
 mooring_data_path:
 - /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13ckp4a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13ckp4a/final_data/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13ckt4a/working/
 mooring_files:
 - 13ckp4a_sc_0049m.nc
+- 13ckp4a_ecf_0048m.nc
 - 13ckt4a_s37_0046m.unqcd.trimmed_missing.nc
 notes: none
 output_type: png
