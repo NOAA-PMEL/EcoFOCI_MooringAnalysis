@@ -1,0 +1,9 @@
+#
+############### Requirements without Version Specifiers #########
+#
+numpy
+pandas
+netCDF4
+matplotlib
+json
+yaml
