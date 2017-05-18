@@ -17,10 +17,12 @@ colors:
 ctd_data_path:
 - /Volumes/WDC_internal/Users/bell/ecoraid/2014/CTDCasts/aq1401l2/final_data/ctd/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2014/CTDCasts/aq1401l2/final_data/ctd/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2015/CTDCasts/rb1505/final_data/ctd/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2015/CTDCasts/aq1501/final_data/ctd/
 ctd_files:
 - aq1401l2c040_ctd.nc
 - aq1401l2c043_ctd.nc
+- rb1505c109_ctd.nc
 - aq1501c006_ctd.nc
 dtype: mooring
 legend:

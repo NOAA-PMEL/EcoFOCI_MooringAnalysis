@@ -2,9 +2,21 @@ Date_Ticks: multi_day
 #EPIC_Key: T_20
 #EPIC_Key_ctd: T_28
 #Ylabel: Temperature
-EPIC_Key: S_41
-EPIC_Key_ctd: S_41
-Ylabel: Salinity
+#EPIC_Key: OST_62
+#EPIC_Key_ctd: OST_62
+#Ylabel: OxySat (%)
+#EPIC_Key: O_65
+#EPIC_Key_ctd: O_65
+#Ylabel: OxyConc
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_41
+#Ylabel: Salinity
+#EPIC_Key: PAR_908
+#EPIC_Key_ctd: PAR_905
+#Ylabel: PAR
+EPIC_Key: Trb_980
+EPIC_Key_ctd: Trb_980
+Ylabel: Turbidity
 MooringID: 13CK_6A
 colors:
 - k-
@@ -22,14 +34,19 @@ legend:
 - 39m sc 13ckp
 - 39m s37 13ckt
 - 38m an9 13ckip
+nominal_depth:
+# depths are maxed at deepest ctd values for comparisons
+- 39
+- 39
+- 38
 legend_loc: upper center
 legend_off: false
 mooring_data_path:
-- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13ckp6a/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13ckp6a/final_data/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13ckt6a/working/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13ckip6a/final_data/
 mooring_files:
-- 13ckp6a_sc_0039m.unqcd.trimmed_missing.nc
+- 13ckp6a_sc_0039m.nc
 - 13ckt6a_s37_0039m.unqcd.trimmed_missing.nc
 - 13ckip6a_an9_0038m.nc
 notes: No sal at 13ckip and temp looks questionable on rcm
