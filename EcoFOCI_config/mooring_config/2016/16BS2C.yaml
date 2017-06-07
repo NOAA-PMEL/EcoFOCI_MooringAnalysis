@@ -1,0 +1,81 @@
+---
+MooringID: 16BS-2
+Date_Ticks: multi_month
+start_time: 2016-09-29
+end_time: 2017-04-27
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
+EPIC_Key: Fch_906
+EPIC_Key_ctd: F_903
+Ylabel: Chlor
+#EPIC_Key: OST_62
+#EPIC_Key_ctd: OST_62
+#Ylabel: Oxygen_PSat
+colors:
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- k--
+- b--
+- m--
+- g--
+- r--
+- c--
+- k-.
+- b-.
+- m-.
+- g-.
+- r-.
+- c-.
+ctd_data_path:
+- '/Users/bell/ecoraid/2016/CTDcasts/dy1606/initial_archive/allparameters/'
+- '/Users/bell/ecoraid/2016/CTDcasts/dy1610/initial_archive/allparameters/'
+- '/Users/bell/ecoraid/2017/CTDcasts/dy1704/initial_archive/allparameters/'
+- '/Users/bell/ecoraid/2017/CTDcasts/dy1704/initial_archive/allparameters/'
+ctd_files:
+- 'dy1606c002_ctd.nc'
+- 'dy1610c007_ctd.nc'
+- 'dy1704c007_ctd.nc'
+- 'dy1704c040_ctd.nc'
+dtype: mooring
+legend:
+- 11m ecf
+- 23m ecf 
+- 31m s37
+- 55m s37
+- 19m s39 
+- 27m s39 
+legend_loc: upper center
+legend_off: false
+nominal_depth:
+- 11
+- 23 
+- 31
+- 55
+- 19
+- 27
+mooring_data_path:
+- /Users/bell/ecoraid/2016/Moorings/16bs2c/working/
+- /Users/bell/ecoraid/2016/Moorings/16bs2c/working/
+- /Users/bell/ecoraid/2016/Moorings/16bs2c/working/
+- /Users/bell/ecoraid/2016/Moorings/16bs2c/working/
+- /Users/bell/ecoraid/2016/Moorings/16bs2c/working/
+- /Users/bell/ecoraid/2016/Moorings/16bs2c/working/
+mooring_files:
+- 16bs2c_ecf_0011m.interpolated.trimmed_missing.nc
+- 16bs2c_ecf_0023m.interpolated.trimmed_missing.nc
+- 16bs2c_s37_0031m.unqcd.trimmed_missing.nc
+- 16bs2c_s37_0055m.unqcd.trimmed_missing.nc
+- 16bs2c_s39_0019m.unqcd.trimmed_missing.nc
+- 16bs2c_s39_0027m.unqcd.trimmed_missing.nc
+notes:
+output_type: png
+plot_stylesheet: seaborn-poster
+
