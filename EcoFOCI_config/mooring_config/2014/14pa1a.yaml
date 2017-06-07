@@ -1,0 +1,43 @@
+Date_Ticks: multi_day
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_41
+#Ylabel: Salinity
+MooringID: 14PA1A
+colors:
+- k-
+- b-
+- m-
+- g-
+- r-
+ctd_data_path:
+- /Volumes/WDC_internal/Users/bell/ecoraid/2015/CTDCasts/dy1504/final_data/ctd/
+ctd_files:
+- dy1504c001_ctd.nc
+dtype: mooring
+legend:
+- 20m mt
+- 60m mt
+- 98m s37
+nominal_depth:
+# depths are maxed at deepest ctd values for comparisons
+- 20
+- 60
+- 65 
+legend_loc: upper center
+legend_off: false
+mooring_data_path:
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14pa1a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14pa1a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14pa1a/final_data/
+mooring_files:
+#- 14pa1a_mt3138_0020m.unqcd.interpolated.nc
+- 14pa1a_mt3180_0020m.nc
+#- 14pa1a_mt3122_0060m.unqcd.interpolated.nc
+- 14pa1a_mt3202_0060m.nc
+- 14pa1a_s37_0098m.nc
+notes: 
+output_type: png
+plot_stylesheet: seaborn-poster
