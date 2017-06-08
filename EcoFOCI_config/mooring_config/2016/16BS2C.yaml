@@ -12,6 +12,9 @@ Ylabel: Temperature
 EPIC_Key: Fch_906
 EPIC_Key_ctd: F_903
 Ylabel: Chlor
+EPIC_Key: P_1
+EPIC_Key_ctd: P_1
+Ylabel: Pressure
 #EPIC_Key: OST_62
 #EPIC_Key_ctd: OST_62
 #Ylabel: Oxygen_PSat
@@ -35,10 +38,10 @@ colors:
 - r-.
 - c-.
 ctd_data_path:
-- '/Users/bell/ecoraid/2016/CTDcasts/dy1606/initial_archive/allparameters/'
-- '/Users/bell/ecoraid/2016/CTDcasts/dy1610/initial_archive/allparameters/'
-- '/Users/bell/ecoraid/2017/CTDcasts/dy1704/initial_archive/allparameters/'
-- '/Users/bell/ecoraid/2017/CTDcasts/dy1704/initial_archive/allparameters/'
+- '/Volumes/WDC_internal/Users/bell/ecoraid/2016/CTDcasts/dy1606/initial_archive/allparameters/'
+- '/Volumes/WDC_internal/Users/bell/ecoraid/2016/CTDcasts/dy1610/initial_archive/allparameters/'
+- '/Volumes/WDC_internal/Users/bell/ecoraid/2017/CTDcasts/dy1704/initial_archive/allparameters/'
+- '/Volumes/WDC_internal/Users/bell/ecoraid/2017/CTDcasts/dy1704/initial_archive/allparameters/'
 ctd_files:
 - 'dy1606c002_ctd.nc'
 - 'dy1610c007_ctd.nc'
@@ -62,15 +65,15 @@ nominal_depth:
 - 19
 - 27
 mooring_data_path:
-- /Users/bell/ecoraid/2016/Moorings/16bs2c/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs2c/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs2c/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs2c/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs2c/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs2c/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/working/
 mooring_files:
 - 16bs2c_ecf_0011m.interpolated.trimmed_missing.nc
-- 16bs2c_ecf_0023m.interpolated.trimmed_missing.nc
+- 16bs2c_ecf_0023m.nc
 - 16bs2c_s37_0031m.unqcd.trimmed_missing.nc
 - 16bs2c_s37_0055m.unqcd.trimmed_missing.nc
 - 16bs2c_s39_0019m.unqcd.trimmed_missing.nc
