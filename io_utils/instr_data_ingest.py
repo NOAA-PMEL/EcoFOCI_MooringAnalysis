@@ -13,13 +13,16 @@
  History:
  --------
 
+ 2017-6-09: Error in time offset correction.  Time scaling factor was determined by clockerro (seconds) / total elapsed seconds
+ 	but the total elapsed seconds determined by the difference in max and min times was only reporting elapsed seconds of 1day
+ 	Likely only impacts seacat, mtr, and ecoflsb instruments when clock error is large
  2016-12-16: Move time functions to time_helper.py
- 2016-10-10: Add SBE56 readin routines
- 2016-10-12: Add SBE39 readin routines
- 2016-10-13: Add a function that rounds datetimes to nearest minute interval
- 2016-11-09: Add SBE37 readin routines
- 2016-11-10: Add SBE16 readin routines
  2016-11-22: Add SBE16 - Aandera oxygen optode to readin routines
+ 2016-11-10: Add SBE16 readin routines
+ 2016-11-09: Add SBE37 readin routines
+ 2016-10-13: Add a function that rounds datetimes to nearest minute interval
+ 2016-10-12: Add SBE39 readin routines
+ 2016-10-10: Add SBE56 readin routines
 
 """
 import datetime
@@ -977,7 +980,6 @@ class wpak(object):
 class ecoflsb(object):
 	r""" Wetlabs ecofluorometer"""
 
-
 	@staticmethod
 	def get_data(filename=None, MooringID=None, **kwargs):
 		r"""
@@ -998,6 +1000,8 @@ class ecoflsb(object):
 
 		expects only fluorometer counts - use eco_flntu, eco_cdom or eco_triplet for other combos
 		"""
+
+		print add_seconds
 
 		counts_ave,counts_std,time_ave = {},{},{}
 
@@ -1063,7 +1067,8 @@ class ecoflsb(object):
 		chlor = scale_factor * (np.array(counts_ave.values()) - dark_count)
 
 		#(max time - min time) / add_seconds
-		add_delta_seconds = float(add_seconds) / (np.max(time_ave.values()) - np.min(time_ave.values())).seconds 
+		date_diff = np.max(time_ave.values()) - np.min(time_ave.values()) 
+		add_delta_seconds = float(add_seconds) / ((date_diff.days * 24.*60.*60.)+date_diff.seconds) 
 		time_orig = np.min(time_ave.values())
 		time_corr = {k:linear_clock_adjust(time_orig, v, add_delta_seconds) for k,v in time_ave.iteritems()}
 
