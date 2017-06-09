@@ -174,9 +174,10 @@ class mtr(object):
 		time.pop(time.keys()[-1]) #delta function adds an extra step so remove last entry
 	
 		#(max time - min time) / add_seconds
-		add_delta_seconds = float(add_seconds) / (np.max(time.values()) - np.min(time.values())).seconds 
-		time_orig = np.min(time.values())
-		time_corr = {k:linear_clock_adjust(time_orig, v, add_delta_seconds) for k,v in time.iteritems()}
+		date_diff = np.max(time_ave.values()) - np.min(time_ave.values()) 
+		add_delta_seconds = float(add_seconds) / ((date_diff.days * 24.*60.*60.)+date_diff.seconds) 
+		time_orig = np.min(time_ave.values())
+		time_corr = {k:linear_clock_adjust(time_orig, v, add_delta_seconds) for k,v in time_ave.iteritems()}
 
 
 		if kwargs['tenmin_interp']:
@@ -595,9 +596,11 @@ class sbe16(object):
 			for k,v in time_instrument_doy.items():
 				time[k] = datetime.datetime(datetime.datetime.strptime(start_time, '%b %d %Y %H:%M:%S').year,1,1) + datetime.timedelta(v -1)
 
-		add_delta_seconds = float(add_seconds) / (np.max(time.values()) - np.min(time.values())).total_seconds() 
-		time_orig = np.min(time.values())
-		time_corr = {k:linear_clock_adjust(time_orig, v, add_delta_seconds) for k,v in time.iteritems()}
+		#(max time - min time) / add_seconds
+		date_diff = np.max(time_ave.values()) - np.min(time_ave.values()) 
+		add_delta_seconds = float(add_seconds) / ((date_diff.days * 24.*60.*60.)+date_diff.seconds) 
+		time_orig = np.min(time_ave.values())
+		time_corr = {k:linear_clock_adjust(time_orig, v, add_delta_seconds) for k,v in time_ave.iteritems()}
 
 
 		if hourly_interp:
