@@ -88,7 +88,7 @@ mooring_data_path:
 - /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/working/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/working/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/final_data/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/working/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/working/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/working/
@@ -97,13 +97,13 @@ mooring_data_path:
 - /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/working/
 mooring_files:
 - 16bs2c_ecf_0011m.interpolated.trimmed_missing.nc
-- 16bs2c_ecf_0023m.interpolated.nc
+- 16bs2c_ecf_0023m.interpolated.trimmed_missing.nc
 - 16bs2c_s37_0031m.unqcd.trimmed_missing.nc
 - 16bs2c_s37_0055m.unqcd.trimmed_missing.nc
 - 16bs2c_s39_0019m.unqcd.trimmed_missing.nc
 - 16bs2c_s39_0027m.unqcd.trimmed_missing.nc
 - 16bs2c_sc_0012m.interpolated.trimmed_missing.nc
-- 16bs2c_s56_0045m.unqcd.trimmed_missing.nc
+- 16bs2c_s56_0045m.nc
 - 16bs2c_mt4087_0040m.interpolated.trimmed_missing.nc
 - 16bs2c_mt4117_0040m.interpolated.trimmed_missing.nc
 - 16bs2c_mt4089_0050m.interpolated.trimmed_missing.nc
