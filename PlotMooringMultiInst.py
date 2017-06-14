@@ -68,11 +68,11 @@ parser.add_argument('PointerFile',
 	type=str, 
 	help='full path to pointer file')
 parser.add_argument("-mt",'--manual_timebounds', 
-	nargs='+', 
+	nargs=2, 
 	type=str, 
 	help='set times to specified values (d-m-Y)')
 parser.add_argument("-md",'--manual_databounds', 
-	nargs='+', 
+	nargs=2, 
 	type=float, 
 	help='set databounds to specified values')
 parser.add_argument("-multi",'--multiplot_overlay', 
@@ -218,6 +218,13 @@ if args.multiplot_overlay:
 		ax2.xaxis.set_major_formatter(ticker.NullFormatter())
 		ax2.xaxis.set_minor_formatter(DateFormatter('%Y'))
 		ax2.tick_params(axis='both', which='minor', labelsize=12)
+	elif LocatorInterval == 'multi_day':
+		ax2.xaxis.set_major_locator(MonthLocator())
+		ax2.xaxis.set_minor_locator(DayLocator())
+		ax2.xaxis.set_major_formatter(DateFormatter('%b'))
+		ax2.xaxis.set_minor_formatter(DateFormatter('%d'))
+		ax2.tick_params(axis='both', which='minor', labelsize=12)
+
 	else:
 		ax2.xaxis.set_major_locator(MonthLocator())
 		ax2.xaxis.set_minor_locator(MonthLocator(bymonth=[1,3,5,7,9,11], bymonthday=15))
@@ -336,6 +343,13 @@ if args.ctd_calibration_plots:
 			ax2.xaxis.set_major_formatter(ticker.NullFormatter())
 			ax2.xaxis.set_minor_formatter(DateFormatter('%Y'))
 			ax2.tick_params(axis='both', which='minor', labelsize=12)
+		elif LocatorInterval == 'multi_day':
+			ax2.xaxis.set_major_locator(MonthLocator())
+			ax2.xaxis.set_minor_locator(DayLocator())
+			ax2.xaxis.set_major_formatter(DateFormatter('%b'))
+			ax2.xaxis.set_minor_formatter(DateFormatter('%d'))
+			ax2.tick_params(axis='both', which='minor', labelsize=12)
+
 		else:
 			ax2.xaxis.set_major_locator(MonthLocator())
 			ax2.xaxis.set_minor_locator(MonthLocator(bymonth=[1,3,5,7,9,11], bymonthday=15))
