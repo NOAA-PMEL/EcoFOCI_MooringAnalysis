@@ -1,0 +1,36 @@
+---
+MooringID: 16CB-1A
+ctd_data_path:
+- '/Volumes/WDC_internal/Users/bell/ecoraid/2015/CTDcasts/dy1704/final_data/ctd/'
+ctd_files:
+- ''
+mooring_data_path:
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16cb1a/working/"
+mooring_files:
+- 16cb1a_s37_0188m.unqcd.trimmed_missing.nc
+nominal_depth:
+- 188
+colors:
+- r-
+legend:
+- 188m
+legend_loc: upper center
+legend_off: false
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
+#EPIC_Key: P_1
+#EPIC_Key_ctd: P_1
+#Ylabel: Pressure
+Date_Ticks: multi_month
+plot_stylesheet: seaborn-poster
+output_type: png
+start_time: '2016-02-09'
+end_time: '2017-04-23'
+depth_interval_m: 1
+depth_m: 190
+dtype: mooring
+
