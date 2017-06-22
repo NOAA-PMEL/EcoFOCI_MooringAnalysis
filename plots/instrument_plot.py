@@ -887,4 +887,111 @@ class TimeseriesWPAK(object):
 
       return (plt, fig)
 
+class TimeseriesPorpertyPropertyPlot(object):
+  ''' class to plot property vs property plots with density iso-contours'''
+
+    mpl.rcParams['svg.fonttype'] = 'none'
+
+    def __init__(self, fontsize=10, labelsize=10, plotstyle='k-.', stylesheet='seaborn-whitegrid'):
+        """Initialize the timeseries with items that do not change.
+
+        This sets up the axes and station locations. The `fontsize` and `spacing`
+        are also specified here to ensure that they are consistent between individual
+        station elements.
+
+        Parameters
+        ----------
+        fontsize : int
+            The fontsize to use for drawing text
+        labelsize : int
+          The fontsize to use for labels
+        stylesheet : str
+          Choose a mpl stylesheet [u'seaborn-darkgrid', 
+          u'seaborn-notebook', u'classic', u'seaborn-ticks', 
+          u'grayscale', u'bmh', u'seaborn-talk', u'dark_background', 
+          u'ggplot', u'fivethirtyeight', u'seaborn-colorblind', 
+          u'seaborn-deep', u'seaborn-whitegrid', u'seaborn-bright', 
+          u'seaborn-poster', u'seaborn-muted', u'seaborn-paper', 
+          u'seaborn-white', u'seaborn-pastel', u'seaborn-dark', 
+          u'seaborn-dark-palette']
+        """
+
+        self.fontsize = fontsize
+        self.labelsize = labelsize
+        self.plotstyle = plotstyle
+        plt.style.use(stylesheet)
+
+    @staticmethod
+    def add_title(mooringid='',lat=-99.9,lon=-99.9,depth=9999,instrument=''):
+      """Pass parameters to annotate the title of the plot
+
+      This sets the standard plot title using common meta information from PMEL/EPIC style netcdf files
+
+      Parameters
+      ----------
+      mooringid : str
+        Mooring Identifier
+      lat : float
+        The latitude of the mooring
+      lon : float
+        The longitude of the mooring
+      depth : int
+        Nominal depth of the instrument
+      instrument : str
+        Name/identifier of the instrument plotted
+      """  
+
+      ptitle = ("Plotted on: {time:%Y/%m/%d %H:%M} \n from {mooringid} Lat: {latitude:3.3f}  Lon: {longitude:3.3f}" 
+            " Depth: {depth}\n : {instrument}").format(
+            time=datetime.datetime.now(), 
+                  mooringid=mooringid,
+                  latitude=lat, 
+                  longitude=lon, 
+                  depth=depth,
+                  instrument=instrument )
+
+      return ptitle
+
+    @staticmethod
+    def plot(self, var1, var2, var3=None, var1range=[0,1], var2range=[0,10], ptitle=""): 
+
+        # Calculate how many gridcells we need in the x and y dimensions
+        xdim = round((var1range[1]-var1range[0])/0.1+1,0)
+        ydim = round((var2range[1]-var2range[0])+2,0)
+        
+        #print 'ydim: ' + str(ydim) + ' xdim: ' + str(xdim) + ' \n'
+        if (xdim > 10000) or (ydim > 10000): 
+            print 'To many dimensions for grid in ' + cruise + cast + ' file. Likely  missing data \n'
+            return
+     
+        # Create empty grid of zeros
+        dens = np.zeros((int(ydim),int(xdim)))
+     
+        # Create temp and salt vectors of appropiate dimensions
+        ti = np.linspace(0,ydim-1,ydim)+var2range[0]
+        si = np.linspace(0,xdim-1,xdim)*0.1+var1range[0]
+     
+        # Loop to fill in grid with densities
+        for j in range(0,int(ydim)):
+            for i in range(0, int(xdim)):
+                dens[j,i]=sw.dens0(si[i],ti[j])
+     
+        # Substract 1000 to convert to sigma-t
+        dens = dens - 1000
+     
+        # Plot data ***********************************************
+        fig = plt.figure(1)
+        ax1 = plt.subplot2grid((1, 1), (0, 0), colspan=1, rowspan=1)
+        CS = plt.contour(si,ti,dens, linestyles='dashed', colors='k')
+        plt.clabel(CS, fontsize=12, inline=1, fmt='%1.1f') # Label every second level
+     
+        ts = ax1.scatter(var1,var2,s=25,c=var3,marker='.',cmap='Blues')
+        plt.colorbar(ts,label='DOY' )
+        plt.ylim(var2range[0],var2range[1])
+        plt.xlim(var1range[0],var1range[1])
+     
+        ax1.set_xlabel('Salinity (PSU)')
+        ax1.set_ylabel('Temperature (C)')
+
+      return plt, fig
 
