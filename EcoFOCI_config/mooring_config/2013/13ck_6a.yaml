@@ -1,7 +1,7 @@
-Date_Ticks: multi_day
-#EPIC_Key: T_20
-#EPIC_Key_ctd: T_28
-#Ylabel: Temperature
+Date_Ticks: multi_month
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
 #EPIC_Key: OST_62
 #EPIC_Key_ctd: OST_62
 #Ylabel: OxySat (%)
@@ -17,9 +17,9 @@ Date_Ticks: multi_day
 #EPIC_Key: Trb_980
 #EPIC_Key_ctd: Trb_980
 #Ylabel: Turbidity
-EPIC_Key: Fch_906
-EPIC_Key_ctd: Fch_906
-Ylabel: Flourometric Chl
+#EPIC_Key: Fch_906
+#EPIC_Key_ctd: Fch_906
+#Ylabel: Flourometric Chl
 MooringID: 13CK_6A
 colors:
 - k-
@@ -36,6 +36,7 @@ ctd_files:
 dtype: mooring
 legend:
 - 39m sc 13ckp
+- 38m eco 13ckp
 - 39m s37 13ckt
 - 38m an9 13ckip
 nominal_depth:

@@ -1,4 +1,4 @@
-Date_Ticks: multi_day
+Date_Ticks: multi_month
 #EPIC_Key: T_20
 #EPIC_Key_ctd: T_28
 #Ylabel: Temperature
@@ -8,15 +8,15 @@ Date_Ticks: multi_day
 #EPIC_Key: O_65
 #EPIC_Key_ctd: O_65
 #Ylabel: OxyConc
-#EPIC_Key: S_41
-#EPIC_Key_ctd: S_41
-#Ylabel: Salinity
+EPIC_Key: S_41
+EPIC_Key_ctd: S_41
+Ylabel: Salinity
 #EPIC_Key: Fch_906
 #EPIC_Key_ctd: fWS_973
 #Ylabel: Flurometric Chl
-EPIC_Key: PAR_908
-EPIC_Key_ctd: PAR_905
-Ylabel: PAR
+#EPIC_Key: PAR_908
+#EPIC_Key_ctd: PAR_905
+#Ylabel: PAR
 MooringID: 13CK_4A
 colors:
 - k-
@@ -24,8 +24,10 @@ colors:
 - m-
 - g-
 ctd_data_path:
+- /Volumes/WDC_internal//Users/bell/ecoraid/2013/CTDCasts/aq1301/final_data/ctd/
 - /Volumes/WDC_internal//Users/bell/ecoraid/2014/CTDCasts/aq1401l2/final_data/ctd/
 ctd_files:
+- aq1301c038_ctd.nc
 - aq1401l2c086_ctd.nc
 dtype: mooring
 legend:
@@ -46,7 +48,7 @@ mooring_data_path:
 mooring_files:
 - 13ckp4a_sc_0049m.nc
 - 13ckp4a_ecf_0048m.nc
-- 13ckt4a_s37_0046m.unqcd.trimmed_missing.nc
+- 13ckt4a_s37_0046m.nc
 notes: none
 output_type: png
 plot_stylesheet: seaborn-poster

@@ -1,4 +1,4 @@
-Date_Ticks: multi_day
+Date_Ticks: multi_month
 # EPIC_Key: T_20
 # EPIC_Key_ctd: T_28
 # Ylabel: Temperature
@@ -22,6 +22,11 @@ legend:
 - 44m sc 13ckp
 - 40m s37 13ckt
 - 43m an9 13ckip
+nominal_depth:
+# depths are maxed at deepest ctd values for comparisons
+- 44
+- 40
+- 43
 legend_loc: upper center
 legend_off: false
 mooring_data_path:
@@ -29,11 +34,9 @@ mooring_data_path:
 - /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13ckt5a/working/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13ckip5a/final_data/
 mooring_files:
-- 13ckp5a_sc_0038m.nc
-- 13ckt5a_s37_0044m.unqcd.trimmed_missing.nc
+- 13ckp5a_sc_0044m.nc
+- 13ckt5a_s37_0040m.unqcd.trimmed_missing.nc
 - 13ckip5a_an9_0045m.nc
 notes: all salinity should be compared to ctd cast
 output_type: png
 plot_stylesheet: seaborn-poster
-
-
