@@ -109,7 +109,7 @@ fig1.autofmt_xdate()
 DefaultSize = fig1.get_size_inches()
 fig1.set_size_inches( (DefaultSize[0]*2, DefaultSize[1]) )
 
-plt1.savefig('images/'+ args.DataPath.split('/')[-1] + '_quiver.png', bbox_inches='tight', dpi = (300))
+plt1.savefig('images/'+ args.DataPath.split('/')[-1] + '_quiver.png', bbox_inches='tight', dpi = (300), transparent=False)
 plt1.savefig('images/'+ args.DataPath.split('/')[-1] + '_quiver.svg', bbox_inches='tight', dpi = (300))
 
 plt1.close()

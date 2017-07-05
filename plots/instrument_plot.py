@@ -76,8 +76,8 @@ class Timeseries1varPlot(object):
       """  
 
       ptitle = ("Plotted on: {time:%Y/%m/%d %H:%M} \n from {mooringid} Lat: {latitude:3.3f}  Lon: {longitude:3.3f}" 
-    			  " Depth: {depth}\n : {instrument}").format(
-    			  time=datetime.datetime.now(), 
+            " Depth: {depth}\n : {instrument}").format(
+            time=datetime.datetime.now(), 
                   mooringid=mooringid,
                   latitude=lat, 
                   longitude=lon, 
@@ -87,19 +87,19 @@ class Timeseries1varPlot(object):
       return ptitle
 
     def plot(self, xdata=None, ydata=None, ylabel=None, **kwargs):
-	    fig = plt.figure(1)
-	    ax1 = plt.subplot2grid((1, 1), (0, 0), colspan=1, rowspan=1)
-	    p1 = ax1.plot(xdata, ydata, self.plotstyle, markersize=2)
-	    ax1.set_ylim([np.nanmin(ydata),np.nanmax(ydata)])
-	    ax1.set_xlim([np.nanmin(xdata),np.nanmax(xdata)])
-	    plt.ylabel(ylabel)
-	    ax1.xaxis.set_major_locator(MonthLocator())
-	    ax1.xaxis.set_minor_locator(MonthLocator(bymonthday=15))
-	    ax1.xaxis.set_major_formatter(ticker.NullFormatter())
-	    ax1.xaxis.set_minor_formatter(DateFormatter('%b %y'))
-	    ax1.tick_params(axis='both', which='minor', labelsize=self.labelsize)
+      fig = plt.figure(1)
+      ax1 = plt.subplot2grid((1, 1), (0, 0), colspan=1, rowspan=1)
+      p1 = ax1.plot(xdata, ydata, self.plotstyle, markersize=2)
+      ax1.set_ylim([np.nanmin(ydata),np.nanmax(ydata)])
+      ax1.set_xlim([np.nanmin(xdata),np.nanmax(xdata)])
+      plt.ylabel(ylabel)
+      ax1.xaxis.set_major_locator(MonthLocator())
+      ax1.xaxis.set_minor_locator(MonthLocator(bymonthday=15))
+      ax1.xaxis.set_major_formatter(ticker.NullFormatter())
+      ax1.xaxis.set_minor_formatter(DateFormatter('%b %y'))
+      ax1.tick_params(axis='both', which='minor', labelsize=self.labelsize)
 
-	    return plt, fig
+      return plt, fig
 
 class Timeseries2varPlot(object):
 
@@ -154,8 +154,8 @@ class Timeseries2varPlot(object):
         Name/identifier of the instrument plotted
       """  
       ptitle = ("Plotted on: {time:%Y/%m/%d %H:%M} \n from {mooringid} Lat: {latitude:3.3f}  Lon: {longitude:3.3f}" 
-    			  " Depth: {depth}\n : {instrument}").format(
-    			  time=datetime.datetime.now(), 
+            " Depth: {depth}\n : {instrument}").format(
+            time=datetime.datetime.now(), 
                   mooringid=mooringid,
                   latitude=lat, 
                   longitude=lon, 
@@ -552,7 +552,7 @@ class Timeseries1dStickPlot_2params(object):
 
 class Timeseries2dStickPlot(object):
   #TODO
-	pass
+  pass
 
 class TimeseriesImagePlot(object):
   pass
@@ -887,8 +887,9 @@ class TimeseriesWPAK(object):
 
       return (plt, fig)
 
+
 class TimeseriesPorpertyPropertyPlot(object):
-  ''' class to plot property vs property plots with density iso-contours'''
+    ''' class to plot property vs property plots with density iso-contours'''
 
     mpl.rcParams['svg.fonttype'] = 'none'
 
@@ -993,5 +994,4 @@ class TimeseriesPorpertyPropertyPlot(object):
         ax1.set_xlabel('Salinity (PSU)')
         ax1.set_ylabel('Temperature (C)')
 
-      return plt, fig
-
+        return plt, fig
