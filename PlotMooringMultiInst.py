@@ -32,7 +32,7 @@
 """
 
 #System Stack
-import datetime, sys, os
+import datetime, bisect, sys, os
 import argparse
 
 #Science Stack
@@ -81,7 +81,9 @@ parser.add_argument("-multi",'--multiplot_overlay',
 parser.add_argument("-ctd",'--ctd_calibration_plots', 
 	action="store_true", 
 	help='plot CTD calibration point on timeseries')
-
+parser.add_argument("-overlay","--timeseries_overlay",
+	action="store_true", 
+	help='plot timeseries over each other')	
 args = parser.parse_args()
 
 """---------------------------------------------------------------------------------------
@@ -132,6 +134,7 @@ plt.style.use(pointer_file['plot_stylesheet'])
 """
 databounds={}
 
+
 if args.multiplot_overlay:
 	### set title for plot
 	ptitle = ("Plotted on: {timestr} \n from {mooringid} ").format(timestr=datetime.datetime.now().strftime('%Y/%m/%d %H:%M'), 
@@ -160,7 +163,28 @@ if args.multiplot_overlay:
 		ncdata = df.ncreadfile_dic()
 		df.close()
 
-		nctime = get_UDUNITS(EPIC2Datetime(ncdata['time'],ncdata['time2']),'days since 0001-01-01') + 1.
+		if args.timeseries_overlay:
+			nctime = EPIC2Datetime(ncdata['time'],ncdata['time2'])
+
+			def set_year_even(x):
+				if x.year % 2 == 0:
+					return x.replace(year=2000) 
+				elif x.year %2 ==1:
+					return x.replace(year=2001) 
+			def set_year_odd(x):
+				if x.year % 2 == 0:
+					return x.replace(year=2000) 
+				elif x.year %2 ==1:
+					return x.replace(year=1999) 
+			if nctime[0].year %2 ==0:
+				nctime = [set_year_even(x) for x in nctime]
+				start_year ='Even'
+			elif nctime[0].year %2 ==1:
+				nctime = [set_year_odd(x) for x in nctime]
+				start_year ='Odd'
+			#nctime = get_UDUNITS(nctime,'days since 0001-01-01') + 1.
+		else:
+			nctime = get_UDUNITS(EPIC2Datetime(ncdata['time'],ncdata['time2']),'days since 0001-01-01') + 1.
 
 		#find and replace missing values with nans so they don't plot
 		try:
@@ -175,11 +199,26 @@ if args.multiplot_overlay:
 
 		#Plot data
 		plt.hold(True)
-		try:
-			plt.plot(nctime, ncdata[plot_var][:,0,0,0],color_options[ind],linewidth=0.25)
-		except KeyError: #if the file doesn't have the specified epic_key it will through an exception
-			print "Failed to plot {0}".format(plot_var)
-			continue
+		if args.timeseries_overlay:
+			if start_year == 'Even':
+				year_ind = bisect.bisect_left(nctime, datetime.datetime(2001,1,1))
+				plot_time = [x.replace(year=2000) for x in nctime]
+				plt.plot(plot_time[:year_ind], ncdata[plot_var][:year_ind,0,0,0],color_options[ind],linewidth=0.25)
+				plt.plot(plot_time[year_ind:], ncdata[plot_var][year_ind:,0,0,0],color_options[ind+1],linewidth=0.25)
+			elif start_year == 'Odd':
+				year_ind = bisect.bisect_left(nctime, datetime.datetime(2000,1,1))
+				plot_time = [x.replace(year=2000) for x in nctime]
+				plt.plot(plot_time[:year_ind], ncdata[plot_var][:year_ind,0,0,0],color_options[ind+1],linewidth=0.25)
+				plt.plot(plot_time[year_ind:], ncdata[plot_var][year_ind:,0,0,0],color_options[ind],linewidth=0.25)
+			nctime = get_UDUNITS(plot_time,'days since 0001-01-01') + 1.
+		else:
+
+			try:
+				plt.plot(nctime, ncdata[plot_var][:,0,0,0],color_options[ind],linewidth=0.25,markersize=1)
+			except KeyError: #if the file doesn't have the specified epic_key it will through an exception
+				print "Failed to plot {0}".format(plot_var)
+				continue
+
 
 		#setup bouds
 		if nctime.max() > databounds['max_t']:
@@ -224,7 +263,12 @@ if args.multiplot_overlay:
 		ax2.xaxis.set_major_formatter(DateFormatter('%b'))
 		ax2.xaxis.set_minor_formatter(DateFormatter('%d'))
 		ax2.tick_params(axis='both', which='minor', labelsize=12)
-
+	elif LocatorInterval == 'multi_month':
+		ax2.xaxis.set_major_locator(MonthLocator())
+		ax2.xaxis.set_minor_locator(MonthLocator(bymonth=[1,2,3,4,5,6,7,8,9,10,11,12], bymonthday=15))
+		ax2.xaxis.set_major_formatter(ticker.NullFormatter())
+		ax2.xaxis.set_minor_formatter(DateFormatter('%b'))
+		ax2.tick_params(axis='both', which='minor', labelsize=12)		
 	else:
 		ax2.xaxis.set_major_locator(MonthLocator())
 		ax2.xaxis.set_minor_locator(MonthLocator(bymonth=[1,3,5,7,9,11], bymonthday=15))
@@ -349,7 +393,12 @@ if args.ctd_calibration_plots:
 			ax2.xaxis.set_major_formatter(DateFormatter('%b'))
 			ax2.xaxis.set_minor_formatter(DateFormatter('%d'))
 			ax2.tick_params(axis='both', which='minor', labelsize=12)
-
+		elif LocatorInterval == 'multi_month':
+			ax2.xaxis.set_major_locator(MonthLocator())
+			ax2.xaxis.set_minor_locator(MonthLocator(bymonth=[1,2,3,4,5,6,7,8,9,10,11,12], bymonthday=15))
+			ax2.xaxis.set_major_formatter(ticker.NullFormatter())
+			ax2.xaxis.set_minor_formatter(DateFormatter('%b'))
+			ax2.tick_params(axis='both', which='minor', labelsize=12)	
 		else:
 			ax2.xaxis.set_major_locator(MonthLocator())
 			ax2.xaxis.set_minor_locator(MonthLocator(bymonth=[1,3,5,7,9,11], bymonthday=15))
