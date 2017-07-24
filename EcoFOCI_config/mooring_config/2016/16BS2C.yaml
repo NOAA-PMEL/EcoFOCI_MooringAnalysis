@@ -39,14 +39,12 @@ colors:
 - c-.
 ctd_data_path:
 - '/Volumes/WDC_internal/Users/bell/ecoraid/2016/CTDcasts/dy1606/initial_archive/allparameters/'
-- '/Volumes/WDC_internal/Users/bell/ecoraid/2016/CTDcasts/dy1610/initial_archive/allparameters/'
-- '/Volumes/WDC_internal/Users/bell/ecoraid/2017/CTDcasts/dy1704/initial_archive/'
+- '/Volumes/WDC_internal/Users/bell/ecoraid/2016/CTDcasts/dy1610/initial_archive/'
 - '/Volumes/WDC_internal/Users/bell/ecoraid/2017/CTDcasts/dy1704/initial_archive/'
 ctd_files:
 - 'dy1606c002_ctd.nc'
 - 'dy1610c007_ctd.nc'
-- 'dy1704c007_ctd.nc'
-- 'dy1704c040_ctd.nc'
+- 'dy1704c003_ctd.nc'
 dtype: mooring
 legend:
 - 11m ecf
@@ -56,7 +54,6 @@ legend:
 - 19m s39 
 - 27m s39 
 - 12m sc
-- 66m sc
 - 45m s56
 - 40m mtr
 - 40m mtr
@@ -89,7 +86,6 @@ mooring_data_path:
 - /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/working/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/working/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/working/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/final_data/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/working/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/working/
@@ -105,7 +101,6 @@ mooring_files:
 - 16bs2c_s39_0019m.unqcd.trimmed_missing.nc
 - 16bs2c_s39_0027m.unqcd.trimmed_missing.nc
 - 16bs2c_sc_0012m.interpolated.trimmed_missing.nc
-- 16bs2c_sc_0066m.interpolated.trimmed_missing.nc
 - 16bs2c_s56_0045m.nc
 - 16bs2c_mt4087_0040m.interpolated.trimmed_missing.nc
 - 16bs2c_mt4117_0040m.interpolated.trimmed_missing.nc
