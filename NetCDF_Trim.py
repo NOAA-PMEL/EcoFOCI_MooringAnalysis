@@ -114,5 +114,10 @@ if args.start_date and args.end_date:
     
     ncinstance.close()
 
+elif (args.start_date and not args.end_date):
+    print("Please specify both start and end dates")
+elif (not args.start_date and args.end_date):
+    print("Please specify both start and end dates")
+
 #close file
 df.close()
