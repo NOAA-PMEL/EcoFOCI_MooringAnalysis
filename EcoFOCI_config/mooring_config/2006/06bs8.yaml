@@ -1,0 +1,91 @@
+---
+MooringID: 06BS-8A
+Date_Ticks: multi_month
+start_time: 2006-04-21
+end_time: 2006-09-26
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
+colors:
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- y-
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- y-
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- y-
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- y-
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+dtype: mooring
+legend:
+- 8m rcm
+- 4m mt 
+- 1m s37 
+- 2m s37 
+- 44m s37 
+- 65m s37 
+- 15m s39
+- 18m s39
+- 21m s39
+- 28m s39
+- 32m s39
+- 35m s39
+legend_loc: upper center
+legend_off: false
+nominal_depth:
+- ''
+mooring_data_path:
+mooring_data_path:
+- /Volumes/WDC_internal/Users/bell/ecoraid/2006/Moorings/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2006/Moorings/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2006/Moorings/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2006/Moorings/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2006/Moorings/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2006/Moorings/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2006/Moorings/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2006/Moorings/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2006/Moorings/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2006/Moorings/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2006/Moorings/
+mooring_files:
+- 06bs8a/final_data/06bs8a_s37_0032m.nc
+- 06bs8a/final_data/06bs8a_s37_0056m.nc
+- 06bs8a/final_data/06bs8a_s39_0024m.nc
+- 06bs8a/final_data/06bs8a_s39_0028m.nc
+- 06bs8a/final_data/06bs8a_s39_0036m.nc
+- 06bs8a/final_data/06bs8a_s39_0041m.nc
+- 06bs8a/final_data/06bs8a_s39_0046m.nc
+- 06bs8a/final_data/06bs8a_s39_0051m.nc
+- 06bs8a/final_data/06bs8a_s39_0061m.nc
+- 06bs8a/final_data/06bs8a_s39_0068m.nc
+- 06bs8a/final_data/06bs8a_sc_0022m.nc
+notes:
+output_type: png
+plot_stylesheet: seaborn-poster
+

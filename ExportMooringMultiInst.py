@@ -144,7 +144,7 @@ if args.multiplot:
 
 		try:
 			df = pd.DataFrame(ncdata[plot_var][:,0,0,0], index=nctime, columns=[plot_var])
-			df.to_excel(writer, sheet_name=files[ind].split('.')[0])
+			df.to_excel(writer, sheet_name=files[ind].split('.')[0].split('/')[-1])
 		except KeyError: #if the file doesn't have the specified epic_key it will through an exception
 			print "Failed to save {0}".format(plot_var)
 			continue
