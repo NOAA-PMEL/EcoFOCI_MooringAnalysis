@@ -1,0 +1,64 @@
+---
+MooringID: 01CBP-3A
+Date_Ticks: multi_month
+start_time: 2001-05-09
+end_time: 2001-09-15
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+#EPIC_Key: Fch_906
+#EPIC_Key_ctd: F_903
+#Ylabel: Chlor
+#EPIC_Key: P_1
+#EPIC_Key_ctd: P_1
+#Ylabel: Pressure
+#EPIC_Key: OST_62
+#EPIC_Key_ctd: OST_62
+#Ylabel: Oxygen_PSat
+colors:
+- k-
+- b-
+- m-
+- g-
+- r-
+- c-
+- k--
+- b--
+- m--
+- g--
+- r--
+- c--
+- k-.
+- b-.
+- m-.
+- g-.
+- r-.
+- c-.
+ctd_data_path:
+-  /Volumes/WDC_internal/Users/bell/ecoraid/2001/CTDcasts/mf0111/final_data/
+-  /Volumes/WDC_internal/Users/bell/ecoraid/2001/CTDcasts/rb0103l1/final_data/
+ctd_files:
+- mf0111c002.nc
+- rb0103ac006.nc
+dtype: mooring
+legend:
+- 127m an9
+- 16m sc
+legend_loc: upper center
+legend_off: false
+nominal_depth:
+- 127
+- 16
+mooring_data_path:
+- /Volumes/WDC_internal/Users/bell/ecoraid/2001/Moorings/01cbp3a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2001/Moorings/01cbp3a/final_data/
+mooring_files:
+- 01cbp3a_an9_0127m.nc
+- 01cbp3a_sc_0016m.nc
+notes: no deployment data, only recovery for ctd
+output_type: png
+plot_stylesheet: seaborn-poster
+
