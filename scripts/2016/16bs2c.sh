@@ -1,7 +1,7 @@
 #!/bin/bash
 
-data_dir="/Volumes/WDC_internal/Users/bell/ecoraid/"
-prog_dir="/Volumes/WDC_internal/Users/bell/Programs/Python/EcoFOCI_MooringAnalysis/"
+data_dir="/Users/bell/ecoraid/"
+prog_dir="/Users/bell/Programs/Python/EcoFOCI_MooringAnalysis/"
 
 mooringID='16bs2c'
 mooringYear='2016'
@@ -90,7 +90,7 @@ output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/16bs2c_sc_0012m
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc sc 0012 -kw 0 time_elapsed_s False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc sc 0012 -kw 0 time_elapsed_s True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Trim.py ${output}.interpolated.nc -sd ${deployment_date} -ed ${recovery_date}
-'
+
 
 
 echo "-------------------------------------------------------------"
@@ -122,7 +122,7 @@ output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/16bs2c_s39_0019m.
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s39 0019 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Trim.py ${output} -sd ${deployment_date} -ed ${recovery_date}
 
-: '
+
 FLOODED - NODATA
 serial_no=0581
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe39/16bsm2a_sbe39_0805_28m.asc
@@ -169,3 +169,14 @@ python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc eco 0011 -kw 0 me
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc eco 0011 -kw 247 median 0.0078 92 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Trim.py ${output}.interpolated.nc -sd ${deployment_date} -ed ${recovery_date}
 '
+
+echo "-------------------------------------------------------------"
+echo "RCMSG Processing"
+echo "-------------------------------------------------------------"
+
+serial_no=1735
+input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/rcmsg/RCMsn173_edited.txt
+echo $input
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/16bs2c_sg_0013.unqcd.nc
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} rcmsg 0039 -dec 56.8747 164.051 -kw false false -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth 
+python ${prog_dir}NetCDF_Trim.py ${output} -sd ${deployment_date} -ed ${recovery_date}
