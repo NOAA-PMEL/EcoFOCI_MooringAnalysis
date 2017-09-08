@@ -178,5 +178,5 @@ serial_no=1735
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/rcmsg/RCMsn173_edited.txt
 echo $input
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/16bs2c_sg_0013.unqcd.nc
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} rcmsg 0039 -dec 56.8747 164.051 -kw false false -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth 
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} rcmsg 0013 -dec 56.8747 164.051 -kw false false -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth 
 python ${prog_dir}NetCDF_Trim.py ${output} -sd ${deployment_date} -ed ${recovery_date}

@@ -18,6 +18,9 @@ Ylabel: Salinity
 #EPIC_Key: OST_62
 #EPIC_Key_ctd: OST_62
 #Ylabel: Oxygen_PSat
+#EPIC_Key: O_65
+#EPIC_Key_ctd: O_65
+#Ylabel: Oxygen_Conc
 colors:
 - k-
 - b-
@@ -27,13 +30,13 @@ colors:
 - c-
 - k--
 - b--
-- m--
 - g--
+- m--
 - r--
 - c--
 - k-.
-- b-.
 - m-.
+- b-.
 - g-.
 - r-.
 - c-.
