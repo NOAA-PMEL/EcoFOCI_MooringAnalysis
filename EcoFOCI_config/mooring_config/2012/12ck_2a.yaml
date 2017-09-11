@@ -1,16 +1,5 @@
-Date_Ticks: multi_day
-EPIC_Key: T_20
-EPIC_Key_ctd: T_28
-Ylabel: Temperature
-#EPIC_Key: S_41
-#EPIC_Key_ctd: S_41
-#Ylabel: Salinity
+---
 MooringID: 12CK_2A
-colors:
-- b-
-- k-
-- m-
-- g-
 ctd_data_path:
 - /Volumes/WDC_internal/Users/bell/ecoraid/2012/CTDCasts/aq1201/final_data/ctd/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2013/CTDCasts/aq1301/final_data/ctd/
@@ -18,10 +7,6 @@ ctd_files:
 - aq1201c030_ctd.nc
 - aq1301c009_ctd.nc
 dtype: mooring
-legend:
-- 40m sc 12ckp
-- 40m s37 12ckp
-- 41m an9 12ckip
 legend_loc: upper center
 legend_off: false
 mooring_data_path:
@@ -32,7 +17,37 @@ mooring_files:
 - 12ckp2a_sc_0040m.nc
 - 12ckp2a_s37_0040m.nc
 - 12ckip2a_an9_0041m.nc
+nominal_depth:
+- 40
+- 40
+- 41
+colors:
+- r-
+- k-
+- b-
+legend:
+- 40m sc 
+- 40m s37 
+- 41m an9 
 notes: 
 output_type: png
 plot_stylesheet: seaborn-poster
-
+#EPIC_Key: Fch_906
+#EPIC_Key_ctd: F_903
+#Ylabel: Chlor
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+#EPIC_Key: P_1
+#EPIC_Key_ctd: P_1
+#Ylabel: Pressure (dB)
+#EPIC_Key: PAR_908
+#EPIC_Key_ctd: PAR_905
+#Ylabel: PAR
+#EPIC_Key: O_65
+#EPIC_Key_ctd: O_65
+#Ylabel: Oxygen_Conc
+Date_Ticks: multi_month

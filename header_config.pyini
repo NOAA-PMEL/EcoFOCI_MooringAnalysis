@@ -1,15 +1,15 @@
 {
     "COMPOSITE": "1", 
-    "CREATION_DATE": "June 22, 2017 22:19 UTC", 
-    "DATA_CMNT": "13ckt4a_sbe37_2333_38m.asc", 
+    "CREATION_DATE": "September 07, 2017 20:53 UTC", 
+    "DATA_CMNT": "RCMsn173_edited.txt", 
     "EDIT_CMNT01": "", 
     "EPIC_FILE_GENERATOR": "trim_netcdf.py V0.4.0", 
-    "EXPERIMENT": "EXPERIMENT", 
-    "History": "applied salinity drift correction of 2.457e-5 psu/hr beginning with 2013-08-29 01:00:00 as time 0", 
-    "INST_TYPE": "SBE37", 
-    "MOORING": "13CKT-4A", 
+    "EXPERIMENT": "", 
+    "History": "\nSeptember 07, 2017 20:53 UTC Magnetic Declination Correction 10.97828924 applied (+E)\nSeptember 08, 2017 17:50 UTC - Oxygen Concentration and Saturation corrected for salinity using 16BS2C 12m sbe-16", 
+    "INST_TYPE": "rcmsg", 
+    "MOORING": "16bs2c", 
     "PROG_CMNT01": "", 
-    "PROJECT": "EXPERIMENT", 
-    "WATER_DEPTH": "53.0", 
-    "WATER_MASS": "B"
+    "PROJECT": "", 
+    "WATER_DEPTH": "71", 
+    "WATER_MASS": ""
 }
