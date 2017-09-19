@@ -30,7 +30,6 @@ from netCDF4 import Dataset
 import numpy as np
 
 #User Stack
-import io_utils.ConfigParserLocal as ConfigParserLocal
 from calc.EPIC2Datetime import EPIC2Datetime
 from io_utils.EcoFOCI_netCDF_read import EcoFOCI_netCDF
 from io_utils.EcoFOCI_netCDF_write import NetCDF_Trimmed

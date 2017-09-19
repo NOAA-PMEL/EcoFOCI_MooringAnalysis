@@ -93,9 +93,9 @@ this program.  It can be of the .pyini (json) form or .yaml form
 
 """
 if args.PointerFile.split('.')[-1] == 'pyini':
-	pointer_file = ConfigParserLocal.get_config(args.PointerFile)
+	pointer_file = ConfigParserLocal.get_config(args.PointerFile,'yaml')
 elif args.PointerFile.split('.')[-1] == 'yaml':
-	pointer_file = ConfigParserLocal.get_config_yaml(args.PointerFile)
+	pointer_file = ConfigParserLocal.get_config(args.PointerFile,'yaml')
 else:
 	print "PointerFile format not recognized"
 	sys.exit()

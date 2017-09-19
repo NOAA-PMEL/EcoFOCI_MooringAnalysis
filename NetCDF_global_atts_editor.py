@@ -78,10 +78,10 @@ if args.out_config:
         global_atts[k] = str(global_atts[k])
         print "{0}: {1}".format(k,global_atts[k])
 
-    ConfigParserLocal.write_config("header_config.pyini", global_atts)
+    ConfigParserLocal.write_config("header_config.pyini", global_atts,'json')
     
 if args.in_config:
-    nc_meta = ConfigParserLocal.get_config('header_config.pyini')
+    nc_meta = ConfigParserLocal.get_config('header_config.pyini','json')
     print nc_meta
 
     print "Setting attributes"

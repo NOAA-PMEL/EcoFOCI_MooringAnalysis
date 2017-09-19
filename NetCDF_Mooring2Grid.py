@@ -82,9 +82,9 @@ def PointerReader(pointer_file_path):
     """
 
     if pointer_file_path.split('.')[-1] == 'pyini':
-        pointer_file = ConfigParserLocal.get_config(pointer_file_path)
+        pointer_file = ConfigParserLocal.get_config(pointer_file_path,'json')
     elif pointer_file_path.split('.')[-1] == 'yaml':
-        pointer_file = ConfigParserLocal.get_config_yaml(pointer_file_path)
+        pointer_file = ConfigParserLocal.get_config(pointer_file_path,'yaml')
     else:
         print("PointerFile format not recognized")
         sys.exit()  

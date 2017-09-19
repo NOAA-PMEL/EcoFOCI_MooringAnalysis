@@ -74,10 +74,10 @@ if args.out_config:
             atts = df.get_vars_attributes(var_name=k,  var_type='units')
             print "{0}: {1}".format(k,atts)
             data_write = {k:atts}
-            ConfigParserLocal.write_config("instrument_"+args.varname+"_config.pyini", data_write)
+            ConfigParserLocal.write_config("instrument_"+args.varname+"_config.pyini", data_write,'json')
     
 if args.in_config:
-    nc_meta = ConfigParserLocal.get_config("instrument_"+args.varname+"_config.pyini")
+    nc_meta = ConfigParserLocal.get_config("instrument_"+args.varname+"_config.pyini",'json')
     editvar = [float(x) for x in nc_meta[args.varname].strip('[').strip(']').split()]
     print editvar
 

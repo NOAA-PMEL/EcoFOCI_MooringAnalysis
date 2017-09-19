@@ -50,7 +50,7 @@ parser.add_argument('add_epic_var', metavar='add_epic_var', type=str, help='name
 args = parser.parse_args()
 
 # If these variables are not defined, no data will be archived into the nc file for that parameter.
-EPIC_VARS_dict = ConfigParserLocal.get_config('EcoFOCI_config/epickeys/epickey.json')
+EPIC_VARS_dict = ConfigParserLocal.get_config('EcoFOCI_config/epickeys/epickey.json','json')
 
 ###nc readin
 df = EcoFOCI_netCDF(args.sourcedir)

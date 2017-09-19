@@ -16,8 +16,8 @@
  Modifications:
  --------------
 
+ 2017-09-14: SW Bell - merge yaml and pyini(json) calls to unify api
  2016-09-16: SW Bell - Add support for parsing yaml files and translating between yaml and json/pyini
-
   
 
 """
@@ -26,60 +26,48 @@
 import json
 import yaml
 
-def get_config(infile):
+def get_config(infile, ftype='yaml'):
     """ Input - full path to config file
     
         Output - dictionary of file config parameters
     """
     infile = str(infile)
     
-    try:
-        d = json.load(open(infile))
-    except:
-        raise RuntimeError('{0} not found'.format(infile))
-        
+    if ftype in ['json','pyini']:
+        try:
+            d = json.load(open(infile))
+        except:
+            raise RuntimeError('{0} not found'.format(infile))
+    elif ftype in ['yaml']:        
+        try:
+            d = yaml.load(open(infile))
+        except:
+            raise RuntimeError('{0} not found'.format(infile))
+    else:
+        raise RuntimeError('{0} format not recognized'.format(infile))
+
     return d
-    
-def write_config(infile, d):
+
+def write_config(infile, data, ftype='yaml'):
     """ Input - full path to config file
         Dictionary of parameters to write
         
         Output - None
     """
     infile = str(infile)
-    
-    try:
-        d = json.dump(d, open(infile,'w'), sort_keys=True, indent=4)
-    except:
-        raise RuntimeError('{0} not found'.format(infile))
-        
 
-def get_config_yaml(infile):
-    """ Input - full path to config file
-    
-        Output - dictionary of file config parameters
-    """
-    infile = str(infile)
-    
-    try:
-        d = yaml.load(open(infile))
-    except:
-        raise RuntimeError('{0} not found'.format(infile))
-        
-    return d
-
-def write_config_yaml(infile, data, default_flow_style=False):
-    """ Input - full path to config file
-        Dictionary of parameters to write
-        
-        Output - None
-    """
-    infile = str(infile)
-    
-    try:
-        data = yaml.safe_dump(data, open(infile,'w'), default_flow_style)
-    except:
-        raise RuntimeError('{0} not found'.format(infile))
+    if ftype in ['json','pyini']:
+        try:
+            data = json.dump(data, open(infile,'w'), sort_keys=True, indent=4)
+        except:
+            raise RuntimeError('{0} not found'.format(infile))
+    elif ftype in ['yaml']:        
+        try:
+            data = yaml.safe_dump(data, open(infile,'w'), default_flow_style=False)
+        except:
+            raise RuntimeError('{0} not found'.format(infile))
+    else:
+        raise RuntimeError('{0} format not recognized'.format(infile))
 
 def pyini2yaml(infile, default_flow_style=False):
     """ Input - full path to config file
