@@ -819,6 +819,7 @@ class CF_NC(object):
         self.rootgrpID.EXPERIMENT = Experiment
         self.rootgrpID.PROJECT = Experiment
         self.rootgrpID.History = History
+        self.rootgrpID.featureType = featureType
                         
         
     def dimension_init(self, time_len=1):

@@ -68,16 +68,10 @@ ncinstance.sbeglobal_atts(raw_data_file=global_atts['DATA_CMNT'], Station_Name=g
                                 Water_Mass=global_atts['WATER_MASS'], Experiment=global_atts['EXPERIMENT'], Project=global_atts['PROJECT'], 
                                 History=global_atts['History'],featureType=global_atts['featureType'])
 ncinstance.dimension_init(recnum_len=len(data['time']),str_len=len(args.fill_value))
-ncinstance.variable_init(df,time_since_str)
-try:
-    ncinstance.add_coord_data(depth=ncdata['depth'], latitude=ncdata['lat'], longitude=ncdata['lon'],
-                                     time=CF_time)
-except KeyError:
-    ncinstance.add_coord_data(depth=ncdata['depth'], latitude=ncdata['latitude'], longitude=ncdata['longitude'],
-                                     time=CF_time)
+ncinstance.variable_init(nchandle)
 
-ncinstance.add_data(ncdata)
-ncinstance.add_history('EPIC two time-word key converted to udunits')
+ncinstance.add_data(data)
+ncinstance.add_history('nc file converted to one dim')
 ncinstance.close()
 df.close()
 
