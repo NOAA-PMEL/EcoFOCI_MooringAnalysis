@@ -25,6 +25,8 @@ import matplotlib.ticker as ticker
 class Timeseries1varPlot(object):
 
     mpl.rcParams['svg.fonttype'] = 'none'
+    mpl.rcParams['ps.fonttype'] = 42
+    mpl.rcParams['pdf.fonttype'] = 42
 
     def __init__(self, fontsize=10, labelsize=10, plotstyle='k-.', stylesheet='bmh'):
         """Initialize the timeseries with items that do not change.

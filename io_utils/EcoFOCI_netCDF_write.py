@@ -1085,7 +1085,7 @@ class CF_NC_2D(object):
         
     def add_history(self, new_history):
         """Adds timestamp (UTC time) and history to existing information"""
-        self.rootgrpID.History = self.rootgrpID.History + ' ' + datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")\
+        self.rootgrpID.History = self.rootgrpID.History + ' \n' + datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")\
                     + ' ' + new_history + '\n'
                     
     def close(self):

@@ -54,6 +54,9 @@ parser.add_argument("-s",'--screen', action="store_true",
                     help='output to screen')
 parser.add_argument("-ah",'--add_history', action="store_true", 
                     help='add global attribute field for history')
+parser.add_argument("-adsg",'--add_dsg', type=str, 
+                    help='''add global attribute field for discrete sampling geometry.
+                    Options: point, timeSeries, trajectory, profile, timeSeriesProfile, trajectoryProfile''')
 parser.add_argument("-o",'--out_config', action="store_true", 
                     help='output to config file')
 parser.add_argument("-in",'--in_config', action="store_true", 
@@ -78,10 +81,10 @@ if args.out_config:
         global_atts[k] = str(global_atts[k])
         print "{0}: {1}".format(k,global_atts[k])
 
-    ConfigParserLocal.write_config("header_config.pyini", global_atts,'json')
+    ConfigParserLocal.write_config("header_config.yaml", global_atts,'yaml')
     
 if args.in_config:
-    nc_meta = ConfigParserLocal.get_config('header_config.pyini','json')
+    nc_meta = ConfigParserLocal.get_config('header_config.yaml','yaml')
     print nc_meta
 
     print "Setting attributes"
@@ -96,3 +99,9 @@ if args.add_history:
     nchandle.setncattr('history','')
     nchandle.close()
 
+if args.add_dsg:
+
+    print "adding dsg attribute"
+    nchandle = Dataset(args.sourcefile,'a')
+    nchandle.setncattr('featureType',args.add_dsg)
+    nchandle.close()
