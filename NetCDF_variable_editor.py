@@ -76,10 +76,10 @@ if args.out_config:
             data[k] = str(data[k])
             print "{0}: {1}".format(k,data[args.varname])
             data_write = {k:data[args.varname]}
-            ConfigParserLocal.write_config("instrument_"+args.varname+"_config.pyini", data_write,'json')
+            ConfigParserLocal.write_config("instrument_"+args.varname+"_config.yaml", data_write,'yaml')
     
 if args.in_config:
-    nc_meta = ConfigParserLocal.get_config("instrument_"+args.varname+"_config.pyini",'json')
+    nc_meta = ConfigParserLocal.get_config("instrument_"+args.varname+"_config.yaml",'yaml')
     editvar = [float(x) for x in nc_meta[args.varname].strip('[').strip(']').split()]
     print editvar
 

@@ -257,17 +257,17 @@ elif args.operation in ['Interpolate','interpolate']:
 		ncinstance = NetCDF_Copy_Struct(savefile=args.sourcefile.split('.nc')[0] + '.interp.nc')
 		ncinstance.file_create()
 		ncinstance.sbeglobal_atts(raw_data_file=global_atts['DATA_CMNT'], Station_Name=global_atts['MOORING'], 
-		                            Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=global_atts['INST_TYPE'],
-		                            Water_Mass=global_atts['WATER_MASS'], Experiment=['EXPERIMENT'],
-		                            Project=global_atts['PROJECT'], History=History,featureType=featureType)
+									Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=global_atts['INST_TYPE'],
+									Water_Mass=global_atts['WATER_MASS'], Experiment=['EXPERIMENT'],
+									Project=global_atts['PROJECT'], History=History,featureType=featureType)
 		ncinstance.dimension_init(time_len=len(etime),depth_len=len(ncdata['depth']))
 		ncinstance.variable_init(vars_dic)
 		try:
 			ncinstance.add_coord_data(depth=ncdata['depth'], latitude=ncdata['lat'], longitude=ncdata['lon'],
-		                                 time1=etime, time2=etime2)
+										 time1=etime, time2=etime2)
 		except:
 			ncinstance.add_coord_data(depth=ncdata['depth'], latitude=ncdata['latitude'], longitude=ncdata['longitude'],
-		                                 time1=etime, time2=etime2)			
+										 time1=etime, time2=etime2)			
 		ncinstance.add_data(data=ncdata_new, is2D=True)    
 		ncinstance.add_history('Data Interpolated Linearly to be on the hour')
 		ncinstance.close()
@@ -316,17 +316,17 @@ elif args.operation in ['Interpolate','interpolate']:
 		ncinstance = NetCDF_Copy_Struct(savefile=args.sourcefile.split('.nc')[0] + '.interp.nc')
 		ncinstance.file_create()
 		ncinstance.sbeglobal_atts(raw_data_file=global_atts['DATA_CMNT'], Station_Name=global_atts['MOORING'], 
-		                            Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=global_atts['INST_TYPE'],
-		                            Water_Mass=global_atts['WATER_MASS'], Experiment=['EXPERIMENT'],
-		                            Project=global_atts['PROJECT'], History=History,featureType=featureType)
+									Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=global_atts['INST_TYPE'],
+									Water_Mass=global_atts['WATER_MASS'], Experiment=['EXPERIMENT'],
+									Project=global_atts['PROJECT'], History=History, featureType=featureType)
 		ncinstance.dimension_init(time_len=len(etime))
 		ncinstance.variable_init(vars_dic)
 		try:
 			ncinstance.add_coord_data(depth=ncdata['depth'], latitude=ncdata['lat'], longitude=ncdata['lon'],
-		                                 time1=etime, time2=etime2)
+										 time1=etime, time2=etime2)
 		except:
 			ncinstance.add_coord_data(depth=ncdata['depth'], latitude=ncdata['latitude'], longitude=ncdata['longitude'],
-		                                 time1=etime, time2=etime2)			
+										 time1=etime, time2=etime2)			
 		ncinstance.add_data(data=ncdata_new, is2D=False)    
 		ncinstance.add_history('Data Interpolated Linearly to be on the hour')
 		ncinstance.close()
