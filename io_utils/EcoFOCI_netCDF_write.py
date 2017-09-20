@@ -79,7 +79,7 @@ class NetCDF_Create_Timeseries(object):
         
     def sbeglobal_atts(self, raw_data_file='', Water_Mass='', Water_Depth=9999, 
                        Prog_Cmnt='', Experiment='', Edit_Cmnt='', Station_Name='', 
-                       SerialNumber='',Instrument_Type='', History='', Project=''):
+                       SerialNumber='',Instrument_Type='', History='', Project='', featureType=''):
         """
         Assumptions
         -----------
@@ -266,7 +266,7 @@ class NetCDF_Create_Profile(object):
         
     def sbeglobal_atts(self, raw_data_file='', Water_Mass='', Water_Depth=9999, 
                        Prog_Cmnt='', Experiment='', Edit_Cmnt='', Station_Name='', 
-                       SerialNumber='',Instrument_Type='', History='', Project=''):
+                       SerialNumber='',Instrument_Type='', History='', Project='', featureType=''):
         """
         Assumptions
         -----------
@@ -452,7 +452,7 @@ class NetCDF_Trimmed(object):
         
     def sbeglobal_atts(self, raw_data_file='', Water_Mass='', Water_Depth=9999, 
                        Prog_Cmnt='', Experiment='', Edit_Cmnt='', Station_Name='', 
-                       SerialNumber='',Inst_Type='', History='', Project=''):
+                       SerialNumber='',Inst_Type='', History='', Project='', featureType=''):
         """
         Assumptions
         -----------
@@ -574,7 +574,7 @@ class NetCDF_Trimmed(object):
         
     def add_history(self, new_history):
         """Adds timestamp (UTC time) and history to existing information"""
-        self.rootgrpID.History = self.rootgrpID.History + ' ' + datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")\
+        self.rootgrpID.History = self.rootgrpID.History + '\n' + datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")\
                     + ' ' + new_history + '\n'
                     
     def close(self):
@@ -621,7 +621,7 @@ class NetCDF_Copy_Struct(object):
         
     def sbeglobal_atts(self, raw_data_file='', Water_Mass='', Water_Depth=9999, 
                        Prog_Cmnt='', Experiment='', Edit_Cmnt='', Station_Name='', 
-                       SerialNumber='',Inst_Type='', History='', Project=''):
+                       SerialNumber='',Inst_Type='', History='', Project='', featureType=''):
         """
         Assumptions
         -----------
@@ -746,7 +746,7 @@ class NetCDF_Copy_Struct(object):
         
     def add_history(self, new_history):
         """Adds timestamp (UTC time) and history to existing information"""
-        self.rootgrpID.History = self.rootgrpID.History + ' ' + datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")\
+        self.rootgrpID.History = self.rootgrpID.History + '\n' + datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")\
                     + ' ' + new_history + '\n'
                     
     def close(self):
@@ -916,7 +916,7 @@ class CF_NC(object):
         
     def add_history(self, new_history):
         """Adds timestamp (UTC time) and history to existing information"""
-        self.rootgrpID.History = self.rootgrpID.History + ' ' + datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")\
+        self.rootgrpID.History = self.rootgrpID.History + '\n' + datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")\
                     + ' ' + new_history + '\n'
                     
     def close(self):
@@ -1133,7 +1133,7 @@ class NetCDF_Create_Profile_Ragged1D(object):
         
     def sbeglobal_atts(self, raw_data_file='', Water_Mass='', Water_Depth=9999, 
                        Experiment='', Station_Name='', SerialNumber='', 
-                       Instrument_Type='', History='', Project=''):
+                       Instrument_Type='', History='', Project='', featureType=''):
         """
         Assumptions
         -----------
@@ -1298,7 +1298,7 @@ class NetCDF_Create_Profile_Ragged2D(object):
         
     def sbeglobal_atts(self, raw_data_file='', Water_Mass='', Water_Depth=9999, 
                        Experiment='', Station_Name='', SerialNumber='', 
-                       Instrument_Type='', History='', Project=''):
+                       Instrument_Type='', History='', Project='', featureType=''):
         """
         Assumptions
         -----------

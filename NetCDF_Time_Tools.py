@@ -64,8 +64,14 @@ parser.add_argument('--time_since_str', nargs='+', type=str, help='cf compliant 
 parser.add_argument('-is2D','--is2D', action="store_true",
 			   help='convert files like ADCP that have two varying dimensions')
 parser.add_argument('--offset', type=int, help='offset in seconds if chosen as operation')
+parser.add_argument('--featureType', type=str, help='DSG featureType - see CF standards')
 args = parser.parse_args()
 
+
+if args.featureType:
+	featureType=args.featureType
+else:
+	featureType=''
 
 if args.operation in ['CF','CF Convert','CF_Convert']:
 	#generates near file
@@ -101,7 +107,7 @@ if args.operation in ['CF','CF Convert','CF_Convert']:
 		ncinstance.sbeglobal_atts(raw_data_file=data_cmnt, Station_Name=global_atts['MOORING'], 
 										Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=global_atts['INST_TYPE'],
 										Water_Mass=global_atts['WATER_MASS'], Experiment=global_atts['EXPERIMENT'], Project=global_atts['PROJECT'], 
-										History=History)
+										History=History,featureType=featureType)
 		ncinstance.dimension_init(time_len=len(CF_time),depth_len=len(ncdata['depth']))
 		ncinstance.variable_init(df,time_since_str)
 		try:
@@ -150,7 +156,7 @@ if args.operation in ['CF','CF Convert','CF_Convert']:
 		ncinstance.sbeglobal_atts(raw_data_file=data_cmnt, Station_Name=global_atts['MOORING'], 
 										Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=global_atts['INST_TYPE'],
 										Water_Mass=global_atts['WATER_MASS'], Experiment=global_atts['EXPERIMENT'], Project=global_atts['PROJECT'], 
-										History=History)
+										History=History,featureType=featureType)
 		ncinstance.dimension_init(time_len=len(CF_time))
 		ncinstance.variable_init(df,time_since_str)
 		try:
@@ -253,7 +259,7 @@ elif args.operation in ['Interpolate','interpolate']:
 		ncinstance.sbeglobal_atts(raw_data_file=global_atts['DATA_CMNT'], Station_Name=global_atts['MOORING'], 
 		                            Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=global_atts['INST_TYPE'],
 		                            Water_Mass=global_atts['WATER_MASS'], Experiment=['EXPERIMENT'],
-		                            Project=global_atts['PROJECT'], History=History)
+		                            Project=global_atts['PROJECT'], History=History,featureType=featureType)
 		ncinstance.dimension_init(time_len=len(etime),depth_len=len(ncdata['depth']))
 		ncinstance.variable_init(vars_dic)
 		try:
@@ -312,7 +318,7 @@ elif args.operation in ['Interpolate','interpolate']:
 		ncinstance.sbeglobal_atts(raw_data_file=global_atts['DATA_CMNT'], Station_Name=global_atts['MOORING'], 
 		                            Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=global_atts['INST_TYPE'],
 		                            Water_Mass=global_atts['WATER_MASS'], Experiment=['EXPERIMENT'],
-		                            Project=global_atts['PROJECT'], History=History)
+		                            Project=global_atts['PROJECT'], History=History,featureType=featureType)
 		ncinstance.dimension_init(time_len=len(etime))
 		ncinstance.variable_init(vars_dic)
 		try:
