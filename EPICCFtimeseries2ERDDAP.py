@@ -64,7 +64,7 @@ data = df.ncreadfile_dic()
 ncinstance = timeseries_to_ERDDAP_nc(savefile=args.sourcefile.split('.cf.nc')[0] + '.cf1d.nc')
 ncinstance.file_create()
 ncinstance.sbeglobal_atts(raw_data_file=global_atts['DATA_CMNT'], Station_Name=global_atts['MOORING'], 
-                                Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=global_atts['INST_TYPE'],
+                                Water_Depth=global_atts['WATER_DEPTH'], Instrument_Type=global_atts['INST_TYPE'],
                                 Water_Mass=global_atts['WATER_MASS'], Experiment=global_atts['EXPERIMENT'], Project=global_atts['PROJECT'], 
                                 History=global_atts['History'],featureType=global_atts['featureType'])
 ncinstance.dimension_init(recnum_len=len(data['time']),str_len=len(args.fill_value))
