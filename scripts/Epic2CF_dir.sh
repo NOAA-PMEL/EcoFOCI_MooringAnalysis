@@ -1,6 +1,6 @@
 #!/bin/bash
 
-data_dir="/Volumes/WDC_internal/Users/bell/in_and_outbox/2017/stabeno/jan/M2_M8_SSTTemp_analysis/mooringdata/M2/*.nc"
+data_dir="/Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/final_data/*.nc"
 prog_dir="/Volumes/WDC_internal/Users/bell/Programs/Python/EcoFOCI_MooringAnalysis/"
 
 for files in $data_dir
