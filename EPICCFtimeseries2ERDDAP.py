@@ -75,6 +75,6 @@ nchandle.variables['station_id'][:]=stringtochar(np.array(len(nchandle.dimension
 
 #add missing value attribute
 for key,val in enumerate(vars_dic):
-    nchandle.variables[val].fill_value = -1.0e34
+    nchandle.variables[val].fill_value = 1.0e35
 
 df.close()
