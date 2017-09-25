@@ -162,7 +162,7 @@ if args.InstTypeHelp:
 	sys.exit()
 
 if args.InstType in ['MTR','mtr']:
-	config_file = instr_data_ingest.data_source_instrumentconfig().get(args.InstType)
+	config_file = instr_data_ingest.data_source_instrumentconfig('yaml').get(args.InstType)
 	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
 										 source=args.InstType,
 										 add_seconds=args.keywordargs[0],
@@ -170,7 +170,7 @@ if args.InstType in ['MTR','mtr']:
 										 tenmin_interp=to_bool(args.keywordargs[4]))
 
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file)
+	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 	#cycle through and build data arrays
 	#create a "data_dic" and associate the data with an epic key
@@ -193,13 +193,13 @@ if args.InstType in ['MTR','mtr']:
 	(lat,lon) = (-9999, -9999)
 
 elif args.InstType in ['prawler','PRAWLER','Prawler']:
-	config_file = instr_data_ingest.data_source_instrumentconfig().get(args.InstType)
+	config_file = instr_data_ingest.data_source_instrumentconfig('yaml').get(args.InstType)
 	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
 										 source=args.InstType,
 										 prawler_interp_time=args.keywordargs[0],
 										 prawler_grid_press=args.keywordargs[1])  
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file)
+	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 	#cycle through and build data arrays
 	#create a "data_dic" and associate the data with an epic key
@@ -221,14 +221,14 @@ elif args.InstType in ['prawler','PRAWLER','Prawler']:
 	(lat,lon) = (-9999, -9999)
 
 elif args.InstType in ['sbe56','sbe-56','SBE56','SBE-56','s56']:
-	config_file = instr_data_ingest.data_source_instrumentconfig().get(args.InstType)
+	config_file = instr_data_ingest.data_source_instrumentconfig('yaml').get(args.InstType)
 	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
 										 source=args.InstType,
 										 roundTime=to_bool(args.keywordargs[0]),
 										 filetype=args.keywordargs[1])
 
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file)
+	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 
 	#cycle through and build data arrays
@@ -250,13 +250,13 @@ elif args.InstType in ['sbe56','sbe-56','SBE56','SBE-56','s56']:
 	(lat,lon) = (-9999, -9999)
 
 elif args.InstType in ['sbe39','sbe-39','SBE39','SBE-39','s39']:
-	config_file = instr_data_ingest.data_source_instrumentconfig().get(args.InstType)
+	config_file = instr_data_ingest.data_source_instrumentconfig('yaml').get(args.InstType)
 	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
 										 source=args.InstType,
 										 truncate_seconds=to_bool(args.keywordargs[0]))
 
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file)
+	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 
 	#cycle through and build data arrays
@@ -281,13 +281,13 @@ elif args.InstType in ['sbe39','sbe-39','SBE39','SBE-39','s39']:
 	(lat,lon) = (-9999, -9999)
 
 elif args.InstType in ['microcat','sbe37','sbe-37','SBE37','SBE-37','s37']:
-	config_file = instr_data_ingest.data_source_instrumentconfig().get(args.InstType)
+	config_file = instr_data_ingest.data_source_instrumentconfig('yaml').get(args.InstType)
 	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
 										 source=args.InstType,
 										 truncate_seconds=to_bool(args.keywordargs[0]))
 
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file)
+	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 
 	#cycle through and build data arrays
@@ -320,7 +320,7 @@ elif args.InstType in ['microcat','sbe37','sbe-37','SBE37','SBE-37','s37']:
 	(lat,lon) = (-9999, -9999)
 
 elif args.InstType in ['seacat','sbe16','sbe-16','SBE16','SBE-16','sc']:
-	config_file = instr_data_ingest.data_source_instrumentconfig().get(args.InstType)
+	config_file = instr_data_ingest.data_source_instrumentconfig('yaml').get(args.InstType)
 	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
 										 source=args.InstType,
 										 add_seconds=args.keywordargs[0],
@@ -328,7 +328,7 @@ elif args.InstType in ['seacat','sbe16','sbe-16','SBE16','SBE-16','sc']:
 										 hourly_interp=to_bool(args.keywordargs[2]))
 
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file)
+	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 
 	#cycle through and build data arrays
@@ -387,14 +387,14 @@ elif args.InstType in ['seacat','sbe16','sbe-16','SBE16','SBE-16','sc']:
 	(lat,lon) = (-9999, -9999)
 
 elif args.InstType in ['sg','rcm_sg','rcmsg','rcm-sg']:
-	config_file = instr_data_ingest.data_source_instrumentconfig().get(args.InstType)
+	config_file = instr_data_ingest.data_source_instrumentconfig('yaml').get(args.InstType)
 	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
 										 source=args.InstType,
 										 turbidity=to_bool(args.keywordargs[0]),
 										 pressure=to_bool(args.keywordargs[1]))
 
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file)
+	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 
 	#cycle through and build data arrays
@@ -462,7 +462,7 @@ elif args.InstType in ['sg','rcm_sg','rcmsg','rcm-sg']:
 		(lat,lon) = (-9999, -9999)
 
 elif args.InstType in ['eco','ecf','fluor','ecofluor','fluor']:
-	config_file = instr_data_ingest.data_source_instrumentconfig().get(args.InstType)
+	config_file = instr_data_ingest.data_source_instrumentconfig('yaml').get(args.InstType)
 	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
 										 source=args.InstType,
 										 add_seconds=args.keywordargs[0],
@@ -473,7 +473,7 @@ elif args.InstType in ['eco','ecf','fluor','ecofluor','fluor']:
 										 verbose=True)
 
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file)
+	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 
 	#cycle through and build data arrays
@@ -501,12 +501,12 @@ elif args.InstType in ['eco','ecf','fluor','ecofluor','fluor']:
 	(lat,lon) = (-9999, -9999)
 
 elif args.InstType in ['wpak','met']:
-	config_file = instr_data_ingest.data_source_instrumentconfig().get(args.InstType)
+	config_file = instr_data_ingest.data_source_instrumentconfig('yaml').get(args.InstType)
 	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
 										 source=args.InstType,
 										 argos_file=to_bool(args.keywordargs[0]))
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file)
+	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 	#cycle through and build data arrays
 	#create a "data_dic" and associate the data with an epic key
@@ -543,13 +543,13 @@ elif args.InstType in ['wpak','met']:
 		(lat,lon) = (-9999, -9999)
 
 elif args.InstType in ['adcp_ice']:
-	config_file = instr_data_ingest.data_source_instrumentconfig().get(args.InstType)
+	config_file = instr_data_ingest.data_source_instrumentconfig('yaml').get(args.InstType)
 	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
 										 source=args.InstType,
 										 roundTime=to_bool(args.keywordargs[0]))
 
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file)
+	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 
 	#cycle through and build data arrays

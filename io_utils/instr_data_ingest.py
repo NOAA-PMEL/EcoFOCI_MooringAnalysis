@@ -14,8 +14,8 @@
  --------
 
  2017-6-09: Error in time offset correction.  Time scaling factor was determined by clockerro (seconds) / total elapsed seconds
- 	but the total elapsed seconds determined by the difference in max and min times was only reporting elapsed seconds of 1day
- 	Likely only impacts seacat, mtr, and ecoflsb instruments when clock error is large
+	but the total elapsed seconds determined by the difference in max and min times was only reporting elapsed seconds of 1day
+	Likely only impacts seacat, mtr, and ecoflsb instruments when clock error is large
  2016-12-16: Move time functions to time_helper.py
  2016-11-22: Add SBE16 - Aandera oxygen optode to readin routines
  2016-11-10: Add SBE16 readin routines
@@ -52,26 +52,49 @@ def available_data_sources():
 			   }
 	return sources
 
-def data_source_instrumentconfig():
+def data_source_instrumentconfig(ftype='yaml'):
 	r"""List of acronyms and options for names for instruments"""
-	sources = {
-			   'seacat':'sbe16_epickeys.json', 'sbe16':'sbe16_epickeys.json', 'sbe-16':'sbe16_epickeys.json', 
-			   'SBE16':'sbe16_epickeys.json', 'SBE-16':'sbe16_epickeys.json', 'sc':'sbe16_epickeys.json',
-			   'microcat':'sbe37_epickeys.json', 'sbe37':'sbe37_epickeys.json', 'sbe-37':'sbe37_epickeys.json',
-			   'SBE37':'sbe37_epickeys.json', 'SBE-37':'sbe37_epickeys.json', 's37':'sbe37_epickeys.json', 
-			   'sbe39':'sbe39_epickeys.json', 'sbe-39':'sbe39_epickeys.json', 'SBE39':'sbe39_epickeys.json', 'SBE-39':'sbe39_epickeys.json', 's39':'sbe39_epickeys.json',
-			   'sbe56':'sbe56_epickeys.json', 'sbe-56':'sbe56_epickeys.json', 'SBE56':'sbe56_epickeys.json', 'SBE-56':'sbe56_epickeys.json', 's56':'sbe56_epickeys.json',
-			   'rcm7':'rcm','rcm9':'rcm','rcm11':'rcm','sg':'rcm',
-			   'rcmsg':'rcmsg_epickeys.json','rcm-sg':'rcmsg_epickeys.json',
-			   'rcm_sg':'rcmsg_epickeys.json','sg':'rcmsg_epickeys.json',
-			   'wpak':'wpak_epickeys.json','met':'wpak_epickeys.json', 'atrh':'atrh', 'prawler_met':'atrh',
-			   'par':'par',
-			   'isus':'isus','ISUS':'isus','SUNA':'suna','suna':'suna',
-			   'adcp':'adcp','lwrcp':'adcp','wcp':'adcp','adcp_ice':'adcp_bottom_tracking_epickeys.json',
-			   'mtr':'mtr_epickeys.json','MTR':'mtr_epickeys.json',
-			   'eco':'fluor_std_epickeys.json','ecf':'fluor_std_epickeys.json','ecoflsb':'fluor_std_epickeys.json','ecofluor':'eco_epickeys',
-			   'prawler':'prawler_epickeys.json'
-			   }
+	if ftype in ['json','pyini']:
+		sources = {
+				   'seacat':'sbe16_epickeys.json', 'sbe16':'sbe16_epickeys.json', 'sbe-16':'sbe16_epickeys.json', 
+				   'SBE16':'sbe16_epickeys.json', 'SBE-16':'sbe16_epickeys.json', 'sc':'sbe16_epickeys.json',
+				   'microcat':'sbe37_epickeys.json', 'sbe37':'sbe37_epickeys.json', 'sbe-37':'sbe37_epickeys.json',
+				   'SBE37':'sbe37_epickeys.json', 'SBE-37':'sbe37_epickeys.json', 's37':'sbe37_epickeys.json', 
+				   'sbe39':'sbe39_epickeys.json', 'sbe-39':'sbe39_epickeys.json', 'SBE39':'sbe39_epickeys.json', 'SBE-39':'sbe39_epickeys.json', 's39':'sbe39_epickeys.json',
+				   'sbe56':'sbe56_epickeys.json', 'sbe-56':'sbe56_epickeys.json', 'SBE56':'sbe56_epickeys.json', 'SBE-56':'sbe56_epickeys.json', 's56':'sbe56_epickeys.json',
+				   'rcm7':'rcm','rcm9':'rcm','rcm11':'rcm','sg':'rcm',
+				   'rcmsg':'rcmsg_epickeys.json','rcm-sg':'rcmsg_epickeys.json',
+				   'rcm_sg':'rcmsg_epickeys.json','sg':'rcmsg_epickeys.json',
+				   'wpak':'wpak_epickeys.json','met':'wpak_epickeys.json', 'atrh':'atrh', 'prawler_met':'atrh',
+				   'par':'par',
+				   'isus':'isus','ISUS':'isus','SUNA':'suna','suna':'suna',
+				   'adcp':'adcp','lwrcp':'adcp','wcp':'adcp','adcp_ice':'adcp_bottom_tracking_epickeys.json',
+				   'mtr':'mtr_epickeys.json','MTR':'mtr_epickeys.json',
+				   'eco':'fluor_std_epickeys.json','ecf':'fluor_std_epickeys.json','ecoflsb':'fluor_std_epickeys.json','ecofluor':'eco_epickeys',
+				   'prawler':'prawler_epickeys.json'
+				   }
+	elif ftype in ['yaml']:
+		sources = {
+				   'seacat':'sbe16_epickeys.yaml', 'sbe16':'sbe16_epickeys.yaml', 'sbe-16':'sbe16_epickeys.yaml', 
+				   'SBE16':'sbe16_epickeys.yaml', 'SBE-16':'sbe16_epickeys.yaml', 'sc':'sbe16_epickeys.yaml',
+				   'microcat':'sbe37_epickeys.yaml', 'sbe37':'sbe37_epickeys.yaml', 'sbe-37':'sbe37_epickeys.yaml',
+				   'SBE37':'sbe37_epickeys.yaml', 'SBE-37':'sbe37_epickeys.yaml', 's37':'sbe37_epickeys.yaml', 
+				   'sbe39':'sbe39_epickeys.yaml', 'sbe-39':'sbe39_epickeys.yaml', 'SBE39':'sbe39_epickeys.yaml', 'SBE-39':'sbe39_epickeys.yaml', 's39':'sbe39_epickeys.yaml',
+				   'sbe56':'sbe56_epickeys.yaml', 'sbe-56':'sbe56_epickeys.yaml', 'SBE56':'sbe56_epickeys.yaml', 'SBE-56':'sbe56_epickeys.yaml', 's56':'sbe56_epickeys.yaml',
+				   'rcm7':'rcm','rcm9':'rcm','rcm11':'rcm','sg':'rcm',
+				   'rcmsg':'rcmsg_epickeys.yaml','rcm-sg':'rcmsg_epickeys.yaml',
+				   'rcm_sg':'rcmsg_epickeys.yaml','sg':'rcmsg_epickeys.yaml',
+				   'wpak':'wpak_epickeys.yaml','met':'wpak_epickeys.yaml', 'atrh':'atrh', 'prawler_met':'atrh',
+				   'par':'par',
+				   'isus':'isus','ISUS':'isus','SUNA':'suna','suna':'suna',
+				   'adcp':'adcp','lwrcp':'adcp','wcp':'adcp','adcp_ice':'adcp_bottom_tracking_epickeys.yaml',
+				   'mtr':'mtr_epickeys.yaml','MTR':'mtr_epickeys.yaml',
+				   'eco':'fluor_std_epickeys.yaml','ecf':'fluor_std_epickeys.yaml','ecoflsb':'fluor_std_epickeys.yaml','ecofluor':'eco_epickeys',
+				   'prawler':'prawler_epickeys.yaml'
+				   }
+	else:
+		raise RuntimeError('{0} format not recognized'.format(infile))
+
 	return sources
 
 def get_inst_data(filename, MooringID=None, source='seacat', **kwargs):
