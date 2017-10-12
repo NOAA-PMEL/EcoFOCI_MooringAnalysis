@@ -57,17 +57,17 @@ __keywords__ = 'Mooring', 'comparisons', 'Cruise', 'plots'
 
 """--------------------------------main Routines---------------------------------------"""
 
-parser = argparse.ArgumentParser(description='SBE56 plotting')
+parser = argparse.ArgumentParser(description='Output Mooring Data as csv')
 parser.add_argument('PointerFile', 
 	metavar='PointerFile', 
 	type=str, 
 	help='full path to pointer file')
-parser.add_argument("-multi",'--multiplot', 
+parser.add_argument("-multi",'--multi', 
 	action="store_true", 
-	help='plot multiple mooring data on one panel')
+	help='output multiple mooring data on one file')
 parser.add_argument("-ctd",'--ctd_calibration_plots', 
 	action="store_true", 
-	help='plot CTD calibration point on timeseries')
+	help='output CTD calibration point with timeseries')
 
 args = parser.parse_args()
 
@@ -78,9 +78,9 @@ this program.  It can be of the .pyini (json) form or .yaml form
 
 """
 if args.PointerFile.split('.')[-1] == 'pyini':
-	pointer_file = ConfigParserLocal.get_config(args.PointerFile)
+	pointer_file = ConfigParserLocal.get_config(args.PointerFile,ftype='pyini')
 elif args.PointerFile.split('.')[-1] == 'yaml':
-	pointer_file = ConfigParserLocal.get_config_yaml(args.PointerFile)
+	pointer_file = ConfigParserLocal.get_config(args.PointerFile,ftype='yaml')
 else:
 	print "PointerFile format not recognized"
 	sys.exit()
@@ -112,7 +112,7 @@ ctd_files_path = [a+b for a,b in zip(CTDDataPath,ctd_files)]
 """
 databounds={}
 
-if args.multiplot:
+if args.multi:
 
 
 	### cycle through all files, retrieve data and plot
