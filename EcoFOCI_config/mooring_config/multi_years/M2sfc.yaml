@@ -1,0 +1,76 @@
+MooringID: M2_SFC
+mooring_data_path:
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2017/stabeno/jan/M2_M8_SSTTemp_analysis/mooringdata/M2/
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2017/stabeno/jan/M2_M8_SSTTemp_analysis/mooringdata/M2/
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2017/stabeno/jan/M2_M8_SSTTemp_analysis/mooringdata/M2/
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2017/stabeno/jan/M2_M8_SSTTemp_analysis/mooringdata/M2/
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2017/stabeno/jan/M2_M8_SSTTemp_analysis/mooringdata/M2/
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2017/stabeno/jan/M2_M8_SSTTemp_analysis/mooringdata/M2/
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2017/stabeno/jan/M2_M8_SSTTemp_analysis/mooringdata/M2/
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2017/stabeno/jan/M2_M8_SSTTemp_analysis/mooringdata/M2/
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2017/stabeno/jan/M2_M8_SSTTemp_analysis/mooringdata/M2/
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2017/stabeno/jan/M2_M8_SSTTemp_analysis/mooringdata/M2/
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2017/stabeno/jan/M2_M8_SSTTemp_analysis/mooringdata/M2/
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2017/stabeno/jan/M2_M8_SSTTemp_analysis/mooringdata/M2/
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2017/stabeno/jan/M2_M8_SSTTemp_analysis/mooringdata/M2/
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2017/stabeno/jan/M2_M8_SSTTemp_analysis/mooringdata/M2/
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2017/stabeno/jan/M2_M8_SSTTemp_analysis/mooringdata/M2/
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2017/stabeno/jan/M2_M8_SSTTemp_analysis/mooringdata/M2/
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2017/stabeno/jan/M2_M8_SSTTemp_analysis/mooringdata/M2/
+- /Volumes/WDC_internal/Users/bell/in_and_outbox/2017/stabeno/jan/M2_M8_SSTTemp_analysis/mooringdata/M2/
+nominal_depth:
+- ''
+mooring_files:
+- 00bsm2a_sc_0001m.nc
+- 01bsm2a_sc_0001m.nc
+- 01bs2c_sc_0006m.nc
+- 02bsm2a_sc_0001m.nc
+- 03bsm2a_sc_0001m.nc
+- 04bsm2a_sc_0001m.nc
+- 05bsm2a_sc_0001m.nc
+- 06bsm2a_s37_0001m.nc
+- 07bsm2a_s37_0001m.nc
+- 08bsm2a_s37_0001m.nc
+- 09bsm2a_s37_0001m.nc
+- 10bsm2a_s37_0001m.nc
+- 11bsm2a_mt_0004m.nc
+- 12bsm2a_s37_0001m.nc
+- 13bsm2a_mt_0004m.nc
+- 14bsm2a_mt4016_0004m.nc
+- 15bsm2a_mt4004_0004m.nc
+- 16bsm2a_mt3276_0004m.nc
+legend: 
+legend_loc: upper center
+legend_off: true
+colors: 
+- k-
+- k-
+- k-
+- k-
+- k-
+- k-
+- k-
+- k-
+- k-
+- k-
+- k-
+- k-
+- k-
+- k-
+- k-
+- k-
+- k-
+dtype: unqcd
+EPIC_Key: 
+- T_20
+Ylabel: Temperature
+Date_Ticks: multi_year
+plot_stylesheet: seaborn-poster
+output_type: svg
+EPIC_Key_ctd: S_42
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+dtype: mooring
+
