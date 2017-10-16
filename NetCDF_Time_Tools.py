@@ -296,7 +296,7 @@ elif args.operation in ['Interpolate','interpolate']:
 		trng = {k:v for k,v in enumerate(rng)}
 		for key in ncdata.keys():
 			if not key in ['lat','lon','depth','time','time2','dep','latitude','longitude']:
-				temporary = interp2hour(rng, dt_from_epic, {key:ncdata[key][:,0,0,0]},variable_name=key)
+				temporary = interp2hour(rng, dt_from_epic, {key:ncdata[key][:,0,0,0]},vlist=[key])
 				ncdata_new[key] = np.ones([len(temporary[key]),1,1,1]) * np.nan
 				ncdata_new[key][:,0,0,0] = temporary[key]
 
