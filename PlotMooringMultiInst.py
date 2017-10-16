@@ -101,7 +101,8 @@ else:
 	sys.exit()
 
 MooringID = pointer_file['MooringID']
-color_options = pointer_file['colors']
+color = pointer_file['colors']
+linestyle = pointer_file['linestyle']
 label = pointer_file['legend']
 nominal_depth = pointer_file['nominal_depth']
 legend_loc = pointer_file['legend_loc']
@@ -203,18 +204,18 @@ if args.multiplot_overlay:
 			if start_year == 'Even':
 				year_ind = bisect.bisect_left(nctime, datetime.datetime(2001,1,1))
 				plot_time = [x.replace(year=2000) for x in nctime]
-				plt.plot(plot_time[:year_ind], ncdata[plot_var][:year_ind,0,0,0],color_options[ind],linewidth=0.25)
-				plt.plot(plot_time[year_ind:], ncdata[plot_var][year_ind:,0,0,0],color_options[ind+1],linewidth=0.25)
+				plt.plot(plot_time[:year_ind], ncdata[plot_var][:year_ind,0,0,0],color=color[ind],linestyle=linestyle[ind],linewidth=0.25)
+				plt.plot(plot_time[year_ind:], ncdata[plot_var][year_ind:,0,0,0],color=color[ind+1],linestyle=linestyle[ind+1],linewidth=0.25)
 			elif start_year == 'Odd':
 				year_ind = bisect.bisect_left(nctime, datetime.datetime(2000,1,1))
 				plot_time = [x.replace(year=2000) for x in nctime]
-				plt.plot(plot_time[:year_ind], ncdata[plot_var][:year_ind,0,0,0],color_options[ind+1],linewidth=0.25)
-				plt.plot(plot_time[year_ind:], ncdata[plot_var][year_ind:,0,0,0],color_options[ind],linewidth=0.25)
+				plt.plot(plot_time[:year_ind], ncdata[plot_var][:year_ind,0,0,0],color=color[ind+1],linestyle=linestyle[ind+1],linewidth=0.25)
+				plt.plot(plot_time[year_ind:], ncdata[plot_var][year_ind:,0,0,0],color=color[ind],linestyle=linestyle[ind],linewidth=0.25)
 			nctime = get_UDUNITS(plot_time,'days since 0001-01-01') + 1.
 		else:
 
 			try:
-				plt.plot(nctime, ncdata[plot_var][:,0,0,0],color_options[ind],linewidth=0.25,markersize=1)
+				plt.plot(nctime, ncdata[plot_var][:,0,0,0],color=color[ind],linestyle=linestyle[ind],linewidth=0.25,markersize=1)
 			except KeyError: #if the file doesn't have the specified epic_key it will through an exception
 				print "Failed to plot {0}".format(plot_var)
 				continue
