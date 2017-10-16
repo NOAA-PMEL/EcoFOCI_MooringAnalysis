@@ -32,3 +32,11 @@ input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe37/16ckp9a_sbe37_40
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/16ckp9a_s37_0045m.unqcd.nc
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s37 0045 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Trim.py ${output} -sd ${deployment_date} -ed ${recovery_date}
+
+echo "-------------------------------------------------------------"
+echo "RCM9/11 Processing"
+echo "-------------------------------------------------------------"
+
+#
+# Still use original rcm processing in mooringanalysis folder
+#
