@@ -199,7 +199,7 @@ if args.multiplot_overlay:
 			pass
 
 		#Plot data
-		plt.hold(True)
+		#plt.hold(True)
 		if args.timeseries_overlay:
 			if start_year == 'Even':
 				year_ind = bisect.bisect_left(nctime, datetime.datetime(2001,1,1))
@@ -291,17 +291,20 @@ if args.multiplot_overlay:
 # include calibration casts at specified depths, assume all ctd files start at zero so that the 
 # index of the depth to be plotted is equivalent to the depth listed in the label parameter
 if args.ctd_calibration_plots:
-	fig = plt.figure()
-	plt.subplot2grid((3, 1), (1, 0), colspan=1, rowspan=3)
-
-	### set arbitrary max and min bounds to be changed later based on data bounds
-	databounds['max_t'] = 0
-	databounds['min_t'] = 100000000
-	databounds['max_v'] = -50
-	databounds['min_v'] = 50
-	label_thin = []
 	
 	for ind, ncfile in enumerate(files_path):
+
+		fig = plt.figure()
+		plt.subplot2grid((3, 1), (1, 0), colspan=1, rowspan=3)
+
+		### set arbitrary max and min bounds to be changed later based on data bounds
+		databounds['max_t'] = 0
+		databounds['min_t'] = 100000000
+		databounds['max_v'] = -50
+		databounds['min_v'] = 50
+		label_thin = []
+
+
 		### mooring data retrieval
 		print "Working on {activefile}".format(activefile=ncfile)
 		df = EcoFOCI_netCDF(ncfile)
@@ -328,7 +331,7 @@ if args.ctd_calibration_plots:
 
 			
 		### plot mooring
-		plt.hold(False)
+		#plt.hold(False)
 		try:
 			plt.plot(nctime, ncdata[plot_var][:,0,0,0],'k', linewidth=0.5)
 		except KeyError: #if the file doesn't have the specified epic_key it will through an exception
@@ -357,7 +360,7 @@ if args.ctd_calibration_plots:
 			nctime_ctd = get_UDUNITS(EPIC2Datetime(ncdata_ctd['time'],ncdata_ctd['time2']),'days since 0001-01-01') + 1.
 
 			### plot ctd data on top of mooring data
-			plt.hold(True)
+			#plt.hold(True)
 			try:
 				plt.scatter(nctime_ctd, ncdata_ctd[plot_var_ctd][0,int(nominal_depth[ind]),0,0],s=200,edgecolor='r',facecolor='none')
 				plt.scatter(nctime_ctd, ncdata_ctd[plot_var_ctd][0,int(nominal_depth[ind]),0,0],s=50,edgecolor='r',facecolor='r',marker='+')
@@ -416,4 +419,4 @@ if args.ctd_calibration_plots:
 
 		plt.savefig('images/'+ MooringID + '_'+plot_var+'_'+datatype+'_ctdcal_'+ncfile.split('.nc')[0].split('/')[-1]+'.png', bbox_inches='tight', dpi = (300))
 
-	plt.close()
+		plt.close()
