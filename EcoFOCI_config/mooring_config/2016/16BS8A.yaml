@@ -3,12 +3,12 @@ MooringID: 16BS-8A
 Date_Ticks: multi_month
 start_time: 2016-09-26
 end_time: 2017-09-24
-EPIC_Key: S_41
-EPIC_Key_ctd: S_42
-Ylabel: Salinity
-#EPIC_Key: T_20
-#EPIC_Key_ctd: T_28
-#Ylabel: Temperature
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
 #EPIC_Key: Fch_906
 #EPIC_Key_ctd: F_903
 #Ylabel: Chlor
@@ -73,20 +73,36 @@ linestyle:
 - '--'
 - '--'
 ctd_data_path:
-- '/Users/bell/ecoraid/2016/CTDcasts/aq1601/initial_archive/allparameters/'
-- '/Users/bell/ecoraid/2017/CTDcasts/dy1708/initial_archive/allparameters/'
-- '/Users/bell/ecoraid/2017/CTDcasts/dy1708/initial_archive/allparameters/'
+- '/Users/bell/ecoraid/2016/CTDcasts/aq1601/working/pri_sec/'
+- '/Users/bell/ecoraid/2017/CTDcasts/dy1708/initial_archive/'
+- '/Users/bell/ecoraid/2017/CTDcasts/dy1708/initial_archive/'
 ctd_files:
 - 'aq1601c066_ctd.nc'
 - 'dy1708c044_ctd.nc'
 - 'dy1708c045_ctd.nc'
 dtype: mooring
 legend:
-- 
+- 22m ecf
+- 31m s37
+- 27m s39
+- 35m s39
+- 40m s39
+- 45m s39
+- 50m s39
+- 60m s39
+- 67m s39
 legend_loc: upper center
 legend_off: false
 nominal_depth:
-- 
+- 22
+- 31
+- 27
+- 35
+- 40
+- 45
+- 50
+- 60
+- 67
 mooring_data_path:
 - /Users/bell/ecoraid/2016/Moorings/16bs8a/working/
 - /Users/bell/ecoraid/2016/Moorings/16bs8a/working/
@@ -97,12 +113,16 @@ mooring_data_path:
 - /Users/bell/ecoraid/2016/Moorings/16bs8a/working/
 - /Users/bell/ecoraid/2016/Moorings/16bs8a/working/
 - /Users/bell/ecoraid/2016/Moorings/16bs8a/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs8a/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs8a/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs8a/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs8a/working/
 mooring_files:
--
+- 16bs8a_ecf_0022m.interpolated.trimmed_missing.nc
+- 16bs8a_s37_0031m.unqcd.trimmed_missing.nc
+- 16bs8a_s39_0027m.unqcd.trimmed_missing.nc
+- 16bs8a_s39_0035m.unqcd.trimmed_missing.nc
+- 16bs8a_s39_0040m.unqcd.trimmed_missing.nc
+- 16bs8a_s39_0045m.unqcd.trimmed_missing.nc
+- 16bs8a_s39_0050m.unqcd.trimmed_missing.nc
+- 16bs8a_s39_0060m.unqcd.trimmed_missing.nc
+- 16bs8a_s39_0067m.unqcd.trimmed_missing.nc
 notes:
 output_type: png
 plot_stylesheet: seaborn-poster

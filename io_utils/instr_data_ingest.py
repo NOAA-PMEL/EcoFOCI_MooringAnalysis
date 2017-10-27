@@ -483,6 +483,13 @@ class prawler(object):
 
 			date_time = time_grid
 
+class seabird_header(object):
+	r""" Seabird Instruments have a header usually defined by *END with a significant amount of
+	information imbedded.  Send a flag to parse seabird headers.  Better yet may be to combine seabird gear
+	into classes and subclasses.
+	"""
+	pass
+
 class sbe16(object):
 	r"""Seacat / SBE-16 files with optional ancillary sensors"""
 
