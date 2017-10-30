@@ -48,18 +48,31 @@ nominal_depth:
 - 60
 - 40
 colors:
-- k-
-- b-
-- m-
-- g-
-- r-
-- c-
-- k-.
-- b-.
-- m-.
-- g-.
-- r-.
-- c-.
+- black
+- blue
+- magenta
+- green
+- red
+- cyan
+- k
+- b
+- m
+- g
+- r
+- c
+linestyle:
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
 legend:
 - 12m sc
 - 18m s37
@@ -76,12 +89,12 @@ legend:
 dtype: mooring
 legend_loc: upper center
 legend_off: false
-#EPIC_Key: S_41
-#EPIC_Key_ctd: S_42
-#Ylabel: Salinity
-EPIC_Key: T_20
-EPIC_Key_ctd: T_28
-Ylabel: Temperature
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
 #EPIC_Key: P_1
 #EPIC_Key_ctd: P_1
 #Ylabel: Pressure (dB)
