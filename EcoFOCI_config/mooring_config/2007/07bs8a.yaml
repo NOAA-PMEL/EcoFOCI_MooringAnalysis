@@ -54,10 +54,10 @@ linestyle:
 - '--'
 - '--'
 ctd_data_path:
-- '/Volumes/WDC_internal/Users/bell/ecoraid/2009/CTDcasts/mf0904l2/final_data/ctd_merged/'
+- '/Volumes/WDC_internal/Users/bell/ecoraid/2007/CTDcasts/mf0711l2/final_data/ctd/'
 - '/Volumes/WDC_internal/Users/bell/ecoraid/2008/CTDCasts/me0823/final_data/ctd/'
 ctd_files:
-- 'mf0904l2c073_ctd.nc'
+- 'mf0711l2c003.nc'
 - 'me0823c057.nc'
 dtype: mooring
 legend:
