@@ -16,25 +16,6 @@ Ylabel: Temperature
 #EPIC_Key_ctd: OST_62
 #Ylabel: Oxygen_PSat
 colors:
-- k-
-- b-
-- m-
-- g-
-- r-
-- c-
-- k--
-- b--
-- m--
-- g--
-- r--
-- c--
-- k-.
-- b-.
-- m-.
-- g-.
-- r-.
-- c-.
-colors:
 - black
 - blue
 - magenta
