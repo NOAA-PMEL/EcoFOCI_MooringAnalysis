@@ -3,37 +3,18 @@ MooringID: 16BS-5A
 Date_Ticks: multi_month
 start_time: 2016-09-26
 end_time: 2017-09-27
-EPIC_Key: S_41
-EPIC_Key_ctd: S_42
-Ylabel: Salinity
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
 #EPIC_Key: T_20
 #EPIC_Key_ctd: T_28
 #Ylabel: Temperature
-#EPIC_Key: Fch_906
-#EPIC_Key_ctd: F_903
-#Ylabel: Chlor
+EPIC_Key: Fch_906
+EPIC_Key_ctd: F_903
+Ylabel: Chlor
 #EPIC_Key: OST_62
 #EPIC_Key_ctd: OST_62
 #Ylabel: Oxygen_PSat
-colors:
-- k-
-- b-
-- m-
-- g-
-- r-
-- c-
-- k--
-- b--
-- m--
-- g--
-- r--
-- c--
-- k-.
-- b-.
-- m-.
-- g-.
-- r-.
-- c-.
 colors:
 - black
 - blue
@@ -60,33 +41,47 @@ linestyle:
 - '-'
 - '-'
 - '-'
-- '-.'
-- '-.'
-- '-.'
-- '-.'
-- '-.'
-- '-.'
 - '--'
 - '--'
 - '--'
 - '--'
 - '--'
 - '--'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
 ctd_data_path:
-- '/Users/bell/ecoraid/2016/CTDcasts/aq1601/initial_archive/allparameters/'
-- '/Users/bell/ecoraid/2017/CTDcasts/dy1708/initial_archive/allparameters/'
-- '/Users/bell/ecoraid/2017/CTDcasts/dy1708/initial_archive/allparameters/'
+- '/Users/bell/ecoraid/2016/CTDcasts/aq1601/initial_archive/pri_sec/'
+- '/Users/bell/ecoraid/2017/CTDcasts/dy1708/initial_archive/'
+- '/Users/bell/ecoraid/2017/CTDcasts/dy1708/initial_archive/'
 ctd_files:
 - 'aq1601c067_ctd.nc'
 - 'dy1708c030_ctd.nc'
 - 'dy1708c031_ctd.nc'
 dtype: mooring
 legend:
-- 
+- 16m eco
+- 15m 37
+- 31m 37
+- 55m 37
+- 18m 39
+- 21m 39
+- 59m 39
+- 66m 39
 legend_loc: upper center
 legend_off: false
 nominal_depth:
-- 
+- 16
+- 15
+- 31
+- 55
+- 18
+- 21
+- 59
+- 66
 mooring_data_path:
 - /Users/bell/ecoraid/2016/Moorings/16bs5a/working/
 - /Users/bell/ecoraid/2016/Moorings/16bs5a/working/
@@ -96,13 +91,15 @@ mooring_data_path:
 - /Users/bell/ecoraid/2016/Moorings/16bs5a/working/
 - /Users/bell/ecoraid/2016/Moorings/16bs5a/working/
 - /Users/bell/ecoraid/2016/Moorings/16bs5a/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs5a/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs5a/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs5a/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs5a/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs5a/working/
 mooring_files:
--
+- 16bs5a_ecf_0016m.interpolated.trimmed_missing.nc
+- 16bs5a_s37_0015m.unqcd.trimmed_missing.nc
+- 16bs5a_s37_0031m.unqcd.trimmed_missing.nc
+- 16bs5a_s37_0055m.unqcd.trimmed_missing.nc
+- 16bs5a_s39_0018m.unqcd.trimmed_missing.nc
+- 16bs5a_s39_0021m.unqcd.trimmed_missing.nc
+- 16bs5a_s39_0059m.unqcd.trimmed_missing.nc
+- 16bs5a_s39_0066m.unqcd.trimmed_missing.nc
 notes:
 output_type: png
 plot_stylesheet: seaborn-poster

@@ -41,18 +41,18 @@ linestyle:
 - '-'
 - '-'
 - '-'
-- '-.'
-- '-.'
-- '-.'
-- '-.'
-- '-.'
-- '-.'
 - '--'
 - '--'
 - '--'
 - '--'
 - '--'
 - '--'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
 ctd_data_path:
 - '/Users/bell/ecoraid/2016/CTDcasts/aq1601/working/pri_sec/'
 - '/Users/bell/ecoraid/2017/CTDcasts/dy1708/initial_archive/'
@@ -64,6 +64,7 @@ ctd_files:
 dtype: mooring
 legend:
 - 22m ecf
+- 20m sc
 - 31m s37
 - 27m s39
 - 35m s39
@@ -76,6 +77,7 @@ legend_loc: upper center
 legend_off: false
 nominal_depth:
 - 22
+- 20
 - 31
 - 27
 - 35
@@ -85,25 +87,27 @@ nominal_depth:
 - 60
 - 67
 mooring_data_path:
+- /Users/bell/ecoraid/2016/Moorings/16bs8a/final_data/
 - /Users/bell/ecoraid/2016/Moorings/16bs8a/working/
 - /Users/bell/ecoraid/2016/Moorings/16bs8a/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs8a/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs8a/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs8a/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs8a/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs8a/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs8a/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs8a/working/
+- /Users/bell/ecoraid/2016/Moorings/16bs8a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bs8a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bs8a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bs8a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bs8a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bs8a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bs8a/final_data/
 mooring_files:
-- 16bs8a_ecf_0022m.interpolated.trimmed_missing.nc
+- 16bs8a_ecf_0022m.nc
+- 16bs8a_sc_0020m.interpolated.trimmed_missing.nc
 - 16bs8a_s37_0031m.unqcd.trimmed_missing.nc
-- 16bs8a_s39_0027m.unqcd.trimmed_missing.nc
-- 16bs8a_s39_0035m.unqcd.trimmed_missing.nc
-- 16bs8a_s39_0040m.unqcd.trimmed_missing.nc
-- 16bs8a_s39_0045m.unqcd.trimmed_missing.nc
-- 16bs8a_s39_0050m.unqcd.trimmed_missing.nc
-- 16bs8a_s39_0060m.unqcd.trimmed_missing.nc
-- 16bs8a_s39_0067m.unqcd.trimmed_missing.nc
+- 16bs8a_s39_0027m.nc
+- 16bs8a_s39_0035m.nc
+- 16bs8a_s39_0040m.nc
+- 16bs8a_s39_0045m.nc
+- 16bs8a_s39_0050m.nc
+- 16bs8a_s39_0060m.nc
+- 16bs8a_s39_0067m.nc
 notes:
 output_type: png
 plot_stylesheet: seaborn-poster
