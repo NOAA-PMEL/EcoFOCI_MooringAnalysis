@@ -1,0 +1,102 @@
+---
+Date_Ticks: multi_month
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Salinity
+MooringID: 14BS5A
+colors:
+- black
+- blue
+- magenta
+- green
+- red
+- cyan
+- black
+- blue
+- magenta
+- green
+- red
+- cyan
+- black
+- blue
+- magenta
+- green
+- red
+- cyan
+linestyle:
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+ctd_data_path:
+- /Users/bell/ecoraid/2015/CTDCasts/dy1509/final_data/ctd/
+ctd_files:
+- dy1509c088_ctd.nc
+dtype: mooring
+nominal_depth:
+- 20
+- 23
+- 40
+- 45
+- 50
+- 60
+- 67
+- 17
+- 32
+- 55
+legend: 
+- 0020m s39
+- 0023m s39
+- 0040m s39
+- 0045m s39
+- 0050m s39
+- 0060m s39
+- 0067m s39
+- 0017m s37
+- 0032m s37
+- 0055m s37
+legend_loc: upper center
+legend_off: false
+mooring_data_path:
+- /Users/bell/ecoraid/2014/Moorings/14bs5a/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bs5a/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bs5a/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bs5a/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bs5a/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bs5a/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bs5a/final_data/
+- /Users/bell/ecoraid/2014/Moorings/14bs5a/working/
+- /Users/bell/ecoraid/2014/Moorings/14bs5a/working/
+- /Users/bell/ecoraid/2014/Moorings/14bs5a/working/
+mooring_files:
+- 14bs5a_s39_0020m.nc
+- 14bs5a_s39_0023m.nc
+- 14bs5a_s39_0040m.nc
+- 14bs5a_s39_0045m.nc
+- 14bs5a_s39_0050m.nc
+- 14bs5a_s39_0060m.nc
+- 14bs5a_s39_0067m.nc
+- 14bs5a_s37_0017m.unqcd.trimmed_missing.nc
+- 14bs5a_s37_0032m.unqcd.trimmed_missing.nc
+- 14bs5a_s37_0055m.unqcd.trimmed_missing.nc
+notes: s37 nominal depth is 37m but pressure reports 44db
+output_type: png
+plot_stylesheet: seaborn-poster
+
