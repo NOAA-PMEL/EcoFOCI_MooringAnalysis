@@ -1,0 +1,124 @@
+---
+MooringID: 13BS-5A
+Date_Ticks: multi_month
+start_time: 
+end_time: 
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
+#EPIC_Key: Fch_906
+#EPIC_Key_ctd: F_903
+#Ylabel: Chlor
+#EPIC_Key: OST_62
+#EPIC_Key_ctd: OST_62
+#Ylabel: Oxygen_PSat
+colors:
+- black
+- blue
+- magenta
+- green
+- red
+- cyan
+- black
+- blue
+- magenta
+- green
+- red
+- cyan
+- black
+- blue
+- magenta
+- green
+- red
+- cyan
+linestyle:
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+ctd_data_path:
+- '/Users/bell/ecoraid/2012/CTDCasts/dy1405/final_data/ctd/'
+- '/Users/bell/ecoraid/2014/CTDCasts/dy1408l3/final_data/ctd/'
+ctd_files:
+- 'dy1405c064_ctd.nc'
+- 'dy1408l3c116_ctd.nc'
+dtype: mooring
+legend:
+- 22m s39
+- 25m s39
+- 29m s39
+- 37m s39
+- 42m s39
+- 47m s39
+- 52m s39
+- 62m s39
+- 69m s39
+- 20m ecf
+- 34m s37
+- 57m s37
+- 19m sc
+legend_loc: upper center
+legend_off: false
+nominal_depth:
+- 22
+- 25
+- 29
+- 37
+- 42
+- 47
+- 52
+- 62
+- 69
+- 20
+- 34
+- 57
+- 19
+mooring_data_path:
+- /Users/bell/ecoraid/2013/Moorings/13bs5a/final_data/
+- /Users/bell/ecoraid/2013/Moorings/13bs5a/final_data/
+- /Users/bell/ecoraid/2013/Moorings/13bs5a/final_data/
+- /Users/bell/ecoraid/2013/Moorings/13bs5a/final_data/
+- /Users/bell/ecoraid/2013/Moorings/13bs5a/final_data/
+- /Users/bell/ecoraid/2013/Moorings/13bs5a/final_data/
+- /Users/bell/ecoraid/2013/Moorings/13bs5a/final_data/
+- /Users/bell/ecoraid/2013/Moorings/13bs5a/final_data/
+- /Users/bell/ecoraid/2013/Moorings/13bs5a/final_data/
+- /Users/bell/ecoraid/2013/Moorings/13bs5a/working/
+- /Users/bell/ecoraid/2013/Moorings/13bs5a/working/
+- /Users/bell/ecoraid/2013/Moorings/13bs5a/working/
+#- /Users/bell/ecoraid/2013/Moorings/13bs5a/working/
+mooring_files:
+- 13bs5a_s39_0022m.nc
+- 13bs5a_s39_0025m.nc
+- 13bs5a_s39_0029m.nc
+- 13bs5a_s39_0037m.nc
+- 13bs5a_s39_0042m.nc
+- 13bs5a_s39_0047m.nc
+- 13bs5a_s39_0052m.nc
+- 13bs5a_s39_0062m.nc
+- 13bs5a_s39_0069m.nc
+- 13bs5a_ecf_0020m.unqcd.interpolated.nc
+- 13bs5a_s37_0034m.unqcd.trimmed_missing.nc
+- 13bs5a_s37_0057m.unqcd.trimmed_missing.nc
+#- 13bs5a_sc_0019m.unqcd.trimmed_missing.nc
+notes:
+output_type: png
+plot_stylesheet: seaborn-poster
+

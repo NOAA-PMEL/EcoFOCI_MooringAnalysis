@@ -1,11 +1,9 @@
 ---
-MooringID: 15BS-4B
+MooringID: 14BS-4B
 ctd_data_path:
-#- /Volumes/WDC_internal/Users/bell/ecoraid/2015/CTDcasts/aq1501/final_data/ctd/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2015/CTDcasts/dy1509/final_data/ctd/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2016/CTDcasts/aq1601/initial_archive/pri_sec/
 ctd_files:
-#- aq1501c018_ctd.nc --- bucket only
 - dy1509c068_ctd.nc
 - aq1601c069_ctd.nc
 mooring_data_path:

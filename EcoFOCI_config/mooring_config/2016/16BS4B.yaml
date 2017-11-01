@@ -1,0 +1,110 @@
+---
+MooringID: 16BS-4B
+Date_Ticks: multi_month
+start_time: 2016-09-26
+end_time: 2017-09-27
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+#EPIC_Key: Fch_906
+#EPIC_Key_ctd: F_903
+#Ylabel: Chlor
+#EPIC_Key: OST_62
+#EPIC_Key_ctd: OST_62
+#Ylabel: Oxygen_PSat
+colors:
+- black
+- blue
+- magenta
+- green
+- red
+- cyan
+- black
+- blue
+- magenta
+- green
+- red
+- cyan
+- black
+- blue
+- magenta
+- green
+- red
+- cyan
+linestyle:
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
+ctd_data_path:
+- '/Users/bell/ecoraid/2016/CTDcasts/aq1601/initial_archive/pri_sec/'
+- '/Users/bell/ecoraid/2017/CTDcasts/dy1704/initial_archive/'
+- '/Users/bell/ecoraid/2017/CTDcasts/dy1708/initial_archive/'
+ctd_files:
+- 'aq1601c069_ctd.nc'
+- 'dy1704c026_ctd.nc'
+- 'dy1708c017_ctd.nc'
+dtype: mooring
+legend:
+- 11m ecf
+- 16m s37
+- 29m s37
+- 53m s37
+- 13m s39
+- 17m s39
+- 25m s39
+- 45m s39
+- 11m sc
+legend_loc: upper center
+legend_off: false
+nominal_depth:
+- 11
+- 16
+- 29
+- 53
+- 13
+- 17
+- 25
+- 45
+- 11
+mooring_data_path:
+- /Users/bell/ecoraid/2016/Moorings/16bs4b/working/
+- /Users/bell/ecoraid/2016/Moorings/16bs4b/working/
+- /Users/bell/ecoraid/2016/Moorings/16bs4b/working/
+- /Users/bell/ecoraid/2016/Moorings/16bs4b/working/
+- /Users/bell/ecoraid/2016/Moorings/16bs4b/working/
+- /Users/bell/ecoraid/2016/Moorings/16bs4b/working/
+- /Users/bell/ecoraid/2016/Moorings/16bs4b/working/
+- /Users/bell/ecoraid/2016/Moorings/16bs4b/working/
+- /Users/bell/ecoraid/2016/Moorings/16bs4b/working/
+mooring_files:
+- 16bs4b_ecf_0011m.interpolated.trimmed_missing.nc
+- 16bs4b_s37_0016m.unqcd.trimmed_missing.nc
+- 16bs4b_s37_0029m.unqcd.trimmed_missing.nc
+- 16bs4b_s37_0053m.unqcd.trimmed_missing.nc
+- 16bs4b_s39_0013m.unqcd.trimmed_missing.nc
+- 16bs4b_s39_0017m.unqcd.trimmed_missing.nc
+- 16bs4b_s39_0025m.unqcd.trimmed_missing.nc
+- 16bs4b_s39_0045m.unqcd.trimmed_missing.nc
+- 16bs4b_sc_0011m.interpolated.trimmed_missing.nc
+notes:
+output_type: png
+plot_stylesheet: seaborn-poster
+
