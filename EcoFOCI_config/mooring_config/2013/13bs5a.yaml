@@ -89,7 +89,7 @@ nominal_depth:
 - 20
 - 34
 - 57
-- 19
+#- 19
 mooring_data_path:
 - /Users/bell/ecoraid/2013/Moorings/13bs5a/final_data/
 - /Users/bell/ecoraid/2013/Moorings/13bs5a/final_data/
