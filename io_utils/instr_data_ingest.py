@@ -610,7 +610,6 @@ class sbe16(object):
 				print "Currently skipping {0}".format(var_id[var_index])  
 
 		#use start time and elapsed time in seconds to get timestamp
-		print kwargs
 		if kwargs['time_stamp'] == 'time_elapsed_s':
 			print "Converting elapsed time to python datetime object"
 			time = {}
