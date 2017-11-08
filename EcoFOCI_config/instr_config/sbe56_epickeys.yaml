@@ -1,0 +1,9 @@
+---
+T_20:
+  EPIC_KEY: 20
+  fortran: f10.2
+  generic_name: temp
+  longname: 'TEMPERATURE (C)'
+  name: T
+  units: C
+

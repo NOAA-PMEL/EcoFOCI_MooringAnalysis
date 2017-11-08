@@ -1,1 +1,13 @@
-featureType: 'TimeSeries'
+COMPOSITE: '1'
+CREATION_DATE: November 08, 2017 16:26 UTC
+DATA_CMNT: 17bsm2a_sbe56_4611_47m.cnv
+EDIT_CMNT01: ''
+EPIC_FILE_GENERATOR: trim_netcdf.py V0.4.0
+EXPERIMENT: ''
+History: ''
+INST_TYPE: s56
+MOORING: 17bsm2a
+PROG_CMNT01: ''
+PROJECT: ''
+WATER_DEPTH: '71'
+WATER_MASS: ''
