@@ -88,8 +88,8 @@ nominal_depth:
 - 67
 mooring_data_path:
 - /Users/bell/ecoraid/2016/Moorings/16bs8a/final_data/
-- /Users/bell/ecoraid/2016/Moorings/16bs8a/working/
-- /Users/bell/ecoraid/2016/Moorings/16bs8a/working/
+- /Users/bell/ecoraid/2016/Moorings/16bs8a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bs8a/final_data/
 - /Users/bell/ecoraid/2016/Moorings/16bs8a/final_data/
 - /Users/bell/ecoraid/2016/Moorings/16bs8a/final_data/
 - /Users/bell/ecoraid/2016/Moorings/16bs8a/final_data/
@@ -99,8 +99,8 @@ mooring_data_path:
 - /Users/bell/ecoraid/2016/Moorings/16bs8a/final_data/
 mooring_files:
 - 16bs8a_ecf_0022m.nc
-- 16bs8a_sc_0020m.interpolated.trimmed_missing.nc
-- 16bs8a_s37_0031m.unqcd.trimmed_missing.nc
+- 16bs8a_sc_0020m.nc
+- 16bs8a_s37_0031m.nc
 - 16bs8a_s39_0027m.nc
 - 16bs8a_s39_0035m.nc
 - 16bs8a_s39_0040m.nc
