@@ -1,0 +1,58 @@
+---
+MooringID: 17BS-ITAE
+Date_Ticks: multi_month
+start_time: 2017-04-27
+end_time: 2017-09-23
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
+EPIC_Key: Fch_906
+EPIC_Key_ctd: Fch_906
+Ylabel: Chlor
+#EPIC_Key: OST_62
+#EPIC_Key_ctd: OST_62
+#Ylabel: Oxygen_PSat
+ctd_data_path:
+- '/Users/bell/ecoraid/2017/CTDcasts/dy1704/initial_archive/'
+- '/Users/bell/ecoraid/2017/CTDcasts/dy1704/initial_archive/'
+- '/Users/bell/ecoraid/2017/CTDcasts/dy1708/initial_archive/'
+- '/Users/bell/ecoraid/2017/CTDcasts/dy1708/initial_archive/'
+ctd_files:
+- 'dy1704c007_ctd.nc'
+- 'dy1704c040_ctd.nc'
+- 'dy1708c001_ctd.nc'
+- 'dy1708c054_ctd.nc'
+mooring_data_path:
+- "/Users/bell/ecoraid/2017/Moorings/17bsitae/working/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsitae/final_data/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsitae/working/"
+mooring_files:
+- 17bsm2a_ecf_0000m.interpolated.trimmed_missing.nc
+- 17bsitae_s56_0000m.nc
+- 17bsitae_sc_0000m.interpolated.trimmed_missing.nc
+colors:
+- red
+- blue
+- green
+linestyle:
+- '-'
+- '-'
+- '-'
+dtype: mooring
+legend:
+- 0m ecf
+- 0m s56 
+- 0m sc 
+legend_loc: upper center
+legend_off: false
+nominal_depth:
+- 0
+- 0
+- 0 
+notes:
+output_type: png
+plot_stylesheet: seaborn-poster
+
