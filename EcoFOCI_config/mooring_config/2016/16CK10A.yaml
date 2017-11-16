@@ -1,0 +1,61 @@
+---
+MooringID: 16CKP-10A
+ctd_data_path:
+- ''
+#- '/Volumes/WDC_internal/Users/bell/ecoraid/2016/CTDcasts/aq1601/working/pri_only/'
+ctd_files:
+- ''
+#- 'aq1601c004_ctd.nc'
+mooring_data_path:
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16ckp10a/working/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16ckp10a/working/"
+mooring_files:
+- 16ckp10a_ecf_0039m.interpolated.trimmed_missing.nc
+- 16ckp10a_sc_0039m.interpolated.trimmed_missing.nc
+nominal_depth:
+- 39
+- 39
+colors:
+- red
+- blue
+- green
+- cyan
+- magenta
+linestyle:
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+legend:
+- 39m eco
+- 39m sc
+dtype: mooring
+legend_loc: upper center
+legend_off: false
+#EPIC_Key: Fch_906
+#EPIC_Key_ctd: F_903
+#Ylabel: Chlor
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
+#EPIC_Key: P_1
+#EPIC_Key_ctd: P_1
+#Ylabel: Pressure (dB)
+#EPIC_Key: PAR_908
+#EPIC_Key_ctd: PAR_905
+#Ylabel: PAR
+#EPIC_Key: O_65
+#EPIC_Key_ctd: O_65
+#Ylabel: Oxygen_Conc
+Date_Ticks: multi_month
+plot_stylesheet: seaborn-poster
+output_type: png
+start_time: '2016-09-19'
+end_time: '2017-08-07'
+depth_interval_m: 1
+depth_m: 42
+

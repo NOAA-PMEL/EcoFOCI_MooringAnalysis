@@ -38,8 +38,8 @@ echo "-------------------------------------------------------------"
 serial_no=6592
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe16/17bsitae_sbe16_6592_0m.cnv
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/17bsitae_sc_0000m
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc sc 0000 -kw 0 time_elapsed_s False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc sc 0000 -kw 0 time_elapsed_s True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc sc 0000 -kw 0 time_instrument_s False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc sc 0000 -kw 0 time_instrument_s True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Trim.py ${output}.interpolated.nc -sd ${deployment_date} -ed ${recovery_date}
 
 : '
