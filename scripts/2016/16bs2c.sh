@@ -76,7 +76,6 @@ echo "-------------------------------------------------------------"
 echo "SBE16 Processing"
 echo "-------------------------------------------------------------"
 
-: '
 serial_no=521
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe16/16bs2c_sbe16_521_65.75m.edit.cnv
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/16bs2c_sc_0066m
@@ -84,6 +83,7 @@ python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc sc 0066 -kw 0 tim
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc sc 0066 -kw 0 time_elapsed_s True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Trim.py ${output}.interpolated.nc -sd ${deployment_date} -ed ${recovery_date}
 
+: '
 serial_no=7297
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe16/16bs2c_sbe16_7297_12m.cnv
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/16bs2c_sc_0012m
@@ -174,9 +174,11 @@ echo "-------------------------------------------------------------"
 echo "RCMSG Processing"
 echo "-------------------------------------------------------------"
 
+: '
 serial_no=1735
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/rcmsg/RCMsn173_edited.txt
 echo $input
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/16bs2c_sg_0013.unqcd.nc
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} rcmsg 0013 -dec 56.8747 164.051 -kw false false -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth 
 python ${prog_dir}NetCDF_Trim.py ${output} -sd ${deployment_date} -ed ${recovery_date}
+'
