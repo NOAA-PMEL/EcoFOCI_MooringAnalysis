@@ -49,13 +49,13 @@ class EcoFOCI_netCDF(object):
         self.variables = self.nchandle.variables
         return self.variables
 
-    def get_vars_attributes(self, var_name=None, var_type='units'):
+    def get_vars_attributes(self, var_name=None, var_type=None):
         """get variable attributes for specified variable"""
         return self.nchandle.variables[var_name].getncattr(var_type)
 
-    def set_vars_attributes(self, var_name=None):
+    def set_vars_attributes(self, var_name=None, var_type=None, attr_value=None):
         """get variable attributes for specified variable"""
-        pass
+        self.nchandle.variables[var_name].setncattr(var_type,attr_value)
 
     def ncreadfile_dic(self):
 

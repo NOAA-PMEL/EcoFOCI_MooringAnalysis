@@ -62,8 +62,8 @@ ctd_files:
 - 'mf1006c004_ctd.nc'
 - 'mf1006c006_ctd.nc'
 - 'mf1006c021_ctd.nc'
-- 'dy1201c009_ctd.nc'
-- 'dy1201c011_ctd.nc'
+- 'dy1101c009_ctd.nc'
+- 'dy1101c011_ctd.nc'
 dtype: mooring
 legend:
 - 18m eco
@@ -81,10 +81,11 @@ legend:
 - 40m s39
 - 50m s39
 - 67m s39
-- 17m sc
+- 19m sc
 legend_loc: upper center
 legend_off: false
 nominal_depth:
+- 18
 - 45
 - 46
 - 60
@@ -100,21 +101,21 @@ nominal_depth:
 - 67
 - 19
 mooring_data_path:
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/10bs5b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/10bs5b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/10bs5b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/10bs5b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/10bs5b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/10bs5b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/10bs5b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/10bs5b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/10bs5b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/10bs5b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/10bs5b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/10bs5b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/10bs5b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/10bs5b/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/10bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2010/Moorings/10bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2010/Moorings/10bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2010/Moorings/10bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2010/Moorings/10bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2010/Moorings/10bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2010/Moorings/10bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2010/Moorings/10bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2010/Moorings/10bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2010/Moorings/10bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2010/Moorings/10bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2010/Moorings/10bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2010/Moorings/10bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2010/Moorings/10bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2010/Moorings/10bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2010/Moorings/10bs5b/final_data/
 mooring_files:
 - 10bs5b_ecf_0018m.nc
 - 10bs5b_mt_0045m.nc

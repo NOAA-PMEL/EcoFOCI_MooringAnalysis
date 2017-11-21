@@ -12,7 +12,8 @@
 
  History:
  --------
-
+ 
+ 2017-11-21: Fix so I can edit individual attributes of variables
  2016-08-11: Migrate/integrage routines into EcoFOCI_MooringAnalysis package
 
 """
@@ -45,6 +46,8 @@ parser.add_argument('sourcefile', metavar='sourcefile', type=str,
     help='complete path to netcdf file')
 parser.add_argument('varname', metavar='varname', type=str, 
     help='name of variable to edit.  This is likely the EPIC Key.')
+parser.add_argument('attname', metavar='attname', type=str, 
+    help='name of variable attribute to edit.')
 parser.add_argument("-s",'--screen', action="store_true", 
     help='output to screen')
 parser.add_argument("-o",'--out_config', action="store_true", 
@@ -65,25 +68,21 @@ if args.screen:
     
     for k in vars_dic.keys():
         if k == args.varname:
-            atts = df.get_vars_attributes(var_name=k, var_type='units')
+            atts = df.get_vars_attributes(var_name=k, var_type='long_name')
             print "{0}: {1}".format(k,atts)
 
 if args.out_config:
     for k in vars_dic.keys():
         if k == args.varname:
-            atts = df.get_vars_attributes(var_name=k,  var_type='units')
+            atts = df.get_vars_attributes(var_name=k,  var_type='long_name')
             print "{0}: {1}".format(k,atts)
             data_write = {k:atts}
             ConfigParserLocal.write_config("instrument_"+args.varname+"_config.pyini", data_write,'json')
     
 if args.in_config:
     nc_meta = ConfigParserLocal.get_config("instrument_"+args.varname+"_config.pyini",'json')
-    editvar = [float(x) for x in nc_meta[args.varname].strip('[').strip(']').split()]
-    print editvar
 
     print "Setting {0}".format(args.varname)
-    nchandle = Dataset(args.sourcefile,'a')
-    nchandle.variables[args.varname][:] = editvar
-    nchandle.close()
+    df.set_vars_attributes(var_name=args.varname,  var_type=args.attname, attr_value=nc_meta[args.varname])
 
 df.close()

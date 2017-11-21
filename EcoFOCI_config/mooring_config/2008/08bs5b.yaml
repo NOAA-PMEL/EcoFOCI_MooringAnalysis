@@ -1,0 +1,121 @@
+---
+MooringID: 08BS-5B
+Date_Ticks: multi_month
+start_time: 
+end_time: 
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+#EPIC_Key: Fch_906
+#EPIC_Key_ctd: F_903
+#Ylabel: Chlor
+#EPIC_Key: OST_62
+#EPIC_Key_ctd: OST_62
+#Ylabel: Oxygen_PSat
+colors:
+- black
+- blue
+- magenta
+- green
+- red
+- cyan
+- black
+- blue
+- magenta
+- green
+- red
+- cyan
+- black
+- blue
+- magenta
+- green
+- red
+- cyan
+linestyle:
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+ctd_data_path:
+- ''
+#- '/Volumes/WDC_internal/Users/bell/ecoraid/2008/CTDcasts/hly0803/final_data/ctd_merged/'
+ctd_files:
+- ''
+#- 'hly0803c125.nc'
+dtype: mooring
+legend:
+- 20m eco
+- 29m s37
+- 55m s37
+- 21m s39
+- 25m s39
+- 33m s39
+- 38m s39
+- 45m s39
+- 50m s39
+- 60m s39
+- 67m s39
+- 19m sc
+legend_loc: upper center
+legend_off: false
+nominal_depth:
+- 20
+- 29
+- 55
+- 21
+- 25
+- 33
+- 38
+- 45
+- 50
+- 60
+- 67
+- 19
+mooring_data_path:
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bs5b/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2008/Moorings/08bs5b/final_data/
+mooring_files:
+- 08bs5b_ecf_0020m.nc
+- 08bs5b_s37_0029m.nc
+- 08bs5b_s37_0055m.nc
+- 08bs5b_s39_0021m.nc
+- 08bs5b_s39_0025m.nc
+- 08bs5b_s39_0033m.nc
+- 08bs5b_s39_0038m.nc
+- 08bs5b_s39_0045m.nc
+- 08bs5b_s39_0050m.nc
+- 08bs5b_s39_0060m.nc
+- 08bs5b_s39_0067m.nc
+- 08bs5b_sc_0019m.nc
+notes:
+output_type: png
+plot_stylesheet: seaborn-poster
+
