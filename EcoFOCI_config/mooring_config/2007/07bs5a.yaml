@@ -1,0 +1,136 @@
+---
+MooringID: 07BS-5A
+Date_Ticks: multi_month
+start_time: 
+end_time: 
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+#EPIC_Key: Fch_906
+#EPIC_Key_ctd: F_903
+#Ylabel: Chlor
+#EPIC_Key: OST_62
+#EPIC_Key_ctd: OST_62
+#Ylabel: Oxygen_PSat
+colors:
+- black
+- blue
+- magenta
+- green
+- red
+- cyan
+- black
+- blue
+- magenta
+- green
+- red
+- cyan
+- black
+- blue
+- magenta
+- green
+- red
+- cyan
+linestyle:
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
+- '-.'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+ctd_data_path:
+- '/Volumes/WDC_internal/Users/bell/ecoraid/2007/CTDcasts/mf0711l2/final_data/ctd/'
+- '/Volumes/WDC_internal/Users/bell/ecoraid/2007/CTDcasts/tn211/final_data/ctd/'
+ctd_files:
+- 'mf0711l2c004.nc'
+- 'tn211c026.nc'
+dtype: mooring
+legend:
+- 11m eco
+- 07m mt
+- 33m s37
+- 59m s37
+- 04m s39
+- 13m s39
+- 17m s39
+- 21m s39
+- 25m s39
+- 29m s39
+- 37m s39
+- 42m s39
+- 47m s39
+- 53m s39
+- 64m s39
+- 09m sc
+legend_loc: upper center
+legend_off: false
+nominal_depth:
+- 11
+- 7
+- 33
+- 59
+- 4
+- 13
+- 17
+- 21
+- 25
+- 29
+- 37
+- 42
+- 47
+- 53
+- 64
+- 9
+mooring_data_path:
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs5a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs5a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs5a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs5a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs5a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs5a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs5a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs5a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs5a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs5a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs5a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs5a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs5a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs5a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs5a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2007/Moorings/07bs5a/final_data/
+mooring_files:
+- 07bs5a_ecf_0011m.nc
+- 07bs5a_mt_0007m.nc
+- 07bs5a_s37_0033m.nc
+- 07bs5a_s37_0059m.nc
+- 07bs5a_s39_0004m.nc
+- 07bs5a_s39_0013m.nc
+- 07bs5a_s39_0017m.nc
+- 07bs5a_s39_0021m.nc
+- 07bs5a_s39_0025m.nc
+- 07bs5a_s39_0029m.nc
+- 07bs5a_s39_0037m.nc
+- 07bs5a_s39_0042m.nc
+- 07bs5a_s39_0047m.nc
+- 07bs5a_s39_0053m.nc
+- 07bs5a_s39_0064m.nc
+- 07bs5a_sc_0009m.nc
+notes:
+output_type: png
+plot_stylesheet: seaborn-poster
+
