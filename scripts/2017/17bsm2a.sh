@@ -38,8 +38,8 @@ python ${prog_dir}NetCDF_Trim.py ${output}.interpolated.nc -sd ${deployment_date
 serial_no=4063
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/mtr/4063_data_read.TXT
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/17bsm2a_mt4063_0032m
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc mtr 0032 -kw 0 1.0897227125E-03 5.3150280565E-04 2.2757269262E-06False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc mtr 0032 -kw 1068 1.0897227125E-03 5.3150280565E-04 2.2757269262E-06True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc mtr 0032 -kw 0 1.0897227125E-03 5.3150280565E-04 2.2757269262E-06 False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc mtr 0032 -kw 1068 1.0897227125E-03 5.3150280565E-04 2.2757269262E-06 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Trim.py ${output}.interpolated.nc -sd ${deployment_date} -ed ${recovery_date}
 
 serial_no=4068

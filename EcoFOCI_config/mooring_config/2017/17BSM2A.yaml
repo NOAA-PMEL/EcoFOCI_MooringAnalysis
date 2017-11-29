@@ -11,12 +11,19 @@ ctd_files:
 - 'dy1708c001_ctd.nc'
 - 'dy1708c054_ctd.nc'
 mooring_data_path:
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
 - "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
 - "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
 - "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
 - "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
 - "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
 - "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
@@ -24,15 +31,12 @@ mooring_data_path:
 - "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
 - "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
 - "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
 - "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
 - "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
 mooring_files:
-- 17bsm2a_ecf_0011m.interpolated.trimmed_missing.nc
-- 17bsm2a_ecf_0024m.interpolated.trimmed_missing.nc
-- 17bsm2a_ecf_0055m.interpolated.trimmed_missing.nc
+- 17bsm2a_ecf_0011m.nc
+- 17bsm2a_ecf_0024m.nc
+- 17bsm2a_ecf_0055m.nc
 - 17bsm2a_s39_0015m.nc
 - 17bsm2a_s39_0018m.nc
 - 17bsm2a_s39_0021m.nc
@@ -48,6 +52,10 @@ mooring_files:
 - 17bsm2a_s56_0055m.nc
 - 17bsm2a_sc_0006m.interpolated.trimmed_missing.nc
 - 17bsm2a_sc_0044m.interpolated.trimmed_missing.nc
+- 17bsm2a_mt4063_0032m.interpolated.trimmed_missing.nc
+- 17bsm2a_mt4068_0032m.interpolated.trimmed_missing.nc
+- 17bsm2a_mt4070_0004m.interpolated.trimmed_missing.nc
+- 17bsm2a_mt4134_0004m.interpolated.trimmed_missing.nc
 nominal_depth:
 - 11
 - 24
@@ -67,6 +75,10 @@ nominal_depth:
 - 55
 - 6
 - 44
+- 32
+- 32
+- 4
+- 4
 colors:
 - red
 - blue
@@ -85,8 +97,16 @@ colors:
 - goldenrod
 - red
 - blue
+- magenta
 - green
+- black
+- yellow
+- orange
 linestyle:
+- '-'
+- '-'
+- '-'
+- '-'
 - '-'
 - '-'
 - '-'
@@ -124,6 +144,10 @@ legend:
 - 55m s56
 - 6m sc
 - 44m sc
+- 32m mt
+- 32m mt
+- 4m mt
+- 4m mt
 legend_loc: upper center
 legend_off: false
 #EPIC_Key: S_41
@@ -135,9 +159,9 @@ legend_off: false
 #EPIC_Key: P_1
 #EPIC_Key_ctd: P_1
 #Ylabel: Pressure
-EPIC_Key: Fch_906
-EPIC_Key_ctd: F_903
-Ylabel: Chlor
+#EPIC_Key: Fch_906
+#EPIC_Key_ctd: F_903
+#Ylabel: Chlor
 Date_Ticks: multi_month
 plot_stylesheet: seaborn-poster
 output_type: png

@@ -38,7 +38,6 @@ python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc mtr 0058 -kw 0 1.
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc mtr 0058 -kw 741 1.0619398176E-03	5.3971302492E-04	2.0588816377E-06 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Trim.py ${output}.interpolated.nc -sd ${deployment_date} -ed ${recovery_date}
 
-
 serial_no=4087
 #cal'd July '06
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/mtr/4087_download_data.TXT
