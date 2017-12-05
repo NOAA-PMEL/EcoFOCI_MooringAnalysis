@@ -1,21 +1,27 @@
 ---
 MooringID: 16CK1
 ctd_data_path:
-- '/Volumes/WDC_internal/Users/bell/ecoraid/2016/CTDcasts/aq1601/working/pri_sec/'
+- '/Users/bell/ecoraid/2016/CTDcasts/aq1601/working/pri_sec/'
 ctd_files:
 - 'aq1601c045_ctd.nc'
 mooring_data_path:
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16ckip1a/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16ckip1a/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16ckp1a/working/"
+- "/Users/bell/ecoraid/2016/Moorings/16ckip1a/working/"
+- "/Users/bell/ecoraid/2016/Moorings/16ckip1a/working/"
+- "/Users/bell/ecoraid/2016/Moorings/16ckp1a/final_data/"
+- "/Users/bell/ecoraid/2016/Moorings/16ckp1a/working/"
+- "/Users/bell/ecoraid/2016/Moorings/16ckp1a/working/"
 mooring_files:
 - 16ckip1a_s37_0040.unqcd.trimmed_missing.nc
 - 16ckip1a_sg_0039.unqcd.trimmed_missing.nc
-- 16ckp1a_sc_0039m.interpolated.trimmed_missing.nc
+- 16ckp1a_sc_0039m.nc
+- 16ckp1a_mt3273_0041m.interpolated.trimmed_missing.nc
+- 16ckp1a_mt4022_0041m.interpolated.trimmed_missing.nc
 nominal_depth:
 - 40
 - 39
 - 39
+- 41
+- 41
 colors:
 - red
 - blue
@@ -32,10 +38,14 @@ legend:
 - 40m s37
 - 39m sg
 - 39m sc
+- 41m mt
+- 41m mt`
 legend:
 - 38m s37 (approx depth for cal)
 - 38m sg (approx depth for cal)
 - 38m sc (approx depth for cal)
+- 38m mt (approx depth for cal)
+- 38m mt (approx depth for cal)
 dtype: mooring
 legend_loc: upper center
 legend_off: false
