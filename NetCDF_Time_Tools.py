@@ -41,7 +41,7 @@ import pandas as pd
 #User Stack
 from calc.EPIC2Datetime import EPIC2Datetime, get_UDUNITS, Datetime2EPIC
 from io_utils.EcoFOCI_netCDF_read import EcoFOCI_netCDF
-from io_utils.EcoFOCI_netCDF_write import CF_NC_2D, CF_NC, NetCDF_Copy_Struct
+from io_utils.EcoFOCI_netCDF_write import CF_NC_2D, CF_NC, CF_NC_Profile, NetCDF_Copy_Struct
 from io_utils.time_helper import roundTime, interp2hour
 
 __author__   = 'Shaun Bell'
@@ -63,6 +63,8 @@ parser.add_argument('operation', metavar='operation', type=str,
 parser.add_argument('--time_since_str', nargs='+', type=str, help='cf compliant time since str (eg. "days since 1800-01-01"')
 parser.add_argument('-is2D','--is2D', action="store_true",
 			   help='convert files like ADCP that have two varying dimensions')
+parser.add_argument('-isProfile','--isProfile', action="store_true",
+			   help='convert files like CTD data that have one time entry')
 parser.add_argument('--offset', type=int, help='offset in seconds if chosen as operation')
 parser.add_argument('--featureType', type=str, help='DSG featureType - see CF standards')
 args = parser.parse_args()
@@ -115,6 +117,60 @@ if args.operation in ['CF','CF Convert','CF_Convert']:
 											 time=CF_time)
 		except KeyError:
 			ncinstance.add_coord_data(depth=ncdata['depth'], latitude=ncdata['latitude'], longitude=ncdata['longitude'],
+											 time=CF_time)
+
+		ncinstance.add_data(ncdata)
+		ncinstance.add_history('EPIC two time-word key converted to udunits')
+		ncinstance.close()
+		df.close()
+
+	elif args.isProfile:
+
+		df = EcoFOCI_netCDF( args.sourcefile )
+		global_atts = df.get_global_atts()
+		vars_dic = df.get_vars()
+		ncdata = df.ncreadfile_dic()
+
+		#Convert two word EPIC time to python datetime.datetime representation and then format for CF standards
+		dt_from_epic =  EPIC2Datetime(ncdata['time'], ncdata['time2'])
+		if args.time_since_str:
+			time_since_str = " ".join(args.time_since_str)
+			CF_time = get_UDUNITS(dt_from_epic,time_since_str)
+		else:
+			time_since_str = 'days since 1900-01-01'
+			CF_time = get_UDUNITS(dt_from_epic,time_since_str)
+
+		try:
+			History=global_atts['History']
+		except:
+			History=''
+		
+		###build/copy attributes and fill if empty
+		try:
+			data_cmnt = global_atts['DATA_CMNT']
+		except:
+			data_cmnt = ''
+
+		if 'depth' in ncdata.keys():
+			depthkey = 'depth'
+		else:
+			depthkey = 'dep'
+
+		ncinstance = CF_NC_Profile(savefile=args.sourcefile.split('.nc')[0] + '.cf.nc')
+		ncinstance.file_create()
+		ncinstance.sbeglobal_atts(raw_data_file=data_cmnt, Station_Name=global_atts['STATION_NAME'], 
+										Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=global_atts['INST_TYPE'],
+										Water_Mass=global_atts['WATER_MASS'], 
+										History=History,featureType=featureType)
+		ncinstance.dimension_init(depth_len=len(ncdata[depthkey]))
+		ncinstance.variable_init(df,time_since_str)
+
+
+		try:
+			ncinstance.add_coord_data(depth=ncdata[depthkey], latitude=ncdata['lat'], longitude=ncdata['lon'],
+											 time=CF_time)
+		except KeyError:
+			ncinstance.add_coord_data(depth=ncdata[depthkey], latitude=ncdata['latitude'], longitude=ncdata['longitude'],
 											 time=CF_time)
 
 		ncinstance.add_data(ncdata)
