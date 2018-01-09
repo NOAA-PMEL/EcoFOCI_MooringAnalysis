@@ -461,7 +461,7 @@ elif args.InstType in ['sg','rcm_sg','rcmsg','rcm-sg']:
 	else:
 		(lat,lon) = (-9999, -9999)
 
-elif args.InstType in ['eco','ecf','fluor','ecofluor','fluor']:
+elif args.InstType in ['eco','ecf','fluor','ecofluor','fluor','ecoflntu']:
 	config_file = instr_data_ingest.data_source_instrumentconfig('yaml').get(args.InstType)
 	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
 										 source=args.InstType,
