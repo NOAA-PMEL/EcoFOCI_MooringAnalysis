@@ -2,7 +2,7 @@
 MooringID: 16CKP-9A
 ctd_data_path:
 - '/Volumes/WDC_internal/Users/bell/ecoraid/2016/CTDcasts/aq1601/working/pri_only/'
-- '/Volumes/WDC_internal/Users/bell/ecoraid/2017/CTDcasts/he1701/initial_archive/'
+- '/Volumes/WDC_internal/Users/bell/ecoraid/2017/CTDcasts/he1701/initial_archive/ctd/'
 ctd_files:
 - 'aq1601c005_ctd.nc'
 - 'he1701c003_ctd.nc'
@@ -47,12 +47,15 @@ legend_off: false
 #EPIC_Key: S_41
 #EPIC_Key_ctd: S_41
 #Ylabel: Salinity
-EPIC_Key: T_20
-EPIC_Key_ctd: T_28
-Ylabel: Temperature
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
 #EPIC_Key: P_1
 #EPIC_Key_ctd: P_1
 #Ylabel: Pressure
+EPIC_Key: O_65
+EPIC_Key_ctd: O_65
+Ylabel: Oxygen_Conc
 Date_Ticks: multi_month
 plot_stylesheet: seaborn-poster
 output_type: png
