@@ -1,23 +1,23 @@
 ---
 MooringID: 16BS-2
 Date_Ticks: multi_month
-start_time: 2016-09-29
-end_time: 2017-04-27
+start_time: '2016-09-29'
+end_time: '2017-04-27'
 #EPIC_Key: S_41
 #EPIC_Key_ctd: S_42
 #Ylabel: Salinity
-#EPIC_Key: T_20
-#EPIC_Key_ctd: T_28
-#Ylabel: Temperature
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
 #EPIC_Key: Fch_906
 #EPIC_Key_ctd: F_903
 #Ylabel: Chlor
 #EPIC_Key: P_1
 #EPIC_Key_ctd: P_1
 #Ylabel: Pressure
-EPIC_Key: OST_62
-EPIC_Key_ctd: OST_62
-Ylabel: Oxygen_PSat
+#EPIC_Key: OST_62
+#EPIC_Key_ctd: OST_62
+#Ylabel: Oxygen_PSat
 #EPIC_Key: O_65
 #EPIC_Key_ctd: O_65
 #Ylabel: Oxygen_Conc
@@ -50,38 +50,38 @@ ctd_files:
 - 'dy1704c003_ctd.nc'
 dtype: mooring
 legend:
-- 11m ecf
-- 23m ecf 
-- 31m s37
-- 55m s37
-- 19m s39 
-- 27m s39 
-- 12m sc
-- 45m s56
-- 40m mtr
-- 40m mtr
-- 50m mtr
-- 50m mtr
-- 60m mtr
-- 60m mtr
+- 9m ecf
+- 21m ecf 
+- 29m s37
+- 53m s37
+- 17m s39 
+- 25m s39 
+- 10m sc
+- 43m s56
+- 38m mtr
+- 38m mtr
+- 48m mtr
+- 48m mtr
+- 58m mtr
+- 58m mtr
 - 13m rcmsg
 legend_loc: upper center
 legend_off: false
 nominal_depth:
-- 11
-- 23 
-- 31
-- 55
-- 19
-- 27
-- 12
-- 45
-- 40
-- 40
-- 50
-- 50
-- 60
-- 60
+- 9
+- 21 
+- 29
+- 53
+- 17
+- 25
+- 10
+- 43
+- 38
+- 39
+- 48
+- 49
+- 58
+- 59
 - 13
 mooring_data_path:
 - /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/final_data/
@@ -98,24 +98,26 @@ mooring_data_path:
 - /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/final_data/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/final_data/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16bs2c/final_data/
 mooring_files:
-- 16bs2c_ecf_0011m.nc
-- 16bs2c_ecf_0023m.nc
-- 16bs2c_s37_0031m.nc
-- 16bs2c_s37_0055m.nc
-- 16bs2c_s39_0019m.nc
-- 16bs2c_s39_0027m.nc
-- 16bs2c_sc_0012m.nc
-- 16bs2c_s56_0045m.nc
-- 16bs2c_mt4087_0040m.nc
-- 16bs2c_mt4117_0040m.nc
-- 16bs2c_mt4089_0050m.nc
-- 16bs2c_mt4118_0050m.nc
-- 16bs2c_mt3138_0060m.nc
-- 16bs2c_mt3265_0060m.nc
-- 16bs2c_sg_0013.unqcd.trimmed_missing.nc
+- 16bs2c_ecf_0009m.nc
+- 16bs2c_ecf_0021m.nc
+- 16bs2c_s37_0029m.nc
+- 16bs2c_s37_0053m.nc
+- 16bs2c_s39_0017m.nc
+- 16bs2c_s39_0025m.nc
+- 16bs2c_sc_0010m.nc
+- 16bs2c_s56_0043m.nc
+- 16bs2c_mt4087_0038m.nc
+- 16bs2c_mt4117_0038m.nc
+- 16bs2c_mt4089_0048m.nc
+- 16bs2c_mt4118_0048m.nc
+- 16bs2c_mt3138_0058m.nc
+- 16bs2c_mt3265_0058m.nc
+- 16bs2c_sg_0013m.nc
 notes:
 output_type: png
 plot_stylesheet: seaborn-poster
-
+depth_interval_m: 1
+depth_m: 71
+dtype: mooring

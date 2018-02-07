@@ -43,7 +43,7 @@ import numpy as np
 import matplotlib as mpl
 mpl.use('Agg') 
 import matplotlib.pyplot as plt
-from matplotlib.dates import YearLocator, WeekdayLocator, MonthLocator, DayLocator, HourLocator, DateFormatter
+from matplotlib.dates import  YearLocator, WeekdayLocator, MonthLocator, DayLocator, HourLocator, DateFormatter
 import matplotlib.ticker as ticker
 
 # User Stack
@@ -124,6 +124,7 @@ ctd_files_path = [a+b for a,b in zip(CTDDataPath,ctd_files)]
 
 ### some mpl specif settings for fonts and plot style
 mpl.rcParams['svg.fonttype'] = 'none'
+plot_grid = True
 plt.style.use(pointer_file['plot_stylesheet'])
 #seaborn-poster -- fonts are smaller
 #ggplot -- grey border, better axis frame
@@ -259,11 +260,13 @@ if args.multiplot_overlay:
 		ax2.xaxis.set_minor_formatter(DateFormatter('%Y'))
 		ax2.tick_params(axis='both', which='minor', labelsize=12)
 	elif LocatorInterval == 'multi_day':
-		ax2.xaxis.set_major_locator(MonthLocator())
-		ax2.xaxis.set_minor_locator(DayLocator())
+		ax2.xaxis.set_major_locator(MonthLocator(bymonth=[1,2,3,4,5,6,7,8,9,10,11,12], bymonthday=15))
+		ax2.xaxis.set_minor_locator(DayLocator(bymonthday=[0,5,10,15,20,25,30]))
 		ax2.xaxis.set_major_formatter(DateFormatter('%b'))
 		ax2.xaxis.set_minor_formatter(DateFormatter('%d'))
+		ax2.yaxis.set_minor_locator(ticker.MultipleLocator(1))
 		ax2.tick_params(axis='both', which='minor', labelsize=12)
+		ax2.grid(which='both', color='k', linestyle='--',linewidth=0.25)
 	elif LocatorInterval == 'multi_month':
 		ax2.xaxis.set_major_locator(MonthLocator())
 		ax2.xaxis.set_minor_locator(MonthLocator(bymonth=[1,2,3,4,5,6,7,8,9,10,11,12], bymonthday=15))

@@ -200,7 +200,7 @@ class Data2Grid(object):
     def save2nc(self,PointerFile=None):
 
         inst_type = self.pointer_dic['Ylabel']
-        EPIC_VARS_dict = ConfigParserLocal.get_config('EcoFOCI_config/epickeys/' + self.plot_var + '_epickeys.json')
+        EPIC_VARS_dict = ConfigParserLocal.get_config('EcoFOCI_config/epickeys/' + self.plot_var + '_epickeys.json','json')
 
         epic_dt = Datetime2EPIC((num2date(self.time_array,'days since 0001-01-01')).tolist())
 

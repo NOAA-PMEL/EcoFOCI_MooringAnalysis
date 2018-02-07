@@ -29,10 +29,11 @@ mooring_data_path:
 - "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
 - "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
 - "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsitae/final_data/"
 mooring_files:
 - 17bsm2a_ecf_0011m.nc
 - 17bsm2a_ecf_0024m.nc
@@ -52,10 +53,11 @@ mooring_files:
 - 17bsm2a_s56_0055m.nc
 - 17bsm2a_sc_0006m.interpolated.trimmed_missing.nc
 - 17bsm2a_sc_0044m.interpolated.trimmed_missing.nc
-- 17bsm2a_mt4063_0032m.interpolated.trimmed_missing.nc
-- 17bsm2a_mt4068_0032m.interpolated.trimmed_missing.nc
-- 17bsm2a_mt4070_0004m.interpolated.trimmed_missing.nc
-- 17bsm2a_mt4134_0004m.interpolated.trimmed_missing.nc
+- 17bsm2a_mt4063_0032m.nc
+- 17bsm2a_mt4068_0032m.nc
+- 17bsm2a_mt4070_0004m.nc
+- 17bsm2a_mt4134_0004m.nc
+- 17bsitae_s56_0000m.nc
 nominal_depth:
 - 11
 - 24
@@ -75,10 +77,11 @@ nominal_depth:
 - 55
 - 6
 - 44
+- 31
 - 32
-- 32
+- 3
 - 4
-- 4
+- 1
 colors:
 - red
 - blue
@@ -102,7 +105,9 @@ colors:
 - black
 - yellow
 - orange
+- black
 linestyle:
+- '-'
 - '-'
 - '-'
 - '-'
@@ -148,14 +153,15 @@ legend:
 - 32m mt
 - 4m mt
 - 4m mt
+- 0m s56 (17BSITAE)
 legend_loc: upper center
 legend_off: false
 #EPIC_Key: S_41
 #EPIC_Key_ctd: S_41
 #Ylabel: Salinity
-#EPIC_Key: T_20
-#EPIC_Key_ctd: T_28
-#Ylabel: Temperature
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
 #EPIC_Key: P_1
 #EPIC_Key_ctd: P_1
 #Ylabel: Pressure

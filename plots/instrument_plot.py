@@ -105,8 +105,11 @@ class Timeseries1varPlot(object):
 
 class Timeseries2varPlot(object):
 
-    mpl.rcParams['svg.fonttype'] = 'none'
 
+    mpl.rcParams['svg.fonttype'] = 'none'
+    mpl.rcParams['ps.fonttype'] = 42
+    mpl.rcParams['pdf.fonttype'] = 42
+    
     def __init__(self, fontsize=10, labelsize=10, plotstyle='k-.', stylesheet='bmh'):
         """Initialize the timeseries with items that do not change.
 
@@ -198,8 +201,11 @@ class Timeseries2varPlot(object):
 
 class Timeseries3varPlot(object):
 
-    mpl.rcParams['svg.fonttype'] = 'none'
 
+    mpl.rcParams['svg.fonttype'] = 'none'
+    mpl.rcParams['ps.fonttype'] = 42
+    mpl.rcParams['pdf.fonttype'] = 42
+    
     def __init__(self, fontsize=10, labelsize=10, plotstyle='k-.', stylesheet='bmh'):
         """Initialize the timeseries with items that do not change.
 
@@ -305,8 +311,11 @@ class Timeseries3varPlot(object):
       return plt, fig
 
 class Timeseries1dStickPlot(object):
-    mpl.rcParams['svg.fonttype'] = 'none'
 
+    mpl.rcParams['svg.fonttype'] = 'none'
+    mpl.rcParams['ps.fonttype'] = 42
+    mpl.rcParams['pdf.fonttype'] = 42
+    
     def __init__(self, fontsize=10, labelsize=10, plotstyle='k-.', stylesheet='bmh'):
         """Initialize the timeseries with items that do not change.
 
@@ -370,10 +379,12 @@ class Timeseries1dStickPlot(object):
     def plot(self, timedata=None, udata=None, vdata=None, ylabel=None, **kwargs):
 
       if kwargs['rotate'] != 0.0:
+          #when rotating vectors - positive(+) rotation is equal to cw of the axis (ccw of vector)
+          #                      - negative(+) rotation is equal to ccw of the axis (cw of the vector)
           print "rotating vectors"
           angle_offset_rad = np.deg2rad(kwargs['rotate'])
           udata = udata*np.cos(angle_offset_rad) + vdata*np.sin(angle_offset_rad)
-          vdata = -1*udata*np.sin(angle_offset_rad) + vdata*np.cos(angle_offset_rad)
+          vdata = -1.*udata*np.sin(angle_offset_rad) + vdata*np.cos(angle_offset_rad)
 
       magnitude = np.sqrt(udata**2 + vdata**2)
 
@@ -431,8 +442,11 @@ class Timeseries1dStickPlot(object):
       return plt, fig
 
 class Timeseries1dStickPlot_2params(object):
-    mpl.rcParams['svg.fonttype'] = 'none'
 
+    mpl.rcParams['svg.fonttype'] = 'none'
+    mpl.rcParams['ps.fonttype'] = 42
+    mpl.rcParams['pdf.fonttype'] = 42
+    
     def __init__(self, fontsize=10, labelsize=10, plotstyle='k-.', stylesheet='bmh'):
         """Initialize the timeseries with items that do not change.
 
@@ -561,8 +575,11 @@ class TimeseriesImagePlot(object):
 
 class TimeseriesWPAK(object):
 
-    mpl.rcParams['svg.fonttype'] = 'none'
 
+    mpl.rcParams['svg.fonttype'] = 'none'
+    mpl.rcParams['ps.fonttype'] = 42
+    mpl.rcParams['pdf.fonttype'] = 42
+    
     def __init__(self, fontsize=10, labelsize=10, plotstyle='k-.', stylesheet='bmh'):
         """Initialize the timeseries with items that do not change.
 
@@ -893,8 +910,11 @@ class TimeseriesWPAK(object):
 class TimeseriesPorpertyPropertyPlot(object):
     ''' class to plot property vs property plots with density iso-contours'''
 
-    mpl.rcParams['svg.fonttype'] = 'none'
 
+    mpl.rcParams['svg.fonttype'] = 'none'
+    mpl.rcParams['ps.fonttype'] = 42
+    mpl.rcParams['pdf.fonttype'] = 42
+    
     def __init__(self, fontsize=10, labelsize=10, plotstyle='k-.', stylesheet='seaborn-whitegrid'):
         """Initialize the timeseries with items that do not change.
 

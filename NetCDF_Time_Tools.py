@@ -104,9 +104,14 @@ if args.operation in ['CF','CF Convert','CF_Convert']:
 		except:
 			data_cmnt = ''
 
+		try:
+			data_mooring = global_atts['MOORING']
+		except:
+			data_mooring = ''
+
 		ncinstance = CF_NC_2D(savefile=args.sourcefile.split('.nc')[0] + '.cf.nc')
 		ncinstance.file_create()
-		ncinstance.sbeglobal_atts(raw_data_file=data_cmnt, Station_Name=global_atts['MOORING'], 
+		ncinstance.sbeglobal_atts(raw_data_file=data_cmnt, Station_Name=data_mooring, 
 										Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=global_atts['INST_TYPE'],
 										Water_Mass=global_atts['WATER_MASS'], Experiment=global_atts['EXPERIMENT'], Project=global_atts['PROJECT'], 
 										History=History,featureType=featureType)
@@ -206,12 +211,27 @@ if args.operation in ['CF','CF Convert','CF_Convert']:
 			data_cmnt = global_atts['DATA_CMNT']
 		except:
 			data_cmnt = ''
+
+		try:
+			data_mooring = global_atts['MOORING']
+		except:
+			data_mooring = ''
+			
+
+		try:
+			data_insttype = global_atts['INST_TYPE']
+			data_experiment = global_atts['EXPERIMENT']
+			data_project = global_atts['PROJECT']
+		except:
+			data_insttype = ''
+			data_experiment = ''
+			data_project = ''
 			
 		ncinstance = CF_NC(savefile=args.sourcefile.split('.nc')[0] + '.cf.nc')
 		ncinstance.file_create()
-		ncinstance.sbeglobal_atts(raw_data_file=data_cmnt, Station_Name=global_atts['MOORING'], 
-										Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=global_atts['INST_TYPE'],
-										Water_Mass=global_atts['WATER_MASS'], Experiment=global_atts['EXPERIMENT'], Project=global_atts['PROJECT'], 
+		ncinstance.sbeglobal_atts(raw_data_file=data_cmnt, Station_Name=data_mooring, 
+										Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=data_insttype,
+										Water_Mass=global_atts['WATER_MASS'], Experiment=data_experiment, Project=data_project, 
 										History=History,featureType=featureType)
 		ncinstance.dimension_init(time_len=len(CF_time))
 		ncinstance.variable_init(df,time_since_str)
