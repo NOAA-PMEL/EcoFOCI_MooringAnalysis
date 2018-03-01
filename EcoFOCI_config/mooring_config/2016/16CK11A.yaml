@@ -1,23 +1,20 @@
 ---
-MooringID: 16CKP-5A
+MooringID: 16CKP-11A
 ctd_data_path:
 - ''
 #- '/Volumes/WDC_internal/Users/bell/ecoraid/2016/CTDcasts/aq1601/working/pri_only/'
 ctd_files:
 - ''
-#- 'aq1601c004_ctd.nc'
+#- 'aq1601c056_ctd.nc'
 mooring_data_path:
-- "/Users/bell/ecoraid/2016/Moorings/16ckp5a/final_data/"
-- "/Users/bell/ecoraid/2016/Moorings/16ckp5a/working/"
-- "/Users/bell/ecoraid/2016/Moorings/16ckp5a/final_data/"
+- "/Users/bell/ecoraid/2016/Moorings/16ckp11a/working/"
+- "/Users/bell/ecoraid/2016/Moorings/16ckp11a/working/"
 mooring_files:
-- 16ckp5a_ecf_0043m.nc
-- 16ckp5a_s37_0044.unqcd.trimmed_missing.nc
-- 16ckp5a_sc_0043m.nc
+- 16ckp11a_sc_0042m.interpolated.trimmed_missing.nc
+- 16ckp11a_ecf_0042m.interpolated.trimmed_missing.nc
 nominal_depth:
-- 40
-- 39
-- 39
+- 42
+- 42
 colors:
 - red
 - blue
@@ -31,21 +28,20 @@ linestyle:
 - '-'
 - '-'
 legend:
-- 43m eco
-- 44m s37
-- 43m sc
+- 42m sc
+- 42m eco
 dtype: mooring
 legend_loc: upper center
 legend_off: false
-EPIC_Key: Fch_906
-EPIC_Key_ctd: F_903
-Ylabel: Chlor
+#EPIC_Key: Fch_906
+#EPIC_Key_ctd: F_903
+#Ylabel: Chlor
 #EPIC_Key: S_41
 #EPIC_Key_ctd: S_42
 #Ylabel: Salinity
-#EPIC_Key: T_20
-#EPIC_Key_ctd: T_28
-#Ylabel: Temperature
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
 #EPIC_Key: P_1
 #EPIC_Key_ctd: P_1
 #Ylabel: Pressure (dB)
@@ -58,8 +54,8 @@ Ylabel: Chlor
 Date_Ticks: multi_month
 plot_stylesheet: seaborn-poster
 output_type: png
-start_time: '2016-09-07'
-end_time: '2017-08-12'
+start_time: '2016-09-09'
+end_time: '2017-08-08'
 depth_interval_m: 1
-depth_m: 42
+depth_m: 46
 

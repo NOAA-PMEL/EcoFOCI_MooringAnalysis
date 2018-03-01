@@ -7,9 +7,9 @@ ctd_files:
 - ''
 #- 'aq1601c004_ctd.nc'
 mooring_data_path:
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16ckp4a/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16ckp4a/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2016/Moorings/16ckp4a/initial_archive/"
+- "/Users/bell/ecoraid/2016/Moorings/16ckp4a/working/"
+- "/Users/bell/ecoraid/2016/Moorings/16ckp4a/working/"
+- "/Users/bell/ecoraid/2016/Moorings/16ckp4a/initial_archive/"
 mooring_files:
 - 16ckp4a_ecf_0040m.interpolated.trimmed_missing.nc
 - 16ckp4a_sc_0040m.interpolated.trimmed_missing.nc
@@ -37,15 +37,15 @@ legend:
 dtype: mooring
 legend_loc: upper center
 legend_off: false
-#EPIC_Key: Fch_906
-#EPIC_Key_ctd: F_903
-#Ylabel: Chlor
+EPIC_Key: Fch_906
+EPIC_Key_ctd: F_903
+Ylabel: Chlor
 #EPIC_Key: S_41
 #EPIC_Key_ctd: S_42
 #Ylabel: Salinity
-EPIC_Key: T_20
-EPIC_Key_ctd: T_28
-Ylabel: Temperature
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
 #EPIC_Key: P_1
 #EPIC_Key_ctd: P_1
 #Ylabel: Pressure (dB)
