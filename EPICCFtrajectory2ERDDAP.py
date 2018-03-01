@@ -48,6 +48,9 @@ __keywords__ = 'netCDF','meta','header'
 parser = argparse.ArgumentParser(description='convert netcdf file to erddap formatted file')
 parser.add_argument('sourcefile', metavar='sourcefile', type=str, help='path to .nc files')
 parser.add_argument('trajectoryid', metavar='trajectoryid', type=str, help='trajectory_id')
+parser.add_argument("-adsg",'--add_dsg', type=str, 
+                    help='''add global attribute field for discrete sampling geometry.
+                    Options: point, timeSeries, trajectory, profile, timeSeriesProfile, trajectoryProfile''')
 
 args = parser.parse_args()
 
@@ -60,7 +63,7 @@ nchandle = df._getnchandle_()
 data = df.ncreadfile_dic()
 
 try :
-    nchandle.createDimension('id_strlen',8)
+    nchandle.createDimension('id_strlen',len(args.trajectoryid))
     nchandle.createVariable('trajectoryid','S1',dimensions=('record_number','id_strlen'))
     nchandle.variables['trajectoryid'].cf_role = 'trajectory_id'
     nchandle.variables['trajectoryid'].long_name = 'trajectory_id'
@@ -77,4 +80,11 @@ nchandle.variables['trajectoryid'][:]=stringtochar(np.array(len(nchandle.dimensi
 for key,val in enumerate(vars_dic):
     nchandle.variables[val].fill_value = 1.0e35
 
+if args.add_dsg:
+
+    print "adding dsg attribute"
+    nchandle = Dataset(args.sourcefile,'a')
+    nchandle.setncattr('featureType',args.add_dsg)
+    nchandle.close()
+    
 df.close()
