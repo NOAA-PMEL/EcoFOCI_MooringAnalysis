@@ -47,8 +47,10 @@ __keywords__ = 'netCDF','meta','header'
 
 parser = argparse.ArgumentParser(description='convert netcdf file to erddap formatted file')
 parser.add_argument('sourcefile', metavar='sourcefile', type=str, help='path to .nc files')
-parser.add_argument('add_dsg_idvar', metavar='add_dsg_idvar', type=str, help='name of dsg style id variable')
-parser.add_argument('fill_value', metavar='fill_value', type=str, help='station_name prefill value')
+parser.add_argument('timeseriesid', metavar='timeseriesid', type=str, help='station_name prefill value')
+parser.add_argument("-adsg",'--add_dsg', type=str, 
+                    help='''add global attribute field for discrete sampling geometry.
+                    Options: point, timeSeries, trajectory, profile, timeSeriesProfile, trajectoryProfile''')
 
 args = parser.parse_args()
 
@@ -61,15 +63,16 @@ nchandle = df._getnchandle_()
 data = df.ncreadfile_dic()
 
 try :
-    nchandle.createDimension('id_strlen',len(args.fill_value))
+    nchandle.createDimension('id_strlen',len(args.timeseriesid))
     nchandle.createVariable('station_id','S1',dimensions=('time','id_strlen'))
-    nchandle.variables['station_id'].cf_role = args.add_dsg_idvar
-    nchandle.variables['station_id'].long_name = 'station_id'
+    nchandle.variables['station_id'].cf_role = 'timeseries_id'
+    nchandle.variables['station_id'].long_name = 'timeseries_id'
 
 except:
-    print "{0} - not added".format(args.add_dsg_idvar)
+    print "{0} - not added".format('station_id')
 
 #fill with default values
+print args.timeseriesid
 nchandle.variables['station_id'][:]=stringtochar(np.array(len(nchandle.dimensions['time']) * [args.fill_value]))
 
 

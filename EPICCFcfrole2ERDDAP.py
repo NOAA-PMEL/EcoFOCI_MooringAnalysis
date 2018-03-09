@@ -3,8 +3,12 @@
 """
  Background:
  --------
- EPICCFgliderprofile2ERDDAP.py
+ EPICCFcfrole2ERDDAP.py
 
+ Usage:
+ ------
+
+ python EPICCFcfrole2ERDDAP.py {file} depth DY1701 
 
  Purpose:
  --------
@@ -50,6 +54,14 @@ parser.add_argument('sourcefile',
     metavar='sourcefile', 
     type=str, 
     help='path to .nc files')
+parser.add_argument('record_var', 
+    metavar='record_var', 
+    type=str, 
+    help='variable name of length variable')
+parser.add_argument('varidname', 
+    metavar='varidname', 
+    type=str, 
+    help='value of id variable')
 parser.add_argument("cdm_data_type",
     metavar='cdm_data_type', 
     type=str, 
@@ -74,6 +86,7 @@ def choose_cdm(cdm_type=None):
         cf_role = 'profile_id'
     else:
         cf_role = None
+    return cf_role
 
 "---"
 df = EcoFOCI_netCDF(args.sourcefile)
@@ -82,20 +95,24 @@ vars_dic = df.get_vars()
 nchandle = df._getnchandle_()
 data = df.ncreadfile_dic()
 
-cf_role = choose_cdm(args.adsg)
+cf_role = choose_cdm(args.cdm_data_type)
 
-try :
-    nchandle.createDimension('id_strlen',len(args.trajectoryid))
-    nchandle.createVariable('trajectoryid','S1',dimensions=('record_number','id_strlen'))
-    nchandle.variables['trajectoryid'].cf_role = 'trajectory_id'
-    nchandle.variables['trajectoryid'].long_name = 'trajectory_id'
+try:
+    nchandle.createDimension('id_strlen',len(args.varidname))
+except:
+    pass
+
+try:
+    nchandle.createVariable(cf_role,'S1',dimensions=(args.record_var,'id_strlen'))
+    nchandle.variables[cf_role].cf_role = cf_role
+    nchandle.variables[cf_role].long_name = cf_role
 
 except:
-    print "{0} - not added".format('trajectoryid')
+    print("{0} - not added".format(cf_role))
 
 #fill with default values
-print args.trajectoryid
-nchandle.variables['trajectoryid'][:]=stringtochar(np.array(len(nchandle.dimensions['record_number']) * [args.trajectoryid]))
+print(args.varidname)
+nchandle.variables[cf_role][:]=stringtochar(np.array(len(nchandle.dimensions[args.record_var]) * [args.varidname]))
 
 
 #add missing value attribute

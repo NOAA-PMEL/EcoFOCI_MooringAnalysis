@@ -60,7 +60,7 @@ nchandle = df._getnchandle_()
 data = df.ncreadfile_dic()
 
 try :
-    nchandle.createDimension('id_strlen',10)
+    nchandle.createDimension('id_strlen',len(args.profileid))
     if 'dep' in nchandle.dimensions.keys():
 	    nchandle.createVariable('profileid','S1',dimensions=('dep','id_strlen'))
     elif 'depth' in nchandle.dimensions.keys():
