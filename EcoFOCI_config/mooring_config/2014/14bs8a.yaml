@@ -1,11 +1,11 @@
-Date_Ticks: multi_day
-EPIC_Key: T_20
-EPIC_Key_ctd: T_28
-Ylabel: Temperature
-#EPIC_Key: S_41
-#EPIC_Key_ctd: S_42
-#Ylabel: Salinity
-MooringID: 14BS8A
+Date_Ticks: multi_month
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+MooringID: 14BS-8A
 colors:
 - black
 - blue
