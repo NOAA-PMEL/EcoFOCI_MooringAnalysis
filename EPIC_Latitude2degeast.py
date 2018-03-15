@@ -42,7 +42,9 @@ __status__   = "Development"
 parser = argparse.ArgumentParser(description='Convert DegreesWest to DegreesEast inplace')
 parser.add_argument('sourcefile', metavar='sourcefile', type=str, 
     help='complete path to netcdf file')
-
+parser.add_argument('-m360','--m360',
+	action="store_true",
+	help='make range 0-360')
 
 args = parser.parse_args()
 
@@ -54,8 +56,21 @@ global_atts = df.get_global_atts()
 vars_dic = df.get_vars()
 data = df.ncreadfile_dic()
 
-df.variables['lon'][:] = -1.*df.variables['lon'][:]
-vars_dic['lon'].units = 'degree_east'
+if 'lon' in df.variables.keys():
+	if args.m360:
+		df.variables['lon'][:] = -1.*df.variables['lon'][:] + 360
+	else:
+		df.variables['lon'][:] = -1.*df.variables['lon'][:]
+	vars_dic['lon'].units = 'degree_east'
+elif 'longitude' in df.variables.keys():
+	if args.m360:
+		df.variables['longitude'][:] = -1.*df.variables['longitude'][:] + 360
+	else:
+		df.variables['longitude'][:] = -1.*df.variables['longitude'][:]
+	vars_dic['longitude'].units = 'degree_east'
+else:
+	print("Longitude variable not found")
+
 df.close()
 
 
