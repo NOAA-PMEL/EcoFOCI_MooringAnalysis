@@ -8,6 +8,7 @@
  
   History:
  --------
+ 2018-03-22: TODO: EVEN/UNEVEN is important for Ferret like tools. and should be accounted for
  2016-12-19: Add a class for ragged arrays (1D and 2D) - 1D is continuous file
  2016-12-16: Add a class for CF time conventions (1D and 2D) TODO: merge into other classes
  2016-09-16: Add a class for copying the existing structure of a file 
@@ -1095,6 +1096,7 @@ class CF_NC_Profile(object):
                     
     def close(self):
         self.rootgrpID.close()
+
 class CF_NC_2D(object):
 
     """ Class instance to generate a NetCDF file.  
@@ -1211,7 +1213,7 @@ class CF_NC_2D(object):
         rec_var_FORTRAN = ['', '', '', ''] + rec_var_FORTRAN
         rec_var_units = [udunits_time_str,'dbar','degree_north','degree_west'] + rec_var_units
         rec_var_type= ['f8'] + ['f4' for spot in rec_vars[1:]]
-        rec_var_strtype= ['EVEN', 'EVEN', 'EVEN', 'EVEN'] + ['' for spot in rec_vars[4:]]
+        rec_var_strtype= ['EVEN', 'UNEVEN', 'EVEN', 'EVEN'] + ['' for spot in rec_vars[4:]]
         rec_epic_code = [624,1,500,501] + rec_var_epic
         
         var_class = []
