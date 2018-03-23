@@ -3,15 +3,15 @@ MooringID: 13BS-8A
 Date_Ticks: multi_month
 start_time: 
 end_time: 
-EPIC_Key: S_41
-EPIC_Key_ctd: S_42
-Ylabel: Salinity
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
 #EPIC_Key: T_20
 #EPIC_Key_ctd: T_28
 #Ylabel: Temperature
-#EPIC_Key: Fch_906
-#EPIC_Key_ctd: F_903
-#Ylabel: Chlor
+EPIC_Key: Fch_906
+EPIC_Key_ctd: Chl_933
+Ylabel: Chlor
 #EPIC_Key: OST_62
 #EPIC_Key_ctd: OST_62
 #Ylabel: Oxygen_PSat
@@ -97,10 +97,10 @@ mooring_data_path:
 - /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs8a/final_data/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs8a/final_data/
 - /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs8a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs8a/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs8a/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs8a/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs8a/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs8a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs8a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs8a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs8a/final_data/
 mooring_files:
 - 13bs8a_s39_0023m.nc
 - 13bs8a_s39_0027m.nc
@@ -110,10 +110,10 @@ mooring_files:
 - 13bs8a_s39_0050m.nc
 - 13bs8a_s39_0060m.nc
 - 13bs8a_s39_0067m.nc
-- 13bs8a_ecf_0022m.unqcd.interpolated.nc
-- 13bs8a_s37_0031m.unqcd.trimmed_missing.nc
-- 13bs8a_s37_0055m.unqcd.trimmed_missing.nc
-- 13bs8a_sc_0021m.unqcd.trimmed_missing.nc
+- 13bs8a_ecf_0022m.nc
+- 13bs8a_s37_0031m.nc
+- 13bs8a_s37_0055m.nc
+- 13bs8a_sc_0021m.nc
 notes:
 output_type: png
 plot_stylesheet: seaborn-poster
