@@ -3,12 +3,12 @@ MooringID: 08BS-5B
 Date_Ticks: multi_month
 start_time: 
 end_time: 
-EPIC_Key: S_41
-EPIC_Key_ctd: S_42
-Ylabel: Salinity
-#EPIC_Key: T_20
-#EPIC_Key_ctd: T_28
-#Ylabel: Temperature
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
 #EPIC_Key: Fch_906
 #EPIC_Key_ctd: F_903
 #Ylabel: Chlor
@@ -54,11 +54,9 @@ linestyle:
 - '--'
 - '--'
 ctd_data_path:
-- ''
-#- '/Volumes/WDC_internal/Users/bell/ecoraid/2008/CTDcasts/hly0803/final_data/ctd_merged/'
+- '/Volumes/WDC_internal/Users/bell/ecoraid/2008/CTDcasts/hly0803/final_data/ctd_merged/'
 ctd_files:
-- ''
-#- 'hly0803c125.nc'
+- 'hly0803c125.nc'
 dtype: mooring
 legend:
 - 20m eco
