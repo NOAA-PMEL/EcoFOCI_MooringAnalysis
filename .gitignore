@@ -1,3 +1,4 @@
 EcoFOCI_config/db_config/*
 **/data
 images/*
+*.pyc

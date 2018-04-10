@@ -63,8 +63,8 @@ linestyle:
 - '--'
 ctd_data_path:
 - '/Users/bell/ecoraid/2016/CTDcasts/aq1601/initial_archive/pri_sec/'
-- '/Users/bell/ecoraid/2017/CTDcasts/dy1704/initial_archive/'
-- '/Users/bell/ecoraid/2017/CTDcasts/dy1708/initial_archive/'
+- '/Users/bell/ecoraid/2017/CTDcasts/dy1704/initial_archive/ctd/'
+- '/Users/bell/ecoraid/2017/CTDcasts/dy1708/initial_archive/ctd/'
 ctd_files:
 - 'aq1601c069_ctd.nc'
 - 'dy1704c026_ctd.nc'
