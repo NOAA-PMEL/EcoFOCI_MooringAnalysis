@@ -78,7 +78,7 @@ if args.depth:
 		except:
 			ncinstance.add_coord_data(depth=val_depth, latitude=data['latitude'], longitude=data['longitude'],
 		                                 time1=data['time'], time2=data['time2'])			
-		ncinstance.add_data(data=data, trim_index=time_ind, depth_index=ind_depth)    
+		ncinstance.add_data(data=data)    
 		ncinstance.add_history('Depths split from {file}'.format(file=args.inputpath.split('/')[-1]))
 		ncinstance.close()
 
