@@ -1,0 +1,132 @@
+---
+MooringID: 05BS-4B
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+mooring_data_path:
+- /Users/bell/ecoraid/2005/Moorings/05bs4b/final_data/
+- /Users/bell/ecoraid/2005/Moorings/05bs4b/final_data/
+- /Users/bell/ecoraid/2005/Moorings/05bs4b/final_data/
+- /Users/bell/ecoraid/2005/Moorings/05bs4b/final_data/
+- /Users/bell/ecoraid/2005/Moorings/05bs4b/final_data/
+- /Users/bell/ecoraid/2005/Moorings/05bs4b/final_data/
+- /Users/bell/ecoraid/2005/Moorings/05bs4b/final_data/
+- /Users/bell/ecoraid/2005/Moorings/05bs4b/final_data/
+- /Users/bell/ecoraid/2005/Moorings/05bs4b/final_data/
+- /Users/bell/ecoraid/2005/Moorings/05bs4b/final_data/
+- /Users/bell/ecoraid/2005/Moorings/05bs4b/final_data/
+- /Users/bell/ecoraid/2005/Moorings/05bs4b/final_data/
+- /Users/bell/ecoraid/2005/Moorings/05bs4b/final_data/
+mooring_files:
+- 05bs4b_ecf_0014m.nc
+- 05bs4b_s37_0033m.nc
+- 05bs4b_s37_0057m.nc
+- 05bs4b_s39_0021m.nc
+- 05bs4b_s39_0025m.nc
+- 05bs4b_s39_0029m.nc
+- 05bs4b_s39_0037m.nc
+- 05bs4b_s39_0042m.nc
+- 05bs4b_s39_0047m.nc
+- 05bs4b_s39_0052m.nc
+- 05bs4b_s39_0062m.nc
+- 05bs4b_s39_0069m.nc
+- 05bs4b_sc_0013m.nc
+nominal_depth:
+- 14
+- 33
+- 57
+- 21
+- 25
+- 29
+- 37
+- 42
+- 47
+- 52
+- 62
+- 69
+- 13
+colors:
+- red
+- blue
+- green
+- cyan
+- magenta
+- black
+- yellow
+- orange
+- darkred
+- navy
+- darkgreen
+- crimson
+- lightblue
+- olive
+- goldenrod
+- red
+- blue
+- magenta
+- green
+- black
+- yellow
+- orange
+- darkred
+- navy
+linestyle:
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+legend:
+- 14m eco
+- 33m s37
+- 57m s37
+- 21m s39
+- 25m s39
+- 29m s39
+- 37m s39
+- 42m s39
+- 47m s39
+- 52m s39
+- 62m s39
+- 69m s39
+- 13m sc
+dtype: mooring
+legend_loc: upper center
+legend_off: false
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+#EPIC_Key: P_1
+#EPIC_Key_ctd: P_1
+#Ylabel: Pressure (dB)
+Date_Ticks: multi_month
+plot_stylesheet: seaborn-poster
+output_type: png
+start_time: ''
+end_time: ''
+depth_interval_m: 1
+depth_m: 72
+notes: >

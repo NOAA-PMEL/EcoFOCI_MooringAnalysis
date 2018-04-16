@@ -1,26 +1,30 @@
 ---
 MooringID: 11BS-4A
 ctd_data_path:
-- ''
+- '/Users/bell/ecoraid/2011/CTDcasts/dy1104/final_data/ctd_data/'
+- '/Users/bell/ecoraid/2012/CTDcasts/dy1205/final_data/ctd/'
+- '/Users/bell/ecoraid/2012/CTDcasts/dy1205/final_data/ctd/'
 ctd_files:
-- ''
+- dy1104c012_ctd.nc
+- dy1205c016_ctd.nc
+- dy1205c017_ctd.nc
 mooring_data_path:
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
+- /Users/bell/ecoraid/2011/Moorings/11bs4a/final_data/
 mooring_files:
 - 11bs4a_ecft_0032m.nc
 - 11bs4a_mt_0045m.nc
@@ -40,30 +44,55 @@ mooring_files:
 - 11bs4a_s39_0070m.nc
 nominal_depth: [32,45,46,60,61,13,18,55,15,19,23,27,35,40,50,70]
 colors:
-- k-
-- b-
-- m-
-- g-
-- r-
-- c-
-- k--
-- b--
-- m--
-- g--
-- r--
-- c--
-- k-.
-- b-.
-- m-.
-- g-.
-- r-.
-- c-.
-- 'k:'
-- 'b:'
-- 'm:'
-- 'g:'
-- 'r:'
-- 'c:'
+- red
+- blue
+- green
+- cyan
+- magenta
+- black
+- yellow
+- orange
+- darkred
+- navy
+- darkgreen
+- crimson
+- lightblue
+- olive
+- goldenrod
+- red
+- blue
+- magenta
+- green
+- black
+- yellow
+- orange
+- darkred
+- navy
+linestyle:
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
 legend:
 - 32m ecf
 - 45m mt
@@ -84,12 +113,12 @@ legend:
 dtype: mooring
 legend_loc: upper center
 legend_off: false
-EPIC_Key: S_41
-EPIC_Key_ctd: S_42
-Ylabel: Salinity
-#EPIC_Key: T_20
-#EPIC_Key_ctd: T_28
-#Ylabel: Temperature
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
 #EPIC_Key: P_1
 #EPIC_Key_ctd: P_1
 #Ylabel: Pressure (dB)
@@ -100,4 +129,4 @@ start_time: '2011-09-25'
 end_time: '2012-05-26'
 depth_interval_m: 1
 depth_m: 70
-notes: >
+notes: 

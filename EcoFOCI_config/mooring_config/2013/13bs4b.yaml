@@ -27,10 +27,10 @@ mooring_data_path:
 - /Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
 - /Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
 - /Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
-- /Users/bell/ecoraid/2013/Moorings/13bs4b/working/
-- /Users/bell/ecoraid/2013/Moorings/13bs4b/working/
-- /Users/bell/ecoraid/2013/Moorings/13bs4b/working/
-- /Users/bell/ecoraid/2013/Moorings/13bs4b/working/
+- /Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
+- /Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
+- /Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
+- /Users/bell/ecoraid/2013/Moorings/13bs4b/final_data/
 mooring_files:
 - 13bs4b_ecf_0014m.nc
 - 13bs4b_mt3273_0040m.nc
@@ -48,10 +48,10 @@ mooring_files:
 - 13bs4b_s56_0023m.nc
 - 13bs4b_s56_0027m.nc
 - 13bs4b_s56_0035m.nc
-- 13bs4b_s37_0018m.unqcd.trimmed_missing.nc
-- 13bs4b_s37_0031m.unqcd.trimmed_missing.nc
-- 13bs4b_s37_0055m.unqcd.trimmed_missing.nc
-- 13bs4b_sc_0013m.unqcd.trimmed_missing.nc
+- 13bs4b_s37_0018m.nc
+- 13bs4b_s37_0031m.nc
+- 13bs4b_s37_0055m.nc
+- 13bs4b_sc_0013m.nc
 nominal_depth: [14,40,40,45,45,50,50,60,60,67,67,19,15,23,27,35,18,31,55,13]
 colors:
 - red
@@ -119,12 +119,12 @@ legend:
 dtype: mooring
 legend_loc: upper center
 legend_off: false
-#EPIC_Key: S_41
-#EPIC_Key_ctd: S_42
-#Ylabel: Salinity
-EPIC_Key: T_20
-EPIC_Key_ctd: T_28
-Ylabel: Temperature
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
 #EPIC_Key: P_1
 #EPIC_Key_ctd: P_1
 #Ylabel: Pressure (dB)

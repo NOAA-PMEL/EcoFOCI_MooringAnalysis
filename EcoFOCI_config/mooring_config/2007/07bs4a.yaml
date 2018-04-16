@@ -1,0 +1,140 @@
+---
+MooringID: 07BS-4A
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+mooring_data_path:
+- /Users/bell/ecoraid/2007/Moorings/07bs4a/final_data/
+- /Users/bell/ecoraid/2007/Moorings/07bs4a/final_data/
+- /Users/bell/ecoraid/2007/Moorings/07bs4a/final_data/
+- /Users/bell/ecoraid/2007/Moorings/07bs4a/final_data/
+- /Users/bell/ecoraid/2007/Moorings/07bs4a/final_data/
+- /Users/bell/ecoraid/2007/Moorings/07bs4a/final_data/
+- /Users/bell/ecoraid/2007/Moorings/07bs4a/final_data/
+- /Users/bell/ecoraid/2007/Moorings/07bs4a/final_data/
+- /Users/bell/ecoraid/2007/Moorings/07bs4a/final_data/
+- /Users/bell/ecoraid/2007/Moorings/07bs4a/final_data/
+- /Users/bell/ecoraid/2007/Moorings/07bs4a/final_data/
+- /Users/bell/ecoraid/2007/Moorings/07bs4a/final_data/
+- /Users/bell/ecoraid/2007/Moorings/07bs4a/final_data/
+- /Users/bell/ecoraid/2007/Moorings/07bs4a/final_data/
+- /Users/bell/ecoraid/2007/Moorings/07bs4a/final_data/
+mooring_files:
+- 07bs4a_ecf_0012m.nc
+- 07bs4a_s37_0034m.nc
+- 07bs4a_s37_0058m.nc
+- 07bs4a_s39_0005m.nc
+- 07bs4a_s39_0014m.nc
+- 07bs4a_s39_0018m.nc
+- 07bs4a_s39_0022m.nc
+- 07bs4a_s39_0026m.nc
+- 07bs4a_s39_0030m.nc
+- 07bs4a_s39_0038m.nc
+- 07bs4a_s39_0043m.nc
+- 07bs4a_s39_0050m.nc
+- 07bs4a_s39_0052m.nc
+- 07bs4a_s39_0063m.nc
+- 07bs4a_sc_0010m.nc
+nominal_depth:
+- 12
+- 34
+- 58
+- 05
+- 14
+- 18
+- 22
+- 26
+- 30
+- 38
+- 43
+- 50
+- 52
+- 63
+- 10
+colors:
+- red
+- blue
+- green
+- cyan
+- magenta
+- black
+- yellow
+- orange
+- darkred
+- navy
+- darkgreen
+- crimson
+- lightblue
+- olive
+- goldenrod
+- red
+- blue
+- magenta
+- green
+- black
+- yellow
+- orange
+- darkred
+- navy
+linestyle:
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+legend:
+- 12m eco
+- 34m s37
+- 58m s37
+- 05m s39
+- 14m s39
+- 18m s39
+- 22m s39
+- 26m s39
+- 30m s39
+- 38m s39
+- 43m s39
+- 50m s39
+- 52m s39
+- 63m s39
+- 10m sc
+dtype: mooring
+legend_loc: upper center
+legend_off: false
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+#EPIC_Key: P_1
+#EPIC_Key_ctd: P_1
+#Ylabel: Pressure (dB)
+Date_Ticks: multi_month
+plot_stylesheet: seaborn-poster
+output_type: png
+start_time: ''
+end_time: ''
+depth_interval_m: 1
+depth_m: 72
+notes: >
