@@ -7,10 +7,10 @@ ctd_files:
 - dy1509c068_ctd.nc
 - aq1601c069_ctd.nc
 mooring_data_path:
-- /Users/bell/ecoraid/2015/Moorings/15bs4b/working/
-- /Users/bell/ecoraid/2015/Moorings/15bs4b/working/
-- /Users/bell/ecoraid/2015/Moorings/15bs4b/working/
-- /Users/bell/ecoraid/2015/Moorings/15bs4b/working/
+- /Users/bell/ecoraid/2015/Moorings/15bs4b/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bs4b/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bs4b/final_data/
+- /Users/bell/ecoraid/2015/Moorings/15bs4b/final_data/
 - /Users/bell/ecoraid/2015/Moorings/15bs4b/final_data/
 - /Users/bell/ecoraid/2015/Moorings/15bs4b/final_data/
 - /Users/bell/ecoraid/2015/Moorings/15bs4b/final_data/
@@ -20,10 +20,10 @@ mooring_data_path:
 - /Users/bell/ecoraid/2015/Moorings/15bs4b/final_data/
 - /Users/bell/ecoraid/2015/Moorings/15bs4b/final_data/
 mooring_files:
-- 15bs4b_sc_0012m.interpolated.trimmed_missing.nc
-- 15bs4b_s37_0018m.unqcd.trimmed_missing.nc
-- 15bs4b_s37_0031m.unqcd.trimmed_missing.nc
-- 15bs4b_s37_0055m.unqcd.trimmed_missing.nc
+- 15bs4b_sc_0012m.nc
+- 15bs4b_s37_0018m.nc
+- 15bs4b_s37_0031m.nc
+- 15bs4b_s37_0055m.nc
 - 15bs4b_s39_0015m.nc
 - 15bs4b_s39_0019m.nc
 - 15bs4b_s39_0023m.nc
@@ -87,12 +87,12 @@ legend:
 dtype: mooring
 legend_loc: upper center
 legend_off: false
-EPIC_Key: S_41
-EPIC_Key_ctd: S_42
-Ylabel: Salinity
-#EPIC_Key: T_20
-#EPIC_Key_ctd: T_28
-#Ylabel: Temperature
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
 #EPIC_Key: P_1
 #EPIC_Key_ctd: P_1
 #Ylabel: Pressure (dB)

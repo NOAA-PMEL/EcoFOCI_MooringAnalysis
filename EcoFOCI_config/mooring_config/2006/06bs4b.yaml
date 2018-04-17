@@ -1,0 +1,133 @@
+---
+MooringID: 06BS-4B
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+mooring_data_path:
+- /Users/bell/ecoraid/2006/Moorings/06bs4b/final_data/
+- /Users/bell/ecoraid/2006/Moorings/06bs4b/final_data/
+- /Users/bell/ecoraid/2006/Moorings/06bs4b/final_data/
+- /Users/bell/ecoraid/2006/Moorings/06bs4b/final_data/
+- /Users/bell/ecoraid/2006/Moorings/06bs4b/final_data/
+- /Users/bell/ecoraid/2006/Moorings/06bs4b/final_data/
+- /Users/bell/ecoraid/2006/Moorings/06bs4b/final_data/
+- /Users/bell/ecoraid/2006/Moorings/06bs4b/final_data/
+- /Users/bell/ecoraid/2006/Moorings/06bs4b/final_data/
+- /Users/bell/ecoraid/2006/Moorings/06bs4b/final_data/
+- /Users/bell/ecoraid/2006/Moorings/06bs4b/final_data/
+- /Users/bell/ecoraid/2006/Moorings/06bs4b/final_data/
+- /Users/bell/ecoraid/2006/Moorings/06bs4b/final_data/
+mooring_files:
+- 06bs4b_ecf_0011m.nc
+- 06bs4b_s37_0030m.nc
+- 06bs4b_s37_0054m.nc
+- 06bs4b_s39_0018m.nc
+- 06bs4b_s39_0022m.nc
+- 06bs4b_s39_0026m.nc
+- 06bs4b_s39_0034m.nc
+- 06bs4b_s39_0039m.nc
+- 06bs4b_s39_0044m.nc
+- 06bs4b_s39_0049m.nc
+- 06bs4b_s39_0059m.nc
+- 06bs4b_s39_0066m.nc
+- 06bs4b_sc_0010m.nc
+nominal_depth: 
+- 11
+- 30
+- 54
+- 18
+- 22
+- 26
+- 34
+- 39
+- 44
+- 49
+- 59
+- 66
+- 10
+colors:
+- red
+- blue
+- green
+- cyan
+- magenta
+- black
+- yellow
+- orange
+- darkred
+- navy
+- darkgreen
+- crimson
+- lightblue
+- olive
+- goldenrod
+- red
+- blue
+- magenta
+- green
+- black
+- yellow
+- orange
+- darkred
+- navy
+linestyle:
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+- '--'
+legend:
+- 11m eco
+- 30m s37
+- 54m s37
+- 18m s39
+- 22m s39
+- 26m s39
+- 34m s39
+- 39m s39
+- 44m s39
+- 49m s39
+- 59m s39
+- 66m s39
+- 10m sc
+dtype: mooring
+legend_loc: upper center
+legend_off: false
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+#EPIC_Key: P_1
+#EPIC_Key_ctd: P_1
+#Ylabel: Pressure (dB)
+Date_Ticks: multi_month
+plot_stylesheet: seaborn-poster
+output_type: png
+start_time: '2010-09-24'
+end_time: '2011-05-20'
+depth_interval_m: 1
+depth_m: 70
+notes: >
+  10bs4a was not deployed
