@@ -1,5 +1,5 @@
 #!/bin/bash
-data_dir="/Volumes/WDC_internal/Users/bell/ecoraid/2017/Profilers/OculusGliders/bering_sea_fall17/erddap/sg401/*.nc"
+data_dir="/Volumes/WDC_internal/Users/bell/ecoraid/2018/Profilers/OculusGliders/PS_Spring/erddap/sg403/*.nc"
 prog_dir="/Volumes/WDC_internal/Users/bell/Programs/Python/EcoFOCI_MooringAnalysis/"
 
 
