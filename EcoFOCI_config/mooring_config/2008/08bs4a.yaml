@@ -1,9 +1,15 @@
 ---
 MooringID: 08BS-4A
 ctd_data_path:
-- ''
+- '/Users/bell/ecoraid/2008/CTDcasts/hly0803/final_data/ctd_merged/'
+- '/Users/bell/ecoraid/2009/CTDcasts/dy0906/final_data/ctd/'
+- '/Users/bell/ecoraid/2008/CTDcasts/dy0806/final_data/ctd/'
+- '/Users/bell/ecoraid/2008/CTDcasts/mf0810l2/final_data/ctd/'
 ctd_files:
-- ''
+- hly0803c190.nc
+- dy0906c026.nc
+- dy0806c011.nc
+- mf0810l2c010.nc
 mooring_data_path:
 - /Users/bell/ecoraid/2008/Moorings/08bs4a/final_data/
 - /Users/bell/ecoraid/2008/Moorings/08bs4a/final_data/

@@ -1,9 +1,15 @@
 ---
 MooringID: 05BS-4A
 ctd_data_path:
-- ''
+- '/Users/bell/ecoraid/2005/CTDcasts/mf0513/final_data/ctd/'
+- '/Users/bell/ecoraid/2005/CTDcasts/mf0506/final_data/ctd/'
+- '/Users/bell/ecoraid/2005/CTDcasts/mf0506/final_data/ctd/'
+- '/Users/bell/ecoraid/2005/CTDcasts/tn179c/final_data/nc_noNutr/'
 ctd_files:
-- ''
+- mf0513c028.nc
+- mf0506c036.nc
+- mf0506c037.nc
+- tn179cc099.nc
 mooring_data_path:
 - /Users/bell/ecoraid/2005/Moorings/05bs4a/final_data/
 - /Users/bell/ecoraid/2005/Moorings/05bs4a/final_data/
