@@ -733,7 +733,7 @@ class NetCDF_Copy_Struct(object):
         self.var_class[3][:] = latitude
         self.var_class[4][:] = longitude #PMEL standard direction
 
-    def add_data(self, data=None, is2D=False):
+    def add_data(self, data=None, is2D=False, depthindex=False):
         """ """
         
         for ind, varname in enumerate(data.keys()):
@@ -742,8 +742,10 @@ class NetCDF_Copy_Struct(object):
                 if is2D:
                     self.var_class[di][:] = data[varname][:,:,0,0]
                 else:
-                    self.var_class[di][:] = data[varname][:,0,0,0]
-        
+                    if (depthindex==False):
+                        self.var_class[di][:] = data[varname][:,0,0,0]
+                    else:    
+                        self.var_class[di][:] = data[varname][:,depthindex,0,0]
 
         
     def add_history(self, new_history):

@@ -56,6 +56,7 @@ global_atts = df.get_global_atts()
 vars_dic = df.get_vars()
 data = df.ncreadfile_dic()
 
+print data
 if args.depth:
 	if 'dep' in data.keys():
 		epic_depth_str = 'dep'
@@ -78,7 +79,7 @@ if args.depth:
 		except:
 			ncinstance.add_coord_data(depth=val_depth, latitude=data['latitude'], longitude=data['longitude'],
 		                                 time1=data['time'], time2=data['time2'])			
-		ncinstance.add_data(data=data)    
+		ncinstance.add_data(data=data,depthindex=ind_depth)    
 		ncinstance.add_history('Depths split from {file}'.format(file=args.inputpath.split('/')[-1]))
 		ncinstance.close()
 
