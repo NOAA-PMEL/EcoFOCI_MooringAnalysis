@@ -1,9 +1,11 @@
 ---
 MooringID: 04BS-4B
 ctd_data_path:
-- ''
+- '/Users/bell/ecoraid/2004/CTDcasts/mf0411/final_data/ctd/'
+- '/Users/bell/ecoraid/2005/CTDcasts/mf0506/final_data/ctd/'
 ctd_files:
-- ''
+- mf0411c007.nc
+- mf0506c037.nc
 mooring_data_path:
 - /Users/bell/ecoraid/2004/Moorings/04bs4b/final_data/
 - /Users/bell/ecoraid/2004/Moorings/04bs4b/final_data/

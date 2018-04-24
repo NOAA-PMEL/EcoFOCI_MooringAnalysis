@@ -2,11 +2,11 @@
 MooringID: 06BS-4B
 ctd_data_path:
 - '/Users/bell/ecoraid/2007/CTDcasts/dy0707/final_data/ctd/'
-- '/Users/bell/ecoraid/2006/CTDcasts/mf0610l2/final_data/ctd/'
+- '/Users/bell/ecoraid/2006/CTDcasts/mf0610b/final_data/ctd/'
 - '/Users/bell/ecoraid/2007/CTDcasts/mf0706/final_data/ctd/'
 ctd_files:
 - dy0707c024.nc
-- mf0610l2c009.nc
+- mf0610bc009.nc
 - mf0706c059.nc
 mooring_data_path:
 - /Users/bell/ecoraid/2006/Moorings/06bs4b/final_data/
