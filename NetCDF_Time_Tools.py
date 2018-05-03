@@ -156,6 +156,11 @@ if args.operation in ['CF','CF Convert','CF_Convert']:
 		except:
 			data_cmnt = ''
 
+		try:
+			station_name = global_atts['STATION_NAME']
+		except:
+			station_name = global_atts['STATION']
+
 		if 'depth' in ncdata.keys():
 			depthkey = 'depth'
 		else:
@@ -163,7 +168,7 @@ if args.operation in ['CF','CF Convert','CF_Convert']:
 
 		ncinstance = CF_NC_Profile(savefile=args.sourcefile.split('.nc')[0] + '.cf.nc')
 		ncinstance.file_create()
-		ncinstance.sbeglobal_atts(raw_data_file=data_cmnt, Station_Name=global_atts['STATION_NAME'], 
+		ncinstance.sbeglobal_atts(raw_data_file=data_cmnt, Station_Name=station_name, 
 										Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=global_atts['INST_TYPE'],
 										Water_Mass=global_atts['WATER_MASS'], 
 										History=History,featureType=featureType)
