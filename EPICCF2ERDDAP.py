@@ -75,7 +75,7 @@ def choose_cdm(cdm_type=None):
         id_name = None
     elif cdm_type in ['Profile']:
         cf_role = 'profile_id'
-        id_name = 'station_id'
+        id_name = 'profile_id'
     elif cdm_type in ['TimeSeries']:
         cf_role = 'timeseries_id'
         id_name = 'station_id'
