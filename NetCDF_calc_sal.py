@@ -58,10 +58,10 @@ nchandle = df._getnchandle_()
 vars_dic = df.get_vars()
 ncdata = df.ncreadfile_dic()
 
-salinity_s41, salhist = salinity_calculation(ncdata['C_50'][:,0,0,0],
-                    ncdata['T_20'][:,0,0,0],
-                    ncdata['P_1'][:,0,0,0],
-                    ncdata['depth'])
+salinity_s41, salhist = salinity_calculation(conductivity=ncdata['C_50'][:,0,0,0],
+                                            temperature=ncdata['T_20'][:,0,0,0],
+                                            pressure=ncdata['P_1'][:,0,0,0],
+                                            depth=ncdata['depth'])
 nchandle.variables['S_41'][:,0,0,0] = salinity_s41
 
 print "adding history attribute"
