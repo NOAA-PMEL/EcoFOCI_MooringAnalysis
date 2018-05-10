@@ -56,14 +56,35 @@ mooring_files:
 - 12bsm2a_sc_0024m.nc
 - 12bsm2a_sc_0044m.nc
 - 12bsm2a_sg_0008m.nc
-nominal_depth: [13,24,4,1,2,61,15,18,21,28,32,35,39,50,55,60,6,12,24,44,8]
+nominal_depth: 
+- 13
+- 24
+- 04
+- 01
+- 02
+- 61
+- 15
+- 18
+- 21
+- 28
+- 32
+- 35
+- 39
+- 50
+- 55
+- 60
+- 06
+- 12
+- 24
+- 44
+- 8
 colors: [k-,b-,m-,g-,r-,c-,k--,b--,m--,g--,r--,c--,k-.,b-.,m-.,g-.,r-.,c-.,'k:','b:','m:','g:','r:','c:']
 legend: 
-- 13m ecf
-- 24m ecf
-- 4m mt
-- 1m s37
-- 2m s37
+- 13m eco
+- 24m eco
+- 04m mtr
+- 01m s37
+- 02m s37
 - 61m s37
 - 15m s39
 - 18m s39
@@ -75,7 +96,7 @@ legend:
 - 50m s39
 - 55m s39
 - 60m s39
-- 6m sc
+- 06m sc
 - 12m sc
 - 24m sc
 - 44m sc
@@ -83,12 +104,12 @@ legend:
 dtype: mooring
 legend_loc: upper center
 legend_off: false
-EPIC_Key: S_41
-EPIC_Key_ctd: S_42
-Ylabel: Salinity
-#EPIC_Key: T_20
-#EPIC_Key_ctd: T_28
-#Ylabel: Temperature
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
 #EPIC_Key: P_1
 #EPIC_Key_ctd: P_1
 #Ylabel: Pressure (dB)
@@ -101,8 +122,8 @@ Ylabel: Salinity
 Date_Ticks: multi_month
 plot_stylesheet: seaborn-poster
 output_type: png
-start_time: 2012-05-20 00:00:00
-end_time: 2012-09-07 00:00:00
+start_time: '2012-05-20'
+end_time: '2012-09-07'
 depth_interval_m: 1
 depth_m: 72
 notes: 
