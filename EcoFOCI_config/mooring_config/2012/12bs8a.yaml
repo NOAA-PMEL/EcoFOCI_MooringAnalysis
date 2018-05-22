@@ -3,12 +3,12 @@ MooringID: 12BS-8A
 Date_Ticks: multi_month
 start_time: 
 end_time: 
-EPIC_Key: S_41
-EPIC_Key_ctd: S_42
-Ylabel: Salinity
-#EPIC_Key: T_20
-#EPIC_Key_ctd: T_28
-#Ylabel: Temperature
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
 #EPIC_Key: Fch_906
 #EPIC_Key_ctd: F_903
 #Ylabel: Chlor
@@ -113,4 +113,7 @@ mooring_files:
 notes:
 output_type: png
 plot_stylesheet: seaborn-poster
-
+depth_m: 73
+start_time: '2012-08-12'
+end_time: '2013-08-19'
+depth_interval_m: 1

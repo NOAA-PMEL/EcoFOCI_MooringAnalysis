@@ -6,12 +6,12 @@ end_time:
 #EPIC_Key: S_41
 #EPIC_Key_ctd: S_42
 #Ylabel: Salinity
-#EPIC_Key: T_20
-#EPIC_Key_ctd: T_28
-#Ylabel: Temperature
-EPIC_Key: Fch_906
-EPIC_Key_ctd: Chl_933
-Ylabel: Chlor
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
+#EPIC_Key: Fch_906
+#EPIC_Key_ctd: Chl_933
+#Ylabel: Chlor
 #EPIC_Key: OST_62
 #EPIC_Key_ctd: OST_62
 #Ylabel: Oxygen_PSat
@@ -117,4 +117,7 @@ mooring_files:
 notes:
 output_type: png
 plot_stylesheet: seaborn-poster
-
+depth_interval_m: 1
+depth_m: 73
+start_time: '2013-08-19'
+end_time: '2014-10-15'

@@ -1,8 +1,8 @@
 ---
 MooringID: 16BS-5A
 Date_Ticks: multi_month
-start_time: 2016-09-26
-end_time: 2017-09-27
+start_time: '2016-09-26'
+end_time: '2017-09-27'
 #EPIC_Key: S_41
 #EPIC_Key_ctd: S_42
 #Ylabel: Salinity
@@ -123,4 +123,5 @@ mooring_files:
 notes:
 output_type: png
 plot_stylesheet: seaborn-poster
-
+depth_interval_m: 1
+depth_m: 70

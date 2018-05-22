@@ -1,8 +1,10 @@
 ---
 MooringID: 11BS-5A
 Date_Ticks: multi_month
-start_time: 
-end_time: 
+start_time: '2011-05-20'
+end_time: '2011-08-15'
+depth_m: 70
+depth_interval_m: 1
 #EPIC_Key: S_41
 #EPIC_Key_ctd: S_42
 #Ylabel: Salinity
