@@ -1,13 +1,13 @@
 Date_Ticks: multi_month
-#EPIC_Key: T_20
-#EPIC_Key_ctd: T_28
-#Ylabel: Temperature
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
 #EPIC_Key: Fch_906
 #EPIC_Key_ctd: fWS_973
 #Ylabel: Chlor
-EPIC_Key: S_41
-EPIC_Key_ctd: S_42
-Ylabel: Salinity
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
 MooringID: 14BS-8A
 colors:
 - black
@@ -115,4 +115,7 @@ mooring_files:
 notes: s37 nominal depth is 37m but pressure reports 44db
 output_type: png
 plot_stylesheet: seaborn-poster
-
+depth_interval_m: 1
+depth_m: 73
+start_time: '2014-10-15'
+end_time: '2015-09-24'
