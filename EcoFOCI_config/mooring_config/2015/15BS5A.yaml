@@ -1,25 +1,25 @@
 ---
 MooringID: 15BS-5A
 ctd_data_path:
-- '/Volumes/WDC_internal/Users/bell/ecoraid/2015/CTDcasts/dy1509/final_data/ctd/'
-- '/Volumes/WDC_internal/Users/bell/ecoraid/2016/CTDcasts/dy1606/initial_archive/allparameters/'
+- '/Users/bell/ecoraid/2015/CTDcasts/dy1509/final_data/ctd/'
+- '/Users/bell/ecoraid/2016/CTDcasts/dy1606/initial_archive/allparameters/'
 ctd_files:
 - 'dy1509c088_ctd.nc'
 - 'dy1606c045_ctd.nc'
 mooring_data_path:
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs5a/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs5a/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
+- "/Users/bell/ecoraid/2015/Moorings/15bs5a/working/"
+- "/Users/bell/ecoraid/2015/Moorings/15bs5a/working/"
+- "/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
+- "/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
+- "/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
+- "/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
+- "/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
+- "/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
+- "/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
+- "/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
+- "/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
+- "/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
+- "/Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/"
 mooring_files:
 - 15bs5a_s37_0017m.unqcd.trimmed_missing.nc
 - 15bs5a_s37_0032m.unqcd.trimmed_missing.nc
@@ -103,12 +103,12 @@ legend:
 dtype: mooring
 legend_loc: upper center
 legend_off: false
-#EPIC_Key: S_41
-#EPIC_Key_ctd: S_42
-#Ylabel: Salinity
-EPIC_Key: T_20
-EPIC_Key_ctd: T_28
-Ylabel: Temperature
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
 #EPIC_Key: P_1
 #EPIC_Key_ctd: P_1
 #Ylabel: Pressure (dB)
