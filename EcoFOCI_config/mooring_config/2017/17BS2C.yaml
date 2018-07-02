@@ -1,0 +1,142 @@
+---
+MooringID: 17BS-2C
+Date_Ticks: multi_month
+start_time: '2017-10-02'
+end_time: '2018-04-30'
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+EPIC_Key: Fch_906
+EPIC_Key_ctd: F_903
+Ylabel: Chlor
+#EPIC_Key: P_1
+#EPIC_Key_ctd: P_1
+#Ylabel: Pressure
+#EPIC_Key: OST_62
+#EPIC_Key_ctd: OST_62
+#Ylabel: Oxygen_PSat
+#EPIC_Key: O_65
+#EPIC_Key_ctd: O_65
+#Ylabel: Oxygen_Conc
+colors:
+- red
+- blue
+- green
+- cyan
+- magenta
+- black
+- yellow
+- orange
+- darkred
+- navy
+- darkgreen
+- crimson
+- lightblue
+- olive
+- goldenrod
+- red
+- blue
+- magenta
+- green
+- black
+- yellow
+- orange
+- black
+linestyle:
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+dtype: mooring
+legend:
+- 11m ecf
+- 23m ecf
+- 12m s37
+- 24m s37
+- 66m s37
+- 19m s39
+- 27m s39
+- 35m s39
+- 40m s39
+- 45m s39
+- 50m s39
+- 60m s39
+- 12m sc
+legend_loc: upper center
+legend_off: false
+nominal_depth:
+- 11
+- 23
+- 12
+- 24
+- 66
+- 19
+- 27
+- 35
+- 40
+- 45
+- 50
+- 60
+- 12
+mooring_data_path:
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/working/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/working/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/working/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/working/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/working/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/working/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/working/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/working/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/working/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/working/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/working/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/working/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/working/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/working/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/working/
+mooring_files:
+- 17bs2c_ecf_0011m.interpolated.trimmed_missing.nc
+- 17bs2c_ecf_0023m.interpolated.trimmed_missing.nc
+- 17bs2c_s37_0012m.unqcd.trimmed_missing.nc
+- 17bs2c_s37_0024m.unqcd.trimmed_missing.nc
+- 17bs2c_s37_0066m.unqcd.trimmed_missing.nc
+- 17bs2c_s39_0019m.unqcd.trimmed_missing.nc
+- 17bs2c_s39_0027m.unqcd.trimmed_missing.nc
+- 17bs2c_s39_0035m.unqcd.trimmed_missing.nc
+- 17bs2c_s39_0040m.unqcd.trimmed_missing.nc
+- 17bs2c_s39_0045m.unqcd.trimmed_missing.nc
+- 17bs2c_s39_0050m.unqcd.trimmed_missing.nc
+- 17bs2c_s39_0060m.unqcd.trimmed_missing.nc
+- 17bs2c_sc_0012m.interpolated.trimmed_missing.nc
+notes:
+output_type: png
+plot_stylesheet: seaborn-poster
+depth_interval_m: 1
+depth_m: 72.6
+dtype: mooring
