@@ -67,7 +67,7 @@ nctime = get_UDUNITS(EPIC2Datetime(ncdata['time'],ncdata['time2']),'days since 0
 ncdata[args.epickey[0]][np.where(ncdata[args.epickey[0]][:,args.depth_index,0,0] >= 1e30),args.depth_index,0,0] = np.nan
 ncdata[args.epickey[1]][np.where(ncdata[args.epickey[1]][:,args.depth_index,0,0] >= 1e30),args.depth_index,0,0] = np.nan
 
-tind = np.where((nctime>=735792) & (nctime<=735853))
+tind = np.where((nctime>=735792) & (nctime<=datetime.datetime.now().toordinal()))
 
 p1 = Timeseries1dStickPlot()
 try:
@@ -82,6 +82,7 @@ except KeyError:
                              lon=ncdata['longitude'][0],
                              depth=ncdata['depth'][args.depth_index],
                              instrument=args.instname)   
+
 
 plt1, fig1 = p1.plot(timedata=nctime[tind[0]], 
                      udata=ncdata[args.epickey[0]][tind[0],args.depth_index,0,0], 

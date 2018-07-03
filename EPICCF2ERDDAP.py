@@ -60,7 +60,7 @@ parser.add_argument("cdm_data_type",metavar='cdm_data_type',
     type=str, 
     help='''add global attribute field for discrete sampling geometry.
             Options: Point, TimeSeries, Trajectory, 
-            Profile, TimeSeriesProfile, TrajectoryProfile''')
+            Profile, TimeSeriesProfile, TrajectoryProfile, Other''')
 parser.add_argument("ind_dim", metavar='ind_dim',
     type=str,
     help='indexing dimension - eg. record_number, depth, time')
@@ -88,6 +88,9 @@ def choose_cdm(cdm_type=None):
     elif cdm_type in ['TrajectoryProfile']:
         cf_role = 'profile_id'
         id_name = 'station_id'
+    elif cdm_type in ['Other']:
+        cf_role = 'other'
+        id_name = 'id'
     else:
         cf_role = None
         id_name = None

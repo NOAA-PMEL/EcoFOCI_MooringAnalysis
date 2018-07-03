@@ -11,6 +11,6 @@ prog_dir="/Volumes/WDC_internal/Users/bell/Programs/Python/EcoFOCI_MooringAnalys
 for files in $data_dir
 do
 	echo "processing file: $files"
-	python ${prog_dir}EPICCFgliderprofile2ERDDAP.py ${files} 'profile_id' 
+	python ${prog_dir}EPICCFgliderprofile2ERDDAP_v2.py ${files} 'profile_id' 
 done
 
