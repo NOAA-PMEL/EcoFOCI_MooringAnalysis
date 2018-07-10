@@ -34,4 +34,3 @@ do
 	echo "processing file: $files"
 	python ${prog_dir}EPICCFgliderprofile2ERDDAP_V2.py ${files} 'profile_id' 
 done
-
