@@ -23,7 +23,7 @@
 #System Stack
 import datetime
 import argparse
-import os
+import os, sys
 
 #Science Stack
 from netCDF4 import Dataset
@@ -69,6 +69,7 @@ try :
 
 except:
     print "{0} - not added".format(args.add_dsg_idvar)
+    sys.exit()
 
 #fill with default values
 profileid = args.sourcefile.split('/')[-1].split('.nc')[0]
@@ -97,6 +98,7 @@ for instr in ['PAR','WetLABS','AandOxy']:
 
 	except:
 	    print "{0} - not added".format(args.add_dsg_idvar)
+	    sys.exit()
 
 
 	nchandle.variables[pro_id][:]=stringtochar(np.array(len(nchandle.dimensions[dim_len]) * [profileid]))
