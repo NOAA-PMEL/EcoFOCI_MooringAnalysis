@@ -14,7 +14,7 @@ cp "/home/ecoraid/data/2018/Profilers/OculusGliders/PS_Spring/sg403/*.nc" \
 for files in $data_dir
 do
 	echo "processing file: $files"
-	python ${prog_dir}EPICCFgliderprofile2ERDDAP_v2.py ${files} 'profile_id' 
+	python ${prog_dir}EPICCFgliderprofile2ERDDAP_V2.py ${files} 'profile_id' 
 done
 
 "---"
@@ -32,6 +32,6 @@ cp "/home/ecoraid/data/2018/Profilers/OculusGliders/BS_Summer/sg403/*.nc" \
 for files in $data_dir
 do
 	echo "processing file: $files"
-	python ${prog_dir}EPICCFgliderprofile2ERDDAP_v2.py ${files} 'profile_id' 
+	python ${prog_dir}EPICCFgliderprofile2ERDDAP_V2.py ${files} 'profile_id' 
 done
 
