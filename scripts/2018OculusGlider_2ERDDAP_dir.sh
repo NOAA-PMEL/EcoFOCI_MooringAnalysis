@@ -3,7 +3,7 @@ base_path=/home/pavlof
 data_dir=/home/ecoraid/data/2018/Profilers/OculusGliders/PS_Spring/erddap/sg403/p*.nc
 prog_dir=${base_path}/bell/Programs/Python/EcoFOCI_MooringAnalysis/
 
-cp /home/ecoraid/data/2018/Profilers/OculusGliders/PS_Spring/sg403/p*.nc \
+cp -u /home/ecoraid/data/2018/Profilers/OculusGliders/PS_Spring/sg403/p*.nc \
 	/home/ecoraid/data/2018/Profilers/OculusGliders/PS_Spring/erddap/sg403/
 
 ###
@@ -21,7 +21,7 @@ done
 data_dir=/home/ecoraid/data/2018/Profilers/OculusGliders/BS_Summer/erddap/sg403/p*.nc
 prog_dir=${base_path}/bell/Programs/Python/EcoFOCI_MooringAnalysis/
 
-cp /home/ecoraid/data/2018/Profilers/OculusGliders/BS_Summer/sg403/p*.nc \
+cp -u /home/ecoraid/data/2018/Profilers/OculusGliders/BS_Summer/sg403/p*.nc \
 	/home/ecoraid/data/2018/Profilers/OculusGliders/BS_Summer/erddap/sg403/
 
 ###
