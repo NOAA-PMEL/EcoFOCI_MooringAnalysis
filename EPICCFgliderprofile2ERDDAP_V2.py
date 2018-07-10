@@ -61,6 +61,9 @@ vars_dic = df.get_vars()
 nchandle = df._getnchandle_()
 data = df.ncreadfile_dic()
 
+profileid = args.sourcefile.split('/')[-1].split('.nc')[0]
+print profileid
+
 try :
     nchandle.createDimension('id_strlen',8)
     nchandle.createVariable('profileid','S1',dimensions=('ctd_data_point','id_strlen'))
@@ -72,8 +75,6 @@ except:
     sys.exit()
 
 #fill with default values
-profileid = args.sourcefile.split('/')[-1].split('.nc')[0]
-print profileid
 nchandle.variables['profileid'][:]=stringtochar(np.array(len(nchandle.dimensions['ctd_data_point']) * [profileid]))
 
 
