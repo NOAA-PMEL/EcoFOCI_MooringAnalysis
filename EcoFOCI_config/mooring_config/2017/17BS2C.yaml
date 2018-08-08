@@ -6,15 +6,15 @@ end_time: '2018-04-30'
 #EPIC_Key: S_41
 #EPIC_Key_ctd: S_42
 #Ylabel: Salinity
-#EPIC_Key: T_20
-#EPIC_Key_ctd: T_28
-#Ylabel: Temperature
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
 #EPIC_Key: Fch_906
 #EPIC_Key_ctd: F_903
 #Ylabel: Chlor
-EPIC_Key: P_1
-EPIC_Key_ctd: P_1
-Ylabel: Pressure
+#EPIC_Key: P_1
+#EPIC_Key_ctd: P_1
+#Ylabel: Pressure
 #EPIC_Key: OST_62
 #EPIC_Key_ctd: OST_62
 #Ylabel: Oxygen_PSat
@@ -75,10 +75,11 @@ ctd_files:
 - ''
 dtype: mooring
 legend:
+- 15m an9
 - 11m ecf
 - 23m ecf
-- 12m s37
-- 24m s37
+- 31m s37
+- 55m s37
 - 66m s37
 - 19m s39
 - 27m s39
@@ -91,10 +92,11 @@ legend:
 legend_loc: upper center
 legend_off: false
 nominal_depth:
+- 15
 - 11
 - 23
-- 12
-- 24
+- 31
+- 55
 - 66
 - 19
 - 27
@@ -107,22 +109,24 @@ nominal_depth:
 mooring_data_path:
 - /Users/bell/ecoraid/2017/Moorings/17bs2c/final_data/
 - /Users/bell/ecoraid/2017/Moorings/17bs2c/final_data/
-- /Users/bell/ecoraid/2017/Moorings/17bs2c/working/
-- /Users/bell/ecoraid/2017/Moorings/17bs2c/working/
-- /Users/bell/ecoraid/2017/Moorings/17bs2c/working/
-- /Users/bell/ecoraid/2017/Moorings/17bs2c/final_data/
-- /Users/bell/ecoraid/2017/Moorings/17bs2c/final_data/
-- /Users/bell/ecoraid/2017/Moorings/17bs2c/final_data/
-- /Users/bell/ecoraid/2017/Moorings/17bs2c/final_data/
-- /Users/bell/ecoraid/2017/Moorings/17bs2c/final_data/
 - /Users/bell/ecoraid/2017/Moorings/17bs2c/final_data/
 - /Users/bell/ecoraid/2017/Moorings/17bs2c/final_data/
 - /Users/bell/ecoraid/2017/Moorings/17bs2c/working/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/working/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/final_data/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/final_data/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/final_data/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/final_data/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/final_data/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/final_data/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/final_data/
+- /Users/bell/ecoraid/2017/Moorings/17bs2c/final_data/
 mooring_files:
+- 17bs2c_an9_0015m.nc
 - 17bs2c_ecf_0011m.nc
 - 17bs2c_ecf_0023m.nc
-- 17bs2c_s37_0012m.unqcd.trimmed_missing.nc
-- 17bs2c_s37_0024m.unqcd.trimmed_missing.nc
+- 17bs2c_s37_0031m.nc
+- 17bs2c_s37_0055m.unqcd.trimmed_missing.nc
 - 17bs2c_s37_0066m.unqcd.trimmed_missing.nc
 - 17bs2c_s39_0019m.nc
 - 17bs2c_s39_0027m.nc
@@ -131,7 +135,7 @@ mooring_files:
 - 17bs2c_s39_0045m.nc
 - 17bs2c_s39_0050m.nc
 - 17bs2c_s39_0060m.nc
-- 17bs2c_sc_0012m.interpolated.trimmed_missing.nc
+- 17bs2c_sc_0012m.nc
 notes:
 output_type: png
 plot_stylesheet: seaborn-poster

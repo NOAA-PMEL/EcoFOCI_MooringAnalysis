@@ -35,13 +35,13 @@ echo "-------------------------------------------------------------"
 
 serial_no=1678
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe37/17bs2c_sbe37_1678_55m.asc
-output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/17bs2c_s37_0012m.unqcd.nc
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/17bs2c_s37_0055m.unqcd.nc
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s37 0055 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Trim.py ${output} -sd ${deployment_date} -ed ${recovery_date}
 
 serial_no=2026
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe37/17bs2c_sbe37_2026_31m.asc
-output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/17bs2c_s37_0024m.unqcd.nc
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/17bs2c_s37_0031m.unqcd.nc
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s37 0031 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Trim.py ${output} -sd ${deployment_date} -ed ${recovery_date}
 
