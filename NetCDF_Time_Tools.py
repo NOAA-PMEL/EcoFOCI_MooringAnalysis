@@ -44,6 +44,11 @@ import sys
 #Science Stack
 from netCDF4 import Dataset
 import numpy as np
+
+
+import warnings
+warnings.filterwarnings(action='ignore', message="numpy.dtype size changed,")
+
 import pandas as pd
 
 #User Stack
@@ -508,7 +513,7 @@ elif args.operation in ['Trim','trim']:
         elif 'latitude' in vars_dic:
             lat = 'latitude'
             lon = 'longitude'
-            
+
         #converttime to datetime
         data_dati = EPIC2Datetime(ncdata['time'], ncdata['time2'])
         data_dati = np.array(data_dati)
