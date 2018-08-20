@@ -461,6 +461,12 @@ elif args.operation in ['Trim','trim']:
         vars_dic = df.get_vars()
         ncdata = df.ncreadfile_dic()
 
+        if 'lat' in vars_dic:
+            lat = 'lat'
+            lon = 'lon'
+        elif 'latitude' in vars_dic:
+            lat = 'latitude'
+            lon = 'longitude'
 
         #converttime to datetime
         data_dati = EPIC2Datetime(ncdata['time'], ncdata['time2'])
@@ -479,7 +485,7 @@ elif args.operation in ['Trim','trim']:
         ncinstance.dimension_init(time_len=len(ncdata['time'][time_ind]),depth_len=len(ncdata['depth']))
         ncinstance.variable_init(df._getnchandle_())
 
-        ncinstance.add_coord_data(depth=ncdata['depth'], latitude=ncdata['lat'], longitude=ncdata['lon'],
+        ncinstance.add_coord_data(depth=ncdata['depth'], latitude=ncdata[lat], longitude=ncdata[lon],
                                          time1=ncdata['time'][time_ind], time2=ncdata['time2'][time_ind])
         ncinstance.add_data(data=ncdata, trim_index=time_ind)    
         ncinstance.add_history('Data Trimmed')
@@ -496,6 +502,13 @@ elif args.operation in ['Trim','trim']:
         vars_dic = df.get_vars()
         ncdata = df.ncreadfile_dic()
 
+        if 'lat' in vars_dic:
+            lat = 'lat'
+            lon = 'lon'
+        elif 'latitude' in vars_dic:
+            lat = 'latitude'
+            lon = 'longitude'
+            
         #converttime to datetime
         data_dati = EPIC2Datetime(ncdata['time'], ncdata['time2'])
         data_dati = np.array(data_dati)
@@ -513,7 +526,7 @@ elif args.operation in ['Trim','trim']:
         ncinstance.dimension_init(time_len=len(ncdata['time'][time_ind]))
         ncinstance.variable_init(df._getnchandle_())
 
-        ncinstance.add_coord_data(depth=ncdata['depth'], latitude=ncdata['lat'], longitude=ncdata['lon'],
+        ncinstance.add_coord_data(depth=ncdata['depth'], latitude=ncdata[lat], longitude=ncdata[lon],
                                          time1=ncdata['time'][time_ind], time2=ncdata['time2'][time_ind])
         ncinstance.add_data(data=ncdata, trim_index=time_ind)    
         ncinstance.add_history('Data Trimmed')
