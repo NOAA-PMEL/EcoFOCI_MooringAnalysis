@@ -1,0 +1,46 @@
+---
+MooringID: 17CK-4A
+Date_Ticks: multi_month
+start_time: 2017-08-12
+end_time: 2018-08-05
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
+EPIC_Key: Fch_906
+EPIC_Key_ctd: Fch_906
+Ylabel: Chlor
+#EPIC_Key: OST_62
+#EPIC_Key_ctd: OST_62
+#Ylabel: Oxygen_PSat
+#EPIC_Key: PAR_908
+#EPIC_Key_ctd: PAR_905
+#Ylabel: PAR
+#EPIC_Key: P_1
+#EPIC_Key_ctd: P_1
+#Ylabel: Pressure
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+mooring_data_path:
+- "/Users/bell/ecoraid/2017/Moorings/17ckp4a/working/"
+mooring_files:
+- 17ckp4a_sc_0042m.interpolated.trimmed_missing.nc
+colors:
+- red
+linestyle:
+- '-'
+dtype: mooring
+legend:
+- 42m sc
+legend_loc: upper center
+legend_off: false
+nominal_depth:
+- 42
+notes:
+output_type: png
+plot_stylesheet: seaborn-poster
+

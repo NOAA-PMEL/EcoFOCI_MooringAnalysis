@@ -18,6 +18,10 @@
  2016-12-09 : Add ADCP Icetracking datastream
 """
 
+import warnings
+#remove the numpy/pandas/cython warnings
+warnings.filterwarnings(action='ignore', message="numpy.dtype size changed,")
+
 #System Stack
 import os
 import sys
