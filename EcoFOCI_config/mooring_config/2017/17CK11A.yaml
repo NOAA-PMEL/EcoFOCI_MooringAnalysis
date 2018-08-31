@@ -3,12 +3,12 @@ MooringID: 17CK-11A
 Date_Ticks: multi_month
 start_time: 2017-08-07
 end_time: 2018-08-11
-#EPIC_Key: T_20
-#EPIC_Key_ctd: T_28
-#Ylabel: Temperature
-EPIC_Key: S_41
-EPIC_Key_ctd: S_42
-Ylabel: Salinity
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
 #EPIC_Key: Fch_906
 #EPIC_Key_ctd: Fch_906
 #Ylabel: Chlor
@@ -24,7 +24,7 @@ Ylabel: Salinity
 ctd_data_path:
 - '/Users/bell/ecoraid/2017/CTDcasts/os1701l1/initial_archive/ctd/'
 ctd_files:
-- ''
+- 'os1701l1c004_ctd.nc'
 mooring_data_path:
 - "/Users/bell/ecoraid/2017/Moorings/17ckp11a/working/"
 mooring_files:
