@@ -1,23 +1,28 @@
-#!/usr/bin/env python
-
 """
  Background:
- --------
+ ===========
+
  NetCDF_2Dto1D.py
  
  
  Purpose:
- --------
+ ========
+
  Split a netcdf file from two dimensional (Usually Time and Depth) to one dimensional (time)
  	and into multiple files for each depth.
 
- Modifications:
- --------------
+ History:
+ ========
 
+ 2018-09-06 - SW Bell: python 3 modifications
  2016-11-01 - SW Bell: include 'lat','latitude' variations of spelling
  2016-09-16 - SW Bell: Migrate and update routine to be consistent with EcoFOCI_MooringAnalysis package
  2016-07-29 - SW Bell: simplify EPIC->python time conversion
 
+ Compatibility:
+ ==============
+ python >=3.6 
+ python 2.7 
 
 """
 
@@ -35,7 +40,7 @@ import io_utils.EcoFOCI_netCDF_write as eNCw
 
 __author__   = 'Shaun Bell'
 __email__    = 'shaun.bell@noaa.gov'
-__created__  = datetime.datetime(2014, 01, 29)
+__created__  = datetime.datetime(2014, 1, 29)
 __modified__ = datetime.datetime(2016, 9, 16)
 __version__  = "0.2.0"
 __status__   = "Development"
@@ -56,7 +61,7 @@ global_atts = df.get_global_atts()
 vars_dic = df.get_vars()
 data = df.ncreadfile_dic()
 
-print data
+print(data)
 if args.depth:
 	if 'dep' in data.keys():
 		epic_depth_str = 'dep'
