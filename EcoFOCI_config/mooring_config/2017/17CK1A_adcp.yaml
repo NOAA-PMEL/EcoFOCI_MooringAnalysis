@@ -22,7 +22,7 @@ end_time: 2018-08-14
 #EPIC_Key_ctd: P_1
 #Ylabel: Pressure
 EPIC_Key: 
-- v_1206
+- u_1205
 ctd_data_path:
 - ''
 ctd_files:

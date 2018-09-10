@@ -15,6 +15,12 @@
 
  Make valid for RCM as well
 
+ Reference:
+ ==========
+
+ https://en.wikipedia.org/wiki/Rotation_of_axes
+
+
  History:
  ========
 
@@ -62,8 +68,8 @@ data = df.ncreadfile_dic()
 print(data)
 
 if args.rotate != 0.0:
-	#when rotating vectors - positive(+) rotation is equal to cw of the axis (ccw of vector)
-	#                      - negative(+) rotation is equal to ccw of the axis (cw of the vector)
+	#when rotating vectors - positive(+) rotation is equal to ccw of the axis (cw of vector)
+	#                      - negative(-) rotation is equal to cw of the axis (ccw of the vector)
 	print("rotating vectors")
 	angle_offset_rad = np.deg2rad(args.rotate)
 	udata = data['u_1205']*np.cos(angle_offset_rad) + data['v_1206']*np.sin(angle_offset_rad)
