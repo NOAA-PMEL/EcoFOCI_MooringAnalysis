@@ -13,6 +13,7 @@
  History:
  --------
 
+ 2018-10-15: Add SBE26 - Wave and Tide routines
  2017-6-09: Error in time offset correction.  Time scaling factor was determined by clockerro (seconds) / total elapsed seconds
 	but the total elapsed seconds determined by the difference in max and min times was only reporting elapsed seconds of 1day
 	Likely only impacts seacat, mtr, and ecoflsb instruments when clock error is large
@@ -37,6 +38,7 @@ def available_data_sources():
 	r"""List of acronyms and options for names for instruments"""
 	sources = {
 			   'seacat':sbe16, 'sbe16':sbe16, 'sbe-16':sbe16, 'SBE16':sbe16, 'SBE-16':sbe16,'sc':sbe16,
+			   'sbe26':sbe26, 'sbe-26':sbe26, 'SBE26':sbe26, 'SBE-26':sbe26, 's26':sbe26,
 			   'microcat':sbe37, 'sbe37':sbe37, 'sbe-37':sbe37, 'SBE37':sbe37, 'SBE-37':sbe37, 's37':sbe37, 
 			   'sbe39':sbe39, 'sbe-39':sbe39, 'SBE39':sbe39, 'SBE-39':sbe39, 's39':sbe39,
 			   'sbe56':sbe56, 'sbe-56':sbe56, 'SBE56':sbe56, 'SBE-56':sbe56, 's56':sbe56,
@@ -59,6 +61,7 @@ def data_source_instrumentconfig(ftype='yaml'):
 		sources = {
 				   'seacat':'sbe16_epickeys.json', 'sbe16':'sbe16_epickeys.json', 'sbe-16':'sbe16_epickeys.json', 
 				   'SBE16':'sbe16_epickeys.json', 'SBE-16':'sbe16_epickeys.json', 'sc':'sbe16_epickeys.json',
+				   'sbe26':'sbe26_epickeys.json', 'sbe-26':'sbe26_epickeys.json', 'SBE26':'sbe26_epickeys.json', 'SBE-26':'sbe26_epickeys.json', 's26':'sbe26_epickeys.json',
 				   'microcat':'sbe37_epickeys.json', 'sbe37':'sbe37_epickeys.json', 'sbe-37':'sbe37_epickeys.json',
 				   'SBE37':'sbe37_epickeys.json', 'SBE-37':'sbe37_epickeys.json', 's37':'sbe37_epickeys.json', 
 				   'sbe39':'sbe39_epickeys.json', 'sbe-39':'sbe39_epickeys.json', 'SBE39':'sbe39_epickeys.json', 'SBE-39':'sbe39_epickeys.json', 's39':'sbe39_epickeys.json',
@@ -79,6 +82,7 @@ def data_source_instrumentconfig(ftype='yaml'):
 		sources = {
 				   'seacat':'sbe16_epickeys.yaml', 'sbe16':'sbe16_epickeys.yaml', 'sbe-16':'sbe16_epickeys.yaml', 
 				   'SBE16':'sbe16_epickeys.yaml', 'SBE-16':'sbe16_epickeys.yaml', 'sc':'sbe16_epickeys.yaml',
+				   'sbe26':'sbe26_epickeys.yaml', 'sbe-26':'sbe26_epickeys.yaml', 'SBE26':'sbe26_epickeys.yaml', 'SBE-26':'sbe26_epickeys.yaml', 's26':'sbe26_epickeys.json',
 				   'microcat':'sbe37_epickeys.yaml', 'sbe37':'sbe37_epickeys.yaml', 'sbe-37':'sbe37_epickeys.yaml',
 				   'SBE37':'sbe37_epickeys.yaml', 'SBE-37':'sbe37_epickeys.yaml', 's37':'sbe37_epickeys.yaml', 
 				   'sbe39':'sbe39_epickeys.yaml', 'sbe-39':'sbe39_epickeys.yaml', 'SBE39':'sbe39_epickeys.yaml', 'SBE-39':'sbe39_epickeys.yaml', 's39':'sbe39_epickeys.yaml',
@@ -656,6 +660,45 @@ class sbe16(object):
 			return ({'time':time, 'Temperature':temp.values(), 'Pressure':depth.values(), 
 				'Conductivity':cond.values(), 'Salinity':sal.values(), 'Chlor_a':chl_a.values(), 
 				'PAR':par.values(), 'Volts0':V0.values(),'AAN_OXY':aan_opt_4831.values()})
+
+class sbe26(object):
+	r""" Seabird 26 Wave and Tide GuageTemperature (with optional pressure)
+		
+		Basic Method to open files.  Specific actions can be passes as kwargs for instruments
+
+			kwargs
+			truncate_seconds : boolean -> sbe26.parse()
+
+	"""
+
+	@staticmethod
+	def get_data(filename=None, MooringID=None, **kwargs):
+		r"""
+		Basic Method to open files.  Specific actions can be passes as kwargs for instruments
+		"""
+
+		fobj = open(filename)
+		data = fobj.read()
+
+
+		buf = data
+		return BytesIO(buf.strip())
+
+	@staticmethod	
+	def parse(fobj, **kwargs):
+		r"""
+		Basic Method to open and read sbe56 csv files
+			
+			kwargs
+			truncate_seconds : boolean (truncates down to nearest minute)
+
+		"""
+
+
+		temp,depth,time = {},{},{}
+		skiprows = ''
+
+		return ({'time':time, 'Temperature':temp, 'Pressure':depth})
 
 class sbe37(object):
 	r"""Seabird 37 Microcat / SBE-37 Temperature/Conductivity (with optional pressure)"""
