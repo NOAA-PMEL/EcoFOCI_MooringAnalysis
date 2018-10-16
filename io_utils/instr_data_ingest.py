@@ -2,16 +2,17 @@
 
 """
  Background:
- --------
+ ===========
  mooring_data.py
  
  
  Purpose:
- --------
+ ========
  Various Routines and Classes to read data from the many numbers of EcoFOCI instruments
  
  History:
- --------
+ ========
+
 
  2018-10-15: Add SBE26 - Wave and Tide routines
  2017-6-09: Error in time offset correction.  Time scaling factor was determined by clockerro (seconds) / total elapsed seconds
@@ -24,6 +25,12 @@
  2016-10-13: Add a function that rounds datetimes to nearest minute interval
  2016-10-12: Add SBE39 readin routines
  2016-10-10: Add SBE56 readin routines
+
+
+ Compatibility:
+ ==============
+ python >=3.6 - not tested, unlikely to work without updates
+ python 2.7 - Tested and developed for
 
 """
 import datetime
@@ -693,6 +700,14 @@ class sbe26(object):
 			truncate_seconds : boolean (truncates down to nearest minute)
 
 		"""
+
+		rawdata = pd.read_csv(fobj, delimiter='\s+', skiprows=1,
+									names=['date','time','psia','degC']) 
+		rawdata = rawdata.set_index(pd.DatetimeIndex(rawdata['date']+' '+rawdata['time']))
+		rawdata.drop(['date','time'],1,inplace=True)
+
+		if kwargs['round_quarter_hour']:
+			rawdata.index=rawdata.index.round('15min',inplace=True)
 
 
 		temp,depth,time = {},{},{}
