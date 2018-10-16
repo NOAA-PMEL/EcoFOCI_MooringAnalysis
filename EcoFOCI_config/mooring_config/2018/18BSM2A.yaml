@@ -1,0 +1,128 @@
+---
+MooringID: 18BSM-2A
+Date_Ticks: multi_month
+start_time: '2018-05-02'
+end_time: '2018-10-03'
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
+#EPIC_Key: Fch_906
+#EPIC_Key_ctd: F_903
+#Ylabel: Chlor
+#EPIC_Key: P_1
+#EPIC_Key_ctd: P_1
+#Ylabel: Pressure
+#EPIC_Key: OST_62
+#EPIC_Key_ctd: OST_62
+#Ylabel: Oxygen_PSat
+#EPIC_Key: O_65
+#EPIC_Key_ctd: O_65
+#Ylabel: Oxygen_Conc
+colors:
+- red
+- blue
+- green
+- cyan
+- magenta
+- black
+- yellow
+- orange
+- darkred
+- navy
+- darkgreen
+- crimson
+- lightblue
+- olive
+- goldenrod
+- red
+- blue
+- magenta
+- green
+- black
+- yellow
+- orange
+- black
+linestyle:
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+dtype: mooring
+legend:
+- 12m s37
+- 24m s37
+- 50m s37
+- 60m s37
+- 15m s39
+- 18m s39
+- 21m s39
+- 28m s39
+- 35m s39
+- 39m s39
+legend_loc: upper center
+legend_off: false
+nominal_depth:
+- 12
+- 24
+- 50
+- 60
+- 15
+- 18
+- 21
+- 28
+- 35
+- 39
+mooring_data_path:
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
+mooring_files:
+- 18bsm2a_s37_0012m.unqcd.trimmed_missing.nc
+- 18bsm2a_s37_0024m.unqcd.trimmed_missing.nc
+- 18bsm2a_s37_0050m.unqcd.trimmed_missing.nc
+- 18bsm2a_s37_0060m.unqcd.trimmed_missing.nc
+- 18bsm2a_s39_0015m.unqcd.trimmed_missing.nc
+- 18bsm2a_s39_0018m.unqcd.trimmed_missing.nc
+- 18bsm2a_s39_0021m.unqcd.trimmed_missing.nc
+- 18bsm2a_s39_0028m.unqcd.trimmed_missing.nc
+- 18bsm2a_s39_0035m.unqcd.trimmed_missing.nc
+- 18bsm2a_s39_0039m.unqcd.trimmed_missing.nc
+notes:
+output_type: png
+plot_stylesheet: seaborn-poster
+depth_interval_m: 1
+depth_m: 71
+dtype: mooring
