@@ -13,7 +13,6 @@
  History:
  --------
 
-  2017-02-08 : Correct Vector2Wind conversion to get met wind conventions from cartesion vectors
  2018-10-16 : Add SBE-26
  2017-02-08 : Correct Vector2Wind conversion to get met wind conventions from cartesion vectors
  2016-10-31 : Add RCM-SG
