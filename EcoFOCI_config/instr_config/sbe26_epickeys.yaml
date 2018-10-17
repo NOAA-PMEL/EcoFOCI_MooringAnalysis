@@ -1,0 +1,16 @@
+---
+T_20:
+  EPIC_KEY: 20
+  fortran: f10.2
+  generic_name: temp
+  longname: 'TEMPERATURE (C)'
+  name: T
+  units: C
+P_1: 
+  EPIC_KEY: 1
+  name: P
+  generic_name: pres
+  fortran: f10.1
+  EPIC_KEY: 1
+  units: db
+  longname: 'PRESSURE (DB)'

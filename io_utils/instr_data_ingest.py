@@ -706,14 +706,16 @@ class sbe26(object):
 		rawdata = rawdata.set_index(pd.DatetimeIndex(rawdata['date']+' '+rawdata['time']))
 		rawdata.drop(['date','time'],1,inplace=True)
 
+		rawdata['mbar'] = rawdata['psia'] * 0.689476
+
 		if kwargs['round_quarter_hour']:
 			rawdata.index=rawdata.index.round('15min',inplace=True)
 
+		rawdata['date_time'] = rawdata.index
 
-		temp,depth,time = {},{},{}
-		skiprows = ''
-
-		return ({'time':time, 'Temperature':temp, 'Pressure':depth})
+		return({'time':rawdata['date_time'].to_dict(),
+			 	'Pressure':rawdata['mbar'].to_dict(),
+				'Temperature':rawdata['degC'].to_dict()})
 
 class sbe37(object):
 	r"""Seabird 37 Microcat / SBE-37 Temperature/Conductivity (with optional pressure)"""
