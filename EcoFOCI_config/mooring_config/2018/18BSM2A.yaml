@@ -85,6 +85,9 @@ legend:
 - 28m s39
 - 35m s39
 - 39m s39
+- 11m eco
+- 25m eco
+- 55m eco
 legend_loc: upper center
 legend_off: false
 nominal_depth:
@@ -98,28 +101,37 @@ nominal_depth:
 - 28
 - 35
 - 39
+- 11
+- 25
+- 55
 mooring_data_path:
-- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
-- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
 mooring_files:
 - 18bsm2a_s37_0012m.unqcd.interp.trimmed_missing.nc
 - 18bsm2a_s37_0024m.unqcd.trimmed_missing.nc
-- 18bsm2a_s37_0050m.unqcd.trimmed_missing.nc
-- 18bsm2a_s37_0060m.unqcd.trimmed_missing.nc
-- 18bsm2a_s39_0015m.unqcd.trimmed_missing.nc
-- 18bsm2a_s39_0018m.unqcd.trimmed_missing.nc
-- 18bsm2a_s39_0021m.unqcd.trimmed_missing.nc
-- 18bsm2a_s39_0028m.unqcd.trimmed_missing.nc
-- 18bsm2a_s39_0035m.unqcd.trimmed_missing.nc
-- 18bsm2a_s39_0039m.unqcd.trimmed_missing.nc
+- 18bsm2a_s37_0050m.nc
+- 18bsm2a_s37_0060m.nc
+- 18bsm2a_s39_0015m.nc
+- 18bsm2a_s39_0018m.nc
+- 18bsm2a_s39_0021m.nc
+- 18bsm2a_s39_0028m.nc
+- 18bsm2a_s39_0035m.nc
+- 18bsm2a_s39_0039m.nc
+- 18bsm2a_ecf_0011m.nc
+- 18bsm2a_ecf_0025m.nc
+- 18bsm2a_ecf_0055m.nc
 notes:
 output_type: png
 plot_stylesheet: seaborn-poster
