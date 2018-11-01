@@ -1,4 +1,4 @@
-MooringID: M5-BTM
+MooringID: M5-BTM-Sal
 mooring_data_path:
 - /Users/bell/ecoraid/2005/Moorings/05bs5a/final_data/
 - /Users/bell/ecoraid/2005/Moorings/05bs5b/final_data/
@@ -17,6 +17,7 @@ mooring_data_path:
 - /Users/bell/ecoraid/2013/Moorings/13bs5a/working/
 - /Users/bell/ecoraid/2014/Moorings/14bs5a/working/
 - /Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/
+- /Users/bell/ecoraid/2016/Moorings/16bs5a/final_data/
 nominal_depth:
 - 58
 - 52
@@ -33,6 +34,7 @@ nominal_depth:
 - 55
 - 55
 - 57
+- 55
 - 55
 - 55
 mooring_files:
@@ -53,6 +55,7 @@ mooring_files:
 - 13bs5a_s37_0057m.unqcd.trimmed_missing.nc
 - 14bs5a_s37_0055m.unqcd.trimmed_missing.nc
 - 15bs5a_s37_0055m.nc
+- 16bs5a_s37_0055m.unqcd.trimmed_missing.nc
 legend:
 - 58m 05bs5a
 - 52m 05bs5b
@@ -71,6 +74,7 @@ legend:
 - 57m 13bs5a
 - 55m 14bs5a
 - 55m 15bs5a
+- 55m 16bs5a
 legend_loc: upper center
 legend_off: true
 colors: 
@@ -91,6 +95,7 @@ colors:
 - b-
 - r-
 - m-
+- k-
 - k-
 dtype: unqcd
 EPIC_Key: S_41
