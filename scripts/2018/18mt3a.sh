@@ -26,7 +26,7 @@ echo "SBE-26 Processing"
 echo "-------------------------------------------------------------"
 
 serial_no=347
-input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw_converted/sbe26/18mt3a_narr_apress.orig.tid
+input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe26/18mt3a_narr_apress.tid
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18mt3a_s26_0048m.unqcd.nc
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} sbe26 0048 -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Time_Tools.py  ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date}
