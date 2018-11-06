@@ -18,6 +18,7 @@ mooring_data_path:
 - /Users/bell/ecoraid/2014/Moorings/14bs5a/final_data/
 - /Users/bell/ecoraid/2015/Moorings/15bs5a/final_data/
 - /Users/bell/ecoraid/2016/Moorings/16bs5a/final_data/
+- /Users/bell/ecoraid/2017/Moorings/17bs5a/final_data/
 nominal_depth:
 - 66
 - 64
@@ -37,6 +38,7 @@ nominal_depth:
 - 67
 - 67
 - 66
+- 65
 mooring_files:
 - 05bs5a_s39_0066m.nc
 - 05bs5b_mt_0064m.nc
@@ -56,6 +58,7 @@ mooring_files:
 - 14bs5a_s39_0067m.nc
 - 15bs5a_s39_0067m.nc
 - 16bs5a_s39_0066m.nc
+- 17bs5a_s39_0065m.nc
 legend:
 - 66m 05bs5a
 - 64m 05bs5b
@@ -75,9 +78,11 @@ legend:
 - 67m 14bs5a
 - 67m 15bs5a
 - 66m 16bs5a
+- 65m 17bs5a
 legend_loc: upper center
 legend_off: true
 colors:
+- black
 - black
 - black
 - black
@@ -125,9 +130,9 @@ linestyle:
 - '-'
 - '-'
 - '-'
+- '-'
 dtype: unqcd
-EPIC_Key: 
-- T_20
+EPIC_Key: T_20
 Ylabel: Temperature
 Date_Ticks: multi_year
 plot_stylesheet: seaborn-poster
