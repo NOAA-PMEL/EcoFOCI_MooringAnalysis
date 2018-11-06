@@ -260,7 +260,11 @@ class mtr(object):
 		data = {}
 		for k,v in data_dic.items():
 			if len(v) == 16: #timeword mmddyyhhmmssxxxx
-				data[sample_num] = {'time':datetime.datetime.strptime(v[:-4],'%m%d%y%H%M%S')}
+			 	try:
+					print(datetime.datetime.strptime(v[:-4],'%m%d%y%H%M%S'))
+					data[sample_num] = {'time':datetime.datetime.strptime(v[:-4],'%m%d%y%H%M%S')}
+				except:
+					print(datetime.datetime.strptime(v[:-6],'%m%d%y%H%M%S'))
 				sample_num += 1
 				start_data = 0
 			elif len(v) == 4: #checksum
