@@ -31,3 +31,9 @@ output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18mt3a_s26_0048m.
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} sbe26 0048 -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Time_Tools.py  ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date}
 
+echo "-------------------------------------------------------------"
+echo "RCM Processing"
+echo "-------------------------------------------------------------"
+
+serial_no=645
+# "Use old RCM Processing"
