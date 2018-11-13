@@ -75,6 +75,12 @@ ctd_files:
 - ''
 dtype: mooring
 legend:
+- 09m s56
+- 47m s56
+- 55m s56
+- 04m mtr
+- 32m mtr
+- 32m mtr
 - 12m s37
 - 24m s37
 - 50m s37
@@ -91,6 +97,12 @@ legend:
 legend_loc: upper center
 legend_off: false
 nominal_depth:
+- 9
+- 47
+- 55
+- 4
+- 32
+- 32
 - 12
 - 24
 - 50
@@ -105,20 +117,32 @@ nominal_depth:
 - 25
 - 55
 mooring_data_path:
-- /Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
-- /Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
-- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
-- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
-- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
-- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
-- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
-- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
-- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
-- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
-- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
-- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
-- /Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/working/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2018/Moorings/18bsm2a/final_data/
 mooring_files:
+- 18bsm2a_s56_0009m.unqcd.trimmed_missing.nc
+- 18bsm2a_s56_0047m.unqcd.trimmed_missing.nc
+- 18bsm2a_s56_0055m.unqcd.trimmed_missing.nc
+- 18bsm2a_mt3122_0004m.nc
+- 18bsm2a_mt3167_0032m.nc
+- 18bsm2a_mt4022_0032m.nc
 - 18bsm2a_s37_0012m.unqcd.interp.trimmed_missing.nc
 - 18bsm2a_s37_0024m.unqcd.trimmed_missing.nc
 - 18bsm2a_s37_0050m.nc

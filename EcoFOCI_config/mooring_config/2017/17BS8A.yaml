@@ -3,15 +3,15 @@ MooringID: 17BS-8A
 Date_Ticks: multi_month
 start_time: '2017-10-02'
 end_time: '2018-10-12'
-EPIC_Key: S_41
-EPIC_Key_ctd: S_42
-Ylabel: Salinity
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
 #EPIC_Key: T_20
 #EPIC_Key_ctd: T_28
 #Ylabel: Temperature
-#EPIC_Key: Fch_906
-#EPIC_Key_ctd: F_903
-#Ylabel: Chlor
+EPIC_Key: Fch_906
+EPIC_Key_ctd: F_903
+Ylabel: Chlor
 #EPIC_Key: P_1
 #EPIC_Key_ctd: P_1
 #Ylabel: Pressure
@@ -70,9 +70,11 @@ linestyle:
 - '-'
 - '-'
 ctd_data_path:
-- ''
+- '/Volumes/WDC_internal/Users/bell/ecoraid/2018/CTDcasts/dy1805/initial_archive/'
+- '/Volumes/WDC_internal/Users/bell/ecoraid/2017/CTDcasts/dy1708/initial_archive/ctd/'
 ctd_files:
-- ''
+- 'DY1805c034_ctd.nc'
+- 'DY1708c044_ctd.nc'
 dtype: mooring
 legend:
 - 31m s37
