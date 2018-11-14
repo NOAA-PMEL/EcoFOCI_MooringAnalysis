@@ -1,7 +1,7 @@
 #!/bin/bash
 
-data_dir="/Volumes/WDC_internal/Users/bell/ecoraid/"
-prog_dir="/Volumes/WDC_internal/Users/bell/Programs/Python/EcoFOCI_MooringAnalysis/"
+data_dir="/Users/bell/ecoraid/"
+prog_dir="/Users/bell/Programs/Python/EcoFOCI_MooringAnalysis/"
 
 mooringID='18bsm2a'
 mooringYear='2018'
@@ -55,26 +55,25 @@ python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc mtr 0057 -
 python ${prog_dir}NetCDF_Time_Tools.py  ${output}.interpolated.nc Trim  --trim_bounds ${deployment_date} ${recovery_date}
 '
 
-: '
-
 echo "-------------------------------------------------------------"
 echo "SBE16 Processing"
 echo "-------------------------------------------------------------"
 
-serial_no=0653
-input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe16/17bsm2a_sbe16_653_44m.cnv
-output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/17bsm2a_sc_0044m
+serial_no=0655
+input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe16/18bsm2a_sbe16_655_44m.cnv
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bsm2a_sc_0044m
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc sc 0044 -kw 0 time_elapsed_s False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc sc 0044 -kw 0 time_elapsed_s True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}NetCDF_Time_Tools.py ${output}.interpolated.nc --trim_bounds ${deployment_date} ${recovery_date}
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc sc 0044 -kw -88 time_elapsed_s True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}NetCDF_Time_Tools.py ${output}.interpolated.nc Trim --trim_bounds ${deployment_date} ${recovery_date}
 
-serial_no=4139
-input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe16/17bsm2a_sbe16_3114_6m.cnv
-output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/17bsm2a_sc_0006m
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc sc 0006 -kw 0 time_elapsed_s False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc sc 0006 -kw 0 time_elapsed_s True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}NetCDF_Time_Tools.py ${output}.interpolated.nc --trim_bounds ${deployment_date} ${recovery_date}
+serial_no=50236
+input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe16/18bsm2a_sbe16_50236_6m.cnv
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bsm2a_sc_0006m
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc sc 0006 -kw 0 time_instrument_doy False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc sc 0006 -kw 2 time_instrument_doy True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}NetCDF_Time_Tools.py ${output}.interpolated.nc Trim --trim_bounds ${deployment_date} ${recovery_date}
 
+: '
 echo "-------------------------------------------------------------"
 echo "SBE37 Processing"
 echo "-------------------------------------------------------------"
@@ -157,7 +156,7 @@ output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bsm2a_s39_0039m
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s39 0039 -kw False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Time_Tools.py  ${output} Offset --offset -3
 python ${prog_dir}NetCDF_Time_Tools.py  ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date}
-'
+
 echo "-------------------------------------------------------------"
 echo "SBE56 Processing"
 echo "-------------------------------------------------------------"
@@ -180,7 +179,6 @@ output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bsm2a_s56_0055m
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s56 0055 -kw True cnv -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Time_Tools.py  ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date}
 
-: '
 echo "-------------------------------------------------------------"
 echo "Wetlabs Processing"
 echo "-------------------------------------------------------------"
