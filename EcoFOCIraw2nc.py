@@ -197,6 +197,35 @@ if args.InstType in ['MTR','mtr']:
 
 	(lat,lon) = (-9999, -9999)
 
+if args.InstType in ['mtrduino','MTR5k']:
+	config_file = instr_data_ingest.data_source_instrumentconfig('yaml').get(args.InstType)
+	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
+										 source=args.InstType,
+										 round_10min_interval=to_bool(args.keywordargs[0]))
+
+
+	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
+
+	#cycle through and build data arrays
+	#create a "data_dic" and associate the data with an epic key
+	#this key needs to be defined in the EPIC_VARS dictionary in order to be in the nc file
+	# if it is defined in the EPIC_VARS dic but not below, it will be filled with missing values
+	# if it is below but not the epic dic, it will not make it to the nc file
+	data_dic = {}
+	try:
+		data_dic['T_20'] = np.array(Dataset['temperature'].values(), dtype='f8')
+		data_dic['T_20'][np.isnan(data_dic['T_20'])] = 1e35
+	except:
+		try:
+			data_dic['T_20'] = np.array(Dataset['temperature'], dtype='f8')
+		except:
+			data_dic['T_20'] = np.ones_like(Dataset['time'].values())*1e35
+
+	### Time should be consistent in all files as a datetime object
+	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+
+	(lat,lon) = (-9999, -9999)
+
 elif args.InstType in ['prawler','PRAWLER','Prawler']:
 	config_file = instr_data_ingest.data_source_instrumentconfig('yaml').get(args.InstType)
 	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
