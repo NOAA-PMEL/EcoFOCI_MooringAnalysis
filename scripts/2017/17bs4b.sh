@@ -1,7 +1,7 @@
 #!/bin/bash
 
-data_dir="/Volumes/WDC_internal/Users/bell/ecoraid/"
-prog_dir="/Volumes/WDC_internal/Users/bell/Programs/Python/EcoFOCI_MooringAnalysis/"
+data_dir="/Users/bell/ecoraid/"
+prog_dir="/Users/bell/Programs/Python/EcoFOCI_MooringAnalysis/"
 
 mooringID='17bs4b'
 mooringYear='2017'
@@ -17,6 +17,7 @@ echo $mooringYear
 echo $lat $lon
 echo $site_depth
 
+: '
 echo "-------------------------------------------------------------"
 echo "MTR Processing"
 echo "-------------------------------------------------------------"
@@ -55,7 +56,43 @@ output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/17bs4b_mt4072_003
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc mtr 0039 -kw 0 1.1213063818E-03	5.2172449641E-04	2.3792052017E-06 False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc mtr 0039 -kw 1369 1.1213063818E-03	5.2172449641E-04	2.3792052017E-06 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Time_Tools.py  ${output}.interpolated.nc Trim  --trim_bounds ${deployment_date} ${recovery_date}
+'
 
+echo "-------------------------------------------------------------"
+echo "MTRduino Processing"
+echo "-------------------------------------------------------------"
+
+serial_no=5005
+input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/mtr/5005.csv
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/17bs4b_mt5005_0059m
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc mtrduino 0059 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}NetCDF_Time_Tools.py  ${output}.unqcd.nc Trim  --trim_bounds ${deployment_date} ${recovery_date}
+
+serial_no=5006
+input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/mtr/5006.csv
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/17bs4b_mt5006_0066m
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc mtrduino 0066 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}NetCDF_Time_Tools.py  ${output}.unqcd.nc Trim  --trim_bounds ${deployment_date} ${recovery_date}
+
+serial_no=5007
+input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/mtr/5007.csv
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/17bs4b_mt5007_0049m
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc mtrduino 0049 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}NetCDF_Time_Tools.py  ${output}.unqcd.nc Trim  --trim_bounds ${deployment_date} ${recovery_date}
+
+serial_no=5008
+input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/mtr/5008.csv
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/17bs4b_mt5008_0022m
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc mtrduino 0022 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}NetCDF_Time_Tools.py  ${output}.unqcd.nc Trim  --trim_bounds ${deployment_date} ${recovery_date}
+
+serial_no=5009
+input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/mtr/5009.csv
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/17bs4b_mt5009_0039m
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc mtrduino 0039 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}NetCDF_Time_Tools.py  ${output}.unqcd.nc Trim  --trim_bounds ${deployment_date} ${recovery_date}
+
+: '
 echo "-------------------------------------------------------------"
 echo "SBE16 Processing"
 echo "-------------------------------------------------------------"
@@ -135,3 +172,4 @@ output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/17bs4b_ecf_0012m
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc eco 0012 -kw 0 median 0.0071 48 False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc eco 0012 -kw 3502 median 0.0071 48 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Time_Tools.py ${output}.interpolated.nc Trim  --trim_bounds ${deployment_date} ${recovery_date}
+'
