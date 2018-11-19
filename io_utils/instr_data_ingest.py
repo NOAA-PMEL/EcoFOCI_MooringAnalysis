@@ -13,7 +13,7 @@
  History:
  ========
 
-
+ 2018-11-16: Add the 5k Generation MTR --> MTRduino
  2018-10-15: Add SBE26 - Wave and Tide routines
  2017-6-09: Error in time offset correction.  Time scaling factor was determined by clockerro (seconds) / total elapsed seconds
 	but the total elapsed seconds determined by the difference in max and min times was only reporting elapsed seconds of 1day
@@ -56,6 +56,7 @@ def available_data_sources():
 			   'isus':'isus','ISUS':'isus','SUNA':'suna','suna':'suna',
 			   'adcp':adcp,'lwrcp':adcp,'wcp':adcp,'adcp_ice':adcp_ice,
 			   'mtr':mtr,'MTR':mtr,
+			   'mtrduino':mtrduino,'MTR5k':mtrduino,
 			   'eco':ecoflsb,'ecf':ecoflsb,'ecoflsb':ecoflsb,'ecofluor':ecoflsb,
 			   'ecoflntu':ecoflntu,
 			   'prawler':'prawler'
@@ -81,6 +82,7 @@ def data_source_instrumentconfig(ftype='yaml'):
 				   'isus':'isus','ISUS':'isus','SUNA':'suna','suna':'suna',
 				   'adcp':'adcp','lwrcp':'adcp','wcp':'adcp','adcp_ice':'adcp_bottom_tracking_epickeys.json',
 				   'mtr':'mtr_epickeys.json','MTR':'mtr_epickeys.json',
+				   'mtrduino':'mtr_epickeys.json','MTR5k':'mtr_epickeys.json',
 				   'eco':'fluor_std_epickeys.json','ecf':'fluor_std_epickeys.json','ecoflsb':'fluor_std_epickeys.json','ecofluor':'eco_epickeys',
 				   'ecoflntu':'fluor_ntu_std_epickeys.json',
 				   'prawler':'prawler_epickeys.json'
@@ -102,6 +104,7 @@ def data_source_instrumentconfig(ftype='yaml'):
 				   'isus':'isus','ISUS':'isus','SUNA':'suna','suna':'suna',
 				   'adcp':'adcp','lwrcp':'adcp','wcp':'adcp','adcp_ice':'adcp_bottom_tracking_epickeys.yaml',
 				   'mtr':'mtr_epickeys.yaml','MTR':'mtr_epickeys.yaml',
+				   'mtrduino':'mtr_epickeys.yaml','MTR5k':'mtr_epickeys.yaml',
 				   'eco':'fluor_std_epickeys.yaml','ecf':'fluor_std_epickeys.yaml','ecoflsb':'fluor_std_epickeys.yaml','ecofluor':'eco_epickeys',
 				   'ecoflntu':'fluor_ntu_std_epickeys.yaml',
 				   'prawler':'prawler_epickeys.yaml'
@@ -295,6 +298,50 @@ class mtr(object):
 			shhh = 1.0 / (float(mtr_coef[0]) + (float(mtr_coef[1]) * np.log10(resistance)) + (float(mtr_coef[2]) * np.log10(resistance)**3)) - 273.15
 
 		return shhh
+
+class mtrduino(object):
+	r""" MicroTemperature Recorders (MTR) - 5k / MTRduino generation
+	Collection of static methods to define MTR processing and conversion
+
+	It is assumed the data passed here is preliminarily processed and has calibration
+	functions already applied
+
+	ToDO:  Allow raw data to be passed"""
+	@staticmethod
+	def get_data(filename=None, MooringID=None, **kwargs):
+		r"""
+		Basic Method to open files.  Specific actions can be passes as kwargs for instruments
+		"""
+
+		fobj = open(filename)
+		data = fobj.read()
+
+
+		buf = data
+		return BytesIO(buf.strip())
+
+	@staticmethod	
+	def parse(fobj, **kwargs):
+		r"""
+		Basic Method to open and read mtrduino raw converted csv files
+			
+			kwargs:
+				round_10min_interval - force small deviations to 10min intervals.  Actually rounds all so it
+					is user responisbility to make sure values are representative first.
+
+		"""
+
+		rawdata = pd.read_csv(fobj,delimiter=',',
+                 parse_dates=['date_time'],index_col='date_time')
+
+		if kwargs['round_10min_interval']:
+			rawdata.index=rawdata.index.round('10min',inplace=True)
+
+		rawdata['date_time'] = rawdata.index
+
+		return({'time':rawdata['date_time'].to_dict(),
+				'Temperature':rawdata['ave'].to_dict()})
+
 
 class prawler(object):
 	r"""PICO realtime transmitted data / SBE files
