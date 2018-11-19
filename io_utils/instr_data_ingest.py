@@ -13,7 +13,7 @@
  History:
  ========
 
- 2018-11-19: change all datefram to dictionary exports to ordered dictionary exports
+
  2018-10-15: Add SBE26 - Wave and Tide routines
  2017-6-09: Error in time offset correction.  Time scaling factor was determined by clockerro (seconds) / total elapsed seconds
 	but the total elapsed seconds determined by the difference in max and min times was only reporting elapsed seconds of 1day
@@ -38,7 +38,6 @@ import numpy as np
 import pandas as pd
 from io import BytesIO
 from netCDF4 import num2date
-from collections import OrderedDict, defaultdict
 
 from time_helper import roundTime, linear_clock_adjust, interp2hour
 
@@ -718,9 +717,9 @@ class sbe26(object):
 
 		rawdata['date_time'] = rawdata.index
 
-		return({'time':rawdata['date_time'].to_dict(into=OrderedDict),
-			 	'Pressure':rawdata['mbar'].to_dict(into=OrderedDict),
-				'Temperature':rawdata['degC'].to_dict(into=OrderedDict)})
+		return({'time':rawdata['date_time'].to_dict(),
+			 	'Pressure':rawdata['mbar'].to_dict(),
+				'Temperature':rawdata['degC'].to_dict()})
 
 class sbe37(object):
 	r"""Seabird 37 Microcat / SBE-37 Temperature/Conductivity (with optional pressure)"""
@@ -1008,32 +1007,32 @@ class rcmsg(object):
 		"""
 		rawdata = pd.read_csv(fobj, header=1, delimiter='\t')        
 		rawdata['Time tag (Gmt)']=pd.to_datetime(rawdata['Time tag (Gmt)'],format='%d.%m.%y %H:%M:%S')
-		time = { k:v.to_pydatetime() for k,v in (rawdata['Time tag (Gmt)'].to_dict(into=OrderedDict)).iteritems() }
+		time = { k:v.to_pydatetime() for k,v in (rawdata['Time tag (Gmt)'].to_dict()).iteritems() }
 
 		if turbidity and pressure:
-			return({'time':time, 'Temperature':rawdata['Temperature'].to_dict(into=OrderedDict),
-				'Pressure':rawdata['Pressure'].to_dict(into=OrderedDict),
-				'East':rawdata['East'].to_dict(into=OrderedDict), 'North':rawdata['North'].to_dict(into=OrderedDict),
-				'Turbidity':rawdata['Turbidity'].to_dict(into=OrderedDict),
-				'O2Concentration':rawdata['O2Concentration'].to_dict(into=OrderedDict),
-				'AirSaturation':rawdata['AirSaturation'].to_dict(into=OrderedDict)})
+			return({'time':time, 'Temperature':rawdata['Temperature'].to_dict(),
+				'Pressure':rawdata['Pressure'].to_dict(),
+				'East':rawdata['East'].to_dict(), 'North':rawdata['North'].to_dict(),
+				'Turbidity':rawdata['Turbidity'].to_dict(),
+				'O2Concentration':rawdata['O2Concentration'].to_dict(),
+				'AirSaturation':rawdata['AirSaturation'].to_dict()})
 		elif (not turbidity) and pressure:
-			return({'time':time, 'Temperature':rawdata['Temperature'].to_dict(into=OrderedDict),
-				'Pressure':rawdata['Pressure'].to_dict(into=OrderedDict),
-				'East':rawdata['East'].to_dict(into=OrderedDict), 'North':rawdata['North'].to_dict(into=OrderedDict),
-				'O2Concentration':rawdata['O2Concentration'].to_dict(into=OrderedDict),
-				'AirSaturation':rawdata['AirSaturation'].to_dict(into=OrderedDict)})
+			return({'time':time, 'Temperature':rawdata['Temperature'].to_dict(),
+				'Pressure':rawdata['Pressure'].to_dict(),
+				'East':rawdata['East'].to_dict(), 'North':rawdata['North'].to_dict(),
+				'O2Concentration':rawdata['O2Concentration'].to_dict(),
+				'AirSaturation':rawdata['AirSaturation'].to_dict()})
 		elif turbidity and (not pressure):
-			return({'time':time, 'Temperature':rawdata['Temperature'].to_dict(into=OrderedDict),
-				'Turbidity':rawdata['Turbidity'].to_dict(into=OrderedDict),
-				'East':rawdata['East'].to_dict(into=OrderedDict), 'North':rawdata['North'].to_dict(into=OrderedDict),
-				'O2Concentration':rawdata['O2Concentration'].to_dict(into=OrderedDict),
-				'AirSaturation':rawdata['AirSaturation'].to_dict(into=OrderedDict)})
+			return({'time':time, 'Temperature':rawdata['Temperature'].to_dict(),
+				'Turbidity':rawdata['Turbidity'].to_dict(),
+				'East':rawdata['East'].to_dict(), 'North':rawdata['North'].to_dict(),
+				'O2Concentration':rawdata['O2Concentration'].to_dict(),
+				'AirSaturation':rawdata['AirSaturation'].to_dict()})
 		else:
-			return({'time':time, 'Temperature':rawdata['Temperature'].to_dict(into=OrderedDict),
-				'East':rawdata['East'].to_dict(into=OrderedDict), 'North':rawdata['North'].to_dict(into=OrderedDict),
-				'O2Concentration':rawdata['O2Concentration'].to_dict(into=OrderedDict),
-				'AirSaturation':rawdata['AirSaturation'].to_dict(into=OrderedDict)})
+			return({'time':time, 'Temperature':rawdata['Temperature'].to_dict(),
+				'East':rawdata['East'].to_dict(), 'North':rawdata['North'].to_dict(),
+				'O2Concentration':rawdata['O2Concentration'].to_dict(),
+				'AirSaturation':rawdata['AirSaturation'].to_dict()})
 
 class rcm(object):
 	r""" Anderaa instruments (RCM 4, 7, 9, 11's
@@ -1067,16 +1066,16 @@ class wpak(object):
 		rawdata = pd.read_csv(fobj, header=0, delimiter='\s+')
 		rawdata['date_time'] = pd.to_datetime(rawdata['DATE']+' '+rawdata['TIME'], format="%y/%m/%d %H:%M:%S")
 
-		time = { k:v.to_pydatetime() for k,v in (rawdata['date_time'].to_dict(into=OrderedDict)).iteritems() }
+		time = { k:v.to_pydatetime() for k,v in (rawdata['date_time'].to_dict()).iteritems() }
 
 		if not argos_file:
-			return({'time':time, 'TA':rawdata['TA'].to_dict(into=OrderedDict),
-				'BP':rawdata['BP'].to_dict(into=OrderedDict), 'BT':rawdata['BT'].to_dict(into=OrderedDict),
-				'TI':rawdata['TI'].to_dict(into=OrderedDict), 'RH':rawdata['RH'].to_dict(into=OrderedDict),
-				'WS':rawdata['WS'].to_dict(into=OrderedDict), 'WD':rawdata['WD'].to_dict(into=OrderedDict),
-				'SR':rawdata['SR'].to_dict(into=OrderedDict), 'AZ':rawdata['AZ'].to_dict(into=OrderedDict),
-				'WT':rawdata['WT'].to_dict(into=OrderedDict), 'WC':rawdata['WC'].to_dict(into=OrderedDict),
-				'WT_conv':rawdata['WT_conv'].to_dict(into=OrderedDict), 'WC_conv':rawdata['WC_conv'].to_dict(into=OrderedDict)})
+			return({'time':time, 'TA':rawdata['TA'].to_dict(),
+				'BP':rawdata['BP'].to_dict(), 'BT':rawdata['BT'].to_dict(),
+				'TI':rawdata['TI'].to_dict(), 'RH':rawdata['RH'].to_dict(),
+				'WS':rawdata['WS'].to_dict(), 'WD':rawdata['WD'].to_dict(),
+				'SR':rawdata['SR'].to_dict(), 'AZ':rawdata['AZ'].to_dict(),
+				'WT':rawdata['WT'].to_dict(), 'WC':rawdata['WC'].to_dict(),
+				'WT_conv':rawdata['WT_conv'].to_dict(), 'WC_conv':rawdata['WC_conv'].to_dict()})
 
 class ecoflsb(object):
 	r""" Wetlabs ecofluorometer"""
@@ -1339,16 +1338,16 @@ class adcp_ice(object):
 		
 
 		if kwargs['roundTime']:
-			time = { k:roundTime(v.to_pydatetime(),3600) for k,v in (rawdata['date_time'].to_dict(into=OrderedDict)).iteritems() }
+			time = { k:roundTime(v.to_pydatetime(),3600) for k,v in (rawdata['date_time'].to_dict()).iteritems() }
 						
-			return({'time':time, 'U':rawdata['BTVelEast'].to_dict(into=OrderedDict),
-				'V':rawdata['BTVelNorth'].to_dict(into=OrderedDict), 'W':rawdata['BTVelUp'].to_dict(into=OrderedDict),
-				'Werr':rawdata['BTVelErr'].to_dict(into=OrderedDict), 'Spd':rawdata['BTSpeed'].to_dict(into=OrderedDict),
-				'Dir':rawdata['BTDirection'].to_dict(into=OrderedDict)})
+			return({'time':time, 'U':rawdata['BTVelEast'].to_dict(),
+				'V':rawdata['BTVelNorth'].to_dict(), 'W':rawdata['BTVelUp'].to_dict(),
+				'Werr':rawdata['BTVelErr'].to_dict(), 'Spd':rawdata['BTSpeed'].to_dict(),
+				'Dir':rawdata['BTDirection'].to_dict()})
 
 		else:
-			time = { k:v.to_pydatetime() for k,v in (rawdata['date_time'].to_dict(into=OrderedDict)).iteritems() }
-			return({'time':time, 'U':rawdata['BTVelEast'].to_dict(into=OrderedDict),
-				'V':rawdata['BTVelNorth'].to_dict(into=OrderedDict), 'W':rawdata['BTVelUp'].to_dict(into=OrderedDict),
-				'Werr':rawdata['BTVelErr'].to_dict(into=OrderedDict), 'Spd':rawdata['BTSpeed'].to_dict(into=OrderedDict),
-				'Dir':rawdata['BTDirection'].to_dict(into=OrderedDict)})
+			time = { k:v.to_pydatetime() for k,v in (rawdata['date_time'].to_dict()).iteritems() }
+			return({'time':time, 'U':rawdata['BTVelEast'].to_dict(),
+				'V':rawdata['BTVelNorth'].to_dict(), 'W':rawdata['BTVelUp'].to_dict(),
+				'Werr':rawdata['BTVelErr'].to_dict(), 'Spd':rawdata['BTSpeed'].to_dict(),
+				'Dir':rawdata['BTDirection'].to_dict()})
