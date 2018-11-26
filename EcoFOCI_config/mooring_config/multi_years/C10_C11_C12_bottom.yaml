@@ -1,0 +1,69 @@
+MooringID: C10_C11_C12-BTM
+mooring_data_path:
+#- /Users/bell/ecoraid/2018/Moorings/18ckp10a/working/
+- /Users/bell/ecoraid/2017/Moorings/17ckp10a/working/
+- /Users/bell/ecoraid/2016/Moorings/16ckp10a/final_data/
+- /Users/bell/ecoraid/2017/Moorings/17ckp11a/working/
+- /Users/bell/ecoraid/2016/Moorings/16ckp11a/final_data/
+- /Users/bell/ecoraid/2017/Moorings/17ckp12a/working/
+#- /Users/bell/ecoraid/2016/Moorings/16ckp12a/working/
+nominal_depth:
+#- 43
+- 43
+- 39
+-
+- 42
+mooring_files:
+#- 18ckp10a_sc_0043m.interpolated.trimmed_missing.nc
+- 17ckp10a_sc_0043m.interpolated.trimmed_missing.nc
+- 16ckp10a_sc_0039m.nc
+- 17ckp11a_sc_0042m.interpolated.trimmed_missing.nc
+- 16ckp11a_sc_0042m.nc
+- 17ckp12a_s37_0031m.unqcd.trimmed_missing.nc
+#- 16ckp12a_rcm_0052m.interpolated.trimmed_missing.nc
+legend:
+#- 2018 43m C10 
+- 2017 43m C10
+- 2016 39m C10
+- 2017 42m C11
+- 2016 43m C11
+- 2017 31m C12
+#- 2016 52m C12
+legend_loc: upper center
+legend_off: true
+colors:
+#- red
+- red
+- red
+#- black
+- black
+- black
+#- blue
+- blue
+#- blue
+linestyle:
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+dtype: unqcd
+EPIC_Key: S_41
+EPIC_Key_ctd: S_42
+Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+Date_Ticks: multi_year
+plot_stylesheet: seaborn-poster
+output_type: png
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+dtype: mooring
+

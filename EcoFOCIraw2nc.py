@@ -213,11 +213,11 @@ if args.InstType in ['mtrduino','MTR5k']:
 	# if it is below but not the epic dic, it will not make it to the nc file
 	data_dic = {}
 	try:
-		data_dic['T_20'] = np.array(Dataset['temperature'].values(), dtype='f8')
+		data_dic['T_20'] = np.array(Dataset['Temperature'].values(), dtype='f8')
 		data_dic['T_20'][np.isnan(data_dic['T_20'])] = 1e35
 	except:
 		try:
-			data_dic['T_20'] = np.array(Dataset['temperature'], dtype='f8')
+			data_dic['T_20'] = np.array(Dataset['Temperature'], dtype='f8')
 		except:
 			data_dic['T_20'] = np.ones_like(Dataset['time'].values())*1e35
 
