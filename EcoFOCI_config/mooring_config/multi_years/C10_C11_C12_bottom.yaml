@@ -6,13 +6,15 @@ mooring_data_path:
 - /Users/bell/ecoraid/2017/Moorings/17ckp11a/working/
 - /Users/bell/ecoraid/2016/Moorings/16ckp11a/final_data/
 - /Users/bell/ecoraid/2017/Moorings/17ckp12a/working/
-#- /Users/bell/ecoraid/2016/Moorings/16ckp12a/working/
+- /Users/bell/ecoraid/2016/Moorings/16ckp12a/working/
 nominal_depth:
 #- 43
 - 43
 - 39
--
 - 42
+- 42
+- 31
+- 52
 mooring_files:
 #- 18ckp10a_sc_0043m.interpolated.trimmed_missing.nc
 - 17ckp10a_sc_0043m.interpolated.trimmed_missing.nc
@@ -20,7 +22,7 @@ mooring_files:
 - 17ckp11a_sc_0042m.interpolated.trimmed_missing.nc
 - 16ckp11a_sc_0042m.nc
 - 17ckp12a_s37_0031m.unqcd.trimmed_missing.nc
-#- 16ckp12a_rcm_0052m.interpolated.trimmed_missing.nc
+- 16ckp12a_an9_0052m.unqcd.trimmed_missing.nc
 legend:
 #- 2018 43m C10 
 - 2017 43m C10
@@ -28,9 +30,9 @@ legend:
 - 2017 42m C11
 - 2016 43m C11
 - 2017 31m C12
-#- 2016 52m C12
+- 2016 52m C12
 legend_loc: upper center
-legend_off: true
+legend_off: false
 colors:
 #- red
 - red
@@ -40,7 +42,7 @@ colors:
 - black
 #- blue
 - blue
-#- blue
+- blue
 linestyle:
 - '-'
 - '-'
@@ -52,13 +54,13 @@ linestyle:
 - '-'
 - '-'
 dtype: unqcd
-EPIC_Key: S_41
-EPIC_Key_ctd: S_42
-Ylabel: Salinity
-#EPIC_Key: T_20
-#EPIC_Key_ctd: T_28
-#Ylabel: Temperature
-Date_Ticks: multi_year
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
+EPIC_Key: T_20
+EPIC_Key_ctd: T_28
+Ylabel: Temperature
+Date_Ticks: multi_month
 plot_stylesheet: seaborn-poster
 output_type: png
 ctd_data_path:
