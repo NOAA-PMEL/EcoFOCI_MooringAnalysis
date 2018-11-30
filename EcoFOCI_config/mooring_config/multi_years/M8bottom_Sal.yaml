@@ -1,0 +1,35 @@
+MooringID: M8-BTM_Sal
+mooring_data_path:
+- /Users/bell/ecoraid/2016/Moorings/16bs8a/final_data/
+- /Users/bell/ecoraid/2017/Moorings/17bs8a/working/
+mooring_files:
+- 16bs8a_s37_0031m.nc
+- 17bs8a_s37_0055m.unqcd.trimmed_missing.nc
+nominal_depth:
+- 31
+- 55
+legend:
+- 31m s37
+- 55m s37
+legend_loc: upper center
+legend_off: false
+colors:
+- blue
+- blue
+linestyle:
+- '-'
+- '-'
+dtype: unqcd
+EPIC_Key: S_41
+EPIC_Key_ctd: S_41
+Ylabel: Salinity
+# update the plotting routine to take a list value
+Date_Ticks: multi_month
+plot_stylesheet: seaborn-poster
+output_type: png
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+dtype: mooring
+
