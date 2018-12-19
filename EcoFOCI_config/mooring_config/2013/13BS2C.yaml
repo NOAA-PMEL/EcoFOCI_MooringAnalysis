@@ -3,40 +3,76 @@ MooringID: 13BS-2C
 Date_Ticks: multi_month
 start_time: '2013-09-14'
 end_time: '2014-01-02'
-EPIC_Key: T_20
-EPIC_Key_ctd: T_28
-Ylabel: Temperature
 #EPIC_Key: S_41
-#EPIC_Key_ctd: S_41
+#EPIC_Key_ctd: S_42
 #Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+EPIC_Key: Fch_906
+#EPIC_Key_ctd: F_903
+EPIC_Key_ctd: fWS_973
+Ylabel: Chlor
+#EPIC_Key: P_1
+#EPIC_Key_ctd: P_1
+#Ylabel: Pressure
+#EPIC_Key: OST_62
+#EPIC_Key_ctd: OST_62
+#Ylabel: Oxygen_PSat
+#EPIC_Key: O_65
+#EPIC_Key_ctd: O_65
+#Ylabel: Oxygen_Conc
 colors:
-- k-
-- b-
-- m-
-- g-
-- r-
-- c-
-- k--
-- b--
-- m--
-- g--
-- r--
-- c--
-- k-.
-- b-.
-- m-.
-- g-.
-- r-.
-- c-.
-- 'k:'
-- 'b:'
-- 'm:'
-- 'g:'
-- 'r:'
-- 'c:'
+- red
+- blue
+- green
+- cyan
+- magenta
+- black
+- yellow
+- orange
+- darkred
+- navy
+- darkgreen
+- crimson
+- lightblue
+- olive
+- black
+- goldenrod
+- blue
+- magenta
+- green
+- red
+- yellow
+- orange
+- black
+linestyle:
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
 ctd_data_path:
-- /Users/bell/ecoraid/2013/CTDcasts/aq1301/final_data/ctd/
-- /Users/bell/ecoraid/2013/CTDcasts/aq1301/final_data/ctd/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/CTDcasts/aq1301/final_data/ctd/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/CTDcasts/aq1301/final_data/ctd/
 ctd_files:
 - aq1301c052_ctd.nc
 - aq1301c054_ctd.nc
@@ -52,6 +88,7 @@ legend:
 - 27m s39
 - 35m s39
 - 12m sc
+- 11m eco
 legend_loc: upper center
 legend_off: false
 depth_interval_m: 1
@@ -67,17 +104,19 @@ nominal_depth:
 - 27
 - 35
 - 12
+- 11
 mooring_data_path:
-- /Users/bell/ecoraid/2013/Moorings/13bs2c/final_data/
-- /Users/bell/ecoraid/2013/Moorings/13bs2c/final_data/
-- /Users/bell/ecoraid/2013/Moorings/13bs2c/final_data/
-- /Users/bell/ecoraid/2013/Moorings/13bs2c/final_data/
-- /Users/bell/ecoraid/2013/Moorings/13bs2c/final_data/
-- /Users/bell/ecoraid/2013/Moorings/13bs2c/final_data/
-- /Users/bell/ecoraid/2013/Moorings/13bs2c/final_data/
-- /Users/bell/ecoraid/2013/Moorings/13bs2c/final_data/
-- /Users/bell/ecoraid/2013/Moorings/13bs2c/final_data/
-- /Users/bell/ecoraid/2013/Moorings/13bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs2c/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2013/Moorings/13bs2c/final_data/
 mooring_files:
 - 13bs2c_mt_0023m.nc
 - 13bs2c_mt_0040m.nc
@@ -89,6 +128,7 @@ mooring_files:
 - 13bs2c_s39_0027m.nc
 - 13bs2c_s39_0035m.nc
 - 13bs2c_sc_0012m.nc
+- 13bs2c_ecf_0011m.nc
 notes: >
     Not clear what to put here :)
 output_type: png

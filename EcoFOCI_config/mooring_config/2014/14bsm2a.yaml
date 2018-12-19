@@ -3,40 +3,80 @@ MooringID: 14BSM-2A
 Date_Ticks: multi_month
 start_time: '2014-05-19'
 end_time: '2014-10-18'
-EPIC_Key: T_20
-EPIC_Key_ctd: T_28
-Ylabel: Temperature
 #EPIC_Key: S_41
 #EPIC_Key_ctd: S_42
 #Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+EPIC_Key: Fch_906
+EPIC_Key_ctd: F_903
+Ylabel: Chlor
+#EPIC_Key: P_1
+#EPIC_Key_ctd: P_1
+#Ylabel: Pressure
+#EPIC_Key: OST_62
+#EPIC_Key_ctd: OST_62
+#Ylabel: Oxygen_PSat
+#EPIC_Key: O_65
+#EPIC_Key_ctd: O_65
+#Ylabel: Oxygen_Conc
 colors:
-- k-
-- b-
-- m-
-- g-
-- r-
-- c-
-- y-
-- k--
-- b--
-- m--
-- g--
-- r--
-- c--
-- y--
-- k-.
-- b-.
-- m-.
-- g-.
-- r-.
+- red
+- blue
+- green
+- cyan
+- magenta
+- black
+- yellow
+- orange
+- darkred
+- navy
+- darkgreen
+- crimson
+- lightblue
+- olive
+- black
+- goldenrod
+- blue
+- magenta
+- green
+- red
+- yellow
+- orange
+- black
+linestyle:
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
 ctd_data_path:
-- /Users/bell/ecoraid/2014/CTDcasts/dy1405/final_data/ctd/
-- /Users/bell/ecoraid/2014/CTDcasts/dy1408l3/final_data/ctd/
-- /Users/bell/ecoraid/2014/CTDcasts/aq1401l3/final_data/ctd/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/CTDcasts/dy1405/final_data/ctd/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/CTDcasts/dy1408l3/final_data/ctd/
+#- /Volumes/WDC_internal/Users/bell/ecoraid/2014/CTDcasts/aq1401l3/final_data/ctd/
 ctd_files:
 - dy1405c020_ctd.nc
 - dy1408l3c072_ctd.nc
-- aq1401l3c090_ctd.nc
+#- aq1401l3c090_ctd.nc
 dtype: mooring
 legend:
 - 8m an9
@@ -55,25 +95,29 @@ legend:
 - 24m sc
 - 6m sc
 - 61m s37
+- 13m eco
+- 24m eco
 legend_loc: upper center
 legend_off: false
 mooring_data_path:
-- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
-- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
-- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
-- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
-- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
-- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
-- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
-- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
-- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
-- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
-- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
-- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
-- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
-- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
-- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
-- /Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
+- /Volumes/WDC_internal/Users/bell/ecoraid/2014/Moorings/14bsm2a/final_data/
 mooring_files:
 - 14bsm2a_an9_0008m.nc
 - 14bsm2a_mt3194_0032m.nc
@@ -91,6 +135,8 @@ mooring_files:
 - 14bsm2a_sc_0024m.nc
 - 14bsm2a_sc_0006m.nc
 - 14bsm2a_s37_0061m.nc
+- 14bsm2a_ecf_0013m.nc
+- 14bsm2a_ecf_0024m.nc
 nominal_depth:
 - 8
 - 32
@@ -108,6 +154,8 @@ nominal_depth:
 - 24
 - 6
 - 61
+- 13
+- 24
 notes: 
 output_type: png
 plot_stylesheet: seaborn-poster
