@@ -1,39 +1,40 @@
 ---
 MooringID: 17BSM-2A
 ctd_data_path:
-- '/Volumes/WDC_internal/Users/bell/ecoraid/2017/CTDcasts/dy1704/initial_archive/'
-- '/Volumes/WDC_internal/Users/bell/ecoraid/2017/CTDcasts/dy1704/initial_archive/'
-- '/Volumes/WDC_internal/Users/bell/ecoraid/2017/CTDcasts/dy1708/initial_archive/'
-- '/Volumes/WDC_internal/Users/bell/ecoraid/2017/CTDcasts/dy1708/initial_archive/'
+- '/Users/bell/ecoraid/2017/CTDcasts/dy1704/initial_archive/ctd/'
+- '/Users/bell/ecoraid/2017/CTDcasts/dy1704/initial_archive/ctd/'
+- '/Users/bell/ecoraid/2017/CTDcasts/dy1708/initial_archive/ctd/'
+- '/Users/bell/ecoraid/2017/CTDcasts/dy1708/initial_archive/ctd/'
 ctd_files:
 - 'dy1704c007_ctd.nc'
 - 'dy1704c040_ctd.nc'
 - 'dy1708c001_ctd.nc'
 - 'dy1708c054_ctd.nc'
 mooring_data_path:
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
-- "/Volumes/WDC_internal/Users/bell/ecoraid/2017/Moorings/17bsitae/final_data/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/working/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsm2a/final_data/"
+- "/Users/bell/ecoraid/2017/Moorings/17bsitae/final_data/"
 mooring_files:
 - 17bsm2a_ecf_0011m.nc
 - 17bsm2a_ecf_0024m.nc
@@ -44,9 +45,9 @@ mooring_files:
 - 17bsm2a_s39_0028m.nc
 - 17bsm2a_s39_0035m.nc
 - 17bsm2a_s39_0039m.nc
-- 17bsm2a_s37_0012m.unqcd.trimmed_missing.nc
+- 17bsm2a_s37_0012m.nc
 - 17bsm2a_s37_0024m.unqcd.trimmed_missing.nc
-- 17bsm2a_s37_0050m.unqcd.trimmed_missing.nc
+- 17bsm2a_s37_0050m.nc
 - 17bsm2a_s37_0060m.unqcd.trimmed_missing.nc
 - 17bsm2a_s56_0009m.nc
 - 17bsm2a_s56_0047m.nc
@@ -57,6 +58,7 @@ mooring_files:
 - 17bsm2a_mt4068_0032m.nc
 - 17bsm2a_mt4070_0004m.nc
 - 17bsm2a_mt4134_0004m.nc
+- 17bsm2a_an9_0052m.nc
 - 17bsitae_s56_0000m.nc
 nominal_depth:
 - 11
@@ -81,6 +83,7 @@ nominal_depth:
 - 32
 - 3
 - 4
+- 52
 - 1
 colors:
 - red
@@ -106,7 +109,9 @@ colors:
 - yellow
 - orange
 - black
+- red
 linestyle:
+- '-'
 - '-'
 - '-'
 - '-'
@@ -153,6 +158,7 @@ legend:
 - 32m mt
 - 4m mt
 - 4m mt
+- 52m an9
 - 0m s56 (17BSITAE)
 legend_loc: upper center
 legend_off: false
@@ -168,6 +174,12 @@ Ylabel: Temperature
 #EPIC_Key: Fch_906
 #EPIC_Key_ctd: F_903
 #Ylabel: Chlor
+#EPIC_Key: OST_62
+#EPIC_Key_ctd: OST_62
+#Ylabel: Oxygen_PSat
+#EPIC_Key: O_65
+#EPIC_Key_ctd: O_65
+#Ylabel: Oxygen_Conc
 Date_Ticks: multi_month
 plot_stylesheet: seaborn-poster
 output_type: png

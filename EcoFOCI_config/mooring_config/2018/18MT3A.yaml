@@ -1,0 +1,99 @@
+---
+MooringID: 18MT-3A
+Date_Ticks: multi_month
+start_time: '2018-05-04'
+end_time: '2018-10-10'
+#EPIC_Key: S_41
+#EPIC_Key_ctd: S_42
+#Ylabel: Salinity
+#EPIC_Key: T_20
+#EPIC_Key_ctd: T_28
+#Ylabel: Temperature
+#EPIC_Key: Fch_906
+#EPIC_Key_ctd: F_903
+#Ylabel: Chlor
+EPIC_Key: P_1
+EPIC_Key_ctd: P_1
+Ylabel: Pressure
+#EPIC_Key: OST_62
+#EPIC_Key_ctd: OST_62
+#Ylabel: Oxygen_PSat
+#EPIC_Key: O_65
+#EPIC_Key_ctd: O_65
+#Ylabel: Oxygen_Conc
+colors:
+- red
+- blue
+- green
+- cyan
+- magenta
+- black
+- yellow
+- orange
+- darkred
+- navy
+- darkgreen
+- crimson
+- lightblue
+- olive
+- goldenrod
+- red
+- blue
+- magenta
+- green
+- black
+- yellow
+- orange
+- black
+linestyle:
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+- '-'
+ctd_data_path:
+- ''
+ctd_files:
+- ''
+dtype: mooring
+legend:
+- 48m s26
+- 47m s37
+- 46m an9
+legend_loc: upper center
+legend_off: false
+nominal_depth:
+- 48
+- 47
+- 46
+mooring_data_path:
+- /Users/bell/ecoraid/2018/Moorings/18mt3a/working/
+- /Users/bell/ecoraid/2018/Moorings/18mt3a/working/
+- /Users/bell/ecoraid/2018/Moorings/18mt3a/working/
+mooring_files:
+- 18mt3a_s26_0048m.unqcd.trimmed_missing.nc
+- 18mt3a_s37_0047m.nc
+- 18mt3a_an9_0046m.nc
+output_type: png
+plot_stylesheet: seaborn-poster
+depth_interval_m: 1
+depth_m: 71
+dtype: mooring

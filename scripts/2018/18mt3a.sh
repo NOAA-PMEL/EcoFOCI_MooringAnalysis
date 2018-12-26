@@ -3,8 +3,8 @@
 # Peter ran a thermal test on 12 MTR's to evaluate the impact of the current flow
 #  on the temperature.
 
-data_dir="/Volumes/WDC_internal/Users/bell/ecoraid/"
-prog_dir="/Volumes/WDC_internal/Users/bell/Programs/Python/EcoFOCI_MooringAnalysis/"
+data_dir="/Users/bell/ecoraid/"
+prog_dir="/Users/bell/Programs/Python/EcoFOCI_MooringAnalysis/"
 
 mooringID='18mt3a'
 mooringYear='2018'
@@ -25,6 +25,7 @@ echo "-------------------------------------------------------------"
 echo "SBE-26 Processing"
 echo "-------------------------------------------------------------"
 
+
 serial_no=347
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe26/18mt3a_narr_apress.tid
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18mt3a_s26_0048m.unqcd.nc
@@ -37,3 +38,16 @@ echo "-------------------------------------------------------------"
 
 serial_no=645
 # "Use old RCM Processing"
+
+
+echo "-------------------------------------------------------------"
+echo "SBE37 Processing"
+echo "-------------------------------------------------------------"
+: '
+
+serial_no=2325
+input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe37/18mt3a_sbe37_2325_73m.asc
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bmt3a_s37_0047m.unqcd.nc
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s37 0047 -kw False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}NetCDF_Time_Tools.py  ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date}
+'
