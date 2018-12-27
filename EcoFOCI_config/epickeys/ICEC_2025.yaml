@@ -1,7 +1,0 @@
-ICEC_2025:
-  EPIC_KEY: 2025
-  fortran: f10.2
-  generic_name: iceconc
-  longname: ICE Concentration
-  name: ICEC
-  units: '%'
