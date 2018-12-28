@@ -175,7 +175,7 @@ if args.InstType in ['MTR','mtr']:
 										 tenmin_interp=to_bool(args.keywordargs[4]))
 
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 	#cycle through and build data arrays
 	#create a "data_dic" and associate the data with an epic key
@@ -204,7 +204,7 @@ if args.InstType in ['mtrduino','MTR5k']:
 										 round_10min_interval=to_bool(args.keywordargs[0]))
 
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 	#cycle through and build data arrays
 	#create a "data_dic" and associate the data with an epic key
@@ -233,7 +233,7 @@ elif args.InstType in ['prawler','PRAWLER','Prawler']:
 										 prawler_interp_time=args.keywordargs[0],
 										 prawler_grid_press=args.keywordargs[1])  
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 	#cycle through and build data arrays
 	#create a "data_dic" and associate the data with an epic key
@@ -262,7 +262,7 @@ elif args.InstType in ['sbe56','sbe-56','SBE56','SBE-56','s56']:
 										 filetype=args.keywordargs[1])
 
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 
 	#cycle through and build data arrays
@@ -290,7 +290,7 @@ elif args.InstType in ['sbe39','sbe-39','SBE39','SBE-39','s39']:
 										 truncate_seconds=to_bool(args.keywordargs[0]))
 
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 
 	#cycle through and build data arrays
@@ -321,7 +321,7 @@ elif args.InstType in ['sbe26','sbe-26','SBE26','SBE-26','s26']:
 										 round_quarter_hour=True)
 
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 
 	#cycle through and build data arrays
@@ -353,7 +353,7 @@ elif args.InstType in ['microcat','sbe37','sbe-37','SBE37','SBE-37','s37']:
 										 truncate_seconds=to_bool(args.keywordargs[0]))
 
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 
 	#cycle through and build data arrays
@@ -394,7 +394,7 @@ elif args.InstType in ['seacat','sbe16','sbe-16','SBE16','SBE-16','sc']:
 										 hourly_interp=to_bool(args.keywordargs[2]))
 
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 
 	#cycle through and build data arrays
@@ -460,7 +460,7 @@ elif args.InstType in ['sg','rcm_sg','rcmsg','rcm-sg']:
 										 pressure=to_bool(args.keywordargs[1]))
 
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 
 	#cycle through and build data arrays
@@ -527,6 +527,74 @@ elif args.InstType in ['sg','rcm_sg','rcmsg','rcm-sg']:
 	else:
 		(lat,lon) = (-9999, -9999)
 
+elif args.InstType in ['rcm7','rcm9','rcm11']:
+	config_file = instr_data_ingest.data_source_instrumentconfig('yaml').get(args.InstType)
+	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
+										 source=args.InstType,
+										 truncate_time=to_bool(args.keywordargs[0]),
+										 interpolate_time=to_bool(args.keywordargs[1]))
+
+
+	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+
+
+	#cycle through and build data arrays
+	#create a "data_dic" and associate the data with an epic key
+	#this key needs to be defined in the EPIC_VARS dictionary in order to be in the nc file
+	# if it is defined in the EPIC_VARS dic but not below, it will be filled with missing values
+	# if it is below but not the epic dic, it will not make it to the nc file
+	data_dic = {}
+	try:
+		data_dic['T_20'] = np.array(Dataset['Temperature'].values(), dtype='f8')
+	except:
+		data_dic['T_20'] = np.ones_like(Dataset['time'].values())*1e35
+	try:
+		data_dic['P_1'] = np.array(Dataset['Pressure'].values(), dtype='f8')
+	except:
+		data_dic['P_1'] = np.ones_like(Dataset['time'].values())*1e35
+	try:
+		data_dic['U_320'] = np.array(Dataset['North'].values(), dtype='f8')
+	except:
+		data_dic['U_320'] = np.ones_like(Dataset['time'].values())*1e35
+	try:
+		data_dic['V_321'] = np.array(Dataset['East'].values(), dtype='f8')
+	except:
+		data_dic['V_321'] = np.ones_like(Dataset['time'].values())*1e35
+	try:
+		data_dic['O_65'] = np.array(Dataset['O2Concentration'].values(), dtype='f8')
+	except:
+		data_dic['O_65'] = np.ones_like(Dataset['time'].values())*1e35
+	try:
+		data_dic['OST_62'] = np.array(Dataset['AirSaturation'].values(), dtype='f8')
+	except:
+		data_dic['OST_62'] = np.ones_like(Dataset['time'].values())*1e35
+
+	### currently - reported by rcm and calculated by excel file but does not have mag declination correction
+	# calculate the current speed and dir seperately with corrected components
+	data_dic['CS_300'] = np.ones_like(Dataset['time'].values())*1e35
+	data_dic['CD_310'] = np.ones_like(Dataset['time'].values())*1e35
+
+	### Time should be consistent in all files as a datetime object
+	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+
+	#magnetic declination correction
+	if args.declination:
+		(lat,lon) = (args.declination[0], args.declination[1])
+		t = geomag.GeoMag()
+		dec = t.GeoMag(lat,-1 * lon,time=Dataset['time'].values()[0].date()).dec
+
+		# apply magnetic declination correction
+		vel1,vel2 = rotate_coord(data_dic['U_320'],data_dic['V_321'],dec)
+		data_dic['U_320'] = vel1
+		data_dic['V_321'] = vel2
+		data_dic['CS_300'] = np.sqrt(vel1**2 + vel2**2)
+		data_dic['CD_310'] = 180+np.rad2deg(np.arctan2(-1*vel1,-1*vel2))
+
+		new_history = True
+		history_string = 'Magnetic Declination Correction {dec} applied (+E)'.format(dec=dec)
+	else:
+		(lat,lon) = (-9999, -9999)
+
 elif args.InstType in ['eco','ecf','fluor','ecofluor','fluor','ecoflntu']:
 	config_file = instr_data_ingest.data_source_instrumentconfig('yaml').get(args.InstType)
 	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
@@ -539,7 +607,7 @@ elif args.InstType in ['eco','ecf','fluor','ecofluor','fluor','ecoflntu']:
 										 verbose=True)
 
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 
 	#cycle through and build data arrays
@@ -572,7 +640,7 @@ elif args.InstType in ['wpak','met']:
 										 source=args.InstType,
 										 argos_file=to_bool(args.keywordargs[0]))
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 	#cycle through and build data arrays
 	#create a "data_dic" and associate the data with an epic key
@@ -615,7 +683,7 @@ elif args.InstType in ['adcp_ice']:
 										 roundTime=to_bool(args.keywordargs[0]))
 
 
-	EPIC_VARS_dict = get_config('EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
 
 
 	#cycle through and build data arrays

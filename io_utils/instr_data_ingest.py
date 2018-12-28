@@ -13,6 +13,7 @@
  History:
  ========
 
+ 2018-12-28: add pre-sg rcm to options (calculate direction from mag corrected u/v not from data report)
  2018-11-19: change all dataframes dictionary exports to ordered dict exports
  2018-11-16: Add the 5k Generation MTR --> MTRduino
  2018-10-15: Add SBE26 - Wave and Tide routines
@@ -76,7 +77,7 @@ def data_source_instrumentconfig(ftype='yaml'):
 				   'SBE37':'sbe37_epickeys.json', 'SBE-37':'sbe37_epickeys.json', 's37':'sbe37_epickeys.json', 
 				   'sbe39':'sbe39_epickeys.json', 'sbe-39':'sbe39_epickeys.json', 'SBE39':'sbe39_epickeys.json', 'SBE-39':'sbe39_epickeys.json', 's39':'sbe39_epickeys.json',
 				   'sbe56':'sbe56_epickeys.json', 'sbe-56':'sbe56_epickeys.json', 'SBE56':'sbe56_epickeys.json', 'SBE-56':'sbe56_epickeys.json', 's56':'sbe56_epickeys.json',
-				   'rcm7':'rcm','rcm9':'rcm','rcm11':'rcm','sg':'rcm',
+				   'rcm7':'rcm_epickeys.json','rcm9':'rcm_epickeys.json','rcm11':'rcm_epickeys.json','sg':'rcmsg_epickeys.json',
 				   'rcmsg':'rcmsg_epickeys.json','rcm-sg':'rcmsg_epickeys.json',
 				   'rcm_sg':'rcmsg_epickeys.json','sg':'rcmsg_epickeys.json',
 				   'wpak':'wpak_epickeys.json','met':'wpak_epickeys.json', 'atrh':'atrh', 'prawler_met':'atrh',
@@ -98,7 +99,7 @@ def data_source_instrumentconfig(ftype='yaml'):
 				   'SBE37':'sbe37_epickeys.yaml', 'SBE-37':'sbe37_epickeys.yaml', 's37':'sbe37_epickeys.yaml', 
 				   'sbe39':'sbe39_epickeys.yaml', 'sbe-39':'sbe39_epickeys.yaml', 'SBE39':'sbe39_epickeys.yaml', 'SBE-39':'sbe39_epickeys.yaml', 's39':'sbe39_epickeys.yaml',
 				   'sbe56':'sbe56_epickeys.yaml', 'sbe-56':'sbe56_epickeys.yaml', 'SBE56':'sbe56_epickeys.yaml', 'SBE-56':'sbe56_epickeys.yaml', 's56':'sbe56_epickeys.yaml',
-				   'rcm7':'rcm','rcm9':'rcm','rcm11':'rcm','sg':'rcm',
+				   'rcm7':'rcm_epickeys.yaml','rcm9':'rcm_epickeys.yaml','rcm11':'rcm_epickeys.yaml','sg':'rcmsg_epickeys.yaml',
 				   'rcmsg':'rcmsg_epickeys.yaml','rcm-sg':'rcmsg_epickeys.yaml',
 				   'rcm_sg':'rcmsg_epickeys.yaml','sg':'rcmsg_epickeys.yaml',
 				   'wpak':'wpak_epickeys.yaml','met':'wpak_epickeys.yaml', 'atrh':'atrh', 'prawler_met':'atrh',
@@ -343,7 +344,6 @@ class mtrduino(object):
 
 		return({'time':rawdata['date_time'].to_dict(into=OrderedDict),
 				'Temperature':rawdata['ave'].to_dict(into=OrderedDict)})
-
 
 class prawler(object):
 	r"""PICO realtime transmitted data / SBE files
@@ -1085,8 +1085,50 @@ class rcmsg(object):
 
 class rcm(object):
 	r""" Anderaa instruments (RCM 4, 7, 9, 11's
-	EcoFOCI QC procedure developed by Dave P. and done within excel spreadsheet"""
-	pass
+	EcoFOCI QC procedure developed by Dave P. and done within excel spreadsheet
+
+	This should be a replacement of the original rcm mooring analyis software"""
+
+	@staticmethod
+	def get_data(filename=None, MooringID=None, **kwargs):
+		r"""
+		Basic Method to open files.  Specific actions can be passes as kwargs for instruments
+		"""
+
+		fobj = open(filename)
+		data = fobj.read()
+
+
+		buf = data
+		return BytesIO(buf.strip())
+
+
+	@staticmethod	
+	def parse(fobj, subsampleint_str='10T', sampleint_str='1H', truncate_time=True, interpolate_time=False):
+		r"""
+		Basic Method to open and read rcm excel files
+		"""
+
+		rawdata = pd.read_excel(fobj, 
+			  skiprows=4,
+			  parse_dates=['date/time'], 
+			  index_col='date/time')
+		rawdata.rename_axis('date_time', inplace=True)
+
+		if truncate_time:
+			rs_data = rawdata.resample(sampleint_str).mean()
+		if interpolate_time:
+			rs_data = rawdata.resample(subsampleint_str).mean().interpolate(method='time').resample(sampleint_str).median()
+
+		rawdata['date_time'] = rawdata.index
+		time = { k:v.to_pydatetime() for k,v in (rawdata['date_time'].to_dict(into=OrderedDict)).iteritems() }
+
+		return({'time':time, 'Temperature':rawdata['temperature'].to_dict(into=OrderedDict),
+			'Pressure':rawdata['pressure'].to_dict(into=OrderedDict),
+			'East':rawdata['east true'].to_dict(into=OrderedDict), 'North':rawdata['north true'].to_dict(into=OrderedDict),
+			'Turbidity':rawdata['turbidity'].to_dict(into=OrderedDict),
+			'O2Concentration':rawdata['o2concentration'].to_dict(into=OrderedDict),
+			'AirSaturation':rawdata['o2_saturation'].to_dict(into=OrderedDict)})
 
 class wpak(object):
 	r""" MetOcean WeatherPak"""
@@ -1351,7 +1393,6 @@ class ecoflntu(object):
 
 			return ({'time':time_corr, 'counts':counts_ave.values(),
 					 'counts_std':counts_std.values(), 'chlor':chlor})
-
 
 class adcp(object):
 	r""" ADCP"""
