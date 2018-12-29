@@ -33,3 +33,14 @@ python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s37 0037 -kw True -latlon 
 #NetCDF_Trim was combined into NetCDF_Time_Tools --> below shows example of old and new api
 #python ${prog_dir}NetCDF_Trim.py ${output} -sd ${deployment_date} -ed ${recovery_date}
 python ${prog_dir}NetCDF_Time_Tools.py ${output} Trim --trim_bounds ${deployment_date} ${recovery_date}
+
+echo "-------------------------------------------------------------"
+echo "RCM Processing"
+echo "-------------------------------------------------------------"
+
+input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/rcm/17ckp12a_rcm728.xlsx
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/17ckp12a_an9_0054m.unqcd.nc
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} rcm9 0054 -kw True False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+#NetCDF_Trim was combined into NetCDF_Time_Tools --> below shows example of old and new api
+#python ${prog_dir}NetCDF_Trim.py ${output} -sd ${deployment_date} -ed ${recovery_date}
+python ${prog_dir}NetCDF_Time_Tools.py ${output} Trim --trim_bounds ${deployment_date} ${recovery_date}

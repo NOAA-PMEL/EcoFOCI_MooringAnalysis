@@ -549,6 +549,10 @@ elif args.InstType in ['rcm7','rcm9','rcm11']:
 	except:
 		data_dic['T_20'] = np.ones_like(Dataset['time'].values())*1e35
 	try:
+		data_dic['S_41'] = np.array(Dataset['Salinity'].values(), dtype='f8')
+	except:
+		data_dic['S_41'] = np.ones_like(Dataset['time'].values())*1e35
+	try:
 		data_dic['P_1'] = np.array(Dataset['Pressure'].values(), dtype='f8')
 	except:
 		data_dic['P_1'] = np.ones_like(Dataset['time'].values())*1e35

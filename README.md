@@ -35,6 +35,8 @@ EcoFOCI timeseries processing tools
 		prawler : -kw interp_time pressure_grid_interp (eg True True - actual values are hardcoded to hourly and 0.5m grid) 
 		
 		rcm_sg : -kw turbidity pressure (eg true if sensor is attached)
+
+		rcm_sg : -kw truncate_time (True/False) interpolate_time (true/false)
 		
 		sbe16 : -kw clock_corr time_stamp (time_elapsed_s, time_instrument_s, time_instrument_doy), hourly_interp (True/False)
 

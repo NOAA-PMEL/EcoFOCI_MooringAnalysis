@@ -1120,15 +1120,16 @@ class rcm(object):
 		if interpolate_time:
 			rs_data = rawdata.resample(subsampleint_str).mean().interpolate(method='time').resample(sampleint_str).median()
 
-		rawdata['date_time'] = rawdata.index
-		time = { k:v.to_pydatetime() for k,v in (rawdata['date_time'].to_dict(into=OrderedDict)).iteritems() }
+		rs_data['date_time'] = rs_data.index
+		time = OrderedDict( (k,v.to_pydatetime()) for k,v in (rs_data['date_time'].to_dict(into=OrderedDict)).iteritems() )
 
-		return({'time':time, 'Temperature':rawdata['temperature'].to_dict(into=OrderedDict),
-			'Pressure':rawdata['pressure'].to_dict(into=OrderedDict),
-			'East':rawdata['east true'].to_dict(into=OrderedDict), 'North':rawdata['north true'].to_dict(into=OrderedDict),
-			'Turbidity':rawdata['turbidity'].to_dict(into=OrderedDict),
-			'O2Concentration':rawdata['o2concentration'].to_dict(into=OrderedDict),
-			'AirSaturation':rawdata['o2_saturation'].to_dict(into=OrderedDict)})
+		return({'time':time, 'Temperature':rs_data['temperature'].to_dict(into=OrderedDict),
+			'Salinity':rs_data['salinity'].to_dict(into=OrderedDict),
+			'Pressure':rs_data['pressure'].to_dict(into=OrderedDict),
+			'East':rs_data['east true'].to_dict(into=OrderedDict), 'North':rs_data['north true'].to_dict(into=OrderedDict),
+			'Turbidity':rs_data['turbidity'].to_dict(into=OrderedDict),
+			'O2Concentration':rs_data['o2concentration'].to_dict(into=OrderedDict),
+			'AirSaturation':rs_data['o2saturation'].to_dict(into=OrderedDict)})
 
 class wpak(object):
 	r""" MetOcean WeatherPak"""
