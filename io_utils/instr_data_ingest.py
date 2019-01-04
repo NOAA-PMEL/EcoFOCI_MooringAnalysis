@@ -606,7 +606,8 @@ class sbe16(object):
 
 		### cycle through variable names in header to retrieve which column they are in for ingest
 		cond, sal, temp = {}, {}, {}
-		par, V0, depth, chl_a, aan_opt_4831 = {}, {}, {}, {}, {}
+		par, V0, depth = {}, {}, {}
+		chl_a, aan_opt_4831, sbe47_oxyconc = {}, {}, {}
 		print ("Variables in SBE file are {0}").format(" ".join(var_id.values()))
 		for var_index in sorted(var_id.keys()):
 			if var_id[var_index] == 'c0mS/cm:':
@@ -653,6 +654,14 @@ class sbe16(object):
 				print "Processing {0}".format(var_id[var_index])
 				for k,v in sbe16data.items():
 					aan_opt_4831[k] = float(v[var_index])  #units are mg/m^3 -> equivalent to ug/l
+			elif var_id[var_index] == 'sbeox0Mm/Kg:': #likely sbe-49 oxy
+				print "Processing {0}".format(var_id[var_index])
+				for k,v in sbe16data.items():
+					sbe47_oxyconc[k] = float(v[var_index])  #units are Mm/Kg
+			elif var_id[var_index] == 'sbox0Mm/Kg:': #likely sbe-49 oxy
+				print "Processing {0}".format(var_id[var_index])
+				for k,v in sbe16data.items():
+					sbe47_oxyconc[k] = float(v[var_index])  #units are Mm/Kg
 			#### Following ifs are all relevant to a variety of time output fields                
 			elif var_id[var_index] == 'timeS:': #elapsed time since instrument turned on... not date aware
 				print "Processing {0}".format(var_id[var_index])
@@ -709,17 +718,19 @@ class sbe16(object):
 			trng = {k:v for k,v in enumerate(rng)}
 			data = {'Temperature':temp.values(), 'Pressure':depth.values(), 
 				'Conductivity':cond.values(), 'Salinity':sal.values(),
-				'Chlor_a':chl_a.values(), 'PAR':par.values(), 'Volts0':V0.values(), 'AAN_OXY':aan_opt_4831.values()}
+				'Chlor_a':chl_a.values(), 'PAR':par.values(), 'OXY_CONC':sbe47_oxyconc.values(),
+				'Volts0':V0.values(), 'AAN_OXY':aan_opt_4831.values()}
 			data_interp = interp2hour(rng, time_corr.values(), data, vlist=['Temperature', 'Pressure', 
-				'Conductivity', 'Salinity', 'Chlor_a', 'PAR', 'Volts0', 'AAN_OXY'])
+				'Conductivity', 'Salinity', 'Chlor_a', 'PAR', 'Volts0', 'AAN_OXY', 'OXY_CONC'])
 			
 			return ({'time':trng, 'Temperature':data_interp['Temperature'], 'Pressure':data_interp['Pressure'], 
-				'Conductivity':data_interp['Conductivity'], 'Salinity':data_interp['Salinity'], 
+				'Conductivity':data_interp['Conductivity'], 'Salinity':data_interp['Salinity'], 'OXY_CONC':data_interp['OXY_CONC'], 
 				'Chlor_a':data_interp['Chlor_a'], 'PAR':data_interp['PAR'], 'Volts0':data_interp['Volts0'], 'AAN_OXY':data_interp['AAN_OXY']})
 		else:			
 			return ({'time':time, 'Temperature':temp.values(), 'Pressure':depth.values(), 
 				'Conductivity':cond.values(), 'Salinity':sal.values(), 'Chlor_a':chl_a.values(), 
-				'PAR':par.values(), 'Volts0':V0.values(),'AAN_OXY':aan_opt_4831.values()})
+				'PAR':par.values(), 'OXY_CONC':sbe47_oxyconc.values(),
+				'Volts0':V0.values(),'AAN_OXY':aan_opt_4831.values()})
 
 class sbe26(object):
 	r""" Seabird 26 Wave and Tide GuageTemperature (with optional pressure)

@@ -13,6 +13,7 @@
  History:
  --------
 
+ 2019-01-04 : Add SBE-49 to SBE-16 output
  2018-10-16 : Add SBE-26
  2017-02-08 : Correct Vector2Wind conversion to get met wind conventions from cartesion vectors
  2016-10-31 : Add RCM-SG
@@ -446,6 +447,13 @@ elif args.InstType in ['seacat','sbe16','sbe-16','SBE16','SBE-16','sc']:
 			data_dic['OST_62'] = np.ones_like(Dataset['time'].values())*1e35
 	except:
 		data_dic['OST_62'] = np.ones_like(Dataset['time'].values())*1e35
+	try:
+		data_dic['O_65'] = np.array(Dataset['OXY_CONC'], dtype='f8')
+		if (len(data_dic['O_65']) == 0):
+			data_dic['O_65'] = np.ones_like(Dataset['time'].values())*1e35
+	except:
+		data_dic['O_65'] = np.ones_like(Dataset['time'].values())*1e35
+
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')

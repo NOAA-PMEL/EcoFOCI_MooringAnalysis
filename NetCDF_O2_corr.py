@@ -1,14 +1,26 @@
 #!/usr/bin/env python
 
 """
-NetCDF_O2_corr.py
+ NetCDF_O2_corr.py
 
-calculate salinity from conductivity.
+ calculate salinity from conductivity.
+
+ History:
+ ========
+
+ 2019-01-03 Put in flag for correcting Aandera optode values vs SBE-43 values (mmole/l vs umole/kg)
+
+
+ Compatibility:
+ ==============
+ python >=3.6 - not tested, unlikely to work without updates
+ python 2.7 - Tested and developed for
 
 """
 
 import datetime
 import argparse
+import sys
 
 #Science Stack
 from netCDF4 import Dataset
@@ -35,6 +47,12 @@ parser.add_argument('sourcefile', metavar='sourcefile', type=str,
                help='complete path to epic file')
 parser.add_argument('sal_source', metavar='sal_source', type=str,
                help='quick description of source of salinity for correction')
+parser.add_argument('-aanderaa','--aanderaa',
+    action="store_true",
+    help='aanderaa optode with Molar output')
+parser.add_argument('-sbe43','--sbe43',
+    action="store_true",
+    help='sbe43 optode with Mmkg output')
 args = parser.parse_args()
 
 
@@ -53,10 +71,15 @@ O2psat_corr = O2_sal_corr.O2PercentSat(oxygen_conc=O2_corr,
                         temperature=ncdata['T_20'][:,0,0,0], 
                         salinity=ncdata['S_41'][:,0,0,0], 
                         pressure=ncdata['depth'][:])
-O2_corr_umkg = O2_sal_corr.O2_molar2umkg(oxygen_conc=O2_corr,
-                        temperature=ncdata['T_20'][:,0,0,0], 
-                        salinity=ncdata['S_41'][:,0,0,0], 
-                        pressure=ncdata['depth'][:])
+
+if args.aanderaa:
+    O2_corr_umkg = O2_sal_corr.O2_molar2umkg(oxygen_conc=O2_corr,
+                            temperature=ncdata['T_20'][:,0,0,0], 
+                            salinity=ncdata['S_41'][:,0,0,0], 
+                            pressure=ncdata['depth'][:])
+if args.sbe43:
+    sys.exit("Correction not currently valid for SBE-43.")
+
 
 O2_corr_umkg[np.where(np.isnan(O2_corr_umkg))] = 1e35
 O2psat_corr[np.where(np.isnan(O2psat_corr))] = 1e35
