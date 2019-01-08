@@ -1,15 +1,15 @@
 #!/bin/bash
 
-data_dir="/Volumes/WDC_internal/Users/bell/ecoraid/"
-prog_dir="/Volumes/WDC_internal/Users/bell/Programs/Python/EcoFOCI_MooringAnalysis/"
+data_dir="/Users/bell/ecoraid/"
+prog_dir="/Users/bell/Programs/Python/EcoFOCI_MooringAnalysis/"
 
 mooringID='15bs8a'
 mooringYear='2015'
 lat='62 11.561 N'
 lon='174 41.272 W'
 site_depth=73
-deployment_date='2015-09-24 20:00:00'
-recovery_date='2016-09-25 17:00:00'
+deployment_date='2015-09-24T20:00:00'
+recovery_date='2016-09-25T17:00:00'
 
 echo $prog_dir
 echo $mooringID
@@ -17,18 +17,29 @@ echo $mooringYear
 echo $lat $lon
 echo $site_depth
 
+
 echo "-------------------------------------------------------------"
 echo "SBE16 Processing"
 echo "-------------------------------------------------------------"
 
+: '
 serial_no=658
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe16/15bs8a_sbe16_658_20m.cnv
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/15bs8a_sc_0020m
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc sc 0020 -kw time_elapsed_s False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc sc 0020 -kw time_elapsed_s True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Trim.py ${output}.interpolated.nc $mooringID -sd ${deployment_date} -ed ${recovery_date}
+'
 
+#from uaf
+serial_no=7169
+input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe16/SBE16plus_01607169_2016_09_25.cnv
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/15bs8a_sc_0068m
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc sc 0068 -kw 0 time_instrument_doy False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc sc 0068 -kw 0 time_instrument_doy True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}NetCDF_Time_Tools.py   ${output}.interpolated.nc Trim  --trim_bounds ${deployment_date} ${recovery_date}
 
+: '
 echo "-------------------------------------------------------------"
 echo "SBE37 Processing"
 echo "-------------------------------------------------------------"
@@ -109,4 +120,4 @@ output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/15bs8a_ecf_0022m
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc eco 0022 -kw 0 median 0.0076 46 False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc eco 0022 -kw 389 median 0.0076 46 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Trim.py ${output}.interpolated.nc $mooringID -sd ${deployment_date} -ed ${recovery_date}
-
+'
