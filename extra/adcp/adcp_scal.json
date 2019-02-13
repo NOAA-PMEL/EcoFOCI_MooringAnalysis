@@ -1,0 +1,58 @@
+{
+	"T_20": {
+		"name": "T",
+		"generic_name": "temp",
+		"fortran": "f10.2",
+		"EPIC_KEY": 20,
+		"units": "C",
+		"longname": "TEMPERATURE (C)"
+	},
+	"Hdg_1215": {
+		"name": "Hdg",
+		"generic_name": "hdg",
+		"fortran": "f10.2",
+		"EPIC_KEY": 1215,
+		"units": "degrees",
+		"longname": "INST Heading"
+	},
+	"Ptch_1216": {
+		"name": "Ptch",
+		"generic_name": "ptch",
+		"fortran": "f10.2",
+		"EPIC_KEY": 1216,
+		"units": "degrees",
+		"longname": "INST Pitch"
+	},
+	"Roll_1217": {
+		"name": "Roll",
+		"generic_name": "roll",
+		"fortran": "f10.2",
+		"EPIC_KEY": 1217,
+		"units": "degrees",
+		"longname": "INST Roll"
+	},
+	"HSD_1218": {
+		"name": "HSD",
+		"generic_name": "hdg",
+		"fortran": "",
+		"EPIC_KEY": 1218,
+		"units": "degrees",
+		"longname": "Heading Std. Dev"
+	},
+	"PSD_1219": {
+		"name": "PSD",
+		"generic_name": "ptch",
+		"fortran": "",
+		"EPIC_KEY": 1219,
+		"units": "degrees",
+		"longname": "Pitch Std. Dev"
+	},
+	"RSD_1220": {
+		"name": "RSD",
+		"generic_name": "roll",
+		"fortran": "",
+		"EPIC_KEY": 1220,
+		"units": "degrees",
+		"longname": "Roll Std. Dev"
+	}
+}

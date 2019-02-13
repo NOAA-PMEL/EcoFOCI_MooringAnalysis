@@ -1,0 +1,34 @@
+{
+	"u_1205": {
+		"name": "u",
+		"generic_name": "u",
+		"fortran": "",
+		"EPIC_KEY": 1205,
+		"units": "cm/s",
+		"longname": "Eastward Velocity"
+	},
+	"v_1206": {
+		"name": "v",
+		"generic_name": "v",
+		"fortran": "",
+		"EPIC_KEY": 1206,
+		"units": "cm/s",
+		"longname": "Northward Velocity"
+	},
+	"w_1204": {
+		"name": "w",
+		"generic_name": "w",
+		"fortran": "",
+		"EPIC_KEY": 1204,
+		"units": "cm/s",
+		"longname": "Vertical Velocity"
+	},
+	"Werr_1201": {
+		"name": "Werr",
+		"generic_name": "w",
+		"fortran": "F8.1",
+		"EPIC_KEY": 1201,
+		"units": "cm/s",
+		"longname": "Error Velocity"
+	}
+}

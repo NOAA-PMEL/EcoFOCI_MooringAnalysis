@@ -1,0 +1,1733 @@
+ADCP Processing
+/home/pavlof/bell/Python/MooringDataProcessing/adcp/
+2013
+-------------------------------------------------------------
+13bsp4a 1792
+2013
+-------------------------------------------------------------
+/home/ecoraid/data/2013/Moorings/13bsp4a/rawconverted/1792/1792.pg
+Read in 169149 lines of the .pg file
+/home/ecoraid/data/2013/Moorings/13bsp4a/rawconverted/1792/1792.ein
+Read in 169149 lines of the .ein file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (9950,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (9950,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (17,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC1_1221(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9950, 17, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC2_1222(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9950, 17, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC3_1223(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9950, 17, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC4_1224(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9950, 17, 1, 1)
+filling off
+
+/home/ecoraid/data/2013/Moorings/13bsp4a/rawconverted/1792/1792.vel
+Read in 169149 lines of the .vel file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (9950,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (9950,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (17,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 u_1205(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9950, 17, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 v_1206(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9950, 17, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 w_1204(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9950, 17, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Werr_1201(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9950, 17, 1, 1)
+filling off
+
+/home/ecoraid/data/2013/Moorings/13bsp4a/rawconverted/1792/1792.sca
+Read in 9949 lines of the .vel file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (9950,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (9950,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 T_20(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9950, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Hdg_1215(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9950, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Ptch_1216(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9950, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Roll_1217(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9950, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 HSD_1218(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9950, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 PSD_1219(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9950, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 RSD_1220(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9950, 1, 1, 1)
+filling off
+
+-------------------------------------------------------------
+13bsp5a 3077
+2013
+-------------------------------------------------------------
+/home/ecoraid/data/2013/Moorings/13bsp5a/rawconverted/3077/3077.pg
+Read in 168316 lines of the .pg file
+/home/ecoraid/data/2013/Moorings/13bsp5a/rawconverted/3077/3077.ein
+Read in 168316 lines of the .ein file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (9901,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (9901,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (17,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC1_1221(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9901, 17, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC2_1222(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9901, 17, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC3_1223(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9901, 17, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC4_1224(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9901, 17, 1, 1)
+filling off
+
+/home/ecoraid/data/2013/Moorings/13bsp5a/rawconverted/3077/3077.vel
+Read in 168316 lines of the .vel file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (9901,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (9901,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (17,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 u_1205(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9901, 17, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 v_1206(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9901, 17, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 w_1204(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9901, 17, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Werr_1201(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9901, 17, 1, 1)
+filling off
+
+/home/ecoraid/data/2013/Moorings/13bsp5a/rawconverted/3077/3077.sca
+Read in 9900 lines of the .vel file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (9901,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (9901,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 T_20(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9901, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Hdg_1215(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9901, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Ptch_1216(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9901, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Roll_1217(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9901, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 HSD_1218(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9901, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 PSD_1219(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9901, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 RSD_1220(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9901, 1, 1, 1)
+filling off
+
+-------------------------------------------------------------
+13bsp8a 2416
+2013
+-------------------------------------------------------------
+/home/ecoraid/data/2013/Moorings/13bsp8a/rawconverted/2416/2416.pg
+Read in 167891 lines of the .pg file
+/home/ecoraid/data/2013/Moorings/13bsp8a/rawconverted/2416/2416.ein
+Read in 167891 lines of the .ein file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (9876,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (9876,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (17,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC1_1221(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9876, 17, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC2_1222(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9876, 17, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC3_1223(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9876, 17, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC4_1224(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9876, 17, 1, 1)
+filling off
+
+/home/ecoraid/data/2013/Moorings/13bsp8a/rawconverted/2416/2416.vel
+Read in 167891 lines of the .vel file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (9876,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (9876,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (17,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 u_1205(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9876, 17, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 v_1206(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9876, 17, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 w_1204(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9876, 17, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Werr_1201(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9876, 17, 1, 1)
+filling off
+
+/home/ecoraid/data/2013/Moorings/13bsp8a/rawconverted/2416/2416.sca
+Read in 9875 lines of the .vel file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (9876,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (9876,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 T_20(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9876, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Hdg_1215(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9876, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Ptch_1216(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9876, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Roll_1217(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9876, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 HSD_1218(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9876, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 PSD_1219(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9876, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 RSD_1220(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9876, 1, 1, 1)
+filling off
+
+-------------------------------------------------------------
+13ckp1a 1793
+2013
+-------------------------------------------------------------
+/home/ecoraid/data/2013/Moorings/13ckp1a/rawconverted/1793/1793.pg
+Read in 91673 lines of the .pg file
+/home/ecoraid/data/2013/Moorings/13ckp1a/rawconverted/1793/1793.ein
+Read in 91673 lines of the .ein file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (10186,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (10186,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (9,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC1_1221(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 9, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC2_1222(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 9, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC3_1223(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 9, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC4_1224(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 9, 1, 1)
+filling off
+
+/home/ecoraid/data/2013/Moorings/13ckp1a/rawconverted/1793/1793.vel
+Read in 91673 lines of the .vel file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (10186,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (10186,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (9,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 u_1205(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 9, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 v_1206(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 9, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 w_1204(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 9, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Werr_1201(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 9, 1, 1)
+filling off
+
+/home/ecoraid/data/2013/Moorings/13ckp1a/rawconverted/1793/1793.sca
+Read in 10185 lines of the .vel file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (10186,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (10186,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 T_20(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Hdg_1215(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Ptch_1216(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Roll_1217(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 HSD_1218(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 PSD_1219(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 RSD_1220(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 1, 1, 1)
+filling off
+
+-------------------------------------------------------------
+13ckp2a 5503
+2013
+-------------------------------------------------------------
+/home/ecoraid/data/2013/Moorings/13ckp2a/rawConverted/5503/5503.pg
+Read in 198139 lines of the .pg file
+/home/ecoraid/data/2013/Moorings/13ckp2a/rawConverted/5503/5503.ein
+Read in 198139 lines of the .ein file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (9907,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (9907,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (20,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC1_1221(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9907, 20, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC2_1222(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9907, 20, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC3_1223(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9907, 20, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC4_1224(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9907, 20, 1, 1)
+filling off
+
+/home/ecoraid/data/2013/Moorings/13ckp2a/rawConverted/5503/5503.vel
+Read in 198139 lines of the .vel file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (9907,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (9907,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (20,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 u_1205(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9907, 20, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 v_1206(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9907, 20, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 w_1204(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9907, 20, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Werr_1201(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9907, 20, 1, 1)
+filling off
+
+/home/ecoraid/data/2013/Moorings/13ckp2a/rawConverted/5503/5503.sca
+Read in 9906 lines of the .vel file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (9907,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (9907,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 T_20(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9907, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Hdg_1215(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9907, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Ptch_1216(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9907, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Roll_1217(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9907, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 HSD_1218(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9907, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 PSD_1219(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9907, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 RSD_1220(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (9907, 1, 1, 1)
+filling off
+
+-------------------------------------------------------------
+13ckp4a 1705
+2013
+-------------------------------------------------------------
+/home/ecoraid/data/2013/Moorings/13ckp4a/rawConverted/1705/1705.pg
+Read in 91673 lines of the .pg file
+/home/ecoraid/data/2013/Moorings/13ckp4a/rawConverted/1705/1705.ein
+Read in 91673 lines of the .ein file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (10186,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (10186,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (9,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC1_1221(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 9, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC2_1222(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 9, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC3_1223(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 9, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC4_1224(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 9, 1, 1)
+filling off
+
+/home/ecoraid/data/2013/Moorings/13ckp4a/rawConverted/1705/1705.vel
+Read in 91673 lines of the .vel file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (10186,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (10186,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (9,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 u_1205(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 9, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 v_1206(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 9, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 w_1204(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 9, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Werr_1201(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 9, 1, 1)
+filling off
+
+/home/ecoraid/data/2013/Moorings/13ckp4a/rawConverted/1705/1705.sca
+Read in 10185 lines of the .vel file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (10186,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (10186,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 T_20(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Hdg_1215(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Ptch_1216(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Roll_1217(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 HSD_1218(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 PSD_1219(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 RSD_1220(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10186, 1, 1, 1)
+filling off
+
+-------------------------------------------------------------
+13ckp5a 5557
+2013
+-------------------------------------------------------------
+/home/ecoraid/data/2013/Moorings/13ckp5a/rawConverted/5557/5557.pg
+Read in 96632 lines of the .pg file
+/home/ecoraid/data/2013/Moorings/13ckp5a/rawConverted/5557/5557.ein
+Read in 96632 lines of the .ein file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (10737,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (10737,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (9,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC1_1221(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10737, 9, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC2_1222(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10737, 9, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC3_1223(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10737, 9, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC4_1224(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10737, 9, 1, 1)
+filling off
+
+/home/ecoraid/data/2013/Moorings/13ckp5a/rawConverted/5557/5557.vel
+Read in 96632 lines of the .vel file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (10737,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (10737,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (9,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 u_1205(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10737, 9, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 v_1206(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10737, 9, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 w_1204(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10737, 9, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Werr_1201(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10737, 9, 1, 1)
+filling off
+
+/home/ecoraid/data/2013/Moorings/13ckp5a/rawConverted/5557/5557.sca
+Read in 10736 lines of the .vel file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (10737,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (10737,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 T_20(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10737, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Hdg_1215(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10737, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Ptch_1216(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10737, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Roll_1217(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10737, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 HSD_1218(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10737, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 PSD_1219(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10737, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 RSD_1220(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10737, 1, 1, 1)
+filling off
+
+-------------------------------------------------------------
+13ckp6a 5504
+2013
+-------------------------------------------------------------
+/home/ecoraid/data/2013/Moorings/13ckp6a/rawConverted/5504/5504.pg
+Read in 204139 lines of the .pg file
+/home/ecoraid/data/2013/Moorings/13ckp6a/rawConverted/5504/5504.ein
+Read in 204139 lines of the .ein file
+Inverting Depths
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (10207,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (10207,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (20,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC1_1221(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10207, 20, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC2_1222(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10207, 20, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC3_1223(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10207, 20, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC4_1224(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10207, 20, 1, 1)
+filling off
+
+/home/ecoraid/data/2013/Moorings/13ckp6a/rawConverted/5504/5504.vel
+Read in 204139 lines of the .vel file
+Inverting Depths
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (10207,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (10207,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (20,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 u_1205(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10207, 20, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 v_1206(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10207, 20, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 w_1204(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10207, 20, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Werr_1201(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10207, 20, 1, 1)
+filling off
+
+/home/ecoraid/data/2013/Moorings/13ckp6a/rawConverted/5504/5504.sca
+Read in 10206 lines of the .vel file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (10207,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (10207,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 T_20(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10207, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Hdg_1215(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10207, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Ptch_1216(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10207, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Roll_1217(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10207, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 HSD_1218(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10207, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 PSD_1219(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10207, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 RSD_1220(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10207, 1, 1, 1)
+filling off
+
+-------------------------------------------------------------
+13ckp7a 14068
+2013
+-------------------------------------------------------------
+/home/ecoraid/data/2013/Moorings/13ckp7a/rawConverted/14068/14068.pg
+Read in 204159 lines of the .pg file
+/home/ecoraid/data/2013/Moorings/13ckp7a/rawConverted/14068/14068.ein
+Read in 204159 lines of the .ein file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (10208,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (10208,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (20,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC1_1221(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10208, 20, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC2_1222(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10208, 20, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC3_1223(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10208, 20, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 AGC4_1224(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10208, 20, 1, 1)
+filling off
+
+/home/ecoraid/data/2013/Moorings/13ckp7a/rawConverted/14068/14068.vel
+Read in 204159 lines of the .vel file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (10208,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (10208,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (20,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 u_1205(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10208, 20, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 v_1206(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10208, 20, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 w_1204(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10208, 20, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Werr_1201(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10208, 20, 1, 1)
+filling off
+
+/home/ecoraid/data/2013/Moorings/13ckp7a/rawConverted/14068/14068.sca
+Read in 10207 lines of the .vel file
+Adding Variable <type 'netCDF4.Variable'>
+int32 time(time)
+unlimited dimensions: 
+current shape = (10208,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+int32 time2(time)
+unlimited dimensions: 
+current shape = (10208,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 depth(depth)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lat(lat)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 lon(lon)
+unlimited dimensions: 
+current shape = (1,)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 T_20(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10208, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Hdg_1215(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10208, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Ptch_1216(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10208, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 Roll_1217(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10208, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 HSD_1218(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10208, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 PSD_1219(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10208, 1, 1, 1)
+filling off
+
+Adding Variable <type 'netCDF4.Variable'>
+float32 RSD_1220(time, depth, lat, lon)
+unlimited dimensions: 
+current shape = (10208, 1, 1, 1)
+filling off
+

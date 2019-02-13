@@ -1,0 +1,34 @@
+{
+	"AGC1_1221": {
+		"name": "AGC1",
+		"generic_name": "AGC",
+		"fortran": "",
+		"EPIC_KEY": 1221,
+		"units": "counts",
+		"longname": "Echo Intensity (AGC) Beam 1"
+	},
+	"AGC2_1222": {
+		"name": "AGC2",
+		"generic_name": "AGC",
+		"fortran": "",
+		"EPIC_KEY": 1222,
+		"units": "counts",
+		"longname": "Echo Intensity (AGC) Beam 2"
+	},
+	"AGC3_1223": {
+		"name": "AGC3",
+		"generic_name": "AGC",
+		"fortran": "",
+		"EPIC_KEY": 1223,
+		"units": "counts",
+		"longname": "Echo Intensity (AGC) Beam 3"
+	},
+	"AGC4_1224": {
+		"name": "AGC4",
+		"generic_name": "AGC",
+		"fortran": "",
+		"EPIC_KEY": 1224,
+		"units": "counts",
+		"longname": "Echo Intensity (AGC) Beam 4"
+	}
+}
