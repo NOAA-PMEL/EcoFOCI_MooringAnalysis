@@ -13,11 +13,12 @@
  History:
  ========
 
+ 2018-03-01: add eco bbfl2w
  2018-12-28: add pre-sg rcm to options (calculate direction from mag corrected u/v not from data report)
  2018-11-19: change all dataframes dictionary exports to ordered dict exports
  2018-11-16: Add the 5k Generation MTR --> MTRduino
  2018-10-15: Add SBE26 - Wave and Tide routines
- 2017-6-09: Error in time offset correction.  Time scaling factor was determined by clockerro (seconds) / total elapsed seconds
+ 2017-06-09: Error in time offset correction.  Time scaling factor was determined by clockerro (seconds) / total elapsed seconds
 	but the total elapsed seconds determined by the difference in max and min times was only reporting elapsed seconds of 1day
 	Likely only impacts seacat, mtr, and ecoflsb instruments when clock error is large
  2016-12-16: Move time functions to time_helper.py
@@ -62,6 +63,7 @@ def available_data_sources():
 			   'mtrduino':mtrduino,'MTR5k':mtrduino,
 			   'eco':ecoflsb,'ecf':ecoflsb,'ecoflsb':ecoflsb,'ecofluor':ecoflsb,
 			   'ecoflntu':ecoflntu,
+			   'ecobbfl2w':ecobbfl2w,
 			   'prawler':'prawler'
 			   }
 	return sources
@@ -88,6 +90,7 @@ def data_source_instrumentconfig(ftype='yaml'):
 				   'mtrduino':'mtr_epickeys.json','MTR5k':'mtr_epickeys.json',
 				   'eco':'fluor_std_epickeys.json','ecf':'fluor_std_epickeys.json','ecoflsb':'fluor_std_epickeys.json','ecofluor':'eco_epickeys',
 				   'ecoflntu':'fluor_ntu_std_epickeys.json',
+				   'ecobbfl2w':'ecobbfl2w_std_epickeys.json',
 				   'prawler':'prawler_epickeys.json'
 				   }
 	elif ftype in ['yaml']:
@@ -110,6 +113,7 @@ def data_source_instrumentconfig(ftype='yaml'):
 				   'mtrduino':'mtr_epickeys.yaml','MTR5k':'mtr_epickeys.yaml',
 				   'eco':'fluor_std_epickeys.yaml','ecf':'fluor_std_epickeys.yaml','ecoflsb':'fluor_std_epickeys.yaml','ecofluor':'eco_epickeys',
 				   'ecoflntu':'fluor_ntu_std_epickeys.yaml',
+				   'ecobbfl2w':'ecobbfl2w_std_epickeys.yaml',
 				   'prawler':'prawler_epickeys.yaml'
 				   }
 	else:
@@ -1318,7 +1322,7 @@ class ecoflntu(object):
 
 		print add_seconds
 
-		ntu_counts_ave,nut_counts_std,counts_ave,counts_std,time_ave = {},{},{},{},{}
+		ntu_counts_ave,ntu_counts_std,counts_ave,counts_std,time_ave = {},{},{},{},{}
 
 		#### data readin
 		skiprows = -2
@@ -1378,6 +1382,118 @@ class ecoflntu(object):
 					dtime = np.vstack((dtime,dtime,sample_time))
 
 					counts = np.vstack((counts,np.int(line_array[3])))
+
+		chlor = scale_factor * (np.array(counts_ave.values()) - dark_count)
+
+		#(max time - min time) / add_seconds
+		date_diff = np.max(time_ave.values()) - np.min(time_ave.values()) 
+		add_delta_seconds = float(add_seconds) / ((date_diff.days * 24.*60.*60.)+date_diff.seconds) 
+		time_orig = np.min(time_ave.values())
+		time_corr = {k:linear_clock_adjust(time_orig, v, add_delta_seconds) for k,v in time_ave.iteritems()}
+
+		if hourly_interp:
+			#put data on hourly grid
+			min_t = min(time_corr.values())
+			basedate = datetime.datetime( min_t.year , min_t.month , 
+										  min_t.day, min_t.hour)
+			rng = pd.date_range(basedate, max(time_corr.values()), freq='H').to_pydatetime()
+			trng = {k:v for k,v in enumerate(rng)}
+			data = {'counts':counts_ave.values(),'counts_std':counts_std.values(), 'chlor':chlor}
+			data_interp = interp2hour(rng, time_corr.values(), data, vlist=['counts','counts_std','chlor'])
+			
+			return ({'time':trng, 'counts':data_interp['counts'],
+					 'counts_std':data_interp['counts_std'], 
+					 'chlor':data_interp['chlor']})
+
+		else:			
+
+			return ({'time':time_corr, 'counts':counts_ave.values(),
+					 'counts_std':counts_std.values(), 'chlor':chlor})
+
+class ecobbfl2w(object):
+	r""" Wetlabs ecofluorometer with ntu channel"""
+
+	@staticmethod
+	def get_data(filename=None, MooringID=None, **kwargs):
+		r"""
+		Basic Method to open files.  Specific actions can be passes as kwargs for instruments
+		"""
+
+		fobj = open(filename)
+		data = fobj.read()
+
+
+		buf = data
+		return BytesIO(buf.strip())
+
+	@staticmethod	
+	def parse(fobj, add_seconds=0, ave_scheme='median', scale_factor=0, dark_count=0, hourly_interp=True, verbose=False):
+		r"""
+		Basic Method to open and read wetlabs eco-fluorometer csv files with ntu channel
+		"""
+
+		print add_seconds
+
+		ntu_counts_ave,ntu_counts_std,counts_ave,counts_std,time_ave = {},{},{},{},{}
+		cdom_counts_ave,cdom_counts_std ={},{}
+		#### data readin
+		skiprows = -2
+		index = 0
+		new_data = True
+		time_threshold = datetime.timedelta(seconds=60)
+
+		for k, line in enumerate(fobj.readlines()):
+
+			line = line.strip()
+
+			if ('records to read' in line):  # Get end of header.
+				skiprows = k
+
+			if ('etx' in line):  # Get end of file.
+				continue
+
+			if verbose:
+				if k%1000 == 0:
+					print "Reading BBFL2W Record Line {l}".format(l=k)
+
+			#once data is read from file, it needs to be averaged.  
+			#There are n associated measurements every hour (usually between 5-10)
+			#fls: date, time, wavelength, counts, wavelength, counts,thermistor
+			
+			if (k == skiprows+1) or (new_data == True): #intial data 
+				line_array = line.strip().split()
+				if len( line_array ) == 9: 
+					date = line_array[0]+ ' '
+					time = line_array[1]
+					dtime = datetime.datetime.strptime(date+time,'%m/%d/%y %H:%M:%S' )
+
+					counts = np.int(line_array[5])
+
+					prev_time = dtime
+					new_data = False
+
+			if (k > skiprows+1) and (new_data == False):
+				line_array = line.strip().split()
+
+				if len( line_array ) == 9: 	                
+					date = line_array[0]+ ' '
+					time = line_array[1]
+					sample_time = datetime.datetime.strptime(date+time,'%m/%d/%y %H:%M:%S' )
+					if (sample_time - prev_time) > time_threshold: #average and start again
+						if ave_scheme == 'mean':
+							counts_ave[index] = counts.mean()
+							counts_std[index] = counts.std()
+						elif ave_scheme == 'median':
+							counts_ave[index] = np.median(counts)
+							counts_std[index] = counts.std()
+						tref = datetime.datetime(2000,1,1)
+
+						time_ave[index] = (np.sum([(x-tref) for x in dtime])/len(dtime))+tref
+						index += 1
+						new_data = True
+					dtime = np.vstack((dtime,dtime,sample_time))
+
+					counts = np.vstack((counts,np.int(line_array[5])))
 
 		chlor = scale_factor * (np.array(counts_ave.values()) - dark_count)
 
