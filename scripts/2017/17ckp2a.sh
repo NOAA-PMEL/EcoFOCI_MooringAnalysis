@@ -30,10 +30,11 @@ python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc sc 0039 -k
 #NetCDF_Trim was combined into NetCDF_Time_Tools --> below shows example of old and new api
 #python ${prog_dir}NetCDF_Trim.py ${output} -sd ${deployment_date} -ed ${recovery_date}
 python ${prog_dir}NetCDF_Time_Tools.py ${output}.interpolated.nc Trim --trim_bounds ${deployment_date} ${recovery_date}
-"
+
 
 echo "-------------------------------------------------------------"
 echo "Wetlabs Processing"
+echo "   with triplet.  "
 echo "-------------------------------------------------------------"
 
 serial_no=bbfl2w_1418
@@ -44,3 +45,24 @@ python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc ecobbfl2w 0039 -k
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc ecobbfl2w 0039 -kw 0 median 0.0181 49 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Time_Tools.py ${output}.interpolated.nc Trim --trim_bounds ${deployment_date} ${recovery_date}
 
+"
+
+echo "-------------------------------------------------------------"
+echo "MTR Processing"
+echo "-------------------------------------------------------------"
+
+#2017-06-08 Cal
+serial_no=3138
+input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/mtr/${serial_no}_data_read.TXT
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/16ckp9a_mt${serial_no}_0040m
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc mtr 0040 -kw 0 1.0749277066E-03	5.39234545E-04	2.1171655657E-06 False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc mtr 0040 -kw 0 1.0749277066E-03	5.39234545E-04	2.1171655657E-06 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}NetCDF_Time_Tools.py ${output}.interpolated.nc Trim --trim_bounds ${deployment_date} ${recovery_date}
+
+#2017-06-08 Cal
+serial_no=4089
+input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/mtr/${serial_no}_data_read.TXT
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/16ckp9a_mt${serial_no}_0040m
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc mtr 0040 -kw 0 1.0998678896E-03	5.3157168885E-04	2.260117056E-06 False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc mtr 0040 -kw 0 1.0998678896E-03	5.3157168885E-04	2.260117056E-06 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}NetCDF_Time_Tools.py ${output}.interpolated.nc Trim --trim_bounds ${deployment_date} ${recovery_date}

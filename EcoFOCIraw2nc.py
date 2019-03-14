@@ -193,12 +193,13 @@ if args.InstType in ['MTR','mtr']:
 		except:
 			data_dic['T_20'] = np.ones_like(Dataset['time'].values())*1e35
 
+
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
 
 	(lat,lon) = (-9999, -9999)
 
-if args.InstType in ['mtrduino','MTR5k']:
+elif args.InstType in ['mtrduino','MTR5k']:
 	config_file = instr_data_ingest.data_source_instrumentconfig('yaml').get(args.InstType)
 	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
 										 source=args.InstType,
@@ -748,7 +749,7 @@ elif args.InstType in ['adcp_ice']:
 	else:
 		(lat,lon) = (-9999, -9999)
 else:
-	print "No valid instrument provided"
+	print("No valid instrument provided")
 	sys.exit()
 
 # dont update lat/lon if declination correction is requested
