@@ -21,7 +21,7 @@ echo "-------------------------------------------------------------"
 echo "SBE16 Processing"
 echo "-------------------------------------------------------------"
 
-serial_no=1815
+: "serial_no=1815
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe16/17ckp10a_sbe16_1815_43m.cnv
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/17ckp10a_sc_0043m
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc sc 0043 -kw 0 time_elapsed_s False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
@@ -29,3 +29,17 @@ python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc sc 0043 -k
 #NetCDF_Trim was combined into NetCDF_Time_Tools --> below shows example of old and new api
 #python ${prog_dir}NetCDF_Trim.py ${output} -sd ${deployment_date} -ed ${recovery_date}
 python ${prog_dir}NetCDF_Time_Tools.py ${output}.interpolated.nc Trim --trim_bounds ${deployment_date} ${recovery_date}
+"
+
+echo "-------------------------------------------------------------"
+echo "Wetlabs Processing"
+echo "-------------------------------------------------------------"
+
+serial_no=flsb_2693
+input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/eco_fluor/17ckp10a_flsb_2693_43m.txt
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/${mooringID}_ecf_0043m
+
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc eco 0043 -kw 0 median 0.0071 49 False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc eco 0043 -kw 389 median 0.0071 49 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}NetCDF_Time_Tools.py ${output}.interpolated.nc Trim  --trim_bounds ${deployment_date} ${recovery_date}
+
