@@ -2,21 +2,27 @@
 
 """
  Background:
- --------
+ ========
  EPICCFgliderprofile2ERDDAP.py
 
 
  Purpose:
- --------
+ ========
  Add a variable to a netcdf file
 
  History:
- --------
+ ========
 
+ 2019-04-12: Modify for 2019 glider data (only use *.timeseries.nc files)
  2018-07-02: Fork and make so that glider with multiple time variables creates multiple id's
 
  2016-06-10: Update program so that it pulls possible new variables from epic.json file
  2016-08-10: transfer routine to EcoFOCI_MooringAnalysis package to simplify and unify
+
+ Compatibility:
+ ==============
+ python >=3.6 ?
+ python 2.7 
 
 """
 
@@ -102,7 +108,9 @@ for instr in ['PAR','WetLABS','AandOxy']:
 	    sys.exit()
 
 
-	nchandle.variables[pro_id][:]=stringtochar(np.array(len(nchandle.dimensions[dim_len]) * [profileid]))
+	#nchandle.variables[pro_id][:]=stringtochar(np.array(len(nchandle.dimensions[dim_len]) * [profileid]))
+	#if just using the timeseries file
+	nchandle.variables[pro_id][:]=nchandle.variables['dive_number']
 
 #add missing value attribute
 for key,val in enumerate(vars_dic):
