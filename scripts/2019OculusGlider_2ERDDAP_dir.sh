@@ -10,8 +10,8 @@
 base_path=/home/pavlof
 year=2019
 
-### SG401
-sglider=SG401
+### sg401
+sglider=sg401
 data_dir=/home/ecoraid/data/${year}/Profilers/OculusGliders/erddap/${sglider}/*timeseries.nc
 prog_dir=${base_path}/bell/Programs/Python/EcoFOCI_MooringAnalysis/
 
@@ -29,8 +29,8 @@ do
 	python ${prog_dir}EPICCFgliderprofile2ERDDAP_V2.py ${files} 'profile_id' 
 done
 
-### SG402
-sglider=SG402
+### sg402
+sglider=sg402
 data_dir=/home/ecoraid/data/${year}/Profilers/OculusGliders/erddap/${sglider}/*timeseries.nc
 prog_dir=${base_path}/bell/Programs/Python/EcoFOCI_MooringAnalysis/
 
@@ -48,8 +48,8 @@ do
 	python ${prog_dir}EPICCFgliderprofile2ERDDAP_V2.py ${files} 'profile_id' 
 done
 
-### SG403
-sglider=SG403
+### sg403
+sglider=sg403
 data_dir=/home/ecoraid/data/${year}/Profilers/OculusGliders/erddap/${sglider}/*timeseries.nc
 prog_dir=${base_path}/bell/Programs/Python/EcoFOCI_MooringAnalysis/
 
@@ -67,8 +67,8 @@ do
 	python ${prog_dir}EPICCFgliderprofile2ERDDAP_V2.py ${files} 'profile_id' 
 done
 
-### SG404
-sglider=SG404
+### sg404
+sglider=sg404
 data_dir=/home/ecoraid/data/${year}/Profilers/OculusGliders/erddap/${sglider}/*timeseries.nc
 prog_dir=${base_path}/bell/Programs/Python/EcoFOCI_MooringAnalysis/
 
