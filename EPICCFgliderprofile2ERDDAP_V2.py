@@ -21,8 +21,8 @@
 
  Compatibility:
  ==============
- python >=3.6 ?
- python 2.7 
+ python >=3.6 - TODO
+ python 2.7 - Tested
 
 """
 
@@ -71,7 +71,7 @@ profileid = args.sourcefile.split('/')[-1].split('.nc')[0]
 print profileid
 
 try :
-    nchandle.createDimension('id_strlen',8)
+    nchandle.createDimension('id_strlen',5)
     nchandle.createVariable('profileid','S1',dimensions=('ctd_data_point','id_strlen'))
     nchandle.variables['profileid'].cf_role = args.add_dsg_idvar
     nchandle.variables['profileid'].long_name = 'profile_id'
@@ -81,22 +81,29 @@ except:
     sys.exit()
 
 #fill with default values
-nchandle.variables['profileid'][:]=stringtochar(np.array(len(nchandle.dimensions['ctd_data_point']) * [profileid]))
+divenum = [x.zfill(5) for x in nchandle.variables['ctd_data_point_dive_number'][:].astype(str)]
+nchandle.variables['profileid'][:]=stringtochar(np.array(divenum))
 
 
 
 "--- Cycle through list of instruments and add id for each , treat as 'other'--"
 
-for instr in ['PAR','WetLABS','AandOxy']:
+for instr in ['WetLABS','AandOxy']: #'PAR'
 	if instr in ['PAR']:
 		pro_id = 'profileid_par'
 		dim_len = 'scicon_satpar_satPAR_data_point'
+		d_num = ''
+		divenum = [x.zfill(5) for x in nchandle.variables[d_num][:].astype(str)]
 	elif instr in ['WetLABS']:
 		pro_id = 'profileid_wetlabs'
 		dim_len = 'wlbb2fl_data_point'
+		d_num = 'wlbb2fl_data_point_dive_number'
+		divenum = [x.zfill(5) for x in nchandle.variables[d_num][:].astype(str)]
 	elif instr in ['AandOxy']:
 		pro_id = 'profileid_aand'
 		dim_len = 'aa4330_data_point'
+		d_num = 'aa4330_data_point_dive_number'
+		divenum = [x.zfill(5) for x in nchandle.variables[d_num][:].astype(str)]
 
 	try :
 	    nchandle.createVariable(pro_id,'S1',dimensions=(dim_len,'id_strlen'))
@@ -110,7 +117,7 @@ for instr in ['PAR','WetLABS','AandOxy']:
 
 	#nchandle.variables[pro_id][:]=stringtochar(np.array(len(nchandle.dimensions[dim_len]) * [profileid]))
 	#if just using the timeseries file
-	nchandle.variables[pro_id][:]=nchandle.variables['dive_number']
+	nchandle.variables[pro_id][:]=stringtochar(np.array(divenum))
 
 #add missing value attribute
 for key,val in enumerate(vars_dic):
