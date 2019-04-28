@@ -107,7 +107,7 @@ for instr in ['WetLABS','AandOxy']: #'PAR'
 
 	try :
 	    nchandle.createVariable(pro_id,'S1',dimensions=(dim_len,'id_strlen'))
-	    nchandle.variables[pro_id].cf_role = args.add_dsg_idvar
+	    #nchandle.variables[pro_id].cf_role = args.add_dsg_idvar
 	    nchandle.variables[pro_id].long_name = 'profile_id'
 
 	except:
