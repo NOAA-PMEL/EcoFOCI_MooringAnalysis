@@ -1,10 +1,18 @@
 #!/usr/bin/env
 
 """
+Background:
+===========
+
 NetCDF_Mooring2Grid.py
 
+Purpose:
+========
+
+combine multiple timeseries on a single mooring into a gridded data product
+
 Usage:
-------
+======
 grid_mooring.py -h
 
 example pointer-file format:
@@ -29,10 +37,13 @@ example pointer-file format:
     "output_type": "png"
 }
 
-
+ Compatibility:
+ ==============
+ python >=3.6 - Tested and works, future developments
+ python 2.7 - Tested, no future developments
 
  History:
- --------
+ ========
  2017-04-06: SBELL Rename, convert to classes and clean routines
  2016-08-02: update EPIC to CF time routines to be in EPIC2Datetime.py and removed time calls
     in this routine.
@@ -66,7 +77,7 @@ __author__   = 'Shaun Bell'
 __email__    = 'shaun.bell@noaa.gov'
 __created__  = datetime.datetime(2014, 9, 11)
 __modified__ = datetime.datetime(2015, 2, 5)
-__version__  = "0.1.0"
+__version__  = "0.2.0"
 __status__   = "Development"
 __keywords__ = 'Mooring', 'gridded', '2d', 'plots'
 
@@ -115,7 +126,7 @@ class Data2Grid(object):
     def load(self):
         self.data = {}
         for ind, ncfile in enumerate(self.files_path):
-            print("Working on {0}").format(ncfile)
+            print("Working on {0}".format(ncfile))
 
             df = EcoFOCI_netCDF(ncfile)
             df.get_global_atts()
@@ -200,7 +211,7 @@ class Data2Grid(object):
     def save2nc(self,PointerFile=None):
 
         inst_type = self.pointer_dic['Ylabel']
-        EPIC_VARS_dict = ConfigParserLocal.get_config('EcoFOCI_config/epickeys/' + self.plot_var + '_epickeys.json','json')
+        EPIC_VARS_dict = ConfigParserLocal.get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/epickeys/' + self.plot_var + '_epickeys.json','json')
 
         epic_dt = Datetime2EPIC((num2date(self.time_array,'days since 0001-01-01')).tolist())
 

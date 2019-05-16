@@ -16,8 +16,8 @@ from netCDF4 import Dataset
 
 __author__   = 'Shaun Bell'
 __email__    = 'shaun.bell@noaa.gov'
-__created__  = datetime.datetime(2014, 01, 13)
-__modified__ = datetime.datetime(2014, 01, 29)
+__created__  = datetime.datetime(2014, 1, 13)
+__modified__ = datetime.datetime(2014, 1, 29)
 __version__  = "0.2.0"
 __status__   = "Development"
 
@@ -155,7 +155,7 @@ class GriddedNC(object):
             
         ### add variable attributes
         for i, v in enumerate(var_class): #4dimensional for all vars
-            print ("Adding Variable {0}").format(v)#
+            print(("Adding Variable {0}").format(v))#
             v.setncattr('name',rec_var_name[i])
             v.long_name = rec_var_longname[i]
             v.generic_name = rec_var_generic_name[i]
