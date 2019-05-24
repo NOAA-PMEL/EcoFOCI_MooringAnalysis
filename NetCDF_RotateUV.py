@@ -24,6 +24,9 @@
  History:
  ========
 
+ 2019-05-21: for timeseries plots, an error in calculation used corrected udata to correct vdata 
+ 	when rotating - logic was updated here to be consistent (but error was not in this utlity)
+
  Compatibility:
  ==============
  python >=3.6 
@@ -72,11 +75,12 @@ if args.rotate != 0.0:
 	#                      - negative(-) rotation is equal to cw of the axis (ccw of the vector)
 	print("rotating vectors")
 	angle_offset_rad = np.deg2rad(args.rotate)
-	udata = data['u_1205']*np.cos(angle_offset_rad) + data['v_1206']*np.sin(angle_offset_rad)
-	vdata = -1.*data['u_1205']*np.sin(angle_offset_rad) + data['v_1206']*np.cos(angle_offset_rad)
+	uprime = data['u_1205']*np.cos(angle_offset_rad) + data['v_1206']*np.sin(angle_offset_rad)
+	vprime = -1.*data['u_1205']*np.sin(angle_offset_rad) + data['v_1206']*np.cos(angle_offset_rad)
 
-	data['v_1206'] = vdata
-	data['u_1205'] = udata
+
+	data['v_1206'] = vprime
+	data['u_1205'] = uprime
 
 	time_ind = np.ones_like(data['time'],dtype=bool)
 	output_file = args.inputpath.replace('.nc','_{deg}d_rot.nc'.format(deg=int(args.rotate)))

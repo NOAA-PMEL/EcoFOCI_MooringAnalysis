@@ -5,6 +5,10 @@ class definitions for standard 1 variable plots
 class definitions for standard 2 variable plots
 class definitions for standard 3 variable plots
 
+ History:
+ --------
+ 2019-05-21: error in calculation used corrected udata to correct vdata 
+
 """
 
 #System Stack
@@ -381,10 +385,13 @@ class Timeseries1dStickPlot(object):
       if kwargs['rotate'] != 0.0:
           #when rotating vectors - positive(+) rotation is equal to ccw of the axis (cw of vector)
           #                      - negative(-) rotation is equal to cw of the axis (ccw of the vector)
-          print "rotating vectors"
+          print("rotating vectors {} degrees".format(kwargs['rotate']))
           angle_offset_rad = np.deg2rad(kwargs['rotate'])
-          udata = udata*np.cos(angle_offset_rad) + vdata*np.sin(angle_offset_rad)
-          vdata = -1.*udata*np.sin(angle_offset_rad) + vdata*np.cos(angle_offset_rad)
+          #error in calculation used corrected udata to correct vdata 2019/05
+          uprime = udata*np.cos(angle_offset_rad) + vdata*np.sin(angle_offset_rad)
+          vprime = -1.*udata*np.sin(angle_offset_rad) + vdata*np.cos(angle_offset_rad)
+          udata=uprime
+          vdata=vprime
 
       magnitude = np.sqrt(udata**2 + vdata**2)
 

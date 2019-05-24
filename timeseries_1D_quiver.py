@@ -62,13 +62,16 @@ df.close()
 nctime = get_UDUNITS(EPIC2Datetime(ncdata['time'],ncdata['time2']),'days since 0001-1-1') + 1.0
 
 
-
 # filter data to convert 1e35 -> np.nan
 ncdata[args.epickey[0]][np.where(ncdata[args.epickey[0]][:,args.depth_index,0,0] >= 1e30),args.depth_index,0,0] = np.nan
 ncdata[args.epickey[1]][np.where(ncdata[args.epickey[1]][:,args.depth_index,0,0] >= 1e30),args.depth_index,0,0] = np.nan
 
-tind = np.where((nctime>=735792) & (nctime<=datetime.datetime.now().toordinal()))
-
+twindow=False
+if twindow:
+    tind = np.where((nctime>=735792) & (nctime<=datetime.datetime.now().toordinal()))
+else:
+    tind = np.where((nctime>=0) & (nctime<=datetime.datetime.now().toordinal()))
+ 
 p1 = Timeseries1dStickPlot()
 try:
     t1 = p1.add_title(mooringid=global_atts['MOORING'],
