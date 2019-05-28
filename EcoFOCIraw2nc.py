@@ -150,6 +150,7 @@ parser.add_argument('InstType', metavar='InstType', type=str,
                help='Instrument Type - run program with -ih flag to get list')
 parser.add_argument('InstDepth', metavar='InstDepth', type=int, 
                help='Nominal Instrument Depth')
+parser.add_argument("-conv",'--convention', type=str, help='EPIC or CF/COARDS format', default='epic')
 parser.add_argument('-ih','--InstTypeHelp', action="store_true",
                help='Instrument Type - run program with -ih flag to get list')
 parser.add_argument('-dec','--declination', nargs=2, type=float,
