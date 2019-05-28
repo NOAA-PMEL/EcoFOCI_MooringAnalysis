@@ -751,7 +751,6 @@ class NetCDF_Trimmed_2D(object):
     def close(self):
         self.rootgrpID.close()
 
-
 class NetCDF_Copy_Struct(object):
     """ Class instance to generate a NetCDF file.  
     Takes variable information from preexisting netcdf file via nchandle pass in variable_init.
@@ -927,7 +926,11 @@ class NetCDF_Copy_Struct(object):
     def close(self):
         self.rootgrpID.close()
 
-class CF_NC(object):
+"""-------------------------------CF NCFile Creation--------------------------------------"""
+# Some hard wired attributes are included below
+# Others are specified in a config file for individual instrumentrs
+#
+class CF_NC_Timeseries(object):
 
 
     """ Class instance to generate a NetCDF file.  
@@ -945,7 +948,7 @@ class CF_NC(object):
     ToDo: Error Checking
     
     Use this to create a nc file with all default values
-        ncinstance = CF_NC()
+        ncinstance = CF_NC_Timeseries()
         ncinstance.file_create()
         ncinstance.sbeglobal_atts()
         ncinstance.dimension_init()
@@ -981,12 +984,8 @@ class CF_NC(object):
         """
         
         self.rootgrpID.CREATION_DATE = datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")
-        self.rootgrpID.COMPOSITE = 1
         self.rootgrpID.INST_TYPE = Inst_Type
         self.rootgrpID.DATA_CMNT = raw_data_file
-        self.rootgrpID.EPIC_FILE_GENERATOR = 'nc_epic2udunits_time.py V' + __version__ 
-        self.rootgrpID.PROG_CMNT01 = Prog_Cmnt
-        self.rootgrpID.EDIT_CMNT01 = Edit_Cmnt
         self.rootgrpID.WATER_DEPTH = Water_Depth
         self.rootgrpID.MOORING = Station_Name
         self.rootgrpID.WATER_MASS = Water_Mass
