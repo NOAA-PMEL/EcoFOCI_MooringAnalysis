@@ -967,12 +967,13 @@ class CF_NC_Timeseries(object):
         self.savefile = savefile
     
     def file_create(self):
-            rootgrpID = Dataset(self.savefile, CF_NC.nc_read, format=CF_NC.nc_format)
+            rootgrpID = Dataset(self.savefile, CF_NC_Timeseries.nc_read, format=CF_NC_Timeseries.nc_format)
             self.rootgrpID = rootgrpID
             return ( rootgrpID )
         
-    def sbeglobal_atts(self, raw_data_file='', Water_Mass='B', Water_Depth=9999, Prog_Cmnt='',\
-                        Experiment='', Edit_Cmnt='', Station_Name='', Inst_Type='', Project='', History='',featureType=''):
+    def sbeglobal_atts(self, raw_data_file='', Water_Depth=9999, Cruise='',
+                        Experiment='', Station_Name='', Inst_Type='', Project='', 
+                        History='',featureType='timeSeries'):
         """
         Assumptions
         -----------
@@ -985,11 +986,11 @@ class CF_NC_Timeseries(object):
         
         self.rootgrpID.CREATION_DATE = datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")
         self.rootgrpID.INST_TYPE = Inst_Type
+        self.rootgrpID.INST_SERIAL = Inst_Serial_No
         self.rootgrpID.DATA_CMNT = raw_data_file
         self.rootgrpID.WATER_DEPTH = Water_Depth
         self.rootgrpID.MOORING = Station_Name
-        self.rootgrpID.WATER_MASS = Water_Mass
-        self.rootgrpID.EXPERIMENT = Experiment
+        self.rootgrpID.CRUISE = Cruise
         self.rootgrpID.PROJECT = Experiment
         self.rootgrpID.History = History
         self.rootgrpID.featureType = featureType
@@ -1006,12 +1007,13 @@ class CF_NC_Timeseries(object):
         User defined dimensions
         """
 
-        self.dim_vars = ['time', 'depth', 'lat', 'lon']
+        self.dim_vars = ['time', 'depth', 'lat', 'lon', 'timeseriesid_strlen']
         
         self.rootgrpID.createDimension( self.dim_vars[0], time_len ) #time
         self.rootgrpID.createDimension( self.dim_vars[1], 1 ) #depth
         self.rootgrpID.createDimension( self.dim_vars[2], 1 ) #lat
         self.rootgrpID.createDimension( self.dim_vars[3], 1 ) #lon
+        self.rootgrpID.createDimension( self.dim_vars[4], 12 ) #timeseriesid - mooringname
         
         
     def variable_init(self, nchandle, udunits_time_str='days since 1900-1-1' ):
@@ -1021,7 +1023,7 @@ class CF_NC_Timeseries(object):
         
         #build record variable attributes
         rec_vars, rec_var_name, rec_var_longname = [], [], []
-        rec_var_generic_name, rec_var_FORTRAN, rec_var_units, rec_var_epic = [], [], [], []
+        rec_var_generic_name, rec_var_units, rec_var_epic = [], [], [], []
         
         for v_name in nchandle.variables.keys():
             print(v_name)
@@ -1032,7 +1034,6 @@ class CF_NC_Timeseries(object):
                 rec_var_longname.append( nchandle.variables[v_name].long_name )
                 rec_var_generic_name.append( nchandle.variables[v_name].generic_name )
                 rec_var_units.append( nchandle.variables[v_name].units )
-                rec_var_FORTRAN.append( nchandle.variables[v_name].FORTRAN_format )
                 rec_var_epic.append( nchandle.variables[v_name].epic_code )
 
         
@@ -1041,7 +1042,6 @@ class CF_NC_Timeseries(object):
         rec_var_name = ['', '', '', ''] + rec_var_name
         rec_var_longname = ['', '', '', ''] + rec_var_longname
         rec_var_generic_name = ['', '', '', ''] + rec_var_generic_name
-        rec_var_FORTRAN = ['', '', '', ''] + rec_var_FORTRAN
         rec_var_units = [udunits_time_str,'dbar','degree_north','degree_west'] + rec_var_units
         rec_var_type= ['f8'] + ['f4' for spot in rec_vars[1:]]
         rec_var_strtype= ['EVEN', 'EVEN', 'EVEN', 'EVEN'] + ['' for spot in rec_vars[4:]]
@@ -1062,7 +1062,6 @@ class CF_NC_Timeseries(object):
             v.setncattr('name',rec_var_name[i])
             v.long_name = rec_var_longname[i]
             v.generic_name = rec_var_generic_name[i]
-            v.FORTRAN_format = rec_var_FORTRAN[i]
             v.units = rec_var_units[i]
             v.type = rec_var_strtype[i]
             v.epic_code = rec_epic_code[i]

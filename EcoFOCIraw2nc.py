@@ -168,6 +168,9 @@ if args.InstTypeHelp:
 	print instr_data_ingest.available_data_sources().keys()
 	sys.exit()
 
+# Config Path
+configPath = '../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/'
+
 if args.InstType in ['MTR','mtr']:
 	config_file = instr_data_ingest.data_source_instrumentconfig('yaml').get(args.InstType)
 	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
@@ -176,8 +179,10 @@ if args.InstType in ['MTR','mtr']:
 										 mtr_coef=args.keywordargs[1:4],
 										 tenmin_interp=to_bool(args.keywordargs[4]))
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.conv).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 	#cycle through and build data arrays
 	#create a "data_dic" and associate the data with an epic key
@@ -206,8 +211,10 @@ elif args.InstType in ['mtrduino','MTR5k']:
 										 source=args.InstType,
 										 round_10min_interval=to_bool(args.keywordargs[0]))
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.conv).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 	#cycle through and build data arrays
 	#create a "data_dic" and associate the data with an epic key
@@ -235,8 +242,10 @@ elif args.InstType in ['prawler','PRAWLER','Prawler']:
 										 source=args.InstType,
 										 prawler_interp_time=args.keywordargs[0],
 										 prawler_grid_press=args.keywordargs[1])  
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.conv).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 	#cycle through and build data arrays
 	#create a "data_dic" and associate the data with an epic key
@@ -264,8 +273,10 @@ elif args.InstType in ['sbe56','sbe-56','SBE56','SBE-56','s56']:
 										 roundTime=to_bool(args.keywordargs[0]),
 										 filetype=args.keywordargs[1])
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.conv).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 
 	#cycle through and build data arrays
@@ -292,8 +303,10 @@ elif args.InstType in ['sbe39','sbe-39','SBE39','SBE-39','s39']:
 										 source=args.InstType,
 										 truncate_seconds=to_bool(args.keywordargs[0]))
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.conv).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 
 	#cycle through and build data arrays
@@ -323,8 +336,10 @@ elif args.InstType in ['sbe26','sbe-26','SBE26','SBE-26','s26']:
 										 source=args.InstType,
 										 round_quarter_hour=True)
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.conv).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 
 	#cycle through and build data arrays
@@ -355,8 +370,10 @@ elif args.InstType in ['microcat','sbe37','sbe-37','SBE37','SBE-37','s37']:
 										 source=args.InstType,
 										 truncate_seconds=to_bool(args.keywordargs[0]))
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.conv).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 
 	#cycle through and build data arrays
@@ -396,8 +413,10 @@ elif args.InstType in ['seacat','sbe16','sbe-16','SBE16','SBE-16','sc']:
 									 	 time_stamp=args.keywordargs[1],
 										 hourly_interp=to_bool(args.keywordargs[2]))
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.conv).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 
 	#cycle through and build data arrays
@@ -469,8 +488,10 @@ elif args.InstType in ['sg','rcm_sg','rcmsg','rcm-sg']:
 										 turbidity=to_bool(args.keywordargs[0]),
 										 pressure=to_bool(args.keywordargs[1]))
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.conv).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 
 	#cycle through and build data arrays
@@ -544,8 +565,10 @@ elif args.InstType in ['rcm7','rcm9','rcm11']:
 										 truncate_time=to_bool(args.keywordargs[0]),
 										 interpolate_time=to_bool(args.keywordargs[1]))
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.conv).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 
 	#cycle through and build data arrays
@@ -620,8 +643,10 @@ elif args.InstType in ['eco','ecf','fluor','ecofluor','fluor','ecoflntu','ecobbf
 										 hourly_interp=to_bool(args.keywordargs[4]),
 										 verbose=True)
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.conv).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 
 	#cycle through and build data arrays
@@ -653,8 +678,10 @@ elif args.InstType in ['wpak','met']:
 	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
 										 source=args.InstType,
 										 argos_file=to_bool(args.keywordargs[0]))
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.conv).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 	#cycle through and build data arrays
 	#create a "data_dic" and associate the data with an epic key
@@ -696,8 +723,10 @@ elif args.InstType in ['adcp_ice']:
 										 source=args.InstType,
 										 roundTime=to_bool(args.keywordargs[0]))
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.conv).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 
 	#cycle through and build data arrays
