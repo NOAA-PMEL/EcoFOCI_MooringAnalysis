@@ -39,7 +39,7 @@ def get_config(infile, ftype='yaml'):
             raise RuntimeError('{0} not found'.format(infile))
     elif ftype in ['yaml']:        
         try:
-            d = yaml.load(open(infile))
+            d = yaml.safe_load(open(infile))
         except:
             raise RuntimeError('{0} not found'.format(infile))
     else:
@@ -91,7 +91,7 @@ def yaml2pyini(infile, **kwargs):
     infile = str(infile)
     
     try:
-        d = json.dumps(yaml.load(open(infile)), **kwargs)
+        d = json.dumps(yaml.safe_load(open(infile)), **kwargs)
 
     except:
         raise RuntimeError('{0} not found'.format(infile))
