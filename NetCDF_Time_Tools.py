@@ -54,7 +54,7 @@ import pandas as pd
 #User Stack
 from calc.EPIC2Datetime import EPIC2Datetime, get_UDUNITS, Datetime2EPIC
 from io_utils.EcoFOCI_netCDF_read import EcoFOCI_netCDF
-from io_utils.EcoFOCI_netCDF_write import CF_NC_2D, CF_NC_Timeseries, CF_NC_Profile, NetCDF_Copy_Struct, NetCDF_Trimmed, NetCDF_Trimmed_2D
+from io_utils.EcoFOCI_netCDF_write import CF_NC_2D, CF_NC, CF_NC_Profile, NetCDF_Copy_Struct, NetCDF_Trimmed, NetCDF_Trimmed_2D
 from io_utils.time_helper import roundTime, interp2hour
 
 __author__   = 'Shaun Bell'
@@ -264,7 +264,7 @@ if args.operation in ['CF','CF Convert','CF_Convert']:
             data_experiment = ''
             data_project = ''
             
-        ncinstance = CF_NC_Timeseries(savefile=args.sourcefile.replace('.nc','.cf.nc'))
+        ncinstance = CF_NC(savefile=args.sourcefile.replace('.nc','.cf.nc'))
         ncinstance.file_create()
         ncinstance.sbeglobal_atts(raw_data_file=data_cmnt, Station_Name=data_mooring, 
                                         Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=data_insttype,
