@@ -179,7 +179,7 @@ if args.InstType in ['MTR','mtr']:
 										 mtr_coef=args.keywordargs[1:4],
 										 tenmin_interp=to_bool(args.keywordargs[4]))
 
-	if (args.conv).upper() in ['epic','EPIC']:
+	if (args.convention).upper() in ['epic','EPIC']:
 		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
 	else:
 		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
@@ -211,7 +211,7 @@ elif args.InstType in ['mtrduino','MTR5k']:
 										 source=args.InstType,
 										 round_10min_interval=to_bool(args.keywordargs[0]))
 
-	if (args.conv).upper() in ['epic','EPIC']:
+	if (args.convention).upper() in ['epic','EPIC']:
 		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
 	else:
 		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
@@ -242,7 +242,7 @@ elif args.InstType in ['prawler','PRAWLER','Prawler']:
 										 source=args.InstType,
 										 prawler_interp_time=args.keywordargs[0],
 										 prawler_grid_press=args.keywordargs[1])  
-	if (args.conv).upper() in ['epic','EPIC']:
+	if (args.convention).upper() in ['epic','EPIC']:
 		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
 	else:
 		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
@@ -273,7 +273,7 @@ elif args.InstType in ['sbe56','sbe-56','SBE56','SBE-56','s56']:
 										 roundTime=to_bool(args.keywordargs[0]),
 										 filetype=args.keywordargs[1])
 
-	if (args.conv).upper() in ['epic','EPIC']:
+	if (args.convention).upper() in ['epic','EPIC']:
 		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
 	else:
 		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
@@ -303,7 +303,7 @@ elif args.InstType in ['sbe39','sbe-39','SBE39','SBE-39','s39']:
 										 source=args.InstType,
 										 truncate_seconds=to_bool(args.keywordargs[0]))
 
-	if (args.conv).upper() in ['epic','EPIC']:
+	if (args.convention).upper() in ['epic','EPIC']:
 		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
 	else:
 		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
@@ -336,7 +336,7 @@ elif args.InstType in ['sbe26','sbe-26','SBE26','SBE-26','s26']:
 										 source=args.InstType,
 										 round_quarter_hour=True)
 
-	if (args.conv).upper() in ['epic','EPIC']:
+	if (args.convention).upper() in ['epic','EPIC']:
 		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
 	else:
 		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
@@ -370,9 +370,10 @@ elif args.InstType in ['microcat','sbe37','sbe-37','SBE37','SBE-37','s37']:
 										 source=args.InstType,
 										 truncate_seconds=to_bool(args.keywordargs[0]))
 
-	if (args.conv).upper() in ['epic','EPIC']:
+	if (args.convention).upper() in ['epic','EPIC']:
 		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
 	else:
+		print(configPath + config_file)
 		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 
@@ -413,7 +414,7 @@ elif args.InstType in ['seacat','sbe16','sbe-16','SBE16','SBE-16','sc']:
 									 	 time_stamp=args.keywordargs[1],
 										 hourly_interp=to_bool(args.keywordargs[2]))
 
-	if (args.conv).upper() in ['epic','EPIC']:
+	if (args.convention).upper() in ['epic','EPIC']:
 		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
 	else:
 		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
@@ -488,7 +489,7 @@ elif args.InstType in ['sg','rcm_sg','rcmsg','rcm-sg']:
 										 turbidity=to_bool(args.keywordargs[0]),
 										 pressure=to_bool(args.keywordargs[1]))
 
-	if (args.conv).upper() in ['epic','EPIC']:
+	if (args.convention).upper() in ['epic','EPIC']:
 		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
 	else:
 		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
@@ -565,7 +566,7 @@ elif args.InstType in ['rcm7','rcm9','rcm11']:
 										 truncate_time=to_bool(args.keywordargs[0]),
 										 interpolate_time=to_bool(args.keywordargs[1]))
 
-	if (args.conv).upper() in ['epic','EPIC']:
+	if (args.convention).upper() in ['epic','EPIC']:
 		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
 	else:
 		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
@@ -643,7 +644,7 @@ elif args.InstType in ['eco','ecf','fluor','ecofluor','fluor','ecoflntu','ecobbf
 										 hourly_interp=to_bool(args.keywordargs[4]),
 										 verbose=True)
 
-	if (args.conv).upper() in ['epic','EPIC']:
+	if (args.convention).upper() in ['epic','EPIC']:
 		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
 	else:
 		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
@@ -678,7 +679,7 @@ elif args.InstType in ['wpak','met']:
 	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
 										 source=args.InstType,
 										 argos_file=to_bool(args.keywordargs[0]))
-	if (args.conv).upper() in ['epic','EPIC']:
+	if (args.convention).upper() in ['epic','EPIC']:
 		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
 	else:
 		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
@@ -723,7 +724,7 @@ elif args.InstType in ['adcp_ice']:
 										 source=args.InstType,
 										 roundTime=to_bool(args.keywordargs[0]))
 
-	if (args.conv).upper() in ['epic','EPIC']:
+	if (args.convention).upper() in ['epic','EPIC']:
 		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
 	else:
 		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
@@ -795,7 +796,7 @@ else:
 "-----------------------------------------------"
 " write value to file after readin is successful"
 " format is determined by flag at command line  "
-if (args.conv).upper() in ['epic','EPIC']:
+if (args.convention).upper() in ['epic','EPIC']:
 	ncinstance = NetCDF_Create_Timeseries(savefile=args.OutDataFile)
 	ncinstance.file_create()
 	ncinstance.sbeglobal_atts(raw_data_file=args.DataFile.split('/')[-1],
@@ -816,7 +817,7 @@ if (args.conv).upper() in ['epic','EPIC']:
 	except NameError:
 		pass
 	ncinstance.close()
-elif (args.conv).upper() in ['CF','COARDS','CF/COARDS']:
+elif (args.convention).upper() in ['CF','COARDS','CF/COARDS']:
 	ncinstance = NetCDF_Create_Timeseries(savefile=(args.OutDataFile).replace('.nc','.cf.nc'))
 	ncinstance.file_create()
 	ncinstance.sbeglobal_atts(raw_data_file=args.DataFile.split('/')[-1],
