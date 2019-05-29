@@ -8,6 +8,7 @@
  
   History:
  --------
+ 2019-05-29: Modify NC_CF -> Timeseries and make CF/COARDS/ERDDAP compliant
  2018-09-06: change print statements to python3 syntax
  2018-03-22: TODO: EVEN/UNEVEN is important for Ferret like tools. and should be accounted for
  2016-12-19: Add a class for ragged arrays (1D and 2D) - 1D is continuous file
@@ -1022,7 +1023,7 @@ class CF_NC_Timeseries(object):
         """
         
         #build record variable attributes
-        rec_vars, rec_var_name, rec_var_longname = [], [], []
+        rec_vars, rec_var_standardname, rec_var_longname = [], [], []
         rec_var_generic_name, rec_var_units, rec_var_epic = [], [], [], []
         
         for v_name in nchandle.variables.keys():
@@ -1030,21 +1031,20 @@ class CF_NC_Timeseries(object):
             if not v_name in ['time','time2','depth','lat','lon','latitude','longitude']:
                 print("Copying attributes for {0}".format(v_name))
                 rec_vars.append( v_name )
-                rec_var_name.append( nchandle.variables[v_name].name )
+                rec_var_standardname.append( nchandle.variables[v_name].name )
                 rec_var_longname.append( nchandle.variables[v_name].long_name )
                 rec_var_generic_name.append( nchandle.variables[v_name].generic_name )
                 rec_var_units.append( nchandle.variables[v_name].units )
                 rec_var_epic.append( nchandle.variables[v_name].epic_code )
 
         
-        rec_vars = ['time','depth','lat','lon'] + rec_vars
+        rec_vars = ['time','depth','latitude','longitude'] + rec_vars
 
-        rec_var_name = ['', '', '', ''] + rec_var_name
+        rec_var_standardname = ['', '', '', ''] + rec_var_standardname
         rec_var_longname = ['', '', '', ''] + rec_var_longname
         rec_var_generic_name = ['', '', '', ''] + rec_var_generic_name
         rec_var_units = [udunits_time_str,'dbar','degree_north','degree_west'] + rec_var_units
         rec_var_type= ['f8'] + ['f4' for spot in rec_vars[1:]]
-        rec_var_strtype= ['EVEN', 'EVEN', 'EVEN', 'EVEN'] + ['' for spot in rec_vars[4:]]
         rec_epic_code = [624,1,500,501] + rec_var_epic
         
         var_class = []
@@ -1059,11 +1059,10 @@ class CF_NC_Timeseries(object):
         ### add variable attributes
         for i, v in enumerate(var_class): #4dimensional for all vars
             print(("Adding Variable {0}").format(v))
-            v.setncattr('name',rec_var_name[i])
-            v.long_name = rec_var_longname[i]
+            v.setncattr('standard_name',rec_var_standardname[i])
+            v.longname = rec_var_longname[i]
             v.generic_name = rec_var_generic_name[i]
             v.units = rec_var_units[i]
-            v.type = rec_var_strtype[i]
             v.epic_code = rec_epic_code[i]
             
             

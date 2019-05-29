@@ -817,6 +817,25 @@ if (args.conv).upper() in ['epic','EPIC']:
 		pass
 	ncinstance.close()
 elif (args.conv).upper() in ['CF','COARDS','CF/COARDS']:
-	pass
+	ncinstance = NetCDF_Create_Timeseries(savefile=(args.OutDataFile).replace('.nc','.cf.nc'))
+	ncinstance.file_create()
+	ncinstance.sbeglobal_atts(raw_data_file=args.DataFile.split('/')[-1],
+							  Water_Depth=water_depth,
+							  Station_Name=MooringID,
+							  Instrument_Type=args.InstType,
+							  SerialNumber=serial_no)
+	ncinstance.dimension_init(time_len=len(time1))
+	ncinstance.variable_init(EPIC_VARS_dict)
+	ncinstance.add_coord_data(depth=args.InstDepth, 
+							  latitude=lat, 
+							  longitude=lon, 
+							  time1=time1, 
+							  time2=time2)
+	ncinstance.add_data(EPIC_VARS_dict,data_dic=data_dic)
+	try:
+		ncinstance.add_history(new_history=history_string)
+	except NameError:
+		pass
+	ncinstance.close()
 else:
 	print("Sorry, try EPIC for epic standards or CF/COARDS for CF standards")
