@@ -32,10 +32,11 @@ import argparse
 
 #Science Stack
 import numpy as np
+from netCDF4 import date2num,num2date
 
 #User defined Stack
 from io_utils.ConfigParserLocal import get_config
-from io_utils.EcoFOCI_netCDF_write import NetCDF_Create_Timeseries
+from io_utils.EcoFOCI_netCDF_write import NetCDF_Create_Timeseries, CF_NC_Timeseries
 import io_utils.instr_data_ingest as instr_data_ingest
 from calc.EPIC2Datetime import EPIC2Datetime, Datetime2EPIC
 import calc.geomag.geomag.geomag as geomag
@@ -202,6 +203,7 @@ if args.InstType in ['MTR','mtr']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	(lat,lon) = (-9999, -9999)
 
@@ -233,6 +235,7 @@ elif args.InstType in ['mtrduino','MTR5k']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	(lat,lon) = (-9999, -9999)
 
@@ -263,6 +266,7 @@ elif args.InstType in ['prawler','PRAWLER','Prawler']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	(lat,lon) = (-9999, -9999)
 
@@ -294,6 +298,7 @@ elif args.InstType in ['sbe56','sbe-56','SBE56','SBE-56','s56']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	(lat,lon) = (-9999, -9999)
 
@@ -327,6 +332,7 @@ elif args.InstType in ['sbe39','sbe-39','SBE39','SBE-39','s39']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	(lat,lon) = (-9999, -9999)
 
@@ -361,6 +367,7 @@ elif args.InstType in ['sbe26','sbe-26','SBE26','SBE-26','s26']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	(lat,lon) = (-9999, -9999)
 
@@ -403,6 +410,7 @@ elif args.InstType in ['microcat','sbe37','sbe-37','SBE37','SBE-37','s37']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	(lat,lon) = (-9999, -9999)
 
@@ -479,6 +487,7 @@ elif args.InstType in ['seacat','sbe16','sbe-16','SBE16','SBE-16','sc']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	(lat,lon) = (-9999, -9999)
 
@@ -539,6 +548,7 @@ elif args.InstType in ['sg','rcm_sg','rcmsg','rcm-sg']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 
 	#magnetic declination correction
@@ -614,6 +624,7 @@ elif args.InstType in ['rcm7','rcm9','rcm11']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	#magnetic declination correction
 	if args.declination:
@@ -671,6 +682,7 @@ elif args.InstType in ['eco','ecf','fluor','ecofluor','fluor','ecoflntu','ecobbf
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	(lat,lon) = (-9999, -9999)
 
@@ -702,6 +714,7 @@ elif args.InstType in ['wpak','met']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	#magnetic declination correction for winds
 	if args.declination:
@@ -760,6 +773,7 @@ elif args.InstType in ['adcp_ice']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 
 	#magnetic declination correction
@@ -818,7 +832,7 @@ if (args.convention).upper() in ['epic','EPIC']:
 		pass
 	ncinstance.close()
 elif (args.convention).upper() in ['CF','COARDS','CF/COARDS']:
-	ncinstance = NetCDF_Create_Timeseries(savefile=(args.OutDataFile).replace('.nc','.cf.nc'))
+	ncinstance = CF_NC_Timeseries(savefile=(args.OutDataFile).replace('.nc','.cf.nc'))
 	ncinstance.file_create()
 	ncinstance.sbeglobal_atts(raw_data_file=args.DataFile.split('/')[-1],
 							  Water_Depth=water_depth,
@@ -832,6 +846,7 @@ elif (args.convention).upper() in ['CF','COARDS','CF/COARDS']:
 							  longitude=lon, 
 							  time1=time1, 
 							  time2=time2)
+	ncinstance.add_id(MooringID)
 	ncinstance.add_data(EPIC_VARS_dict,data_dic=data_dic)
 	try:
 		ncinstance.add_history(new_history=history_string)

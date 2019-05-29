@@ -455,7 +455,7 @@ class NetCDF_Trimmed(object):
         
     def sbeglobal_atts(self, raw_data_file='', Water_Mass='', Water_Depth=9999, 
                        Prog_Cmnt='', Experiment='', Edit_Cmnt='', Station_Name='', 
-                       SerialNumber='',Inst_Type='', History='', Project='', featureType=''):
+                       SerialNumber='', Instrument_Type='', History='', Project='', featureType=''):
         """
         Assumptions
         -----------
@@ -468,7 +468,7 @@ class NetCDF_Trimmed(object):
         
         self.rootgrpID.CREATION_DATE = datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")
         self.rootgrpID.COMPOSITE = 1
-        self.rootgrpID.INST_TYPE = Inst_Type
+        self.rootgrpID.INST_TYPE = Instrument_Type
         self.rootgrpID.DATA_CMNT = raw_data_file
         self.rootgrpID.EPIC_FILE_GENERATOR = 'trim_netcdf.py V' + __version__ 
         self.rootgrpID.PROG_CMNT01 = Prog_Cmnt
@@ -624,7 +624,7 @@ class NetCDF_Trimmed_2D(object):
         
     def sbeglobal_atts(self, raw_data_file='', Water_Mass='', Water_Depth=9999, 
                        Prog_Cmnt='', Experiment='', Edit_Cmnt='', Station_Name='', 
-                       SerialNumber='',Inst_Type='', History='', Project='', featureType=''):
+                       SerialNumber='', Instrument_Type='', History='', Project='', featureType=''):
         """
         Assumptions
         -----------
@@ -637,7 +637,7 @@ class NetCDF_Trimmed_2D(object):
         
         self.rootgrpID.CREATION_DATE = datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")
         self.rootgrpID.COMPOSITE = 1
-        self.rootgrpID.INST_TYPE = Inst_Type
+        self.rootgrpID.INST_TYPE = Instrument_Type
         self.rootgrpID.DATA_CMNT = raw_data_file
         self.rootgrpID.EPIC_FILE_GENERATOR = 'trim_netcdf.py V' + __version__ 
         self.rootgrpID.PROG_CMNT01 = Prog_Cmnt
@@ -793,7 +793,7 @@ class NetCDF_Copy_Struct(object):
         
     def sbeglobal_atts(self, raw_data_file='', Water_Mass='', Water_Depth=9999, 
                        Prog_Cmnt='', Experiment='', Edit_Cmnt='', Station_Name='', 
-                       SerialNumber='',Inst_Type='', History='', Project='', featureType=''):
+                       SerialNumber='', Instrument_Type='', History='', Project='', featureType=''):
         """
         Assumptions
         -----------
@@ -806,7 +806,7 @@ class NetCDF_Copy_Struct(object):
         
         self.rootgrpID.CREATION_DATE = datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")
         self.rootgrpID.COMPOSITE = 1
-        self.rootgrpID.INST_TYPE = Inst_Type
+        self.rootgrpID.INST_TYPE = Instrument_Type
         self.rootgrpID.DATA_CMNT = raw_data_file
         self.rootgrpID.EPIC_FILE_GENERATOR = 'trim_netcdf.py V' + __version__ 
         self.rootgrpID.PROG_CMNT01 = Prog_Cmnt
@@ -975,7 +975,7 @@ class CF_NC(object):
             return ( rootgrpID )
         
     def sbeglobal_atts(self, raw_data_file='', Water_Mass='B', Water_Depth=9999, Prog_Cmnt='',\
-                        Experiment='', Edit_Cmnt='', Station_Name='', Inst_Type='', Project='', History='',featureType=''):
+                        Experiment='', Edit_Cmnt='', Station_Name='', Instrument_Type='', Project='', History='',featureType=''):
         """
         Assumptions
         -----------
@@ -988,7 +988,7 @@ class CF_NC(object):
         
         self.rootgrpID.CREATION_DATE = datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")
         self.rootgrpID.COMPOSITE = 1
-        self.rootgrpID.INST_TYPE = Inst_Type
+        self.rootgrpID.INST_TYPE = Instrument_Type
         self.rootgrpID.DATA_CMNT = raw_data_file
         self.rootgrpID.EPIC_FILE_GENERATOR = 'nc_epic2udunits_time.py V' + __version__ 
         self.rootgrpID.PROG_CMNT01 = Prog_Cmnt
@@ -1104,7 +1104,7 @@ class CF_NC(object):
     def close(self):
         self.rootgrpID.close()
 
-
+#create new CF compliang netcdf files from raw data
 class CF_NC_Timeseries(object):
 
 
@@ -1146,8 +1146,8 @@ class CF_NC_Timeseries(object):
             self.rootgrpID = rootgrpID
             return ( rootgrpID )
         
-    def sbeglobal_atts(self, raw_data_file='', Water_Depth=9999, Cruise='',
-                        Experiment='', Station_Name='', Inst_Type='', Project='', 
+    def sbeglobal_atts(self, raw_data_file='', Water_Depth=9999, Cruise='', SerialNumber='',
+                        Experiment='', Station_Name='', Instrument_Type='', Project='', 
                         History='',featureType='timeSeries'):
         """
         Assumptions
@@ -1160,8 +1160,8 @@ class CF_NC_Timeseries(object):
         """
         
         self.rootgrpID.CREATION_DATE = datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")
-        self.rootgrpID.INST_TYPE = Inst_Type
-        self.rootgrpID.INST_SERIAL = Inst_Serial_No
+        self.rootgrpID.INST_TYPE = Instrument_Type
+        self.rootgrpID.SERIAL_NUMBER = SerialNumber
         self.rootgrpID.DATA_CMNT = raw_data_file
         self.rootgrpID.WATER_DEPTH = Water_Depth
         self.rootgrpID.MOORING = Station_Name
@@ -1190,54 +1190,54 @@ class CF_NC_Timeseries(object):
         self.rootgrpID.createDimension( self.dim_vars[3], 1 ) #lon
         self.rootgrpID.createDimension( self.dim_vars[4], 12 ) #timeseriesid - mooringname
         
-        
-    def variable_init(self, nchandle, udunits_time_str='days since 1900-1-1' ):
+
+    def variable_init(self, EPIC_VARS_dict):
         """
         built from knowledge about previous file
         """
-        
+ 
+         #exit if the variable dictionary is not passed
+        if not bool(EPIC_VARS_dict):
+            raise RuntimeError('Empty EPIC Dictionary is passed to variable_init.')
+
+       
         #build record variable attributes
-        rec_vars, rec_var_standardname, rec_var_longname = [], [], []
-        rec_var_generic_name, rec_var_units, rec_var_epic = [], [], [], []
+        rec_vars, rec_var_standard_name, rec_var_long_name = [], [], []
+        rec_var_generic_name, rec_var_units, rec_var_epic = [], [], []
         
-        for v_name in nchandle.variables.keys():
-            print(v_name)
-            if not v_name in ['time','time2','depth','lat','lon','latitude','longitude']:
-                print("Copying attributes for {0}".format(v_name))
-                rec_vars.append( v_name )
-                rec_var_standardname.append( nchandle.variables[v_name].name )
-                rec_var_longname.append( nchandle.variables[v_name].long_name )
-                rec_var_generic_name.append( nchandle.variables[v_name].generic_name )
-                rec_var_units.append( nchandle.variables[v_name].units )
-                rec_var_epic.append( nchandle.variables[v_name].epic_code )
+        #cycle through epic dictionary and create nc parameters
+        for evar in EPIC_VARS_dict.keys():
+            print(evar)
+            if evar in ['timeseries_id', 'profile_id']:
+                rec_vars.append(evar)
+            else:
+                rec_vars.append(evar)
+                rec_var_standard_name.append( EPIC_VARS_dict[evar]['standard_name'] )
+                rec_var_long_name.append( EPIC_VARS_dict[evar]['long_name'] )
+                rec_var_generic_name.append( EPIC_VARS_dict[evar]['generic_name'] )
+                rec_var_units.append( EPIC_VARS_dict[evar]['units'] )
+                rec_var_epic.append( EPIC_VARS_dict[evar]['epic_key'] )
 
-        
-        rec_vars = ['time','depth','latitude','longitude'] + rec_vars
-
-        rec_var_standardname = ['', '', '', ''] + rec_var_standardname
-        rec_var_longname = ['', '', '', ''] + rec_var_longname
-        rec_var_generic_name = ['', '', '', ''] + rec_var_generic_name
-        rec_var_units = [udunits_time_str,'dbar','degree_north','degree_west'] + rec_var_units
-        rec_var_type= ['f8'] + ['f4' for spot in rec_vars[1:]]
-        rec_epic_code = [624,1,500,501] + rec_var_epic
+        rec_var_type= ['f8','f4','f4','f4','f4','S1'] + ['f4' for spot in rec_vars[6:]]
         
         var_class = []
         var_class.append(self.rootgrpID.createVariable(rec_vars[0], rec_var_type[0], self.dim_vars[0]))#time1
         var_class.append(self.rootgrpID.createVariable(rec_vars[1], rec_var_type[1], self.dim_vars[1]))#depth
         var_class.append(self.rootgrpID.createVariable(rec_vars[2], rec_var_type[2], self.dim_vars[2]))#lat
         var_class.append(self.rootgrpID.createVariable(rec_vars[3], rec_var_type[3], self.dim_vars[3]))#lon
-        
-        for i, v in enumerate(rec_vars[4:]):  #1D coordinate variables
-            var_class.append(self.rootgrpID.createVariable(rec_vars[i+4], rec_var_type[i+4], self.dim_vars))
+        var_class.append(self.rootgrpID.createVariable(rec_vars[4], rec_var_type[4], self.dim_vars[4]))#lon
+
+        for i, v in enumerate(rec_vars[5:]):  #1D coordinate variables
+            var_class.append(self.rootgrpID.createVariable(rec_vars[i+5], rec_var_type[i+5], self.dim_vars))
             
         ### add variable attributes
         for i, v in enumerate(var_class): #4dimensional for all vars
             print(("Adding Variable {0}").format(v))
-            v.setncattr('standard_name',rec_var_standardname[i])
-            v.longname = rec_var_longname[i]
+            v.setncattr('standard_name',rec_var_standard_name[i])
+            v.long_name = rec_var_long_name[i]
             v.generic_name = rec_var_generic_name[i]
             v.units = rec_var_units[i]
-            v.epic_code = rec_epic_code[i]
+            v.epic_code = rec_var_epic[i]
             
             
         self.var_class = var_class
@@ -1250,6 +1250,9 @@ class CF_NC_Timeseries(object):
         self.var_class[1][:] = depth
         self.var_class[2][:] = latitude
         self.var_class[3][:] = longitude #PMEL standard direction
+
+    def add_id(self,idstr=''):
+        self.var_class[4][:] = idstr
 
     def add_data(self, data=None):
         """ """
@@ -1311,7 +1314,7 @@ class CF_NC_Profile(object):
             return ( rootgrpID )
         
     def sbeglobal_atts(self, raw_data_file='', Water_Mass='B', Water_Depth=9999, Prog_Cmnt='',\
-                        Experiment='', Edit_Cmnt='', Station_Name='', Inst_Type='', Project='', History='',featureType=''):
+                        Experiment='', Edit_Cmnt='', Station_Name='', Instrument_Type='', Project='', History='',featureType=''):
         """
         Assumptions
         -----------
@@ -1324,7 +1327,7 @@ class CF_NC_Profile(object):
         
         self.rootgrpID.CREATION_DATE = datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")
         self.rootgrpID.COMPOSITE = 1
-        self.rootgrpID.INST_TYPE = Inst_Type
+        self.rootgrpID.INST_TYPE = Instrument_Type
         self.rootgrpID.DATA_CMNT = raw_data_file
         self.rootgrpID.EPIC_FILE_GENERATOR = 'nc_epic2udunits_time.py V' + __version__ 
         self.rootgrpID.PROG_CMNT01 = Prog_Cmnt
@@ -1482,7 +1485,7 @@ class CF_NC_2D(object):
             return ( rootgrpID )
         
     def sbeglobal_atts(self, raw_data_file='', Water_Mass='B', Water_Depth=9999, Prog_Cmnt='',\
-                        Experiment='', Edit_Cmnt='', Station_Name='', Inst_Type='', Project='', History='',featureType=''):
+                        Experiment='', Edit_Cmnt='', Station_Name='', Instrument_Type='', Project='', History='',featureType=''):
         """
         Assumptions
         -----------
@@ -1495,7 +1498,7 @@ class CF_NC_2D(object):
         
         self.rootgrpID.CREATION_DATE = datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")
         self.rootgrpID.COMPOSITE = 1
-        self.rootgrpID.INST_TYPE = Inst_Type
+        self.rootgrpID.INST_TYPE = Instrument_Type
         self.rootgrpID.DATA_CMNT = raw_data_file
         self.rootgrpID.EPIC_FILE_GENERATOR = 'nc_epic2udunits_time.py V' + __version__ 
         self.rootgrpID.PROG_CMNT01 = Prog_Cmnt
