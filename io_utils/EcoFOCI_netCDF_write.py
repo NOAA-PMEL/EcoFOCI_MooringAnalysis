@@ -1284,11 +1284,8 @@ class CF_NC_Timeseries(object):
         #  with missing data if not found
 
         for EPICdic_key in EPIC_VARS_dict.keys():
-            print(EPICdic_key)
             if not EPICdic_key in ['time','time2','lat','lon','depth','latitude','longitude', 'timeseries_id']:
-                print("1",EPIC_VARS_dict[EPICdic_key]['epic_key'])
                 di = self.rec_var_epic.index(EPIC_VARS_dict[EPICdic_key]['epic_key'])
-                print(data_dic[EPIC_VARS_dict[EPICdic_key]['epic_key']])
                 try:
                     self.var_class[di][:] = data_dic[EPIC_VARS_dict[EPICdic_key]['epic_key']]
                 except KeyError:
@@ -1640,6 +1637,159 @@ class CF_NC_2D(object):
     def add_history(self, new_history):
         """Adds timestamp (UTC time) and history to existing information"""
         self.rootgrpID.History = self.rootgrpID.History + ' \n' + datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")\
+                    + ' ' + new_history + '\n'
+                    
+    def close(self):
+        self.rootgrpID.close()
+
+class CF_NetCDF_Trimmed(object):
+    """ Class instance to generate a NetCDF file.  
+    Takes variable information from preexisting netcdf file via nchandle pass in variable_init.
+
+    Standards
+    ---------
+    EPICNetCDF (PMEL) Standards  
+
+
+    Usage
+    -----
+    
+    Order of routines matters and no error checking currently exists
+    ToDo: Error Checking
+    
+    Use this to create a nc file with all default values
+        ncinstance = CF_NetCDF_Trimmed()
+        ncinstance.file_create()
+        ncinstance.sbeglobal_atts()
+        ncinstance.dimension_init()
+        ncinstance.variable_init(nchandle)
+        ncinstance.add_coord_data()
+        ncinstance.add_data()
+        ncinstance.close()
+    """ 
+    
+    
+    nc_format = 'NETCDF3_CLASSIC'
+    nc_read   = 'w'
+    def __init__(self, savefile='ncfiles/test.nc'):
+        """data is a numpy array of temperature values"""
+        
+        self.savefile = savefile
+    
+    def file_create(self):
+            rootgrpID = Dataset(self.savefile, CF_NetCDF_Trimmed.nc_read, format=CF_NetCDF_Trimmed.nc_format)
+            self.rootgrpID = rootgrpID
+            return ( rootgrpID )
+        
+    def cp_global_atts(self, nchandle):
+        self.rootgrpID.setncatts(nchandle.__dict__)
+     
+    def dimension_init(self, time_len=1):
+        """
+        Assumes
+        -------
+        Dimensions will be 'time', 'depth', 'lat', 'lon'
+        
+        Todo
+        ----
+        User defined dimensions
+        """
+
+        self.dim_vars = ['time', 'depth', 'lat', 'lon', 'timeseriesid_strlen']
+        
+        self.rootgrpID.createDimension( self.dim_vars[0], time_len ) #time
+        self.rootgrpID.createDimension( self.dim_vars[1], 1 ) #depth
+        self.rootgrpID.createDimension( self.dim_vars[2], 1 ) #lat
+        self.rootgrpID.createDimension( self.dim_vars[3], 1 ) #lon
+        self.rootgrpID.createDimension( self.dim_vars[4], 12 ) #timeseriesid - mooringname
+        
+        
+        
+    def variable_init(self, nchandle):
+        """
+        built from knowledge about previous file
+        """
+
+        #build record variable attributes
+        rec_vars, rec_var_standard_name, rec_var_long_name = [], [], []
+        rec_var_generic_name, rec_var_units, rec_var_epic = [], [], []
+        rec_role = []
+        
+        #cycle through epic dictionary and create nc parameters
+        for v_name in nchandle.variables.keys():
+            print(v_name)
+            if v_name in ['timeseries_id', 'profile_id']:
+                rec_vars.append(v_name)
+                rec_var_standard_name.append( nchandle.variables[v_name].standard_name )
+                rec_var_long_name.append( nchandle.variables[v_name].long_name )
+                rec_role.append( nchandle.variables[v_name].cf_role )
+                rec_var_generic_name.append( '' )
+                rec_var_units.append( '' )
+                rec_var_epic.append( '' )
+            else:
+                rec_vars.append(v_name)
+                rec_var_standard_name.append( nchandle.variables[v_name].standard_name )
+                rec_var_long_name.append( nchandle.variables[v_name].long_name )
+                rec_var_generic_name.append( nchandle.variables[v_name].generic_name )
+                rec_var_units.append( nchandle.variables[v_name].units )
+                rec_var_epic.append( nchandle.variables[v_name].epic_code )
+
+        rec_var_type= ['f8','f4','f4','f4','S1'] + ['f4' for spot in rec_vars[5:]]
+        
+        var_class = []
+        var_class.append(self.rootgrpID.createVariable(rec_vars[0], rec_var_type[0], self.dim_vars[0]))#time1
+        var_class.append(self.rootgrpID.createVariable(rec_vars[1], rec_var_type[1], self.dim_vars[1]))#depth
+        var_class.append(self.rootgrpID.createVariable(rec_vars[2], rec_var_type[2], self.dim_vars[2]))#lat
+        var_class.append(self.rootgrpID.createVariable(rec_vars[3], rec_var_type[3], self.dim_vars[3]))#lon
+        var_class.append(self.rootgrpID.createVariable(rec_vars[4], rec_var_type[4], self.dim_vars[4]))#tieseries id
+
+        for i, v in enumerate(rec_vars[5:]):  #1D coordinate variables
+            var_class.append(self.rootgrpID.createVariable(rec_vars[i+5], rec_var_type[i+5], self.dim_vars[0:4]))
+            
+        ### add variable attributes
+        for i, v in enumerate(var_class): #4dimensional for all vars
+            print(("Adding Variable {0}").format(v))
+            if i == 4:
+                v.long_name = rec_var_long_name[i]
+                v.cf_role=rec_role[0]
+                v.standard_name = rec_var_standard_name[i]
+            else:
+                v.standard_name = rec_var_standard_name[i]
+                v.long_name = rec_var_long_name[i]
+                v.generic_name = rec_var_generic_name[i]
+                v.units = rec_var_units[i]
+                v.epic_code = rec_var_epic[i]
+            
+            
+        self.var_class = var_class
+        self.rec_vars = rec_vars
+        self.rec_var_epic = rec_var_epic
+
+        
+    def add_coord_data(self, depth=None, latitude=None, longitude=None, time=None, CastLog=False):
+        """ """
+        self.var_class[0][:] = time
+        self.var_class[1][:] = depth
+        self.var_class[2][:] = latitude
+        self.var_class[3][:] = longitude #PMEL standard direction
+
+    def add_id(self,idstr=''):
+        self.var_class[4][:] = idstr
+
+    def add_data(self, data=None, trim_index=None):
+        """ """
+        
+        for ind, varname in enumerate(data.keys()):
+            print(varname)
+            if not varname in ['time','time2','lat','lon','depth','latitude','longitude','timeseries_id']:
+                di = self.rec_vars.index(varname)
+                self.var_class[di][:] = data[varname][trim_index,0,0,0]
+        
+
+        
+    def add_history(self, new_history):
+        """Adds timestamp (UTC time) and history to existing information"""
+        self.rootgrpID.History = self.rootgrpID.History + '\n' + datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")\
                     + ' ' + new_history + '\n'
                     
     def close(self):
