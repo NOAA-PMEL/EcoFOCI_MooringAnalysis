@@ -42,7 +42,8 @@ import argparse
 import sys
 
 #Science Stack
-from netCDF4 import Dataset
+from netCDF4 import Dataset,date2num,num2date
+
 import numpy as np
 
 
@@ -54,7 +55,8 @@ import pandas as pd
 #User Stack
 from calc.EPIC2Datetime import EPIC2Datetime, get_UDUNITS, Datetime2EPIC
 from io_utils.EcoFOCI_netCDF_read import EcoFOCI_netCDF
-from io_utils.EcoFOCI_netCDF_write import CF_NC_2D, CF_NC, CF_NC_Profile, NetCDF_Copy_Struct, NetCDF_Trimmed, NetCDF_Trimmed_2D
+from io_utils.EcoFOCI_netCDF_write import NetCDF_Copy_Struct, NetCDF_Trimmed, NetCDF_Trimmed_2D
+from io_utils.EcoFOCI_netCDF_write import CF_NC_2D, CF_NC, CF_NC_Profile, CF_NetCDF_Trimmed
 from io_utils.time_helper import roundTime, interp2hour
 
 __author__   = 'Shaun Bell'
@@ -98,6 +100,9 @@ parser.add_argument('--trim_bounds',
         type=str, 
         help='Trim: start and end boundarys for trimming (inclusive)\
         Format: yyyy-mm-ddThh:mm:ss start-date end-date')
+parser.add_argument('--iscf',
+        action="store_true",
+        help="if netcdf file is CF compliant time, this will use CF flavored tools")
 
 args = parser.parse_args()
 
@@ -107,7 +112,8 @@ if args.featureType:
 else:
     featureType=''
 
-if args.operation in ['CF','CF Convert','CF_Convert']:
+
+if (args.operation in ['CF','CF Convert','CF_Convert']) and not args.iscf:
     #generates near file
     if args.is2D:
 
@@ -284,7 +290,7 @@ if args.operation in ['CF','CF Convert','CF_Convert']:
         ncinstance.close()
         df.close()    
 
-elif args.operation in ['RoundTime','roundtime','round_time']:
+elif (args.operation in ['RoundTime','roundtime','round_time']) and not args.iscf:
     #Modifies original file
     #read in 1d data file
 
@@ -304,7 +310,7 @@ elif args.operation in ['RoundTime','roundtime','round_time']:
         print("History attribute does not exist to edit")
     df.close()
 
-elif args.operation in ['offset','Offset']:
+elif (args.operation in ['offset','Offset']) and not args.iscf:
     #Modifies original file
     #read in 1d data file
 
@@ -324,7 +330,7 @@ elif args.operation in ['offset','Offset']:
         print("History attribute does not exist to edit")
     df.close()
 
-elif args.operation in ['Interpolate','interpolate']:
+elif (args.operation in ['Interpolate','interpolate']) and not args.iscf:
     #creates new file
     if args.is2D:
 
@@ -445,7 +451,7 @@ elif args.operation in ['Interpolate','interpolate']:
         ncinstance.close()
         df.close()    
 
-elif args.operation in ['Trim','trim']:
+elif (args.operation in ['Trim','trim']) and not args.iscf:
 
     if not args.trim_bounds:
         sys.exit("Must pass the --trim_bounds flag")
@@ -540,5 +546,65 @@ elif args.operation in ['Trim','trim']:
 
     #close file
     df.close()    
+
+### is a cf file
+elif (args.operation in ['Trim','trim']) and  args.iscf:
+
+    if not args.trim_bounds:
+        sys.exit("Must pass the --trim_bounds flag")
+
+    if len(args.trim_bounds[0]) <=8:
+        sys.exit("Time format should be yyy-mm-ddThh:mm:ss")
+
+    try:
+        History=global_atts['History']
+    except:
+        History=''
+
+
+    if args.is2D:
+        sys.exit("2D CF compliant trim not yet implemented - exiting")
+
+    elif args.isProfile:
+        sys.exit("Profiles rarely can be trimmed by date unless prawler or glider - exiting")
+
+    else:
+
+        df = EcoFOCI_netCDF( args.sourcefile )
+        global_atts = df.get_global_atts()
+        vars_dic = df.get_vars()
+        ncdata = df.ncreadfile_dic()
+
+        if 'lat' in vars_dic:
+            lat = 'lat'
+            lon = 'lon'
+        elif 'latitude' in vars_dic:
+            lat = 'latitude'
+            lon = 'longitude'
+
+        #converttime to datetime
+        data_dati = num2date(ncdata['time'], args.time_since_str[0])
+        data_dati = np.array(data_dati)
+
+        time_ind = (data_dati >= datetime.datetime.strptime(args.trim_bounds[0],'%Y-%m-%dT%H:%M:%S')) & \
+                                (data_dati <= datetime.datetime.strptime(args.trim_bounds[1],'%Y-%m-%dT%H:%M:%S')) 
+
+        #create new netcdf file
+        ncinstance = CF_NetCDF_Trimmed(savefile=(args.sourcefile).replace('.nc','.trimmed.nc'))
+        ncinstance.file_create()
+        ncinstance.cp_global_atts(df._getnchandle_())
+        ncinstance.dimension_init(time_len=len(ncdata['time'][time_ind]))
+        ncinstance.variable_init(df._getnchandle_())
+
+        ncinstance.add_coord_data(depth=ncdata['depth'], latitude=ncdata[lat], longitude=ncdata[lon],
+                                         time=ncdata['time'][time_ind])
+        ncinstance.add_data(data=ncdata, trim_index=time_ind)    
+        ncinstance.add_history('Data Trimmed')
+        
+        ncinstance.close()
+
+    #close file
+    df.close()   
+
 else:
-    print("Invalid Option Selected")
+    print("Invalid Option or combination of options Selected")
