@@ -19,6 +19,8 @@ EcoFOCI timeseries processing tools
 	  -h, --help            show this help message and exit
 	  -ih, --InstTypeHelp   Instrument Type - run program with -ih flag to get
 	                        list
+	  -conv CONVENTION, --convention CONVENTION
+	  						EPIC or CF/COARDS format (defaults to epic)
 	  -dec DECLINATION DECLINATION, --declination DECLINATION DECLINATION
 	                        magnetic declination correction [lat.dd lon.dd] +N,+W
 	  -kw KEYWORDARGS [KEYWORDARGS ...], --keywordargs KEYWORDARGS [KEYWORDARGS ...]
