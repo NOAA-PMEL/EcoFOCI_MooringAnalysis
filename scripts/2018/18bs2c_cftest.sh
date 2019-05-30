@@ -46,19 +46,19 @@ serial_no=2026
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe37/18bs2c_s37_2026_0055m.asc
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_s37_0055m.unqcd.nc
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s37 0055 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth -conv CF
-python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date}
+#python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date}
 
 serial_no=2323
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe37/18bs2c_s37_2323_0031m.asc
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_s37_0031m.unqcd.nc
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s37 0031 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth -conv CF
-python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date}
+#python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date}
 
 serial_no=2336
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe37/18bs2c_s37_2336_0066m.asc
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_s37_0066m.unqcd.nc
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s37 0066 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth -conv CF
-python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date}
+#python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date}
 
 : '
 echo "-------------------------------------------------------------"

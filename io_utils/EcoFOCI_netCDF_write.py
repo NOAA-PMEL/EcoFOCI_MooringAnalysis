@@ -1204,12 +1204,19 @@ class CF_NC_Timeseries(object):
         #build record variable attributes
         rec_vars, rec_var_standard_name, rec_var_long_name = [], [], []
         rec_var_generic_name, rec_var_units, rec_var_epic = [], [], []
+        rec_role = []
         
         #cycle through epic dictionary and create nc parameters
         for evar in EPIC_VARS_dict.keys():
             print(evar)
             if evar in ['timeseries_id', 'profile_id']:
                 rec_vars.append(evar)
+                rec_var_standard_name.append( EPIC_VARS_dict[evar]['standard_name'] )
+                rec_var_long_name.append( EPIC_VARS_dict[evar]['long_name'] )
+                rec_role.append( EPIC_VARS_dict[evar]['cf_role'] )
+                rec_var_generic_name.append( '' )
+                rec_var_units.append( '' )
+                rec_var_epic.append( '' )
             else:
                 rec_vars.append(evar)
                 rec_var_standard_name.append( EPIC_VARS_dict[evar]['standard_name'] )
@@ -1218,33 +1225,39 @@ class CF_NC_Timeseries(object):
                 rec_var_units.append( EPIC_VARS_dict[evar]['units'] )
                 rec_var_epic.append( EPIC_VARS_dict[evar]['epic_key'] )
 
-        rec_var_type= ['f8','f4','f4','f4','f4','S1'] + ['f4' for spot in rec_vars[6:]]
+        rec_var_type= ['f8','f4','f4','f4','S1'] + ['f4' for spot in rec_vars[5:]]
         
         var_class = []
         var_class.append(self.rootgrpID.createVariable(rec_vars[0], rec_var_type[0], self.dim_vars[0]))#time1
         var_class.append(self.rootgrpID.createVariable(rec_vars[1], rec_var_type[1], self.dim_vars[1]))#depth
         var_class.append(self.rootgrpID.createVariable(rec_vars[2], rec_var_type[2], self.dim_vars[2]))#lat
         var_class.append(self.rootgrpID.createVariable(rec_vars[3], rec_var_type[3], self.dim_vars[3]))#lon
-        var_class.append(self.rootgrpID.createVariable(rec_vars[4], rec_var_type[4], self.dim_vars[4]))#lon
-
+        var_class.append(self.rootgrpID.createVariable(rec_vars[4], rec_var_type[4], self.dim_vars[4]))#tieseries id
+        
         for i, v in enumerate(rec_vars[5:]):  #1D coordinate variables
-            var_class.append(self.rootgrpID.createVariable(rec_vars[i+5], rec_var_type[i+5], self.dim_vars))
+            var_class.append(self.rootgrpID.createVariable(rec_vars[i+5], rec_var_type[i+5], self.dim_vars[0:4]))
             
         ### add variable attributes
         for i, v in enumerate(var_class): #4dimensional for all vars
             print(("Adding Variable {0}").format(v))
-            v.setncattr('standard_name',rec_var_standard_name[i])
-            v.long_name = rec_var_long_name[i]
-            v.generic_name = rec_var_generic_name[i]
-            v.units = rec_var_units[i]
-            v.epic_code = rec_var_epic[i]
+            if i == 4:
+                v.long_name = rec_var_long_name[i]
+                v.cf_role=rec_role[0]
+                v.standard_name = rec_var_standard_name[i]
+            else:
+                v.standard_name = rec_var_standard_name[i]
+                v.long_name = rec_var_long_name[i]
+                v.generic_name = rec_var_generic_name[i]
+                v.units = rec_var_units[i]
+                v.epic_code = rec_var_epic[i]
             
             
         self.var_class = var_class
         self.rec_vars = rec_vars
+        self.rec_var_epic = rec_var_epic
 
         
-    def add_coord_data(self, depth=None, latitude=None, longitude=None, time=None, CastLog=False):
+    def add_coord_data(self, depth=None, latitude=None, longitude=None, time=None):
         """ """
         self.var_class[0][:] = time
         self.var_class[1][:] = depth
@@ -1254,14 +1267,33 @@ class CF_NC_Timeseries(object):
     def add_id(self,idstr=''):
         self.var_class[4][:] = idstr
 
-    def add_data(self, data=None):
-        """ """
+    def add_data(self, EPIC_VARS_dict, data_dic=None, missing_values=1e35):
+        """
+            using the same dictionary to define the variables, and a new dictionary
+                that associates each data array with an epic key, cycle through and populate
+                the desired variables.  If a variable is defined in the epic keys but not passed
+                to the add_data routine, it should be populated with missing data
+        """
+        #exit if the variable dictionary is not passed
+        if not bool(EPIC_VARS_dict):
+            raise RuntimeError('Empty EPIC Dictionary is passed to add_data.')
         
-        for ind, varname in enumerate(data.keys()):
-            if not varname in ['time','time2','lat','lon','depth','latitude','longitude']:
-                di = self.rec_vars.index(varname)
-                self.var_class[di][:] = data[varname][:]
-        
+        #cycle through EPIC_Vars and populate with data - this is a comprehensive list of 
+        # all variables expected
+        # if no data is passed but an epic dictionary is, complete routine leaving variables
+        #  with missing data if not found
+
+        for EPICdic_key in EPIC_VARS_dict.keys():
+            print(EPICdic_key)
+            if not EPICdic_key in ['time','time2','lat','lon','depth','latitude','longitude', 'timeseries_id']:
+                print("1",EPIC_VARS_dict[EPICdic_key]['epic_key'])
+                di = self.rec_var_epic.index(EPIC_VARS_dict[EPICdic_key]['epic_key'])
+                print(data_dic[EPIC_VARS_dict[EPICdic_key]['epic_key']])
+                try:
+                    self.var_class[di][:] = data_dic[EPIC_VARS_dict[EPICdic_key]['epic_key']]
+                except KeyError:
+                    pass
+                    self.var_class[di][:] = missing_values
 
         
     def add_history(self, new_history):

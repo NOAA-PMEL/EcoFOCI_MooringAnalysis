@@ -844,8 +844,7 @@ elif (args.convention).upper() in ['CF','COARDS','CF/COARDS']:
 	ncinstance.add_coord_data(depth=args.InstDepth, 
 							  latitude=lat, 
 							  longitude=lon, 
-							  time1=time1, 
-							  time2=time2)
+							  time=time_cf)
 	ncinstance.add_id(MooringID)
 	ncinstance.add_data(EPIC_VARS_dict,data_dic=data_dic)
 	try:
