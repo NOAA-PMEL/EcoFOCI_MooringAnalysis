@@ -832,7 +832,7 @@ if (args.convention).upper() in ['epic','EPIC']:
 		pass
 	ncinstance.close()
 elif (args.convention).upper() in ['CF','COARDS','CF/COARDS']:
-	ncinstance = CF_NC_Timeseries(savefile=(args.OutDataFile).replace('.nc','.cf.nc'))
+	ncinstance = CF_NC_Timeseries(savefile=(args.OutDataFile))
 	ncinstance.file_create()
 	ncinstance.sbeglobal_atts(raw_data_file=args.DataFile.split('/')[-1],
 							  Water_Depth=water_depth,
