@@ -32,10 +32,11 @@ import argparse
 
 #Science Stack
 import numpy as np
+from netCDF4 import date2num,num2date
 
 #User defined Stack
 from io_utils.ConfigParserLocal import get_config
-from io_utils.EcoFOCI_netCDF_write import NetCDF_Create_Timeseries
+from io_utils.EcoFOCI_netCDF_write import NetCDF_Create_Timeseries, CF_NC_Timeseries
 import io_utils.instr_data_ingest as instr_data_ingest
 from calc.EPIC2Datetime import EPIC2Datetime, Datetime2EPIC
 import calc.geomag.geomag.geomag as geomag
@@ -150,6 +151,7 @@ parser.add_argument('InstType', metavar='InstType', type=str,
                help='Instrument Type - run program with -ih flag to get list')
 parser.add_argument('InstDepth', metavar='InstDepth', type=int, 
                help='Nominal Instrument Depth')
+parser.add_argument("-conv",'--convention', type=str, help='EPIC or CF/COARDS format', default='epic')
 parser.add_argument('-ih','--InstTypeHelp', action="store_true",
                help='Instrument Type - run program with -ih flag to get list')
 parser.add_argument('-dec','--declination', nargs=2, type=float,
@@ -167,6 +169,9 @@ if args.InstTypeHelp:
 	print instr_data_ingest.available_data_sources().keys()
 	sys.exit()
 
+# Config Path
+configPath = '../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/'
+
 if args.InstType in ['MTR','mtr']:
 	config_file = instr_data_ingest.data_source_instrumentconfig('yaml').get(args.InstType)
 	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
@@ -175,8 +180,10 @@ if args.InstType in ['MTR','mtr']:
 										 mtr_coef=args.keywordargs[1:4],
 										 tenmin_interp=to_bool(args.keywordargs[4]))
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.convention).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 	#cycle through and build data arrays
 	#create a "data_dic" and associate the data with an epic key
@@ -196,6 +203,7 @@ if args.InstType in ['MTR','mtr']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	(lat,lon) = (-9999, -9999)
 
@@ -205,8 +213,10 @@ elif args.InstType in ['mtrduino','MTR5k']:
 										 source=args.InstType,
 										 round_10min_interval=to_bool(args.keywordargs[0]))
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.convention).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 	#cycle through and build data arrays
 	#create a "data_dic" and associate the data with an epic key
@@ -225,6 +235,7 @@ elif args.InstType in ['mtrduino','MTR5k']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	(lat,lon) = (-9999, -9999)
 
@@ -234,8 +245,10 @@ elif args.InstType in ['prawler','PRAWLER','Prawler']:
 										 source=args.InstType,
 										 prawler_interp_time=args.keywordargs[0],
 										 prawler_grid_press=args.keywordargs[1])  
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.convention).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 	#cycle through and build data arrays
 	#create a "data_dic" and associate the data with an epic key
@@ -253,6 +266,7 @@ elif args.InstType in ['prawler','PRAWLER','Prawler']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	(lat,lon) = (-9999, -9999)
 
@@ -263,8 +277,10 @@ elif args.InstType in ['sbe56','sbe-56','SBE56','SBE-56','s56']:
 										 roundTime=to_bool(args.keywordargs[0]),
 										 filetype=args.keywordargs[1])
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.convention).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 
 	#cycle through and build data arrays
@@ -282,6 +298,7 @@ elif args.InstType in ['sbe56','sbe-56','SBE56','SBE-56','s56']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	(lat,lon) = (-9999, -9999)
 
@@ -291,8 +308,10 @@ elif args.InstType in ['sbe39','sbe-39','SBE39','SBE-39','s39']:
 										 source=args.InstType,
 										 truncate_seconds=to_bool(args.keywordargs[0]))
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.convention).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 
 	#cycle through and build data arrays
@@ -313,6 +332,7 @@ elif args.InstType in ['sbe39','sbe-39','SBE39','SBE-39','s39']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	(lat,lon) = (-9999, -9999)
 
@@ -322,8 +342,10 @@ elif args.InstType in ['sbe26','sbe-26','SBE26','SBE-26','s26']:
 										 source=args.InstType,
 										 round_quarter_hour=True)
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.convention).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 
 	#cycle through and build data arrays
@@ -345,6 +367,7 @@ elif args.InstType in ['sbe26','sbe-26','SBE26','SBE-26','s26']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	(lat,lon) = (-9999, -9999)
 
@@ -354,8 +377,11 @@ elif args.InstType in ['microcat','sbe37','sbe-37','SBE37','SBE-37','s37']:
 										 source=args.InstType,
 										 truncate_seconds=to_bool(args.keywordargs[0]))
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.convention).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		print(configPath + config_file)
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 
 	#cycle through and build data arrays
@@ -384,6 +410,7 @@ elif args.InstType in ['microcat','sbe37','sbe-37','SBE37','SBE-37','s37']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	(lat,lon) = (-9999, -9999)
 
@@ -395,8 +422,10 @@ elif args.InstType in ['seacat','sbe16','sbe-16','SBE16','SBE-16','sc']:
 									 	 time_stamp=args.keywordargs[1],
 										 hourly_interp=to_bool(args.keywordargs[2]))
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.convention).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 
 	#cycle through and build data arrays
@@ -458,6 +487,7 @@ elif args.InstType in ['seacat','sbe16','sbe-16','SBE16','SBE-16','sc']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	(lat,lon) = (-9999, -9999)
 
@@ -468,8 +498,10 @@ elif args.InstType in ['sg','rcm_sg','rcmsg','rcm-sg']:
 										 turbidity=to_bool(args.keywordargs[0]),
 										 pressure=to_bool(args.keywordargs[1]))
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.convention).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 
 	#cycle through and build data arrays
@@ -516,6 +548,7 @@ elif args.InstType in ['sg','rcm_sg','rcmsg','rcm-sg']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 
 	#magnetic declination correction
@@ -543,8 +576,10 @@ elif args.InstType in ['rcm7','rcm9','rcm11']:
 										 truncate_time=to_bool(args.keywordargs[0]),
 										 interpolate_time=to_bool(args.keywordargs[1]))
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.convention).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 
 	#cycle through and build data arrays
@@ -589,6 +624,7 @@ elif args.InstType in ['rcm7','rcm9','rcm11']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	#magnetic declination correction
 	if args.declination:
@@ -619,8 +655,10 @@ elif args.InstType in ['eco','ecf','fluor','ecofluor','fluor','ecoflntu','ecobbf
 										 hourly_interp=to_bool(args.keywordargs[4]),
 										 verbose=True)
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.convention).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 
 	#cycle through and build data arrays
@@ -644,6 +682,7 @@ elif args.InstType in ['eco','ecf','fluor','ecofluor','fluor','ecoflntu','ecobbf
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	(lat,lon) = (-9999, -9999)
 
@@ -652,8 +691,10 @@ elif args.InstType in ['wpak','met']:
 	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
 										 source=args.InstType,
 										 argos_file=to_bool(args.keywordargs[0]))
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.convention).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 	#cycle through and build data arrays
 	#create a "data_dic" and associate the data with an epic key
@@ -673,6 +714,7 @@ elif args.InstType in ['wpak','met']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 	#magnetic declination correction for winds
 	if args.declination:
@@ -695,8 +737,10 @@ elif args.InstType in ['adcp_ice']:
 										 source=args.InstType,
 										 roundTime=to_bool(args.keywordargs[0]))
 
-
-	EPIC_VARS_dict = get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/' + config_file, 'yaml')
+	if (args.convention).upper() in ['epic','EPIC']:
+		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
+	else:
+		EPIC_VARS_dict = get_config(configPath + 'cf/' + config_file.replace('epickeys','cf'), 'yaml')
 
 
 	#cycle through and build data arrays
@@ -729,6 +773,7 @@ elif args.InstType in ['adcp_ice']:
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
+	time_cf = date2num(Dataset['time'].values(),'days since 1900-01-01T00:00:00Z')
 
 
 	#magnetic declination correction
@@ -764,24 +809,48 @@ else:
 		
 "-----------------------------------------------"
 " write value to file after readin is successful"
-
-ncinstance = NetCDF_Create_Timeseries(savefile=args.OutDataFile)
-ncinstance.file_create()
-ncinstance.sbeglobal_atts(raw_data_file=args.DataFile.split('/')[-1],
-						  Water_Depth=water_depth,
-						  Station_Name=MooringID,
-						  Instrument_Type=args.InstType,
-						  SerialNumber=serial_no)
-ncinstance.dimension_init(time_len=len(time1))
-ncinstance.variable_init(EPIC_VARS_dict)
-ncinstance.add_coord_data(depth=args.InstDepth, 
-						  latitude=lat, 
-						  longitude=lon, 
-						  time1=time1, 
-						  time2=time2)
-ncinstance.add_data(EPIC_VARS_dict,data_dic=data_dic)
-try:
-	ncinstance.add_history(new_history=history_string)
-except NameError:
-	pass
-ncinstance.close()
+" format is determined by flag at command line  "
+if (args.convention).upper() in ['epic','EPIC']:
+	ncinstance = NetCDF_Create_Timeseries(savefile=args.OutDataFile)
+	ncinstance.file_create()
+	ncinstance.sbeglobal_atts(raw_data_file=args.DataFile.split('/')[-1],
+							  Water_Depth=water_depth,
+							  Station_Name=MooringID,
+							  Instrument_Type=args.InstType,
+							  SerialNumber=serial_no)
+	ncinstance.dimension_init(time_len=len(time1))
+	ncinstance.variable_init(EPIC_VARS_dict)
+	ncinstance.add_coord_data(depth=args.InstDepth, 
+							  latitude=lat, 
+							  longitude=lon, 
+							  time1=time1, 
+							  time2=time2)
+	ncinstance.add_data(EPIC_VARS_dict,data_dic=data_dic)
+	try:
+		ncinstance.add_history(new_history=history_string)
+	except NameError:
+		pass
+	ncinstance.close()
+elif (args.convention).upper() in ['CF','COARDS','CF/COARDS']:
+	ncinstance = CF_NC_Timeseries(savefile=(args.OutDataFile))
+	ncinstance.file_create()
+	ncinstance.sbeglobal_atts(raw_data_file=args.DataFile.split('/')[-1],
+							  Water_Depth=water_depth,
+							  Station_Name=MooringID,
+							  Instrument_Type=args.InstType,
+							  SerialNumber=serial_no)
+	ncinstance.dimension_init(time_len=len(time1))
+	ncinstance.variable_init(EPIC_VARS_dict)
+	ncinstance.add_coord_data(depth=args.InstDepth, 
+							  latitude=lat, 
+							  longitude=lon, 
+							  time=time_cf)
+	ncinstance.add_id(MooringID)
+	ncinstance.add_data(EPIC_VARS_dict,data_dic=data_dic)
+	try:
+		ncinstance.add_history(new_history=history_string)
+	except NameError:
+		pass
+	ncinstance.close()
+else:
+	print("Sorry, try EPIC for epic standards or CF/COARDS for CF standards")
