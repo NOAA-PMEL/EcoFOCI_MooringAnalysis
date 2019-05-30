@@ -2,22 +2,27 @@
 
 """
  Background:
- --------
+ ===========
  EcoFOCIraw2nc.py
  
  
  Purpose:
- --------
+ ========
  Convert raw data to EPIC (or eventually COARDS/CF) standard netcdf files
  
  History:
- --------
+ ========
 
  2019-01-04 : Add SBE-49 to SBE-16 output
  2018-10-16 : Add SBE-26
  2017-02-08 : Correct Vector2Wind conversion to get met wind conventions from cartesion vectors
  2016-10-31 : Add RCM-SG
  2016-12-09 : Add ADCP Icetracking datastream
+
+ Compatibility:
+ ==============
+ python >=3.6 - TODO
+ python 2.7 - Tested
 """
 
 import warnings
@@ -166,7 +171,7 @@ args = parser.parse_args()
 
 ### Extra help for available instruments to process and varias accepted names
 if args.InstTypeHelp:
-	print instr_data_ingest.available_data_sources().keys()
+	print(instr_data_ingest.available_data_sources().keys())
 	sys.exit()
 
 # Config Path
@@ -261,7 +266,7 @@ elif args.InstType in ['prawler','PRAWLER','Prawler']:
 		temp[np.isnan(temp)] = 1e35
 		data_dic['T_20']= temp
 	except KeyError:
-		print "No temperature in this file"
+		print("No temperature in this file")
 
 
 	### Time should be consistent in all files as a datetime object
@@ -294,7 +299,7 @@ elif args.InstType in ['sbe56','sbe-56','SBE56','SBE-56','s56']:
 		temp[np.isnan(temp)] = 1e35
 		data_dic['T_20']= temp
 	except KeyError:
-		print "No temperature in this file"
+		print("No temperature in this file")
 
 	### Time should be consistent in all files as a datetime object
 	time1, time2 = np.array(Datetime2EPIC(Dataset['time'].values()), dtype='f8')
