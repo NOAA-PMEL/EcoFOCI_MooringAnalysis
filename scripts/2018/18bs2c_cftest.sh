@@ -42,72 +42,76 @@ echo "-------------------------------------------------------------"
 echo "SBE37 Processing"
 echo "-------------------------------------------------------------"
 
+#CF Conventions
+
 serial_no=2026
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe37/18bs2c_s37_2026_0055m.asc
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_s37_0055m.unqcd.cf.nc
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s37 0055 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth -conv CF
-python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date} --iscf --time_since_str 'days since 1900-01-01T00:00:00Z'
+python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date} --iscf --time_since_str "days since 1900-01-01T00:00:00Z"
 
 serial_no=2323
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe37/18bs2c_s37_2323_0031m.asc
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_s37_0031m.unqcd.cf.nc
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s37 0031 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth -conv CF
-python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date} --iscf --time_since_str 'days since 1900-01-01T00:00:00Z'
+python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date} --iscf --time_since_str "days since 1900-01-01T00:00:00Z"
 
 serial_no=2336
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe37/18bs2c_s37_2336_0066m.asc
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_s37_0066m.unqcd.cf.nc
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s37 0066 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth -conv CF
-python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date} --iscf --time_since_str 'days since 1900-01-01T00:00:00Z'
+python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date} --iscf --time_since_str "days since 1900-01-01T00:00:00Z"
 
-: '
+
 echo "-------------------------------------------------------------"
 echo "SBE39 Processing"
 echo "-------------------------------------------------------------"
 
+#CF Conventions
+
 serial_no=1422
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe39/18bs2c_s39_1422_0040m.asc
-output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_s39_0040m.unqcd.nc
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s39 0040 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date}
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_s39_0040m.unqcd.cf.nc
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s39 0040 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth  -conv CF
+python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date} --iscf --time_since_str "days since 1900-01-01T00:00:00Z"
 
 serial_no=1777
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe39/18bs2c_s39_1777_0035m.asc
-output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_s39_0035m.unqcd.nc
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s39 0035 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date}
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_s39_0035m.unqcd.cf.nc
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s39 0035 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth  -conv CF
+python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date} --iscf --time_since_str "days since 1900-01-01T00:00:00Z"
 
 serial_no=5288
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe39/18bs2c_s39_5288_0027m.asc
-output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_s39_0027m.unqcd.nc
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s39 0027 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date}
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_s39_0027m.unqcd.cf.nc
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s39 0027 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth  -conv CF
+python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date} --iscf --time_since_str "days since 1900-01-01T00:00:00Z"
 
 serial_no=0818
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe39/18bs2c_s39_0818_0050m.asc
-output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_s39_0050m.unqcd.nc
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s39 0050 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date}
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_s39_0050m.unqcd.cf.nc
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s39 0050 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth  -conv CF
+python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date} --iscf --time_since_str "days since 1900-01-01T00:00:00Z"
 
 serial_no=5286
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe39/18bs2c_s39_5286_0045m.asc
-output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_s39_0045m.unqcd.nc
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s39 0045 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date}
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_s39_0045m.unqcd.cf.nc
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s39 0045 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth  -conv CF
+python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date} --iscf --time_since_str "days since 1900-01-01T00:00:00Z"
 
 serial_no=1773
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe39/18bs2c_s39_1773_0060m.asc
-output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_s39_0060m.unqcd.nc
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s39 0060 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date}
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_s39_0060m.unqcd.cf.nc
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s39 0060 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth  -conv CF
+python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date} --iscf --time_since_str "days since 1900-01-01T00:00:00Z"
 
 serial_no=3501
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe39/18bs2c_s39_3501_0019m.asc
-output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_s39_0019m.unqcd.nc
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s39 0019 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date}
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_s39_0019m.unqcd.cf.nc
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s39 0019 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth  -conv CF
+python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date} --iscf --time_since_str "days since 1900-01-01T00:00:00Z"
 
-
+: '
 echo "-------------------------------------------------------------"
 echo "Wetlabs Processing"
 echo "-------------------------------------------------------------"
