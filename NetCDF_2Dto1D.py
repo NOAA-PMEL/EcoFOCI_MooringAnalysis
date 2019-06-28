@@ -62,6 +62,7 @@ vars_dic = df.get_vars()
 data = df.ncreadfile_dic()
 
 print(data)
+
 if args.depth:
 	if 'dep' in data.keys():
 		epic_depth_str = 'dep'
@@ -74,7 +75,7 @@ if args.depth:
 		ncinstance = eNCw.NetCDF_Copy_Struct(savefile=output_file)
 		ncinstance.file_create()
 		ncinstance.sbeglobal_atts(raw_data_file=global_atts['DATA_CMNT'], Station_Name=global_atts['MOORING'], 
-		                            Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=global_atts['INST_TYPE'],
+		                            Water_Depth=global_atts['WATER_DEPTH'],
 		                            Water_Mass=global_atts['WATER_MASS'], Experiment=['EXPERIMENT'])
 		ncinstance.dimension_init(time_len=len(data['time']))
 		ncinstance.variable_init(vars_dic)

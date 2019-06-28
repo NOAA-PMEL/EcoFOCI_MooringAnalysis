@@ -150,7 +150,7 @@ if (args.operation in ['CF','CF Convert','CF_Convert']) and not args.iscf:
         ncinstance = CF_NC_2D(savefile=args.sourcefile.replace('.nc','.cf.nc'))
         ncinstance.file_create()
         ncinstance.sbeglobal_atts(raw_data_file=data_cmnt, Station_Name=data_mooring, 
-                                        Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=global_atts['INST_TYPE'],
+                                        Water_Depth=global_atts['WATER_DEPTH'], Instrument_Type=global_atts['INST_TYPE'],
                                         Water_Mass=global_atts['WATER_MASS'], Experiment=global_atts['EXPERIMENT'], 
                                         Project=global_atts['PROJECT'], History=History,featureType=featureType)
         ncinstance.dimension_init(time_len=len(CF_time),depth_len=len(ncdata['depth']))
@@ -194,6 +194,7 @@ if (args.operation in ['CF','CF Convert','CF_Convert']) and not args.iscf:
         except:
             data_cmnt = ''
 
+
         try:
             station_name = global_atts['STATION_NAME']
         except:
@@ -207,7 +208,7 @@ if (args.operation in ['CF','CF Convert','CF_Convert']) and not args.iscf:
         ncinstance = CF_NC_Profile(savefile=args.sourcefile.replace('.nc','.cf.nc'))
         ncinstance.file_create()
         ncinstance.sbeglobal_atts(raw_data_file=data_cmnt, Station_Name=station_name, 
-                                        Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=global_atts['INST_TYPE'],
+                                        Water_Depth=global_atts['WATER_DEPTH'], Instrument_Type=global_atts['INST_TYPE'],
                                         Water_Mass=global_atts['WATER_MASS'], 
                                         History=History,featureType=featureType)
         ncinstance.dimension_init(depth_len=len(ncdata[depthkey]))
@@ -273,7 +274,7 @@ if (args.operation in ['CF','CF Convert','CF_Convert']) and not args.iscf:
         ncinstance = CF_NC(savefile=args.sourcefile.replace('.nc','.cf.nc'))
         ncinstance.file_create()
         ncinstance.sbeglobal_atts(raw_data_file=data_cmnt, Station_Name=data_mooring, 
-                                        Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=data_insttype,
+                                        Water_Depth=global_atts['WATER_DEPTH'], Instrument_Type=data_insttype,
                                         Water_Mass=global_atts['WATER_MASS'], Experiment=data_experiment, Project=data_project, 
                                         History=History,featureType=featureType)
         ncinstance.dimension_init(time_len=len(CF_time))
@@ -376,7 +377,7 @@ elif (args.operation in ['Interpolate','interpolate']) and not args.iscf:
         ncinstance = NetCDF_Copy_Struct(savefile=args.sourcefile.replace('.nc','.interp.nc'))
         ncinstance.file_create()
         ncinstance.sbeglobal_atts(raw_data_file=global_atts['DATA_CMNT'], Station_Name=global_atts['MOORING'], 
-                                    Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=global_atts['INST_TYPE'],
+                                    Water_Depth=global_atts['WATER_DEPTH'], Instrument_Type=global_atts['INST_TYPE'],
                                     Water_Mass=global_atts['WATER_MASS'], Experiment=['EXPERIMENT'],
                                     Project=global_atts['PROJECT'], History=History,featureType=featureType)
         ncinstance.dimension_init(time_len=len(etime),depth_len=len(ncdata['depth']))
@@ -435,7 +436,7 @@ elif (args.operation in ['Interpolate','interpolate']) and not args.iscf:
         ncinstance = NetCDF_Copy_Struct(savefile=args.sourcefile.replace('.nc','.interp.nc'))
         ncinstance.file_create()
         ncinstance.sbeglobal_atts(raw_data_file=global_atts['DATA_CMNT'], Station_Name=global_atts['MOORING'], 
-                                    Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=global_atts['INST_TYPE'],
+                                    Water_Depth=global_atts['WATER_DEPTH'], Instrument_Type=global_atts['INST_TYPE'],
                                     Water_Mass=global_atts['WATER_MASS'], Experiment=['EXPERIMENT'],
                                     Project=global_atts['PROJECT'], History=History, featureType=featureType)
         ncinstance.dimension_init(time_len=len(etime))
@@ -490,7 +491,7 @@ elif (args.operation in ['Trim','trim']) and not args.iscf:
         ncinstance = NetCDF_Trimmed_2D(savefile=(args.sourcefile).replace('.nc','.trimmed_missing.nc'))
         ncinstance.file_create()
         ncinstance.sbeglobal_atts(raw_data_file=global_atts['DATA_CMNT'], Station_Name=global_atts['MOORING'], 
-                                    Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=global_atts['INST_TYPE'],
+                                    Water_Depth=global_atts['WATER_DEPTH'], Instrument_Type=global_atts['INST_TYPE'],
                                     Water_Mass=global_atts['WATER_MASS'], Experiment=global_atts['EXPERIMENT'],
                                     Project=global_atts['PROJECT'])
         ncinstance.dimension_init(time_len=len(ncdata['time'][time_ind]),depth_len=len(ncdata['depth']))
@@ -531,7 +532,7 @@ elif (args.operation in ['Trim','trim']) and not args.iscf:
         ncinstance = NetCDF_Trimmed(savefile=(args.sourcefile).replace('.nc','.trimmed_missing.nc'))
         ncinstance.file_create()
         ncinstance.sbeglobal_atts(raw_data_file=global_atts['DATA_CMNT'], Station_Name=global_atts['MOORING'], 
-                                    Water_Depth=global_atts['WATER_DEPTH'], Inst_Type=global_atts['INST_TYPE'],
+                                    Water_Depth=global_atts['WATER_DEPTH'], Instrument_Type=global_atts['INST_TYPE'],
                                     Water_Mass=global_atts['WATER_MASS'], Experiment=global_atts['EXPERIMENT'],
                                     Project=global_atts['PROJECT'])
         ncinstance.dimension_init(time_len=len(ncdata['time'][time_ind]))
