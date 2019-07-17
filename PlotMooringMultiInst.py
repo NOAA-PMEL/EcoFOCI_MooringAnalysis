@@ -21,14 +21,18 @@
  	Use Case3 (with -ctd flag):
  		Plot the discrete point from a ctd cast (nearby is most relevant) for QC puposes
 
- Modifications:
- --------------
+ History:
+ ========
 
+ 2019-07-16: S.Bell - edit and test for python3 compatibility
  2016-09-16: SW Bell - Add support for parsing yaml files and translating between yaml and json/pyini
  					Begin code cleanup from previous iterations of the routine.  Merge so that one program can provide ctd cal
  					overlays.
   
-
+ Compatibility:
+ ==============
+ python >=3.6 - ** Tested
+ python 2.7 - Tested but no longer developed for
 """
 
 #System Stack
@@ -97,7 +101,7 @@ if args.PointerFile.split('.')[-1] == 'pyini':
 elif args.PointerFile.split('.')[-1] == 'yaml':
 	pointer_file = ConfigParserLocal.get_config(args.PointerFile,'yaml')
 else:
-	print "PointerFile format not recognized"
+	print("PointerFile format not recognized")
 	sys.exit()
 
 MooringID = pointer_file['MooringID']
@@ -154,9 +158,9 @@ if args.multiplot_overlay:
 	label_thin = []
 
 	### cycle through all files, retrieve data and plot
-	print files_path
+	print(files_path)
 	for ind, ncfile in enumerate(files_path):
-		print "Working on {activefile}".format(activefile=ncfile)
+		print("Working on {activefile}".format(activefile=ncfile))
 
 		#open/read netcdf files
 		df = EcoFOCI_netCDF(ncfile)
@@ -218,7 +222,7 @@ if args.multiplot_overlay:
 			try:
 				plt.plot(nctime, ncdata[plot_var][:,0,0,0],color=color[ind],linestyle=linestyle[ind],linewidth=0.25,markersize=1)
 			except KeyError: #if the file doesn't have the specified epic_key it will through an exception
-				print "Failed to plot {0}".format(plot_var)
+				print("Failed to plot {0}".format(plot_var))
 				continue
 
 
@@ -309,7 +313,7 @@ if args.ctd_calibration_plots:
 
 
 		### mooring data retrieval
-		print "Working on {activefile}".format(activefile=ncfile)
+		print("Working on {activefile}".format(activefile=ncfile))
 		df = EcoFOCI_netCDF(ncfile)
 		global_atts = df.get_global_atts()
 		vars_dic = df.get_vars()
@@ -338,7 +342,7 @@ if args.ctd_calibration_plots:
 		try:
 			plt.plot(nctime, ncdata[plot_var][:,0,0,0],'k', linewidth=0.5)
 		except KeyError: #if the file doesn't have the specified epic_key it will through an exception
-			print "Failed to plot {0}: variable likely not in timeseries".format(plot_var)
+			print("Failed to plot {0}: variable likely not in timeseries".format(plot_var))
 			continue
 
 		#setup bouds
@@ -353,8 +357,8 @@ if args.ctd_calibration_plots:
 
 		### CTD cal data retrieval
 		for ind_ctd, ncfile_ctd in enumerate(ctd_files_path):
-			print "Adding CTD cast {active_ctd_file} at depth {depth}".format(active_ctd_file=ncfile_ctd,
-				depth=int(nominal_depth[ind]))
+			print("Adding CTD cast {active_ctd_file} at depth {depth}".format(active_ctd_file=ncfile_ctd,
+																			  depth=int(nominal_depth[ind])))
 			df_ctd = EcoFOCI_netCDF(ncfile_ctd)
 			global_atts = df_ctd.get_global_atts()
 			vars_dic = df_ctd.get_vars()
@@ -367,9 +371,9 @@ if args.ctd_calibration_plots:
 			try:
 				plt.scatter(nctime_ctd, ncdata_ctd[plot_var_ctd][0,int(nominal_depth[ind]),0,0],s=200,edgecolor='r',facecolor='none')
 				plt.scatter(nctime_ctd, ncdata_ctd[plot_var_ctd][0,int(nominal_depth[ind]),0,0],s=50,edgecolor='r',facecolor='r',marker='+')
-				print ncdata_ctd[plot_var_ctd][0,int(nominal_depth[ind]),0,0]
+				print(ncdata_ctd[plot_var_ctd][0,int(nominal_depth[ind]),0,0])
 			except IndexError:
-				print "Likely no matching depth {0} - cast only reaches {1}m".format(int(nominal_depth[ind]),len(ncdata_ctd[plot_var_ctd][0,:,0,0])-1)
+				print("Likely no matching depth {0} - cast only reaches {1}m".format(int(nominal_depth[ind]),len(ncdata_ctd[plot_var_ctd][0,:,0,0])-1))
 				continue
 
 		#set bounds if estabilshed by user

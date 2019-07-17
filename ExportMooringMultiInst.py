@@ -21,14 +21,26 @@
  	Use Case3 (with -ctd flag):
  		Save the discrete point from a ctd cast (nearby is most relevant) for QC puposes
 
- Modifications:
- --------------
+ History:
+ ========
+
+ 2019-07-16: S.Bell - edit and test for python3 compatibility
+ 2019-04-12: Modify for 2019 glider data (only use *.timeseries.nc files)
+ 2018-07-02: Fork and make so that glider with multiple time variables creates multiple id's
+
+ 2016-06-10: Update program so that it pulls possible new variables from epic.json file
+ 2016-08-10: transfer routine to EcoFOCI_MooringAnalysis package to simplify and unify
 
  2017-02-23: Use PlotMooringMultiInst.py as basis for routines to export instead
  2016-09-16: SW Bell - Add support for parsing yaml files and translating between yaml and json/pyini
  					Begin code cleanup from previous iterations of the routine.  Merge so that one program can provide ctd cal
  					overlays.
   
+
+ Compatibility:
+ ==============
+ python >=3.6 - ** Tested
+ python 2.7 - Tested but no longer developed for
 
 """
 
@@ -82,7 +94,7 @@ if args.PointerFile.split('.')[-1] == 'pyini':
 elif args.PointerFile.split('.')[-1] == 'yaml':
 	pointer_file = ConfigParserLocal.get_config(args.PointerFile,ftype='yaml')
 else:
-	print "PointerFile format not recognized"
+	print("PointerFile format not recognized")
 	sys.exit()
 
 MooringID = pointer_file['MooringID']
@@ -116,11 +128,11 @@ if args.multi:
 
 
 	### cycle through all files, retrieve data and plot
-	print files_path
+	print(files_path)
 	writer = pd.ExcelWriter('data/'+MooringID+'_'+plot_var+'.xlsx', engine='xlsxwriter', datetime_format='YYYY-MM-DD HH:MM:SS')
 	label_thin = []
 	for ind, ncfile in enumerate(files_path):
-		print "Working on {activefile}".format(activefile=ncfile)
+		print("Working on {activefile}".format(activefile=ncfile))
 
 		#open/read netcdf files
 		df = EcoFOCI_netCDF(ncfile)
@@ -146,7 +158,7 @@ if args.multi:
 			df = pd.DataFrame(ncdata[plot_var][:,0,0,0], index=nctime, columns=[plot_var])
 			df.to_excel(writer, sheet_name=files[ind].split('.')[0].split('/')[-1])
 		except KeyError: #if the file doesn't have the specified epic_key it will through an exception
-			print "Failed to save {0}".format(plot_var)
+			print("Failed to save {0}".format(plot_var))
 			continue
 
 	writer.save()
@@ -162,7 +174,7 @@ if args.ctd_calibration_plots:
 	label_thin = []
 	for ind, ncfile in enumerate(files_path):
 		### mooring data retrieval
-		print "Working on {activefile}".format(activefile=ncfile)
+		print("Working on {activefile}".format(activefile=ncfile))
 		df = EcoFOCI_netCDF(ncfile)
 		global_atts = df.get_global_atts()
 		vars_dic = df.get_vars()
@@ -185,14 +197,14 @@ if args.ctd_calibration_plots:
 			df = pd.DataFrame(ncdata[plot_var][:,0,0,0], index=nctime, columns=[plot_var])
 			df.to_excel(writer, sheet_name=files[ind].split('.')[0])
 		except KeyError: #if the file doesn't have the specified epic_key it will through an exception
-			print "Failed to save {0}".format(plot_var)
+			print("Failed to save {0}".format(plot_var))
 			continue
 
 
 
 	### CTD cal data retrieval
 	for ind_ctd, ncfile_ctd in enumerate(ctd_files_path):
-		print "Adding CTD cast {active_ctd_file}".format(active_ctd_file=ncfile_ctd)
+		print("Adding CTD cast {active_ctd_file}".format(active_ctd_file=ncfile_ctd))
 		df_ctd = EcoFOCI_netCDF(ncfile_ctd)
 		global_atts = df_ctd.get_global_atts()
 		vars_dic = df_ctd.get_vars()
@@ -206,7 +218,7 @@ if args.ctd_calibration_plots:
 			df = pd.DataFrame(np.hstack((np.array([nctime_ctd]*len(ncdata_ctd['dep'])),ncdata_ctd[plot_var_ctd][0,:,:,0])), index=ncdata_ctd['dep'][:], columns=['time',plot_var])
 			df.to_excel(writer, sheet_name=ctd_files[ind_ctd].split('.')[0])
 		except IndexError:
-			print "Likely no matching depth {0} - cast only reaches {1}m".format(int(label[ind].split('m')[0]),len(ncdata_ctd[plot_var_ctd][0,:,0,0])-1)
+			print("Likely no matching depth {0} - cast only reaches {1}m".format(int(label[ind].split('m')[0]),len(ncdata_ctd[plot_var_ctd][0,:,0,0])-1))
 			continue
 	writer.save()
 
