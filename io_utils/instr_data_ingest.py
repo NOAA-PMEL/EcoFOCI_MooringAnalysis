@@ -40,6 +40,8 @@
 import datetime
 import numpy as np
 import pandas as pd
+import sys
+import datetime
 from io import BytesIO
 from netCDF4 import num2date
 from collections import OrderedDict, defaultdict
@@ -1062,42 +1064,70 @@ class rcmsg(object):
         return BytesIO(buf.strip())
 
     @staticmethod   
-    def parse(fobj, turbidity=False, pressure=False):
+    def parse(fobj, turbidity=False, pressure=False, version='combined'):
         r"""
         Basic Method to open and read seaguard csv files - depends on pandas
 
         Second row has variables to be used as header and variable names
 
         Oxygen should be corrected for salinity values
-        """
-        rawdata = pd.read_csv(fobj, header=1, delimiter='\t')        
-        rawdata['Time tag (Gmt)']=pd.to_datetime(rawdata['Time tag (Gmt)'],format='%d.%m.%y %H:%M:%S')
-        time = { k:v.to_pydatetime() for k,v in (rawdata['Time tag (Gmt)'].to_dict(into=OrderedDict)).iteritems() }
+        --
+        2019:
+        Newer Seaguard software outputs a record file for each attached instrument (indiv) vs all parameters
+        in the same file (combined)
 
-        if turbidity and pressure:
-            return({'time':time, 'Temperature':rawdata['Temperature'].to_dict(into=OrderedDict),
-                'Pressure':rawdata['Pressure'].to_dict(into=OrderedDict),
-                'East':rawdata['East'].to_dict(into=OrderedDict), 'North':rawdata['North'].to_dict(into=OrderedDict),
-                'Turbidity':rawdata['Turbidity'].to_dict(into=OrderedDict),
-                'O2Concentration':rawdata['O2Concentration'].to_dict(into=OrderedDict),
-                'AirSaturation':rawdata['AirSaturation'].to_dict(into=OrderedDict)})
-        elif (not turbidity) and pressure:
-            return({'time':time, 'Temperature':rawdata['Temperature'].to_dict(into=OrderedDict),
-                'Pressure':rawdata['Pressure'].to_dict(into=OrderedDict),
-                'East':rawdata['East'].to_dict(into=OrderedDict), 'North':rawdata['North'].to_dict(into=OrderedDict),
-                'O2Concentration':rawdata['O2Concentration'].to_dict(into=OrderedDict),
-                'AirSaturation':rawdata['AirSaturation'].to_dict(into=OrderedDict)})
-        elif turbidity and (not pressure):
-            return({'time':time, 'Temperature':rawdata['Temperature'].to_dict(into=OrderedDict),
-                'Turbidity':rawdata['Turbidity'].to_dict(into=OrderedDict),
-                'East':rawdata['East'].to_dict(into=OrderedDict), 'North':rawdata['North'].to_dict(into=OrderedDict),
-                'O2Concentration':rawdata['O2Concentration'].to_dict(into=OrderedDict),
-                'AirSaturation':rawdata['AirSaturation'].to_dict(into=OrderedDict)})
+        version='indiv'
+        or
+        version='combined'
+
+
+        """
+
+        if version in ['combined']:
+          rawdata = pd.read_csv(fobj, header=1, delimiter='\t')        
+          rawdata['Time tag (Gmt)']=pd.to_datetime(rawdata['Time tag (Gmt)'],format='%d.%m.%y %H:%M:%S')
+          time = { k:v.to_pydatetime() for k,v in (rawdata['Time tag (Gmt)'].to_dict(into=OrderedDict)).iteritems() }
+
+          if turbidity and pressure:
+              return({'time':time, 'Temperature':rawdata['Temperature'].to_dict(into=OrderedDict),
+                  'Pressure':rawdata['Pressure'].to_dict(into=OrderedDict),
+                  'East':rawdata['East'].to_dict(into=OrderedDict), 'North':rawdata['North'].to_dict(into=OrderedDict),
+                  'Turbidity':rawdata['Turbidity'].to_dict(into=OrderedDict),
+                  'O2Concentration':rawdata['O2Concentration'].to_dict(into=OrderedDict),
+                  'AirSaturation':rawdata['AirSaturation'].to_dict(into=OrderedDict)})
+          elif (not turbidity) and pressure:
+              return({'time':time, 'Temperature':rawdata['Temperature'].to_dict(into=OrderedDict),
+                  'Pressure':rawdata['Pressure'].to_dict(into=OrderedDict),
+                  'East':rawdata['East'].to_dict(into=OrderedDict), 'North':rawdata['North'].to_dict(into=OrderedDict),
+                  'O2Concentration':rawdata['O2Concentration'].to_dict(into=OrderedDict),
+                  'AirSaturation':rawdata['AirSaturation'].to_dict(into=OrderedDict)})
+          elif turbidity and (not pressure):
+              return({'time':time, 'Temperature':rawdata['Temperature'].to_dict(into=OrderedDict),
+                  'Turbidity':rawdata['Turbidity'].to_dict(into=OrderedDict),
+                  'East':rawdata['East'].to_dict(into=OrderedDict), 'North':rawdata['North'].to_dict(into=OrderedDict),
+                  'O2Concentration':rawdata['O2Concentration'].to_dict(into=OrderedDict),
+                  'AirSaturation':rawdata['AirSaturation'].to_dict(into=OrderedDict)})
+          else:
+              return({'time':time, 'Temperature':rawdata['Temperature'].to_dict(into=OrderedDict),
+                  'East':rawdata['East'].to_dict(into=OrderedDict), 'North':rawdata['North'].to_dict(into=OrderedDict),
+                  'O2Concentration':rawdata['O2Concentration'].to_dict(into=OrderedDict),
+                  'AirSaturation':rawdata['AirSaturation'].to_dict(into=OrderedDict)})
+
+        elif version in ['indiv']:
+          rawdata = pd.read_csv(fobj)        
+          rawdata['Time tag (Gmt)']=rawdata['Time tag (Gmt)'].apply(lambda x: datetime.datetime.fromordinal(int(x-366))+datetime.timedelta(days=x-int(x)))
+          time = { k:v.to_pydatetime() for k,v in (rawdata['Time tag (Gmt)'].to_dict(into=OrderedDict)).iteritems() }
+
+
+          return({'time':time, 
+              'Temperature':rawdata['Temperature'].to_dict(into=OrderedDict),
+              'East':rawdata['East'].to_dict(into=OrderedDict), 
+              'North':rawdata['North'].to_dict(into=OrderedDict),
+              'O2Concentration':rawdata['O2Concentration'].to_dict(into=OrderedDict),
+              'AirSaturation':rawdata['AirSaturation'].to_dict(into=OrderedDict)})
+
         else:
-            return({'time':time, 'Temperature':rawdata['Temperature'].to_dict(into=OrderedDict),
-                'East':rawdata['East'].to_dict(into=OrderedDict), 'North':rawdata['North'].to_dict(into=OrderedDict),
-                'O2Concentration':rawdata['O2Concentration'].to_dict(into=OrderedDict),
-                'AirSaturation':rawdata['AirSaturation'].to_dict(into=OrderedDict)})
+            sys.exit("Not a recognized seaguard format")
 
 class rcm(object):
     r""" Anderaa instruments (RCM 4, 7, 9, 11's

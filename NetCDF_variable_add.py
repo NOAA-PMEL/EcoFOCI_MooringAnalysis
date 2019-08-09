@@ -60,7 +60,7 @@ nchandle = df._getnchandle_()
 data = df.ncreadfile_dic()
 
 if args.add_epic_var:
-    EPIC_VARS_dict = ConfigParserLocal.get_config('EcoFOCI_config/epickeys/epickey.json','json')
+    EPIC_VARS_dict = ConfigParserLocal.get_config('../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/epickeys/epickey.json','json')
     try :
         epic_var_ind = (args.add_epic_var).split('_')[1]
         print "Adding {0} by searching for {1}".format(args.add_epic_var, epic_var_ind)

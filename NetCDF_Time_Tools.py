@@ -460,11 +460,6 @@ elif (args.operation in ['Trim','trim']) and not args.iscf:
     if len(args.trim_bounds[0]) <=8:
         sys.exit("Time format should be yyy-mm-ddThh:mm:ss")
 
-    try:
-        History=global_atts['History']
-    except:
-        History=''
-
 
     if args.is2D:
 
@@ -500,7 +495,7 @@ elif (args.operation in ['Trim','trim']) and not args.iscf:
         ncinstance.add_coord_data(depth=ncdata['depth'], latitude=ncdata[lat], longitude=ncdata[lon],
                                          time1=ncdata['time'][time_ind], time2=ncdata['time2'][time_ind])
         ncinstance.add_data(data=ncdata, trim_index=time_ind)    
-        ncinstance.add_history('Data Trimmed')
+        ncinstance.add_history(df._getnchandle_(),new_history='Data Trimmed')
        
         ncinstance.close()
 
@@ -521,6 +516,7 @@ elif (args.operation in ['Trim','trim']) and not args.iscf:
             lat = 'latitude'
             lon = 'longitude'
 
+            
         #converttime to datetime
         data_dati = EPIC2Datetime(ncdata['time'], ncdata['time2'])
         data_dati = np.array(data_dati)
@@ -541,7 +537,7 @@ elif (args.operation in ['Trim','trim']) and not args.iscf:
         ncinstance.add_coord_data(depth=ncdata['depth'], latitude=ncdata[lat], longitude=ncdata[lon],
                                          time1=ncdata['time'][time_ind], time2=ncdata['time2'][time_ind])
         ncinstance.add_data(data=ncdata, trim_index=time_ind)    
-        ncinstance.add_history('Data Trimmed')
+        ncinstance.add_history(df._getnchandle_(),new_history='Data Trimmed')
         
         ncinstance.close()
 
@@ -557,10 +553,6 @@ elif (args.operation in ['Trim','trim']) and  args.iscf:
     if len(args.trim_bounds[0]) <=8:
         sys.exit("Time format should be yyy-mm-ddThh:mm:ss")
 
-    try:
-        History=global_atts['History']
-    except:
-        History=''
 
 
     if args.is2D:
@@ -600,7 +592,7 @@ elif (args.operation in ['Trim','trim']) and  args.iscf:
         ncinstance.add_coord_data(depth=ncdata['depth'], latitude=ncdata[lat], longitude=ncdata[lon],
                                          time=ncdata['time'][time_ind])
         ncinstance.add_data(data=ncdata, trim_index=time_ind)    
-        ncinstance.add_history('Data Trimmed')
+        ncinstance.add_history(df._getnchandle_(),new_history='Data Trimmed')
         
         ncinstance.close()
 

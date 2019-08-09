@@ -501,7 +501,8 @@ elif args.InstType in ['sg','rcm_sg','rcmsg','rcm-sg']:
 	Dataset = instr_data_ingest.get_inst_data(args.DataFile, 
 										 source=args.InstType,
 										 turbidity=to_bool(args.keywordargs[0]),
-										 pressure=to_bool(args.keywordargs[1]))
+										 pressure=to_bool(args.keywordargs[1]),
+										 version=args.keywordargs[2])
 
 	if (args.convention).upper() in ['epic','EPIC']:
 		EPIC_VARS_dict = get_config(configPath + config_file, 'yaml')
@@ -558,7 +559,7 @@ elif args.InstType in ['sg','rcm_sg','rcmsg','rcm-sg']:
 
 	#magnetic declination correction
 	if args.declination:
-		(lat,lon) = (args.declination[0], args.declination[1])
+		(lat,lon) = latlon_dm2dd(args.latlon[0:2],args.latlon[3:5])
 		t = geomag.GeoMag()
 		dec = t.GeoMag(lat,-1 * lon,time=Dataset['time'].values()[0].date()).dec
 

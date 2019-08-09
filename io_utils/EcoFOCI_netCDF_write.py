@@ -575,9 +575,9 @@ class NetCDF_Trimmed(object):
         
 
         
-    def add_history(self, new_history):
+    def add_history(self, nchandle, new_history=''):
         """Adds timestamp (UTC time) and history to existing information"""
-        self.rootgrpID.History = self.rootgrpID.History + '\n' + datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")\
+        self.rootgrpID.History = nchandle.History + '\n' + datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")\
                     + ' ' + new_history + '\n'
                     
     def close(self):
@@ -744,9 +744,9 @@ class NetCDF_Trimmed_2D(object):
         
 
         
-    def add_history(self, new_history):
+    def add_history(self, nchandle, new_history=''):
         """Adds timestamp (UTC time) and history to existing information"""
-        self.rootgrpID.History = self.rootgrpID.History + '\n' + datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")\
+        self.rootgrpID.History = nchandle.History + '\n' + datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")\
                     + ' ' + new_history + '\n'
                     
     def close(self):
@@ -1787,9 +1787,9 @@ class CF_NetCDF_Trimmed(object):
         
 
         
-    def add_history(self, new_history):
+    def add_history(self, nchandle, new_history=''):
         """Adds timestamp (UTC time) and history to existing information"""
-        self.rootgrpID.History = self.rootgrpID.History + '\n' + datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")\
+        self.rootgrpID.History = nchandle.History + '\n' + datetime.datetime.utcnow().strftime("%B %d, %Y %H:%M UTC")\
                     + ' ' + new_history + '\n'
                     
     def close(self):
