@@ -39,8 +39,8 @@ from io_utils.EcoFOCI_netCDF_read import EcoFOCI_netCDF
 
 __author__   = 'Shaun Bell'
 __email__    = 'shaun.bell@noaa.gov'
-__created__  = datetime.datetime(2014, 05, 22)
-__modified__ = datetime.datetime(2014, 06, 24)
+__created__  = datetime.datetime(2014, 5, 22)
+__modified__ = datetime.datetime(2014, 6, 24)
 __version__  = "0.2.0"
 __status__   = "Development"
 __keywords__ = 'timeseries', 'Plots', 'Cruise', 'QC','property-property'
@@ -56,7 +56,7 @@ parser.add_argument('-timebounds','--timebounds', nargs=3, type=str, help='fixed
 
 args = parser.parse_args()
 
-print "Working on file %s " % args.DataPath
+print("Working on file {} ".format(args.DataPath))
 
 nc = EcoFOCI_netCDF(args.DataPath)
 ncdata = nc.ncreadfile_dic()

@@ -22,7 +22,7 @@ import datetime
 
 __author__   = 'Shaun Bell'
 __email__    = 'shaun.bell@noaa.gov'
-__created__  = datetime.datetime(2014, 01, 29)
+__created__  = datetime.datetime(2014, 1, 29)
 __modified__ = datetime.datetime(2016, 8, 10)
 __version__  = "0.1.0"
 __status__   = "Development"
