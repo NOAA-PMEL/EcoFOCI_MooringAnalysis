@@ -56,7 +56,7 @@ parser.add_argument('-timebounds','--timebounds', nargs=3, type=str, help='fixed
 
 args = parser.parse_args()
 
-print("Working on file {} ".format(args.DataPath))
+print("Working on file: {} ".format(args.DataPath))
 
 nc = EcoFOCI_netCDF(args.DataPath)
 ncdata = nc.ncreadfile_dic()
