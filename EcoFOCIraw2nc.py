@@ -31,6 +31,13 @@ import sys
 import datetime
 import argparse
 
+
+# must be python 2.7
+try:
+    assert sys.version_info < (3, 0)
+except AssertionError:
+    sys.exit("Must be running python 2.7")
+
 # Science Stack
 import numpy as np
 from netCDF4 import date2num, num2date
@@ -99,12 +106,12 @@ def wind2vector(ws, wd):
 
 def vector2wind(u, v, firstdefinition=False):
     """ 
-	Update: 
+    Update: 
 
-	conversion available from:
-	https://www.e-education.psu.edu/meteo300/node/719
-	http://tornado.sfsu.edu/geosciences/classes/m430/Wind/WindDirection.html
-	"""
+    conversion available from:
+    https://www.e-education.psu.edu/meteo300/node/719
+    http://tornado.sfsu.edu/geosciences/classes/m430/Wind/WindDirection.html
+    """
     u_ind = u == 1e35
     v_ind = v == 1e35
 
@@ -854,6 +861,49 @@ elif args.InstType in ["wpak", "met"]:
         )
     else:
         (lat, lon) = (-9999, -9999)
+
+elif args.InstType in ["rbr"]:
+    config_file = instr_data_ingest.data_source_instrumentconfig("yaml").get(
+        args.InstType
+    )
+    Dataset = instr_data_ingest.get_inst_data(
+        args.DataFile,
+        source=args.InstType,
+        headerlength=args.keywordargs[0],
+        channels=args.keywordargs[1],
+    )
+
+    if (args.convention).upper() in ["epic", "EPIC"]:
+        EPIC_VARS_dict = get_config(configPath + config_file, "yaml")
+    else:
+        EPIC_VARS_dict = get_config(
+            configPath + "cf/" + config_file.replace("epickeys", "cf"), "yaml"
+        )
+
+    # cycle through and build data arrays
+    # create a "data_dic" and associate the data with an epic key
+    # this key needs to be defined in the EPIC_VARS dictionary in order to be in the nc file
+    # if it is defined in the EPIC_VARS dic but not below, it will be filled with missing values
+    # if it is below but not the epic dic, it will not make it to the nc file
+    data_dic = {}
+    try:
+        temp = np.array(Dataset["temperature"].values(), dtype="f8")
+        temp[np.isnan(temp)] = 1e35
+        data_dic["T_20"] = temp
+    except KeyError:
+        print("No temperature in this file")
+    try:
+        data_dic["P_1"] = np.array(Dataset["Pressure"], dtype="f8")
+        if len(data_dic["P_1"]) == 0:
+            data_dic["P_1"] = np.ones_like(Dataset["time"].values()) * 1e35
+    except:
+        data_dic["P_1"] = np.ones_like(Dataset["time"].values()) * 1e35
+
+    ### Time should be consistent in all files as a datetime object
+    time1, time2 = np.array(Datetime2EPIC(Dataset["time"].values()), dtype="f8")
+    time_cf = date2num(Dataset["time"].values(), "days since 1900-01-01T00:00:00Z")
+
+    (lat, lon) = (-9999, -9999)
 
 elif args.InstType in ["adcp_ice"]:
     config_file = instr_data_ingest.data_source_instrumentconfig("yaml").get(

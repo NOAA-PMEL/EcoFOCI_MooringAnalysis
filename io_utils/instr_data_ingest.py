@@ -110,6 +110,7 @@ def available_data_sources():
         "ecoflntu": ecoflntu,
         "ecobbfl2w": ecobbfl2w,
         "prawler": "prawler",
+        "rbr": rbr,
     }
     return sources
 
@@ -177,6 +178,7 @@ def data_source_instrumentconfig(ftype="yaml"):
             "ecoflntu": "fluor_ntu_std_epickeys.json",
             "ecobbfl2w": "ecobbfl2w_std_epickeys.json",
             "prawler": "prawler_epickeys.json",
+            "rbr": "rbr_epickeys.json",
         }
     elif ftype in ["yaml"]:
         sources = {
@@ -239,6 +241,7 @@ def data_source_instrumentconfig(ftype="yaml"):
             "ecoflntu": "fluor_ntu_std_epickeys.yaml",
             "ecobbfl2w": "ecobbfl2w_std_epickeys.yaml",
             "prawler": "prawler_epickeys.yaml",
+            "rbr": "rbr_epickeys.yaml",
         }
     else:
         raise RuntimeError("{0} format not recognized".format(infile))
@@ -2278,3 +2281,63 @@ class adcp_ice(object):
                 "Spd": rawdata["BTSpeed"].to_dict(into=OrderedDict),
                 "Dir": rawdata["BTDirection"].to_dict(into=OrderedDict),
             }
+
+
+class rbr(object):
+    r""" RBR one or two channel temp/press sensor"""
+
+    @staticmethod
+    def get_data(filename=None, MooringID=None, **kwargs):
+        r"""
+        Basic Method to open files.  Specific actions can be passes as kwargs for instruments
+        """
+
+        fobj = open(filename)
+        data = fobj.read()
+
+        buf = data
+        return BytesIO(buf.strip())
+
+    @staticmethod
+    def parse(fobj, headerlength=15, channels=1, **kwargs):
+        r"""
+        Basic Method to open and read sbe56 csv files or sbe56 cnv files
+        """
+        channels = int(channels)
+        headerlength = int(headerlength)
+
+        if channels == 1:
+            temp, time = {}, {}
+
+            for k, line in enumerate(fobj.readlines()):
+
+                line = line.strip()
+
+                if k >= headerlength:
+
+                    temp[k - headerlength] = np.float(line.strip().split()[2])
+                    time[k - headerlength] = datetime.datetime.strptime(
+                        " ".join(line.strip().split()[0:2]), "%Y/%m/%d %H:%M:%S"
+                    )
+
+            print("Read in {0} lines of the file").format(k)
+
+            return {"time": time, "temperature": temp}
+
+        elif channels == 2:
+            temp, time, press = {}, {}, {}
+
+            for k, line in enumerate(fobj.readlines()):
+                line = line.strip()
+
+                if k >= headerlength:
+
+                    press[k - headerlength] = np.float(line.strip().split()[3])
+                    temp[k - headerlength] = np.float(line.strip().split()[2])
+                    time[k - headerlength] = datetime.datetime.strptime(
+                        " ".join(line.strip().split()[0:2]), "%Y/%m/%d %H:%M:%S"
+                    )
+
+            print("Read in {0} lines of the file").format(k)
+
+            return {"time": time, "temperature": temp, "pressure": press}
