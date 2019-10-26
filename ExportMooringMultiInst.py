@@ -10,16 +10,16 @@
  --------
  Export Multiple Timeseries in same excel document.  
 
- 	Use Case1:
- 		Save the same parameter (eg temperature) from multiple instruments on same mooring from 
- 		different depths. e.g. temperature from every MTR depth of a mooring deployment
+    Use Case1:
+        Save the same parameter (eg temperature) from multiple instruments on same mooring from 
+        different depths. e.g. temperature from every MTR depth of a mooring deployment
 
- 	Use Case2:
- 		Save the same parameter from different moorings at the same depth (not restricted to this).
- 		e.g. temperature from the instrument closest to the surface over multiple deployments (onrunning SST plots)
+    Use Case2:
+        Save the same parameter from different moorings at the same depth (not restricted to this).
+        e.g. temperature from the instrument closest to the surface over multiple deployments (onrunning SST plots)
 
- 	Use Case3 (with -ctd flag):
- 		Save the discrete point from a ctd cast (nearby is most relevant) for QC puposes
+    Use Case3 (with -ctd flag):
+        Save the discrete point from a ctd cast (nearby is most relevant) for QC puposes
 
  History:
  ========
@@ -33,8 +33,8 @@
 
  2017-02-23: Use PlotMooringMultiInst.py as basis for routines to export instead
  2016-09-16: SW Bell - Add support for parsing yaml files and translating between yaml and json/pyini
- 					Begin code cleanup from previous iterations of the routine.  Merge so that one program can provide ctd cal
- 					overlays.
+                    Begin code cleanup from previous iterations of the routine.  Merge so that one program can provide ctd cal
+                    overlays.
   
 
  Compatibility:
@@ -124,7 +124,7 @@ ctd_files_path = [a + b for a, b in zip(CTDDataPath, ctd_files)]
 
 
 """---------------------------------------------------------------------------------------
-		Plot Multiple Mooring Datastreams on one panel
+        Plot Multiple Mooring Datastreams on one panel
 """
 databounds = {}
 
@@ -226,16 +226,21 @@ if args.ctd_calibration_plots:
         nctime_ctd = EPIC2Datetime(ncdata_ctd["time"], ncdata_ctd["time2"])
 
         try:
-            # 	plt.scatter(nctime_ctd, ncdata_ctd[plot_var_ctd][0,int(label[ind].split('m')[0]),0,0],s=200,edgecolor='r',facecolor='none')
+            ncdata_ctd["dep"][:]
+            depthvar = "dep"
+        except:
+            depthvar = "depth"
+        try:
+            #   plt.scatter(nctime_ctd, ncdata_ctd[plot_var_ctd][0,int(label[ind].split('m')[0]),0,0],s=200,edgecolor='r',facecolor='none')
 
             df = pd.DataFrame(
                 np.hstack(
                     (
-                        np.array([nctime_ctd] * len(ncdata_ctd["dep"])),
+                        np.array([nctime_ctd] * len(ncdata_ctd[depthvar])),
                         ncdata_ctd[plot_var_ctd][0, :, :, 0],
                     )
                 ),
-                index=ncdata_ctd["dep"][:],
+                index=ncdata_ctd[depthvar][:],
                 columns=["time", plot_var],
             )
             df.to_excel(writer, sheet_name=ctd_files[ind_ctd].split(".")[0])
