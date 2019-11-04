@@ -74,7 +74,7 @@ echo "Wetlabs Processing"
 #Need to add CDOM and NTU channels
 # calibration used is from 2016
 
-serial_no=flntusb_4877
+serial_no=flntusb_4877 
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/eco_fluor/18ckp1a_flntusb_4877_39.75m.txt
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18ckp1a_eco_0040m
 
