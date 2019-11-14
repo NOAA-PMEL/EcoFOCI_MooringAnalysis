@@ -160,15 +160,28 @@ class Data2Grid(object):
     def gridTime(self, dt_hour=1, dt_error_min=5):
 
         # convert datetime
-        start_time_int = date2num(
-            datetime.datetime.strptime(self.pointer_dic["start_time"], "%Y-%m-%d"),
-            "days since 0001-01-01",
-        )
-        end_time_int = date2num(
-            datetime.datetime.strptime(self.pointer_dic["end_time"], "%Y-%m-%d"),
-            "days since 0001-01-01",
-        )
-
+        try:
+            start_time_int = date2num(
+                datetime.datetime.strptime(self.pointer_dic["start_time"], "%Y-%m-%d"),
+                "days since 0001-01-01",
+            )
+            end_time_int = date2num(
+                datetime.datetime.strptime(self.pointer_dic["end_time"], "%Y-%m-%d"),
+                "days since 0001-01-01",
+            )
+        except:
+            start_time_int = date2num(
+                datetime.datetime.strptime(
+                    self.pointer_dic["start_time"], "%Y-%m-%dT%H:%M:%S"
+                ),
+                "days since 0001-01-01",
+            )
+            end_time_int = date2num(
+                datetime.datetime.strptime(
+                    self.pointer_dic["end_time"], "%Y-%m-%dT%H:%M:%S"
+                ),
+                "days since 0001-01-01",
+            )
         # build time array
         self.dt = dt_hour / 24.0
         self.dte = dt_error_min / (24.0 * 60.0)
