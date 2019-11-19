@@ -46,7 +46,7 @@ EcoFOCI timeseries processing tools
 		
 		sbe56 : -kw roundTime (true / false - rounds time to nearest minute) filetype (csv / cnv - type of exported file)
 		
-		ecf : -kw clock_corr ave_scheme scale_factor dark_count hourly_interp (clock_corr - time to add to ecf clock in seconds , ave_scheme - median / mean, cal scale factor, cal dark count , hourly_interp - True/False) 
+		ecf/ecoflntu/ecobbfl2w : -kw clock_corr ave_scheme scale_factor dark_count hourly_interp (clock_corr - time to add to ecf clock in seconds , ave_scheme - median / mean, cal scale factor, cal dark count , hourly_interp - True/False) 
 
 		wpak : -kw argos (true/false) 
 
