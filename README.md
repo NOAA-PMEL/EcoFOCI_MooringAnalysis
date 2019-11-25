@@ -36,9 +36,7 @@ EcoFOCI timeseries processing tools
 		
 		prawler : -kw interp_time pressure_grid_interp (eg True True - actual values are hardcoded to hourly and 0.5m grid) 
 		
-		rcm_sg : -kw turbidity pressure (eg true if sensor is attached)
-
-		rcm_sg : -kw truncate_time (True/False) interpolate_time (true/false)
+		rcm_sg : -kw turbidity pressure (eg true if sensor is attached) indiv/combined/combined_manual
 		
 		sbe16 : -kw clock_corr time_stamp (time_elapsed_s, time_instrument_s, time_instrument_doy), hourly_interp (True/False)
 
@@ -47,7 +45,7 @@ EcoFOCI timeseries processing tools
 		sbe56 : -kw roundTime (true / false - rounds time to nearest minute) filetype (csv / cnv - type of exported file)
 		
 		ecf/ecoflntu/ecobbfl2w : -kw clock_corr ave_scheme scale_factor dark_count hourly_interp (clock_corr - time to add to ecf clock in seconds , ave_scheme - median / mean, cal scale factor, cal dark count , hourly_interp - True/False) 
-
+		
 		wpak : -kw argos (true/false) 
 
 		adcp_ice: -kw roundTime (roundTime - True/False rounds to nearest hour) 

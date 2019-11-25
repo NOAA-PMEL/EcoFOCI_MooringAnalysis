@@ -1560,6 +1560,12 @@ class rcmsg(object):
             rawdata["Time tag (Gmt)"] = pd.to_datetime(
                 rawdata["Time tag (Gmt)"], format="%d.%m.%y %H:%M:%S"
             )
+        elif version in ["combined_manual"]:
+            rawdata = pd.read_csv(fobj, header=0, delimiter=",")
+            rawdata["Time tag (Gmt)"] = pd.to_datetime(
+                rawdata["Time tag (Gmt)"], format="%Y-%m-%d %H:%M:%S"
+            )
+
             time = {
                 k: v.to_pydatetime()
                 for k, v in (
