@@ -39,8 +39,8 @@ serial_no=flntusb_4877
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/eco_fluor/18ckp1a_flntusb_4877_39.75m.txt
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18ckp1a_eco_0040m
 
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc ecoflntu 0040 -kw 0 median 0.000 00 False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc ecoflntu 0040 -kw 799  median 0.000 00 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc ecoflntu 0040 -kw 0 median 0.0181 49 False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc ecoflntu 0040 -kw 799  median 0.0181 49 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Time_Tools.py ${output}.interpolated.nc Trim --trim_bounds ${deployment_date} ${recovery_date}
 
 
@@ -72,6 +72,6 @@ serial_no=flntusb_4877
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/eco_fluor/18ckp1a_flntusb_4877_39.75m.txt
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18ckp1a_eco_0040m
 
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.cf.nc ecoflntu 0040 -kw 0 median 0.000 00 False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth -conv CF
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.cf.nc ecoflntu 0040 -kw 799  median 0.000 00 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth -conv CF
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.cf.nc ecoflntu 0040 -kw 0 median 0.0181 49 False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth -conv CF
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.cf.nc ecoflntu 0040 -kw 799  median 0.0181 49 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth -conv CF
 python ${prog_dir}NetCDF_Time_Tools.py   ${output}.interpolated.cf.nc Trim  --trim_bounds ${deployment_date} ${recovery_date} --iscf --time_since_str "days since 1900-01-01T00:00:00Z"
