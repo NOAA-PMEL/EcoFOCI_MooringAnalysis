@@ -13,6 +13,7 @@
  History:
  ========
 
+ 2019-11-26 : S.Bell - rcm archive methods had inadvertenly reveresed U.V upon ingestion.  Code corrected
  2019-01-04 : Add SBE-49 to SBE-16 output
  2018-10-16 : Add SBE-26
  2017-02-08 : Correct Vector2Wind conversion to get met wind conventions from cartesion vectors
@@ -625,11 +626,11 @@ elif args.InstType in ["sg", "rcm_sg", "rcmsg", "rcm-sg"]:
     except:
         data_dic["P_1"] = np.ones_like(Dataset["time"].values()) * 1e35
     try:
-        data_dic["U_320"] = np.array(Dataset["North"].values(), dtype="f8")
+        data_dic["U_320"] = np.array(Dataset["East"].values(), dtype="f8")
     except:
         data_dic["U_320"] = np.ones_like(Dataset["time"].values()) * 1e35
     try:
-        data_dic["V_321"] = np.array(Dataset["East"].values(), dtype="f8")
+        data_dic["V_321"] = np.array(Dataset["North"].values(), dtype="f8")
     except:
         data_dic["V_321"] = np.ones_like(Dataset["time"].values()) * 1e35
     try:
@@ -707,11 +708,11 @@ elif args.InstType in ["rcm7", "rcm9", "rcm11"]:
     except:
         data_dic["P_1"] = np.ones_like(Dataset["time"].values()) * 1e35
     try:
-        data_dic["U_320"] = np.array(Dataset["North"].values(), dtype="f8")
+        data_dic["U_320"] = np.array(Dataset["East"].values(), dtype="f8")
     except:
         data_dic["U_320"] = np.ones_like(Dataset["time"].values()) * 1e35
     try:
-        data_dic["V_321"] = np.array(Dataset["East"].values(), dtype="f8")
+        data_dic["V_321"] = np.array(Dataset["North"].values(), dtype="f8")
     except:
         data_dic["V_321"] = np.ones_like(Dataset["time"].values()) * 1e35
     try:
