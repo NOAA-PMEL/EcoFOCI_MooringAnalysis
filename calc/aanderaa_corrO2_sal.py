@@ -24,9 +24,6 @@ __status__ = "Development"
 __keywords__ = "oxygen", "correction"
 
 
-"""------------------------------------- Shear Calc -----------------------------------"""
-
-
 def O2_sal_comp(oxygen_conc=None, salinity=None, temperature=None, internal_sal=0.0):
     """
     From Aandera April2007 -TD 218 Operating Manual - Oxygen Optodes (pg32)

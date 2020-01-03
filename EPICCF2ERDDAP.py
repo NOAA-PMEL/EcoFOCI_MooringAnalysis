@@ -130,8 +130,9 @@ except:
 
 # fill with default values
 print(args.ind_val)
+print((np.array(len(nchandle.dimensions[args.ind_dim]) * [args.ind_val], dtype=bytes)))
 nchandle.variables[id_name][:] = stringtochar(
-    np.array(len(nchandle.dimensions[args.ind_dim]) * [args.ind_val])
+    np.array(len(nchandle.dimensions[args.ind_dim]) * [args.ind_val], dtype=bytes)
 )
 
 
