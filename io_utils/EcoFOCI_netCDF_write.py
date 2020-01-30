@@ -1808,6 +1808,8 @@ class CF_NC_Profile(object):
         ncinstance.add_coord_data()
         ncinstance.add_data()
         ncinstance.close()
+
+    remove FORTRAN meta variable
     """
 
     nc_format = "NETCDF3_CLASSIC"
@@ -1889,12 +1891,7 @@ class CF_NC_Profile(object):
 
         # build record variable attributes
         rec_vars, rec_var_name, rec_var_longname = [], [], []
-        rec_var_generic_name, rec_var_FORTRAN, rec_var_units, rec_var_epic = (
-            [],
-            [],
-            [],
-            [],
-        )
+        rec_var_generic_name, rec_var_units, rec_var_epic = [], [], []
 
         for v_name in nchandle.variables.keys():
             print(v_name)
@@ -1913,7 +1910,6 @@ class CF_NC_Profile(object):
                 rec_var_longname.append(nchandle.variables[v_name].long_name)
                 rec_var_generic_name.append(nchandle.variables[v_name].generic_name)
                 rec_var_units.append(nchandle.variables[v_name].units)
-                rec_var_FORTRAN.append(nchandle.variables[v_name].FORTRAN_format)
                 rec_var_epic.append(nchandle.variables[v_name].epic_code)
 
         rec_vars = ["time", "depth", "lat", "lon"] + rec_vars
@@ -1921,7 +1917,6 @@ class CF_NC_Profile(object):
         rec_var_name = ["", "", "", ""] + rec_var_name
         rec_var_longname = ["", "", "", ""] + rec_var_longname
         rec_var_generic_name = ["", "", "", ""] + rec_var_generic_name
-        rec_var_FORTRAN = ["", "", "", ""] + rec_var_FORTRAN
         rec_var_units = [
             udunits_time_str,
             "dbar",
@@ -1969,7 +1964,6 @@ class CF_NC_Profile(object):
             v.setncattr("name", rec_var_name[i])
             v.long_name = rec_var_longname[i]
             v.generic_name = rec_var_generic_name[i]
-            v.FORTRAN_format = rec_var_FORTRAN[i]
             v.units = rec_var_units[i]
             v.type = rec_var_strtype[i]
             v.epic_code = rec_epic_code[i]

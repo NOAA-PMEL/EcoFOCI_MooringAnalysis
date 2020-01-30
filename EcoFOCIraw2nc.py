@@ -567,19 +567,30 @@ elif args.InstType in ["seacat", "sbe16", "sbe-16", "SBE16", "SBE-16", "sc"]:
             data_dic["V0_3333"] = np.ones_like(Dataset["time"].values()) * 1e35
     except:
         data_dic["V0_3333"] = np.ones_like(Dataset["time"].values()) * 1e35
+    # once we setup a seacat to read percent sat instead of conc... uncomment below for that instance
+    """
     try:
         data_dic["OST_62"] = np.array(Dataset["AAN_OXY"], dtype="f8")
         if len(data_dic["OST_62"]) == 0:
             data_dic["OST_62"] = np.ones_like(Dataset["time"].values()) * 1e35
     except:
         data_dic["OST_62"] = np.ones_like(Dataset["time"].values()) * 1e35
+    """
+    # if an sbe49 was ever hooked up to a mooring, use below
+    """
     try:
         data_dic["O_65"] = np.array(Dataset["OXY_CONC"], dtype="f8")
         if len(data_dic["O_65"]) == 0:
             data_dic["O_65"] = np.ones_like(Dataset["time"].values()) * 1e35
     except:
         data_dic["O_65"] = np.ones_like(Dataset["time"].values()) * 1e35
-
+    """
+    try:
+        data_dic["O_65"] = np.array(Dataset["AAN_OXY"], dtype="f8")
+        if len(data_dic["O_65"]) == 0:
+            data_dic["O_65"] = np.ones_like(Dataset["time"].values()) * 1e35
+    except:
+        data_dic["O_65"] = np.ones_like(Dataset["time"].values()) * 1e35
     ### Time should be consistent in all files as a datetime object
     time1, time2 = np.array(Datetime2EPIC(Dataset["time"].values()), dtype="f8")
     time_cf = date2num(Dataset["time"].values(), "days since 1900-01-01T00:00:00Z")

@@ -235,6 +235,20 @@ if (args.operation in ["CF", "CF Convert", "CF_Convert"]) and not args.iscf:
             data_cmnt = ""
 
         try:
+            data_mooring = global_atts["MOORING"]
+        except:
+            data_mooring = ""
+
+        try:
+            data_insttype = global_atts["INST_TYPE"]
+            data_experiment = global_atts["EXPERIMENT"]
+            data_project = global_atts["PROJECT"]
+        except:
+            data_insttype = ""
+            data_experiment = ""
+            data_project = ""
+
+        try:
             station_name = global_atts["STATION_NAME"]
         except:
             station_name = global_atts["STATION"]

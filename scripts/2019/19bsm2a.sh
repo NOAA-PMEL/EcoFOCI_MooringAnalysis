@@ -35,14 +35,14 @@ echo "-------------------------------------------------------------"
 echo "SBE16 Processing"
 echo "-------------------------------------------------------------"
 
-: '
 serial_no=0655
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe16/19bsm2a_sbe16_655_44m.cnv
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/19bsm2a_sc_0044m
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc sc 0044 -kw 0 time_elapsed_s False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc sc 0044 -kw -88 time_elapsed_s True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc sc 0044 -kw 0 time_instrument_doy False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc sc 0044 -kw -88 time_instrument_doy True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Time_Tools.py ${output}.interpolated.nc Trim --trim_bounds ${deployment_date} ${recovery_date}
 
+: '
 serial_no=50236
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe16/19bsm2a_sbe16_50236_6m.cnv
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/19bsm2a_sc_0006m
@@ -62,7 +62,7 @@ output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/19bsm2a_s37_0012m
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s37 0012 -kw False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Time_Tools.py  ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date}
 
-serial_no=1852
+serial_no=1853
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe37/19bsm2a_s37_1852_0027m.asc
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/19bsm2a_s37_0027m
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc s37 0027 -kw False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
@@ -70,14 +70,11 @@ python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc s37 0027 -kw Fals
 #python ${prog_dir}NetCDF_Time_Tools.py  ${output}.unqcd.nc RoundTime 
 python ${prog_dir}NetCDF_Time_Tools.py  ${output}.unqcd.nc Trim  --trim_bounds ${deployment_date} ${recovery_date}
 
-
 serial_no=1869
-input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe37/19bsm2a_s37_1869_0050m.asc
-output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/19bsm2a_s37_0050m
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc s37 0050 -kw False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-#python ${prog_dir}NetCDF_Time_Tools.py  ${output}.unqcd.nc Offset --offset 31922
-#python ${prog_dir}NetCDF_Time_Tools.py  ${output}.unqcd.nc Interpolate 
-python ${prog_dir}NetCDF_Time_Tools.py  ${output}.unqcd.interp.nc Trim  --trim_bounds ${deployment_date} ${recovery_date}
+input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe37/19bsm2a_s37_1869_0050m.2019.asc
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/19bsm2a_s37_0050m.unqcd.nc
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} s37 0050 -kw True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date} 
 
 serial_no=1804
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe37/19bsm2a_s37_1804_0060m.asc
@@ -90,7 +87,7 @@ echo "-------------------------------------------------------------"
 echo "SBE39 Processing"
 echo "-------------------------------------------------------------"
 
-:'
+: '
 serial_no=0806
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/sbe39/19bsm2a_s39_0806_0018m.asc
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/19bsm2a_s39_0018m.unqcd.nc
@@ -131,7 +128,7 @@ echo "-------------------------------------------------------------"
 echo "SBE56 Processing"
 echo "-------------------------------------------------------------"
 
-:'
+: '
 serial_no=4736
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe56/19bsm2a_0009m_SBE05604736_2019-09-26.cnv
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/19bsm2a_s56_0009m.unqcd.nc
@@ -154,6 +151,7 @@ echo "-------------------------------------------------------------"
 echo "Wetlabs Processing"
 echo "-------------------------------------------------------------"
 
+: '
 serial_no=flsb_3047
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/eco_fluor/19bsm2a_ecoflsb_3047_0011m.dat
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/19bsm2a_ecf_0011m
@@ -178,3 +176,4 @@ python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc eco 0055 -kw 0 me
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc eco 0055 -kw 44 median 0.0073 49 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Time_Tools.py  ${output}.interpolated.nc Trim  --trim_bounds ${deployment_date} ${recovery_date}
 
+'
