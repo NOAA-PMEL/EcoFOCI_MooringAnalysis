@@ -31,29 +31,36 @@ from io_utils import ConfigParserLocal
 from io_utils.EcoFOCI_netCDF_read import EcoFOCI_netCDF
 
 
-__author__   = 'Shaun Bell'
-__email__    = 'shaun.bell@noaa.gov'
-__created__  = datetime.datetime(2014, 01, 13)
+__author__ = "Shaun Bell"
+__email__ = "shaun.bell@noaa.gov"
+__created__ = datetime.datetime(2014, 1, 13)
 __modified__ = datetime.datetime(2016, 8, 11)
-__version__  = "0.2.0"
-__status__   = "Development"
+__version__ = "0.2.0"
+__status__ = "Development"
 
-        
+
 """------------------------------- MAIN--------------------------------------------"""
 
-parser = argparse.ArgumentParser(description='Edit/View Chosen Instrument Data')
-parser.add_argument('sourcefile', metavar='sourcefile', type=str, 
-    help='complete path to netcdf file')
-parser.add_argument('varname', metavar='varname', type=str, 
-    help='name of variable to edit.  This is likely the EPIC Key.')
-parser.add_argument('attname', metavar='attname', type=str, 
-    help='name of variable attribute to edit.')
-parser.add_argument("-s",'--screen', action="store_true", 
-    help='output to screen')
-parser.add_argument("-o",'--out_config', action="store_true", 
-    help='output to config file')
-parser.add_argument("-in",'--in_config', action="store_true", 
-    help='modify using current config file')
+parser = argparse.ArgumentParser(description="Edit/View Chosen Instrument Data")
+parser.add_argument(
+    "sourcefile", metavar="sourcefile", type=str, help="complete path to netcdf file"
+)
+parser.add_argument(
+    "varname",
+    metavar="varname",
+    type=str,
+    help="name of variable to edit.  This is likely the EPIC Key.",
+)
+parser.add_argument(
+    "attname", metavar="attname", type=str, help="name of variable attribute to edit."
+)
+parser.add_argument("-s", "--screen", action="store_true", help="output to screen")
+parser.add_argument(
+    "-o", "--out_config", action="store_true", help="output to config file"
+)
+parser.add_argument(
+    "-in", "--in_config", action="store_true", help="modify using current config file"
+)
 
 args = parser.parse_args()
 
@@ -65,24 +72,33 @@ global_atts = df.get_global_atts()
 vars_dic = df.get_vars()
 
 if args.screen:
-    
+
     for k in vars_dic.keys():
         if k == args.varname:
-            atts = df.get_vars_attributes(var_name=k, var_type='long_name')
-            print "{0}: {1}".format(k,atts)
+            atts = df.get_vars_attributes(var_name=k)
+            print("{0}: {1}".format(k, atts))
+
+            print(atts.units)
 
 if args.out_config:
     for k in vars_dic.keys():
         if k == args.varname:
-            atts = df.get_vars_attributes(var_name=k,  var_type='long_name')
-            print "{0}: {1}".format(k,atts)
-            data_write = {k:atts}
-            ConfigParserLocal.write_config("instrument_"+args.varname+"_config.pyini", data_write,'json')
-    
-if args.in_config:
-    nc_meta = ConfigParserLocal.get_config("instrument_"+args.varname+"_config.pyini",'json')
+            atts = df.get_vars_attributes(var_name=k)
+            print("{0}: {1}".format(k, atts))
+            data_write = {k: atts}
+            ConfigParserLocal.write_config(
+                "instrument_" + args.varname + "_config.yaml", data_write, "yaml"
+            )
 
-    print "Setting {0}".format(args.varname)
-    df.set_vars_attributes(var_name=args.varname,  var_type=args.attname, attr_value=nc_meta[args.varname])
+if args.in_config:
+    nc_meta = ConfigParserLocal.get_config(
+        "instrument_" + args.varname + "_config.yaml", "yaml"
+    )
+
+    print("Setting {0}".format(args.varname))
+    print(f"{nc_meta[args.varname]}")
+    df.set_vars_attributes(
+        var_name=args.varname, var_type=args.attname, attr_value=nc_meta[args.varname]
+    )
 
 df.close()
