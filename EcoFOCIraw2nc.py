@@ -24,6 +24,11 @@
  ==============
  python >=3.6 - TODO
  python 2.7 - Tested
+
+ Future:
+ =======
+ migrate to python 3
+ wrap netcdf creation by using xarray isntead of custum netcdf4 library calls
 """
 
 # System Stack
@@ -783,7 +788,9 @@ elif args.InstType in [
         ave_scheme=args.keywordargs[1],
         scale_factor=float(args.keywordargs[2]),
         dark_count=float(args.keywordargs[3]),
-        hourly_interp=to_bool(args.keywordargs[4]),
+        ntu_scale_factor=float(args.keywordargs[4]),
+        ntu_dark_count=float(args.keywordargs[5]),
+        hourly_interp=to_bool(args.keywordargs[6]),
         verbose=True,
     )
 
@@ -799,6 +806,8 @@ elif args.InstType in [
     # this key needs to be defined in the EPIC_VARS dictionary in order to be in the nc file
     # if it is defined in the EPIC_VARS dic but not below, it will be filled with missing values
     # if it is below but not the epic dic, it will not make it to the nc file
+
+    # Trb_2980 is a madeup epick key with units NTU (not FNU for 980)
     data_dic = {}
     try:
         data_dic["fluor_3031"] = np.array(Dataset["counts"], dtype="f8")
@@ -812,6 +821,10 @@ elif args.InstType in [
         data_dic["Fch_906"] = np.array(Dataset["chlor"], dtype="f8")
     except:
         data_dic["Fch_906"] = np.ones_like(data_dic["fluor_3031"]) * 1e35
+    try:
+        data_dic["Trb_2980"] = np.array(Dataset["turb"], dtype="f8")
+    except:
+        data_dic["Trb_2980"] = np.ones_like(data_dic["fluor_3031"]) * 1e35
 
     ### Time should be consistent in all files as a datetime object
     time1, time2 = np.array(Datetime2EPIC(Dataset["time"].values()), dtype="f8")

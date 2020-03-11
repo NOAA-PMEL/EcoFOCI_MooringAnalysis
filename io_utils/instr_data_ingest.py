@@ -1560,6 +1560,67 @@ class rcmsg(object):
             rawdata["Time tag (Gmt)"] = pd.to_datetime(
                 rawdata["Time tag (Gmt)"], format="%d.%m.%y %H:%M:%S"
             )
+        elif version in ["combined_manual_units"]:
+            rawdata = pd.read_csv(fobj, header=0, delimiter="\t")
+            rawdata["Time tag (Gmt)"] = pd.to_datetime(
+                rawdata["Time tag (Gmt)"], format="%d.%m.%y %H:%M:%S"
+            )
+            rawdata.columns = [x.split("(")[0] for x in rawdata.columns]  # strip units
+
+            time = {
+                k: v.to_pydatetime()
+                for k, v in (rawdata["Time tag "].to_dict(into=OrderedDict)).iteritems()
+            }
+
+            if turbidity and pressure:
+                return {
+                    "time": time,
+                    "Temperature": rawdata["Temperature"].to_dict(into=OrderedDict),
+                    "Pressure": rawdata["Pressure"].to_dict(into=OrderedDict),
+                    "East": rawdata["East"].to_dict(into=OrderedDict),
+                    "North": rawdata["North"].to_dict(into=OrderedDict),
+                    "Turbidity": rawdata["Turbidity"].to_dict(into=OrderedDict),
+                    "O2Concentration": rawdata["O2Concentration"].to_dict(
+                        into=OrderedDict
+                    ),
+                    "AirSaturation": rawdata["AirSaturation"].to_dict(into=OrderedDict),
+                }
+            elif (not turbidity) and pressure:
+                return {
+                    "time": time,
+                    "Temperature": rawdata["Temperature"].to_dict(into=OrderedDict),
+                    "Pressure": rawdata["Pressure"].to_dict(into=OrderedDict),
+                    "East": rawdata["East"].to_dict(into=OrderedDict),
+                    "North": rawdata["North"].to_dict(into=OrderedDict),
+                    "O2Concentration": rawdata["O2Concentration"].to_dict(
+                        into=OrderedDict
+                    ),
+                    "AirSaturation": rawdata["AirSaturation"].to_dict(into=OrderedDict),
+                }
+            elif turbidity and (not pressure):
+                return {
+                    "time": time,
+                    "Temperature": rawdata["Temperature"].to_dict(into=OrderedDict),
+                    "Turbidity": rawdata["Turbidity"].to_dict(into=OrderedDict),
+                    "East": rawdata["East"].to_dict(into=OrderedDict),
+                    "North": rawdata["North"].to_dict(into=OrderedDict),
+                    "O2Concentration": rawdata["O2Concentration"].to_dict(
+                        into=OrderedDict
+                    ),
+                    "AirSaturation": rawdata["AirSaturation"].to_dict(into=OrderedDict),
+                }
+            else:
+                return {
+                    "time": time,
+                    "Temperature": rawdata["Temperature"].to_dict(into=OrderedDict),
+                    "East": rawdata["East"].to_dict(into=OrderedDict),
+                    "North": rawdata["North"].to_dict(into=OrderedDict),
+                    "O2Concentration": rawdata["O2Concentration"].to_dict(
+                        into=OrderedDict
+                    ),
+                    "AirSaturation": rawdata["AirSaturation"].to_dict(into=OrderedDict),
+                }
+
         elif version in ["combined_manual"]:
             rawdata = pd.read_csv(fobj, header=0, delimiter=",")
             rawdata["Time tag (Gmt)"] = pd.to_datetime(
@@ -1934,6 +1995,8 @@ class ecoflntu(object):
         ave_scheme="median",
         scale_factor=0,
         dark_count=0,
+        ntu_scale_factor=0,
+        ntu_dark_count=0,
         hourly_interp=True,
         verbose=False,
     ):
@@ -1983,6 +2046,7 @@ class ecoflntu(object):
                     dtime = datetime.datetime.strptime(date + time, "%m/%d/%y %H:%M:%S")
 
                     counts = np.int(line_array[3])
+                    ntu_counts = np.int(line_array[5])
 
                     prev_time = dtime
                     new_data = False
@@ -2002,9 +2066,13 @@ class ecoflntu(object):
                         if ave_scheme == "mean":
                             counts_ave[index] = counts.mean()
                             counts_std[index] = counts.std()
+                            ntu_counts_ave[index] = ntu_counts.mean()
+                            ntu_counts_std[index] = ntu_counts.std()
                         elif ave_scheme == "median":
                             counts_ave[index] = np.median(counts)
                             counts_std[index] = counts.std()
+                            ntu_counts_ave[index] = np.median(ntu_counts)
+                            ntu_counts_std[index] = ntu_counts.std()
                         tref = datetime.datetime(2000, 1, 1)
 
                         time_ave[index] = (
@@ -2017,6 +2085,7 @@ class ecoflntu(object):
                     counts = np.vstack((counts, np.int(line_array[3])))
 
         chlor = scale_factor * (np.array(counts_ave.values()) - dark_count)
+        turb = ntu_scale_factor * (np.array(ntu_counts_ave.values()) - ntu_dark_count)
 
         # (max time - min time) / add_seconds
         date_diff = np.max(time_ave.values()) - np.min(time_ave.values())
@@ -2041,9 +2110,22 @@ class ecoflntu(object):
                 "counts": counts_ave.values(),
                 "counts_std": counts_std.values(),
                 "chlor": chlor,
+                "ntu_counts": ntu_counts_ave.values(),
+                "ntu_counts_std": ntu_counts_std.values(),
+                "turb": turb,
             }
             data_interp = interp2hour(
-                rng, time_corr.values(), data, vlist=["counts", "counts_std", "chlor"]
+                rng,
+                time_corr.values(),
+                data,
+                vlist=[
+                    "counts",
+                    "counts_std",
+                    "chlor",
+                    "ntu_counts",
+                    "ntu_counts_std",
+                    "turb",
+                ],
             )
 
             return {
@@ -2051,6 +2133,9 @@ class ecoflntu(object):
                 "counts": data_interp["counts"],
                 "counts_std": data_interp["counts_std"],
                 "chlor": data_interp["chlor"],
+                "ntu_counts": data_interp["ntu_counts"],
+                "ntu_counts_std": data_interp["ntu_counts_std"],
+                "turb": data_interp["turb"],
             }
 
         else:
@@ -2060,6 +2145,9 @@ class ecoflntu(object):
                 "counts": counts_ave.values(),
                 "counts_std": counts_std.values(),
                 "chlor": chlor,
+                "ntu_counts": ntu_counts_ave.values(),
+                "ntu_counts_std": ntu_counts_std.values(),
+                "turb": turb,
             }
 
 
