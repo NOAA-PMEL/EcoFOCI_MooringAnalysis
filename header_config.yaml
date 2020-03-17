@@ -1,0 +1,23 @@
+COMPOSITE: '1'
+CREATION_DATE: March 11, 2020 22:13 UTC
+DATA_CMNT: 18CKIP_3A_RCM_Combined.txt
+EDIT_CMNT01: ''
+EPIC_FILE_GENERATOR: trim_netcdf.py V0.4.0
+EXPERIMENT: ''
+History: '
+
+  March 11, 2020 22:13 UTC Magnetic Declination Correction 10.8746607188 applied (+E)
+
+  March 11, 2020 22:13 UTC Data Trimmed
+
+
+  March 11, 2020 22:22 UTC S_41 added
+
+  March 11, 2020 22:23 UTC - Oxygen Concentration and Saturation corrected for salinity
+  using sal from collocated 40m sc at CKP-3A'
+INST_TYPE: rcmsg
+MOORING: 18ckip3a
+PROG_CMNT01: ''
+PROJECT: ''
+WATER_DEPTH: '46'
+WATER_MASS: ''

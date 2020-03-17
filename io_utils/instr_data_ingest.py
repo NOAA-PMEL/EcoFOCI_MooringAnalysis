@@ -1848,6 +1848,8 @@ class ecoflsb(object):
         ave_scheme="median",
         scale_factor=0,
         dark_count=0,
+        ntu_scale_factor=0,
+        ntu_dark_count=0,
         hourly_interp=True,
         verbose=False,
     ):
@@ -2083,6 +2085,7 @@ class ecoflntu(object):
                     dtime = np.vstack((dtime, dtime, sample_time))
 
                     counts = np.vstack((counts, np.int(line_array[3])))
+                    ntu_counts = np.vstack((ntu_counts, np.int(line_array[5])))
 
         chlor = scale_factor * (np.array(counts_ave.values()) - dark_count)
         turb = ntu_scale_factor * (np.array(ntu_counts_ave.values()) - ntu_dark_count)

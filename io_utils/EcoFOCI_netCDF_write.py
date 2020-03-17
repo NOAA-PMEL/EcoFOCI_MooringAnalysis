@@ -1417,6 +1417,7 @@ class CF_NC(object):
         for v_name in nchandle.variables.keys():
             print(v_name)
             if not v_name in [
+                "depth01",
                 "time",
                 "time2",
                 "depth",
@@ -1509,6 +1510,7 @@ class CF_NC(object):
 
         for ind, varname in enumerate(data.keys()):
             if not varname in [
+                "depth01",
                 "time",
                 "time2",
                 "lat",
