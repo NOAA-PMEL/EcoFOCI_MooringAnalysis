@@ -1993,6 +1993,7 @@ class CF_NC_Profile(object):
                 "lat",
                 "lon",
                 "depth",
+                "dep",
                 "latitude",
                 "longitude",
             ]:
