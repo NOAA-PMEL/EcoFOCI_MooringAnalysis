@@ -1901,6 +1901,7 @@ class CF_NC_Profile(object):
                 "time",
                 "time2",
                 "depth",
+                "dep",
                 "lat",
                 "lon",
                 "latitude",
