@@ -251,7 +251,10 @@ if (args.operation in ["CF", "CF Convert", "CF_Convert"]) and not args.iscf:
         try:
             station_name = global_atts["STATION_NAME"]
         except:
-            station_name = global_atts["STATION"]
+            try:
+                station_name = global_atts["STATION"]
+            except:
+                station_name = ""
 
         if "depth" in ncdata.keys():
             depthkey = "depth"
