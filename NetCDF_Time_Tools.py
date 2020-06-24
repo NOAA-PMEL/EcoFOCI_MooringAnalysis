@@ -223,12 +223,12 @@ if (args.operation in ["CF", "CF Convert", "CF_Convert"]) and not args.iscf:
             time_since_str = "days since 1900-01-01"
             CF_time = get_UDUNITS(dt_from_epic, time_since_str)
 
+        ###build/copy attributes and fill if empty
         try:
             History = global_atts["History"]
         except:
             History = ""
 
-        ###build/copy attributes and fill if empty
         try:
             data_cmnt = global_atts["DATA_CMNT"]
         except:
@@ -271,6 +271,10 @@ if (args.operation in ["CF", "CF Convert", "CF_Convert"]) and not args.iscf:
             Water_Mass=global_atts["WATER_MASS"],
             History=History,
             featureType=featureType,
+            barometer=global_atts["BAROMETER"],
+            wind_dir=global_atts["WIND_DIR"],
+            wind_speed=global_atts["WIND_SPEED"],
+            air_temp=global_atts["AIR_TEMP"]
         )
         ncinstance.dimension_init(depth_len=len(ncdata[depthkey]))
         ncinstance.variable_init(df, time_since_str)

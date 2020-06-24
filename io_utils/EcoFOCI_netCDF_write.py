@@ -1831,7 +1831,7 @@ class CF_NC_Profile(object):
         self,
         raw_data_file="",
         Water_Mass="B",
-        Water_Depth=9999,
+        Water_Depth=-9999,
         Prog_Cmnt="",
         Experiment="",
         Edit_Cmnt="",
@@ -1840,6 +1840,11 @@ class CF_NC_Profile(object):
         Project="",
         History="",
         featureType="",
+        barometer=-9999,
+        wind_dir=-999,
+        wind_speed=-99,
+        air_temp=-99.9,
+
     ):
         """
         Assumptions
@@ -1861,10 +1866,14 @@ class CF_NC_Profile(object):
         self.rootgrpID.PROG_CMNT01 = Prog_Cmnt
         self.rootgrpID.EDIT_CMNT01 = Edit_Cmnt
         self.rootgrpID.WATER_DEPTH = Water_Depth
-        self.rootgrpID.MOORING = Station_Name
+        self.rootgrpID.STATION_NAME = Station_Name
         self.rootgrpID.WATER_MASS = Water_Mass
         self.rootgrpID.EXPERIMENT = Experiment
         self.rootgrpID.PROJECT = Experiment
+        self.rootgrpID.BAROMETER = barometer
+        self.rootgrpID.WIND_DIR = wind_dir
+        self.rootgrpID.WIND_SPEED = wind_speed
+        self.rootgrpID.AIR_TEMP = air_temp
         self.rootgrpID.History = History
         self.rootgrpID.featureType = featureType
 
