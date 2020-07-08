@@ -176,6 +176,10 @@ if (args.operation in ["CF", "CF Convert", "CF_Convert"]) and not args.iscf:
             Water_Depth = global_atts["WATER_DEPTH"]
         except:
             Water_Depth = ""
+        try:
+            Water_Mass = global_atts["WATER_MASS"]
+        except:
+            Water_Mass = ""
 
         ncinstance = CF_NC_2D(savefile=args.sourcefile.replace(".nc", ".cf.nc"))
         ncinstance.file_create()
@@ -184,7 +188,7 @@ if (args.operation in ["CF", "CF Convert", "CF_Convert"]) and not args.iscf:
             Station_Name=data_mooring,
             Water_Depth=Water_Depth,
             Instrument_Type=global_atts["INST_TYPE"],
-            Water_Mass=global_atts["WATER_MASS"],
+            Water_Mass=Water_Mass,
             Experiment=global_atts["EXPERIMENT"],
             Project=global_atts["PROJECT"],
             History=History,
@@ -265,6 +269,10 @@ if (args.operation in ["CF", "CF Convert", "CF_Convert"]) and not args.iscf:
             Water_Depth = global_atts["WATER_DEPTH"]
         except:
             Water_Depth = ""
+        try:
+            Water_Mass = global_atts["WATER_MASS"]
+        except:
+            Water_Mass = ""
 
         if "depth" in ncdata.keys():
             depthkey = "depth"
@@ -278,7 +286,7 @@ if (args.operation in ["CF", "CF Convert", "CF_Convert"]) and not args.iscf:
             Station_Name=station_name,
             Water_Depth=Water_Depth,
             Instrument_Type=global_atts["INST_TYPE"],
-            Water_Mass=global_atts["WATER_MASS"],
+            Water_Mass=Water_Mass,
             History=History,
             featureType=featureType,
             barometer=global_atts["BAROMETER"],
@@ -355,6 +363,10 @@ if (args.operation in ["CF", "CF Convert", "CF_Convert"]) and not args.iscf:
             Water_Depth = global_atts["WATER_DEPTH"]
         except:
             Water_Depth = ""
+        try:
+            Water_Mass = global_atts["WATER_MASS"]
+        except:
+            Water_Mass = ""
 
         ncinstance = CF_NC(savefile=args.sourcefile.replace(".nc", ".cf.nc"))
         ncinstance.file_create()
@@ -363,7 +375,7 @@ if (args.operation in ["CF", "CF Convert", "CF_Convert"]) and not args.iscf:
             Station_Name=data_mooring,
             Water_Depth=Water_Depth,
             Instrument_Type=data_insttype,
-            Water_Mass=global_atts["WATER_MASS"],
+            Water_Mass=Water_Mass,
             Experiment=data_experiment,
             Project=data_project,
             History=History,
@@ -498,7 +510,7 @@ elif (args.operation in ["Interpolate", "interpolate"]) and not args.iscf:
             Station_Name=global_atts["MOORING"],
             Water_Depth=global_atts["WATER_DEPTH"],
             Instrument_Type=global_atts["INST_TYPE"],
-            Water_Mass=global_atts["WATER_MASS"],
+            Water_Mass=Water_Mass,
             Experiment=["EXPERIMENT"],
             Project=global_atts["PROJECT"],
             History=History,
@@ -579,6 +591,10 @@ elif (args.operation in ["Interpolate", "interpolate"]) and not args.iscf:
             Water_Depth = global_atts["WATER_DEPTH"]
         except:
             Water_Depth = ""
+        try:
+            Water_Mass = global_atts["WATER_MASS"]
+        except:
+            Water_Mass = ""
 
         ncinstance = NetCDF_Copy_Struct(
             savefile=args.sourcefile.replace(".nc", ".interp.nc")
@@ -589,7 +605,7 @@ elif (args.operation in ["Interpolate", "interpolate"]) and not args.iscf:
             Station_Name=global_atts["MOORING"],
             Water_Depth=Water_Depth,
             Instrument_Type=global_atts["INST_TYPE"],
-            Water_Mass=global_atts["WATER_MASS"],
+            Water_Mass=Water_Mass,
             Experiment=["EXPERIMENT"],
             Project=global_atts["PROJECT"],
             History=History,
@@ -656,6 +672,10 @@ elif (args.operation in ["Trim", "trim"]) and not args.iscf:
             Water_Depth = global_atts["WATER_DEPTH"]
         except:
             Water_Depth = ""
+        try:
+            Water_Mass = global_atts["WATER_MASS"]
+        except:
+            Water_Mass = ""
 
         # create new netcdf file
         ncinstance = NetCDF_Trimmed_2D(
@@ -667,7 +687,7 @@ elif (args.operation in ["Trim", "trim"]) and not args.iscf:
             Station_Name=global_atts["MOORING"],
             Water_Depth=Water_Depth,
             Instrument_Type=global_atts["INST_TYPE"],
-            Water_Mass=global_atts["WATER_MASS"],
+            Water_Mass=Water_Mass,
             Experiment=global_atts["EXPERIMENT"],
             Project=global_atts["PROJECT"],
         )
@@ -723,6 +743,10 @@ elif (args.operation in ["Trim", "trim"]) and not args.iscf:
             Water_Depth = global_atts["WATER_DEPTH"]
         except:
             Water_Depth = ""
+        try:
+            Water_Mass = global_atts["WATER_MASS"]
+        except:
+            Water_Mass = ""
 
         # create new netcdf file
         ncinstance = NetCDF_Trimmed(
@@ -734,7 +758,7 @@ elif (args.operation in ["Trim", "trim"]) and not args.iscf:
             Station_Name=global_atts["MOORING"],
             Water_Depth=Water_Depth,
             Instrument_Type=global_atts["INST_TYPE"],
-            Water_Mass=global_atts["WATER_MASS"],
+            Water_Mass=Water_Mass,
             Experiment=global_atts["EXPERIMENT"],
             Project=global_atts["PROJECT"],
         )
