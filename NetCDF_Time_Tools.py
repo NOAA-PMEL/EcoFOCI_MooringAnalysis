@@ -172,12 +172,17 @@ if (args.operation in ["CF", "CF Convert", "CF_Convert"]) and not args.iscf:
         except:
             data_mooring = ""
 
+        try:
+            Water_Depth = global_atts["WATER_DEPTH"]
+        except:
+            Water_Depth = ""
+
         ncinstance = CF_NC_2D(savefile=args.sourcefile.replace(".nc", ".cf.nc"))
         ncinstance.file_create()
         ncinstance.sbeglobal_atts(
             raw_data_file=data_cmnt,
             Station_Name=data_mooring,
-            Water_Depth=global_atts["WATER_DEPTH"],
+            Water_Depth=Water_Depth,
             Instrument_Type=global_atts["INST_TYPE"],
             Water_Mass=global_atts["WATER_MASS"],
             Experiment=global_atts["EXPERIMENT"],
@@ -256,6 +261,11 @@ if (args.operation in ["CF", "CF Convert", "CF_Convert"]) and not args.iscf:
             except:
                 station_name = ""
 
+        try:
+            Water_Depth = global_atts["WATER_DEPTH"]
+        except:
+            Water_Depth = ""
+
         if "depth" in ncdata.keys():
             depthkey = "depth"
         else:
@@ -266,7 +276,7 @@ if (args.operation in ["CF", "CF Convert", "CF_Convert"]) and not args.iscf:
         ncinstance.sbeglobal_atts(
             raw_data_file=data_cmnt,
             Station_Name=station_name,
-            Water_Depth=global_atts["WATER_DEPTH"],
+            Water_Depth=Water_Depth,
             Instrument_Type=global_atts["INST_TYPE"],
             Water_Mass=global_atts["WATER_MASS"],
             History=History,
@@ -274,7 +284,7 @@ if (args.operation in ["CF", "CF Convert", "CF_Convert"]) and not args.iscf:
             barometer=global_atts["BAROMETER"],
             wind_dir=global_atts["WIND_DIR"],
             wind_speed=global_atts["WIND_SPEED"],
-            air_temp=global_atts["AIR_TEMP"]
+            air_temp=global_atts["AIR_TEMP"],
         )
         ncinstance.dimension_init(depth_len=len(ncdata[depthkey]))
         ncinstance.variable_init(df, time_since_str)
@@ -341,12 +351,17 @@ if (args.operation in ["CF", "CF Convert", "CF_Convert"]) and not args.iscf:
             data_experiment = ""
             data_project = ""
 
+        try:
+            Water_Depth = global_atts["WATER_DEPTH"]
+        except:
+            Water_Depth = ""
+
         ncinstance = CF_NC(savefile=args.sourcefile.replace(".nc", ".cf.nc"))
         ncinstance.file_create()
         ncinstance.sbeglobal_atts(
             raw_data_file=data_cmnt,
             Station_Name=data_mooring,
-            Water_Depth=global_atts["WATER_DEPTH"],
+            Water_Depth=Water_Depth,
             Instrument_Type=data_insttype,
             Water_Mass=global_atts["WATER_MASS"],
             Experiment=data_experiment,
@@ -560,6 +575,11 @@ elif (args.operation in ["Interpolate", "interpolate"]) and not args.iscf:
         except:
             data_cmnt = ""
 
+        try:
+            Water_Depth = global_atts["WATER_DEPTH"]
+        except:
+            Water_Depth = ""
+
         ncinstance = NetCDF_Copy_Struct(
             savefile=args.sourcefile.replace(".nc", ".interp.nc")
         )
@@ -567,7 +587,7 @@ elif (args.operation in ["Interpolate", "interpolate"]) and not args.iscf:
         ncinstance.sbeglobal_atts(
             raw_data_file=global_atts["DATA_CMNT"],
             Station_Name=global_atts["MOORING"],
-            Water_Depth=global_atts["WATER_DEPTH"],
+            Water_Depth=Water_Depth,
             Instrument_Type=global_atts["INST_TYPE"],
             Water_Mass=global_atts["WATER_MASS"],
             Experiment=["EXPERIMENT"],
@@ -632,6 +652,11 @@ elif (args.operation in ["Trim", "trim"]) and not args.iscf:
             <= datetime.datetime.strptime(args.trim_bounds[1], "%Y-%m-%dT%H:%M:%S")
         )
 
+        try:
+            Water_Depth = global_atts["WATER_DEPTH"]
+        except:
+            Water_Depth = ""
+
         # create new netcdf file
         ncinstance = NetCDF_Trimmed_2D(
             savefile=(args.sourcefile).replace(".nc", ".trimmed_missing.nc")
@@ -640,7 +665,7 @@ elif (args.operation in ["Trim", "trim"]) and not args.iscf:
         ncinstance.sbeglobal_atts(
             raw_data_file=global_atts["DATA_CMNT"],
             Station_Name=global_atts["MOORING"],
-            Water_Depth=global_atts["WATER_DEPTH"],
+            Water_Depth=Water_Depth,
             Instrument_Type=global_atts["INST_TYPE"],
             Water_Mass=global_atts["WATER_MASS"],
             Experiment=global_atts["EXPERIMENT"],
@@ -694,6 +719,11 @@ elif (args.operation in ["Trim", "trim"]) and not args.iscf:
             <= datetime.datetime.strptime(args.trim_bounds[1], "%Y-%m-%dT%H:%M:%S")
         )
 
+        try:
+            Water_Depth = global_atts["WATER_DEPTH"]
+        except:
+            Water_Depth = ""
+
         # create new netcdf file
         ncinstance = NetCDF_Trimmed(
             savefile=(args.sourcefile).replace(".nc", ".trimmed_missing.nc")
@@ -702,7 +732,7 @@ elif (args.operation in ["Trim", "trim"]) and not args.iscf:
         ncinstance.sbeglobal_atts(
             raw_data_file=global_atts["DATA_CMNT"],
             Station_Name=global_atts["MOORING"],
-            Water_Depth=global_atts["WATER_DEPTH"],
+            Water_Depth=Water_Depth,
             Instrument_Type=global_atts["INST_TYPE"],
             Water_Mass=global_atts["WATER_MASS"],
             Experiment=global_atts["EXPERIMENT"],
