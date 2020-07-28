@@ -10,9 +10,14 @@
  -------- 
  manually adjust values in an EPIC netcdf file via a config file
 
- History:
- --------
+ Compatibility:
+ ==============
+ python >=3.7 - Tested and works, future developments
+ python 2.7 - Tested, no future developments
 
+ History:
+ ========
+ 2020-07-27: update for python3 syntax
  2016-08-11: Migrate/integrage routines into EcoFOCI_MooringAnalysis package
 
 """
@@ -68,22 +73,22 @@ if args.screen:
     for k in data.keys():
         if k == args.varname:
             data[k] = str(data[k])
-            print "{0}: {1}".format(k,data[args.varname])
+            print(f"{k}: {data[args.varname]}")
 
 if args.out_config:
     for k in data.keys():
         if k == args.varname:
             data[k] = str(data[k])
-            print "{0}: {1}".format(k,data[args.varname])
+            print(f"{k}: {data[args.varname]}")
             data_write = {k:data[args.varname]}
             ConfigParserLocal.write_config("instrument_"+args.varname+"_config.yaml", data_write,'yaml')
     
 if args.in_config:
     nc_meta = ConfigParserLocal.get_config("instrument_"+args.varname+"_config.yaml",'yaml')
     editvar = [float(x) for x in nc_meta[args.varname].strip('[').strip(']').split()]
-    print editvar
+    print(editvar)
 
-    print "Setting {0}".format(args.varname)
+    print(f"Setting {args.varname}")
     nchandle = Dataset(args.sourcefile,'a')
     nchandle.variables[args.varname][:] = editvar
     nchandle.close()
