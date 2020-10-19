@@ -774,6 +774,7 @@ elif args.InstType in [
     "ecf",
     "fluor",
     "ecofluor",
+    "ecoflsb",
     "fluor",
     "ecoflntu",
     "ecobbfl2w",
