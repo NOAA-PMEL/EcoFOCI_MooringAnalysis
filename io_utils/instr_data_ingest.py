@@ -47,7 +47,7 @@ from netCDF4 import num2date
 from collections import OrderedDict, defaultdict
 
 from time_helper import roundTime, linear_clock_adjust, interp2hour
-
+from netCDF4 import num2date
 
 def available_data_sources():
     r"""List of acronyms and options for names for instruments"""
@@ -1142,7 +1142,7 @@ class sbe26(object):
     @staticmethod
     def parse(fobj, **kwargs):
         r"""
-        Basic Method to open and read sbe56 csv files
+        Basic Method to open and read sbe26 csv files
             
             kwargs
             truncate_seconds : boolean (truncates down to nearest minute)
@@ -1335,7 +1335,7 @@ class sbe39(object):
     @staticmethod
     def parse(fobj, **kwargs):
         r"""
-        Basic Method to open and read sbe56 csv files
+        Basic Method to open and read sbe39 csv files
             
             kwargs
             truncate_seconds : boolean (truncates down to nearest minute)
@@ -1485,37 +1485,51 @@ class sbe56(object):
                     time_instrument_doy = {}
                     for k, v in sbe16data.items():
                         time_instrument_doy[k] = float(v[var_index])
+                    timedoy=True
+                elif var_id[var_index] == "timeK:":  # time in secods
+                    print("Processing {0}".format(var_id[var_index]))
+                    time_instrument_s = {}
+                    for k, v in sbe16data.items():
+                        time_instrument_s[k] = float(v[var_index])
+                    timedoy=False
+            if timedoy:
+                print(
+                    "Converting instrument time in fractional_doy to python datetime object"
+                )
+                time = {}
+                for k, v in time_instrument_doy.items():
+                    time[k] = datetime.datetime(
+                        datetime.datetime.strptime(start_time, "%b %d %Y %H:%M:%S").year,
+                        1,
+                        1,
+                    ) + datetime.timedelta(v - 1)
 
-            print(
-                "Converting instrument time in fractional_doy to python datetime object"
-            )
-            time = {}
-            for k, v in time_instrument_doy.items():
-                time[k] = datetime.datetime(
-                    datetime.datetime.strptime(start_time, "%b %d %Y %H:%M:%S").year,
-                    1,
-                    1,
-                ) + datetime.timedelta(v - 1)
-
-                if kwargs["roundTime"]:
-                    time[k] = roundTime(
-                        datetime.datetime(
+                    if kwargs["roundTime"]:
+                        time[k] = roundTime(
+                            datetime.datetime(
+                                datetime.datetime.strptime(
+                                    start_time, "%b %d %Y %H:%M:%S"
+                                ).year,
+                                1,
+                                1,
+                            )
+                            + datetime.timedelta(v - 1)
+                        )
+                    else:
+                        time[k] = datetime.datetime(
                             datetime.datetime.strptime(
                                 start_time, "%b %d %Y %H:%M:%S"
                             ).year,
                             1,
                             1,
-                        )
-                        + datetime.timedelta(v - 1)
-                    )
-                else:
-                    time[k] = datetime.datetime(
-                        datetime.datetime.strptime(
-                            start_time, "%b %d %Y %H:%M:%S"
-                        ).year,
-                        1,
-                        1,
-                    ) + datetime.timedelta(v - 1)
+                        ) + datetime.timedelta(v - 1)
+            else: 
+                print(
+                    "Converting instrument time in seconds since 2000-1-1 to python datetime object"
+                )
+                time = {}
+                for k, v in time_instrument_s.items():
+                    time[k] = num2date(v,'seconds since 2000-1-1')
 
             return {"time": time, "temperature": temp}
 
