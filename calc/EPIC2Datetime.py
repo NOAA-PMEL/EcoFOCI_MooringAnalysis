@@ -212,9 +212,9 @@ def test_1d_EPIC():
 
 def test_2d_EPIC():
     testdate = EPIC2Datetime([2440000, 2450000], [43200000, 0])
-    prin(testdate)
+    print(testdate)
     testdate1 = Datetime2EPIC(testdate)
-    prin(testdate1)
+    print(testdate1)
 
 
 if __name__ == "__main__":
