@@ -279,6 +279,17 @@ if (args.operation in ["CF", "CF Convert", "CF_Convert"]) and not args.iscf:
         else:
             depthkey = "dep"
 
+        try:
+            barometer=global_atts["BAROMETER"]
+            wind_dir=global_atts["WIND_DIR"]
+            wind_speed=global_atts["WIND_SPEED"]
+            air_temp=global_atts["AIR_TEMP"]
+        except:
+            barometer=""
+            wind_dir=""
+            wind_speed=""
+            air_temp=""
+
         ncinstance = CF_NC_Profile(savefile=args.sourcefile.replace(".nc", ".cf.nc"))
         ncinstance.file_create()
         ncinstance.sbeglobal_atts(
@@ -289,10 +300,10 @@ if (args.operation in ["CF", "CF Convert", "CF_Convert"]) and not args.iscf:
             Water_Mass=Water_Mass,
             History=History,
             featureType=featureType,
-            barometer=global_atts["BAROMETER"],
-            wind_dir=global_atts["WIND_DIR"],
-            wind_speed=global_atts["WIND_SPEED"],
-            air_temp=global_atts["AIR_TEMP"],
+            barometer=barometer,
+            wind_dir=wind_dir,
+            wind_speed=wind_speed,
+            air_temp=air_temp,
         )
         ncinstance.dimension_init(depth_len=len(ncdata[depthkey]))
         ncinstance.variable_init(df, time_since_str)
