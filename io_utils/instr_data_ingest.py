@@ -1005,6 +1005,12 @@ class sbe16(object):
                 for k, v in sbe16data.items():
                     time_instrument_doy[k] = float(v[var_index])
 
+            elif var_id[var_index] == "timeSCP:":  # timeSCP for julian days
+                print("Processing {0}".format(var_id[var_index]))
+                time_instrument_doy = {}
+                for k, v in sbe16data.items():
+                    time_instrument_doy[k] = float(v[var_index])
+
             elif (
                 var_id[var_index] == "timeK:"
             ):  # Time, Instrument [seconds] is a serial date based on seconds since 2000-1-1
