@@ -117,7 +117,7 @@ else:
     plt1.savefig(
         parent_dir
         + "/EcoFOCI_MooringAnalysis/images/"
-        + ncfile1.split("/")[-1]
+        + ncfile.split("/")[-1]
         + ".png",
         bbox_inches="tight",
         dpi=(300),
@@ -162,7 +162,7 @@ if args.theoretical_radiation:
         plt1.savefig(
             parent_dir
             + "/EcoFOCI_MooringAnalysis/images/"
-            + ncfile1.split("/")[-1]
+            + ncfile.split("/")[-1]
             + "_rad.png",
             bbox_inches="tight",
             dpi=(300),

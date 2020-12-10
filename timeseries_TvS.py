@@ -89,10 +89,10 @@ if args.timebounds:
 
 
     if args.sal_scale and args.temp_scale:
-        plt, fig = p1.plot(var1=ncdata['S_41'][time_ind,0,0,0], 
+        plt, fig = p1.plot(args.sal_scale, args.temp_scale,
+                           var1=ncdata['S_41'][time_ind,0,0,0], 
                            var2=ncdata['T_20'][time_ind,0,0,0], 
-                           var3=doy[time_ind],
-                           args.sal_scale, args.temp_scale)
+                           var3=doy[time_ind])
 
     else:
         # Figure out boudaries (mins and maxs)
@@ -100,10 +100,10 @@ if args.timebounds:
         smax = ncdata['S_41'][:,0,0,0].max() + (0.01 * ncdata['S_41'][:,0,0,0].max())
         tmin = ncdata['T_20'][:,0,0,0].min() - (0.1 * ncdata['T_20'][:,0,0,0].max())
         tmax = ncdata['T_20'][:,0,0,0].max() + (0.1 * ncdata['T_20'][:,0,0,0].max())
-        plt, fig = p1.plot(var1=ncdata['S_41'][time_ind,0,0,0], 
+        plt, fig = p1.plot([smin, smax], [tmin, tmax],
+                           var1=ncdata['S_41'][time_ind,0,0,0], 
                            var2=ncdata['T_20'][time_ind,0,0,0], 
-                           var3=doy[time_ind],
-                            [smin, smax], [tmin, tmax])
+                           var3=doy[time_ind])
 
     t = fig.suptitle(ptitle, fontsize=12, fontweight='bold')
     t.set_y(1.08)
