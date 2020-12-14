@@ -99,7 +99,7 @@ if args.rotate != 0.0:
         raw_data_file=global_atts["DATA_CMNT"],
         Station_Name=global_atts["MOORING"],
         Water_Depth=global_atts["WATER_DEPTH"],
-        Inst_Type=global_atts["INST_TYPE"],
+        Instrument_Type=global_atts["INST_TYPE"],
         Water_Mass=global_atts["WATER_MASS"],
         Experiment=["EXPERIMENT"],
     )
