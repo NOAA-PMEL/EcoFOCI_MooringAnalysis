@@ -2196,6 +2196,8 @@ class ecobbfl2w(object):
         ave_scheme="median",
         scale_factor=0,
         dark_count=0,
+        ntu_scale_factor=0,
+        ntu_dark_count=0,
         hourly_interp=True,
         verbose=False,
     ):

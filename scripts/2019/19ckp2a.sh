@@ -36,8 +36,8 @@ serial_no=bbfl2wb_1755
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/eco_fluor/19ckp2a_bbfl2wb_1755.redownload.txt
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/19ckp2a_ecf_0039m
 
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc eco 0039 -kw 0 median 0.182 47 0.0487 40 False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc eco 0039 -kw 705 median 0.182 47 0.0487 40 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc ecobbfl2w 0039 -kw 0 median 0.182 47 0.0487 40 False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc ecobbfl2w 0039 -kw 705 median 0.182 47 0.0487 40 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Time_Tools.py   ${output}.interpolated.nc Trim  --trim_bounds ${deployment_date} ${recovery_date}
 
 echo "-------------------------------------------------------------"
