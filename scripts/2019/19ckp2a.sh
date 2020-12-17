@@ -21,13 +21,14 @@ echo "-------------------------------------------------------------"
 echo "SBE16 Processing"
 echo "-------------------------------------------------------------"
 
+: "
 serial_no=6629
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe16/rawconverted19ckp2a_sbe16_6629_41.25m.cnv
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/19ckp2a_sc_0039m
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc sc 0039 -kw 0 time_instrument_doy False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc sc 0039 -kw -41 time_instrument_doy True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Time_Tools.py ${output}.interpolated.nc Trim --trim_bounds ${deployment_date} ${recovery_date}
-
+"
 echo "-------------------------------------------------------------"
 echo "Wetlabs Processing"
 echo "-------------------------------------------------------------"
@@ -36,8 +37,8 @@ serial_no=bbfl2wb_1755
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/eco_fluor/19ckp2a_bbfl2wb_1755.redownload.txt
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/19ckp2a_ecf_0039m
 
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc ecobbfl2w 0039 -kw 0 median 0.182 47 0.0487 40 False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc ecobbfl2w 0039 -kw 705 median 0.182 47 0.0487 40 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc ecobbfl2w 0039 -kw 0 median 0.0182 47 0.0487 50 False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc ecobbfl2w 0039 -kw 705 median 0.0182 47 0.0487 50 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Time_Tools.py   ${output}.interpolated.nc Trim  --trim_bounds ${deployment_date} ${recovery_date}
 
 echo "-------------------------------------------------------------"

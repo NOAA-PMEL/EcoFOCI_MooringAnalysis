@@ -2175,7 +2175,7 @@ class ecoflntu(object):
 
 
 class ecobbfl2w(object):
-    r""" Wetlabs ecofluorometer with ntu channel"""
+    r""" Wetlabs ecofluorometer with ntu/chlor/cdom channel - in that order"""
 
     @staticmethod
     def get_data(filename=None, MooringID=None, **kwargs):
@@ -2198,6 +2198,8 @@ class ecobbfl2w(object):
         dark_count=0,
         ntu_scale_factor=0,
         ntu_dark_count=0,
+        cdom_scale_factor=0,
+        cdom_dark_count=0,
         hourly_interp=True,
         verbose=False,
     ):
@@ -2207,13 +2209,8 @@ class ecobbfl2w(object):
 
         print(add_seconds)
 
-        ntu_counts_ave, ntu_counts_std, counts_ave, counts_std, time_ave = (
-            {},
-            {},
-            {},
-            {},
-            {},
-        )
+        counts_ave, counts_std, time_ave = {}, {}, {}
+        ntu_counts_ave, ntu_counts_std = {}, {}
         cdom_counts_ave, cdom_counts_std = {}, {}
         #### data readin
         skiprows = -2

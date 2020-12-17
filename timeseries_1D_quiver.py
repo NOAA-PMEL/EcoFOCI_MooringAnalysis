@@ -101,9 +101,15 @@ else:
     tind = np.where((nctime >= 0) & (nctime <= datetime.datetime.now().toordinal()))
 
 p1 = Timeseries1dStickPlot()
+
+try:
+    location=global_atts["MOORING"]
+except:
+    location=''
+    
 try:
     t1 = p1.add_title(
-        mooringid=global_atts["MOORING"],
+        mooringid=location,
         lat=ncdata["lat"][0],
         lon=ncdata["lon"][0],
         depth=ncdata["depth"][args.depth_index],
@@ -111,7 +117,7 @@ try:
     )
 except KeyError:
     t1 = p1.add_title(
-        mooringid=global_atts["MOORING"],
+        mooringid=location,
         lat=ncdata["latitude"][0],
         lon=ncdata["longitude"][0],
         depth=ncdata["depth"][args.depth_index],
