@@ -15,6 +15,7 @@
  Round to nearest Hour
  Interpolate to nearest Hour (modifies data too)
  Trim to specified start and end dates
+ Trim Vertical Range
 
  Usage:
  ======
@@ -23,6 +24,7 @@
 
  History:
  ========
+ 2021-01-04: add utility to trim vertical range for 2D datasets (ADCP)
  2018-08-17: merge trim tools into this routine, make trim tools to be 2D (ADCP)
  2016-07-25: update EPIC to CF time routines to be in EPIC2Datetime.py and removed time calls
     in this routine.
@@ -60,6 +62,7 @@ from io_utils.EcoFOCI_netCDF_write import (
     NetCDF_Copy_Struct,
     NetCDF_Trimmed,
     NetCDF_Trimmed_2D,
+    NetCDF_BinRemoved_2D,
 )
 from io_utils.EcoFOCI_netCDF_write import (
     CF_NC_2D,
@@ -90,7 +93,7 @@ parser.add_argument(
     type=str,
     help='"CF_Convert", "RoundTime" to nearest hour, \
         "Interpolate" to nearest hour, Add "Offset", \
-        "Trim" to start and end dates',
+        "Trim" to start and end dates, "Remove" bins in 2D data',
 )
 parser.add_argument(
     "--time_since_str",
@@ -122,6 +125,13 @@ parser.add_argument(
     type=str,
     help="Trim: start and end boundarys for trimming (inclusive)\
         Format: yyyy-mm-ddThh:mm:ss start-date end-date",
+)
+parser.add_argument(
+    "--depth_bounds",
+    nargs=2,
+    type=int,
+    help="ADCP Bin Trim: upper and lower depths for trimming (inclusive) and positive down\
+        Format: (float) upper-bin lower-bin",
 )
 parser.add_argument(
     "--iscf",
@@ -787,6 +797,83 @@ elif (args.operation in ["Trim", "trim"]) and not args.iscf:
         ncinstance.add_history(df._getnchandle_(), new_history="Data Trimmed")
 
         ncinstance.close()
+
+    # close file
+    df.close()
+
+elif (args.operation in ["Remove", "remove"]) and not args.iscf:
+
+    if not args.depth_bounds:
+        sys.exit("Must pass the --depth_bounds flag")
+
+    if args.depth_bounds[0] > args.depth_bounds[1]:
+        sys.exit("+ down convention, please make sure your second depth is larger than your first")
+
+    if args.is2D:
+
+        df = EcoFOCI_netCDF(args.sourcefile)
+        global_atts = df.get_global_atts()
+        vars_dic = df.get_vars()
+        ncdata = df.ncreadfile_dic()
+
+        if "lat" in vars_dic:
+            lat = "lat"
+            lon = "lon"
+        elif "latitude" in vars_dic:
+            lat = "latitude"
+            lon = "longitude"
+
+        try:
+            Water_Depth = global_atts["WATER_DEPTH"]
+        except:
+            Water_Depth = ""
+        try:
+            Water_Mass = global_atts["WATER_MASS"]
+        except:
+            Water_Mass = ""
+
+        depth_ind = (ncdata['depth'] >= args.depth_bounds[0]) & (ncdata['depth'] <= args.depth_bounds[1])
+
+        # create new netcdf file
+        ncinstance = NetCDF_BinRemoved_2D(
+            savefile=(args.sourcefile).replace(".nc", ".trimmed_bins.nc")
+        )
+        ncinstance.file_create()
+        ncinstance.sbeglobal_atts(
+            raw_data_file=global_atts["DATA_CMNT"],
+            Station_Name=global_atts["MOORING"],
+            Water_Depth=Water_Depth,
+            Instrument_Type=global_atts["INST_TYPE"],
+            Water_Mass=Water_Mass,
+            Experiment=global_atts["EXPERIMENT"],
+            Project=global_atts["PROJECT"],
+        )
+        ncinstance.dimension_init(
+            time_len=len(ncdata["time"]), depth_len=len(ncdata["depth"][depth_ind])
+        )
+        ncinstance.variable_init(df._getnchandle_())
+
+        ncinstance.add_coord_data(
+            depth=ncdata["depth"][depth_ind],
+            latitude=ncdata[lat],
+            longitude=ncdata[lon],
+            time1=ncdata["time"],
+            time2=ncdata["time2"],
+        )
+        ncinstance.add_data(data=ncdata, bin_index=depth_ind)
+        #ncinstance.add_history(df._getnchandle_(), new_history="Bins Trimmed")
+
+        ncinstance.close()
+
+    elif args.isProfile:
+        sys.exit(
+            "Profiles rarely can be trimmed by date unless prawler or glider - exiting"
+        )
+
+    else:
+        sys.exit(
+            "No bins to remove for 1D dataset.  Be sure to add -is2D flag to commandline"
+        )
 
     # close file
     df.close()
