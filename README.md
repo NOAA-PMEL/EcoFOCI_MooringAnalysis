@@ -59,8 +59,8 @@ EcoFOCI timeseries processing tools
 
 	positional arguments:
 	  sourcefile            complete path to epic file
-	  operation             CF_Convert, RoundUp to nearest hour, RoundDown to
-	                        nearest hour, Interpolate to nearest hour
+	  operation             "CF_Convert", "RoundTime" to nearest hour, "Interpolate" to nearest hour, 
+	  						Add "Offset", "Trim" to start and end dates, "Remove" bins in 2D data
 
 	optional arguments:
 	  -h, --help            show this help message and exit
@@ -71,6 +71,12 @@ EcoFOCI timeseries processing tools
 	                        1800-01-01"
 	  -is2D, --is2D         convert files like ADCP that have two varying
 	                        dimensions
+	Trim optional arguments
+  	 --trim_bounds TRIM_BOUNDS TRIM_BOUNDS
+                        Trim: start and end boundarys for trimming (inclusive) Format: yyyy-mm-ddThh:mm:ss start-date end-date
+	Remove optional arguments
+  	 --depth_bounds DEPTH_BOUNDS DEPTH_BOUNDS
+                        ADCP Bin Trim: upper and lower depths for trimming (inclusive) and positive down Format: (float) upper-bin lower-bin
 	`
 
 
