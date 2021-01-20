@@ -38,28 +38,28 @@ Changes:
  01/05/2015 - added percent good threshold to algorithm.  Mark data as bad (1e35) when channel 4 in .pg file is < 25
  11/13/2015 - error in depth conversion from bin number had depths skipping closest bin and thus
     there was an offset of the binlength being added to each depth.
+
+Addtional Notes:
+    Tested on python=2.7
+
+TODO: support python3    
 """
 
-# Standard library.
-import datetime, os
-
-# System Stack
 import argparse
-import pymysql
+import datetime
+import os
 
-# Scientific stack.
 import numpy as np
+import pymysql
 from netCDF4 import Dataset
 
-#User Stack
+import adcp2nc
 import utilities.ConfigParserLocal as ConfigParserLocal
-import adcp2nc 
-
 
 __author__   = 'Shaun Bell'
 __email__    = 'shaun.bell@noaa.gov'
-__created__  = datetime.datetime(2014, 11, 06)
-__modified__ = datetime.datetime(2014, 11, 06)
+__created__  = datetime.datetime(2014, 11, 6)
+__modified__ = datetime.datetime(2014, 11, 6)
 __version__  = "0.1.0"
 __status__   = "Development"
 

@@ -184,14 +184,11 @@ class ADCP_NC(object):
             rec_var_units.append( EPIC_VARS_dict[evar]['units'] )
             rec_var_FORTRAN.append( EPIC_VARS_dict[evar]['fortran'] )
             rec_var_epic.append( EPIC_VARS_dict[evar]['EPIC_KEY'] )
-        if evar in ['depth','dep']:
-            rec_var_positive.append( EPIC_VARS_dict[evar]['positve'] )
 
         if dim_str_length in ['long',]:
             rec_vars = ['time','time2','depth','latitude','longitude'] + rec_vars
         elif dim_str_length in ['short']:
             rec_vars = ['time','time2','depth','lat','lon'] + rec_vars
-        
         
         
         rec_var_name = ['', '', '', '', ''] + rec_var_name
@@ -224,7 +221,7 @@ class ADCP_NC(object):
             if rec_var_strtype[i]:
                 v.type = rec_var_strtype[i]
             v.epic_code = rec_epic_code[i]
-            if v in ['depth','dep']:
+            if v.long_name in ['depth','dep']:
                 v.positive = 'down'
             
         self.var_class = var_class
