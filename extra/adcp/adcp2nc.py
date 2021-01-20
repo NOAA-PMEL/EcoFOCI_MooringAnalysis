@@ -172,7 +172,7 @@ class ADCP_NC(object):
             raise RuntimeError('Empty EPIC Dictionary is passed to variable_init.')
 
         #build record variable attributes
-        rec_vars, rec_var_name, rec_var_longname = [], [], []
+        rec_vars, rec_var_name, rec_var_longname, rec_var_positive = [], [], [], []
         rec_var_generic_name, rec_var_FORTRAN, rec_var_units, rec_var_epic = [], [], [], []
 
         #cycle through epic dictionary and create nc parameters
@@ -184,6 +184,8 @@ class ADCP_NC(object):
             rec_var_units.append( EPIC_VARS_dict[evar]['units'] )
             rec_var_FORTRAN.append( EPIC_VARS_dict[evar]['fortran'] )
             rec_var_epic.append( EPIC_VARS_dict[evar]['EPIC_KEY'] )
+        if evar in ['depth','dep']:
+            rec_var_positive.append( EPIC_VARS_dict[evar]['positve'] )
 
         if dim_str_length in ['long',]:
             rec_vars = ['time','time2','depth','latitude','longitude'] + rec_vars
@@ -222,6 +224,8 @@ class ADCP_NC(object):
             if rec_var_strtype[i]:
                 v.type = rec_var_strtype[i]
             v.epic_code = rec_epic_code[i]
+            if v in ['depth','dep']:
+                v.positive = 'down'
             
         self.var_class = var_class
         self.rec_vars = rec_vars
