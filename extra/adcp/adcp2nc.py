@@ -192,7 +192,7 @@ class ADCP_NC(object):
         
         
         rec_var_name = ['', '', '', '', ''] + rec_var_name
-        rec_var_longname = ['', '', '', '', ''] + rec_var_longname
+        rec_var_longname = ['', '', 'DEPTH (M)', 'LATITUDE', 'LONGITUDE'] + rec_var_longname
         rec_var_generic_name = ['', '', '', '', ''] + rec_var_generic_name
         rec_var_FORTRAN = ['f10.0', 'f10.0', 'f10.1', 'f10.4', 'f10.4'] + rec_var_FORTRAN
         rec_var_units = ['True Julian Day', 'msec since 0:00 GMT','m','degree_north','degree_west'] + rec_var_units
@@ -221,7 +221,7 @@ class ADCP_NC(object):
             if rec_var_strtype[i]:
                 v.type = rec_var_strtype[i]
             v.epic_code = rec_epic_code[i]
-            if v.long_name in ['depth','dep']:
+            if v.long_name in ['depth','dep', 'DEPTH (M)']:
                 v.positive = 'down'
             
         self.var_class = var_class
