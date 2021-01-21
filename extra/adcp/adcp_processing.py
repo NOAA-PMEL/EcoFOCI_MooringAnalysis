@@ -30,6 +30,7 @@
 ** ************************************************************************** */
 
 Changes:
+ 01/21/2021 - update netcdf generator to add positive=down tag to depth
  09/29/2017 - Update indexing based on depth (depth index must be an integer)
  09/28/2017 - remove masking of ein file for percent good qc.  This is only valid for velocity solutions.
  02/05/2016 - created adcp_ein.json , adcp_scal.json, adcp_vel.json initialization files
