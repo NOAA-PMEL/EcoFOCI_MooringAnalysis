@@ -15,7 +15,7 @@ updates:
     pull-request-branch-name:
       separator: "-"
     labels:
-      - "Type: Maintenance"
+      - "Maintenance"
     commit-message:
       prefix: "MNT: "
       include: "scope"
@@ -34,7 +34,7 @@ updates:
     pull-request-branch-name:
       separator: "-"
     labels:
-      - "Type: Maintenance"
+      - "Maintenance"
     commit-message:
       prefix: "MNT: "
       include: "scope"
