@@ -1,0 +1,10 @@
+{
+	"TRANS_3000": {
+		"name": "TRANS",
+		"generic_name": "transport",
+		"fortran": "f10.2",
+		"EPIC_KEY": 3000,
+		"units": "",
+		"longname": "Calculated TRANSPORT PJS"
+	}
+}

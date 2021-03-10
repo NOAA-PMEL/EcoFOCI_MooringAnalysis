@@ -1,0 +1,26 @@
+{
+	"fluor_3031": {
+		"name": "fluor",
+		"generic_name": "fluor",
+		"fortran": "f10.2",
+		"EPIC_KEY": 320,
+		"units": "volts",
+		"longname": "fluorometer"
+	},
+	"Fch_906": {
+		"name": "Fch",
+		"generic_name": "",
+		"fortran": "f10.1",
+		"EPIC_KEY": 906,
+		"units": "ugrams/l",
+		"longname": "Chlorophyll A"
+	},
+	"Trb_980": {
+		"name": "Trb",
+		"generic_name": "turb",
+		"fortran": "f10.2",
+		"EPIC_KEY": 980,
+		"units": "FNU",
+		"longname": "Turbidity(FNU)"
+	}
+}

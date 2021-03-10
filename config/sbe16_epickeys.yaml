@@ -1,0 +1,79 @@
+---
+T_20:
+  EPIC_KEY: 20
+  fortran: f10.2
+  generic_name: temp
+  longname: 'TEMPERATURE (C)'
+  name: T
+  units: C
+P_1: 
+  EPIC_KEY: 1
+  name: P
+  generic_name: pres
+  fortran: f10.1
+  EPIC_KEY: 1
+  units: dbar
+  longname: 'PRESSURE (DB)'
+C_50: 
+  EPIC_KEY: 50
+  name: C
+  generic_name: con
+  fortran: ''
+  units: 'mmho/cm'
+  longname: 'CONDUCTIVITY'
+S_41: 
+  EPIC_KEY: 41
+  name: S
+  generic_name: sal
+  fortran: ''
+  units: PSU
+  longname: 'SALINITY (PSU)'
+PAR_908: 
+  name: PAR
+  generic_name: par
+  fortran: ''
+  EPIC_KEY: 908
+  units: 'uEin cm-2 s-1'
+  longname: 'Photosynthetic Active Radiation'
+PAR_916: 
+  name: PAR
+  generic_name: par
+  fortran: '' 
+  EPIC_KEY: 916
+  units: V
+  longname: 'Photosynthetic Active Radiation'
+Fch_906: 
+  name: Fch
+  generic_name: ''
+  fortran: '' 
+  EPIC_KEY: 906
+  units: 'ugrams/l'
+  longname: 'Chlorophyll A'
+Fvt_900: 
+  name: Fvt
+  generic_name: ''
+  fortran: '' 
+  EPIC_KEY: 900
+  units: 'Volts'
+  longname: 'Fluorometer Volts'
+V0_3333: 
+  name: V0
+  generic_name: ''
+  fortran: '' 
+  EPIC_KEY: 3333
+  units: Volts
+  longname: 'Channel 0 Volts'
+OST_62: 
+  name: OST
+  generic_name: ox
+  fortran: '' 
+  EPIC_KEY: 62
+  units: '%'
+  longname: 'Oxygen %sat'   
+O_65:
+  name: O
+  generic_name: ox
+  fortran: ''
+  EPIC_KEY: 65
+  units: 'umol/kg'
+  longname: 'OXYGEN (UMOL/KG)'  

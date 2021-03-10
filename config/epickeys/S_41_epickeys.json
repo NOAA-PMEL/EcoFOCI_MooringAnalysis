@@ -1,0 +1,10 @@
+{
+	"S_41": {
+		"name": "S",
+		"generic_name": "sal",
+		"fortran": "",
+		"EPIC_KEY": 41,
+		"units": "PSU",
+		"longname": "Salinity (psu)"
+	}
+}

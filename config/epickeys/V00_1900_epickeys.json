@@ -1,0 +1,10 @@
+{
+	"V00_1900": {
+		"name": "V00",
+		"generic_name": "Variable 0",
+		"fortran": "f10.2",
+		"EPIC_KEY": 1900,
+		"units": "",
+		"longname": "Variable 0"
+	}
+}

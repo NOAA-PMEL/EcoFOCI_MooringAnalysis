@@ -1,0 +1,18 @@
+{
+    "WU_422": {
+        "EPIC_KEY": 422, 
+        "fortran": "f8.2", 
+        "generic_name": "u", 
+        "longname": "WIND U (M/S) ", 
+        "name": "WU", 
+        "units": "m s-1"
+    }, 
+    "WV_423": {
+        "EPIC_KEY": 423, 
+        "fortran": "f8.2", 
+        "generic_name": "v", 
+        "longname": "WIND V (M/S) ", 
+        "name": "WV", 
+        "units": "m s-1"
+    }
+}

@@ -1,0 +1,10 @@
+{
+	"T_20": {
+		"name": "T",
+		"generic_name": "temp",
+		"fortran": "f10.2",
+		"EPIC_KEY": 20,
+		"units": "C",
+		"longname": "TEMPERATURE (C)"
+	}
+}

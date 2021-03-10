@@ -1,0 +1,65 @@
+---
+T_20:
+  EPIC_KEY: 20
+  fortran: f10.2
+  generic_name: temp
+  longname: 'TEMPERATURE (C)'
+  name: T
+  units: C
+P_1: 
+  EPIC_KEY: 1
+  name: P
+  generic_name: pres
+  fortran: f10.1
+  EPIC_KEY: 1
+  units: dbar
+  longname: 'PRESSURE (DB)'
+OST_62: 
+  name: OST
+  generic_name: ox
+  fortran: '' 
+  EPIC_KEY: 62
+  units: '%'
+  longname: 'Oxygen %sat'   
+U_320: 
+  EPIC_KEY: 320 
+  fortran: '' 
+  generic_name: u 
+  longname: 'ZONAL CURRENT (CM/S)' 
+  name: U 
+  units: 'cm s-1'
+V_321: 
+  EPIC_KEY: 321 
+  fortran: '' 
+  generic_name: v 
+  longname: 'MERIDIONAL CURRENT (CM/S) '
+  name: V 
+  units: 'cm s-1'
+O_65:
+  name: O
+  generic_name: ox
+  fortran: ''
+  EPIC_KEY: 65
+  units: 'umol/kg'
+  longname: 'OXYGEN (UMOL/KG)'
+CS_300:
+  name: CS
+  generic_name: vspd
+  fortran: f8.2
+  EPIC_KEY: 300
+  units: 'cm s-1'
+  longname: 'CURRENT SPEED (CM/S)'
+CD_310:
+  name: CD
+  generic_name: vdir
+  fortran: f8.2
+  EPIC_KEY: 310
+  units: 'degrees'
+  longname: 'CURRENT DIRECTION (T)'
+S_41: 
+  EPIC_KEY: 41
+  name: S
+  generic_name: sal
+  fortran: ''
+  units: PSU
+  longname: 'SALINITY (PSU)'

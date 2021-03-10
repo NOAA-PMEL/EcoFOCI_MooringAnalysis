@@ -1,0 +1,24 @@
+---
+u_1205: 
+  EPIC_KEY: 1205 
+  generic_name: u 
+  longname: Eastward Velocity 
+  name: u 
+  units: cm/s
+  fortran: ''
+
+v_1206: 
+  EPIC_KEY: 1206 
+  generic_name: v 
+  longname: Northward Velocity 
+  name: v 
+  units: cm/s
+  fortran: ''
+
+w_1204:
+  name: w
+  generic_name: w
+  EPIC_KEY: 1204
+  units: cm/s
+  longname: Vertical Velocity
+  fortran: f8.2

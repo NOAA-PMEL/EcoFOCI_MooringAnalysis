@@ -1,0 +1,24 @@
+---
+AT_21: 
+  EPIC_KEY: 21 
+  generic_name: AT 
+  longname: 'AIR TEMPERATURE (C)'
+  name: AT
+  units: C
+  fortran: ''
+
+WU_422: 
+  EPIC_KEY: 422 
+  generic_name: WU 
+  longname: WIND U (M/S)
+  name: WU
+  units: m/s
+  fortran: ''
+
+WV_423:
+  name: WV
+  generic_name: WV
+  EPIC_KEY: 423
+  units: m/s
+  longname: WIND V (M/S)
+  fortran: f8.2

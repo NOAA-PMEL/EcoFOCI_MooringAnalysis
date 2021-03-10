@@ -1,0 +1,7 @@
+NO3w_183:
+  EPIC_KEY: 183
+  fortran: f10.2
+  generic_name: NO3
+  longname: Nitrate in Water
+  name: NO3
+  units: umol/L
