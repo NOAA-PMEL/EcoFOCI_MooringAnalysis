@@ -42,20 +42,16 @@
 import datetime
 import argparse
 import sys
+import os
 
 # Science Stack
 from netCDF4 import Dataset, date2num, num2date
-
 import numpy as np
-
-
-import warnings
-
-warnings.filterwarnings(action="ignore", message="numpy.dtype size changed,")
-
 import pandas as pd
 
-# User Stack
+# Relative User Stack
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+os.sys.path.insert(1, parent_dir)
 from calc.EPIC2Datetime import EPIC2Datetime, get_UDUNITS, Datetime2EPIC
 from io_utils.EcoFOCI_netCDF_read import EcoFOCI_netCDF
 from io_utils.EcoFOCI_netCDF_write import (

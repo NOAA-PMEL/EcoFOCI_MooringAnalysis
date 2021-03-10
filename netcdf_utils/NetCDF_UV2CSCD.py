@@ -27,13 +27,16 @@
 
 import datetime
 import argparse
+import os
 
 # Science Stack
 from netCDF4 import Dataset
 import numpy as np
 import pandas as pd
 
-# User Stack
+# Relative User Stack
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+os.sys.path.insert(1, parent_dir)
 from io_utils.EcoFOCI_netCDF_read import EcoFOCI_netCDF
 
 __author__ = "Shaun Bell"

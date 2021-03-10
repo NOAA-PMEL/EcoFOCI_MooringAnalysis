@@ -37,11 +37,14 @@
 # System Stack
 import datetime
 import argparse
+import os
 
 # Science Stack
 import numpy as np
 
-# User Stack
+# Relative User Stack
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+os.sys.path.insert(1, parent_dir)
 from calc.EPIC2Datetime import EPIC2Datetime
 from io_utils.EcoFOCI_netCDF_read import EcoFOCI_netCDF
 import io_utils.EcoFOCI_netCDF_write as eNCw

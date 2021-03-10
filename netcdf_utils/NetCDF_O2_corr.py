@@ -21,13 +21,16 @@
 import datetime
 import argparse
 import sys
+import os
 
 # Science Stack
 from netCDF4 import Dataset
 import numpy as np
 import seawater as sw
 
-# User Stack
+# Relative User Stack
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+os.sys.path.insert(1, parent_dir)
 import calc.aanderaa_corrO2_sal as O2_sal_corr
 from io_utils.EcoFOCI_netCDF_read import EcoFOCI_netCDF
 

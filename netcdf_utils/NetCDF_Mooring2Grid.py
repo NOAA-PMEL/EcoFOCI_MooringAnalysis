@@ -54,6 +54,7 @@ example pointer-file format:
 import sys
 import datetime
 import argparse
+import os
 
 # Science Stack
 from netCDF4 import Dataset, num2date, date2num
@@ -74,7 +75,9 @@ from matplotlib.dates import (
 import matplotlib.ticker as ticker
 import cmocean
 
-# Local User Stack
+# Relative User Stack
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+os.sys.path.insert(1, parent_dir)
 from io_utils.grid_mooring2nc import GriddedNC
 from io_utils import ConfigParserLocal
 from io_utils.EcoFOCI_netCDF_read import EcoFOCI_netCDF

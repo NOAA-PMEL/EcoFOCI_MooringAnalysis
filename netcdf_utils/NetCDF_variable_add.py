@@ -27,7 +27,9 @@ import os
 from netCDF4 import Dataset
 import numpy as np
 
-#User Defined Stack
+# Relative User Stack
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+os.sys.path.insert(1, parent_dir)
 from io_utils import ConfigParserLocal
 from io_utils.EcoFOCI_netCDF_read import EcoFOCI_netCDF
 
