@@ -269,7 +269,7 @@ class Data2Grid(object):
 
         inst_type = self.pointer_dic["Ylabel"]
         EPIC_VARS_dict = ConfigParserLocal.get_config(
-            "../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/epickeys/"
+            "../config/epickeys/"
             + self.plot_var
             + "_epickeys.json",
             "json",

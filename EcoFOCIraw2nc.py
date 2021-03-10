@@ -233,7 +233,7 @@ if args.InstTypeHelp:
     sys.exit()
 
 # Config Path
-configPath = "../EcoFOCI_FieldOps_Documentation/EcoFOCI_config/instr_config/"
+configPath = "config/"
 
 if args.InstType in ["MTR", "mtr"]:
     config_file = instr_data_ingest.data_source_instrumentconfig("yaml").get(
