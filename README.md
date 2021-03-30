@@ -1,6 +1,7 @@
 # EcoFOCI_MooringAnalysis
 EcoFOCI timeseries processing tools
 
+***Being Migrated to EcoFOCIpy - no support other than absolutely necessary for transition period***
 
 ### Convert raw instrument retrieved data files to initial archive netcdf files
 
