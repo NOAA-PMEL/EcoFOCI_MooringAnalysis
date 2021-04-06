@@ -1476,7 +1476,7 @@ class sbe56(object):
                     data[k - endheaderrows - 1] = line.split()
 
             #
-            (k, var_id, sbe16data) = (k - endheaderrows - 1, var_names, data)
+            (k, var_id, sbe56data) = (k - endheaderrows - 1, var_names, data)
 
             ### cycle through variable names in header to retrieve which column they are in for ingest
             temp = {}
@@ -1484,18 +1484,18 @@ class sbe56(object):
             for var_index in sorted(var_id.keys()):
                 if (var_id[var_index] == "tv290C:") or (var_id[var_index] == "t090C:"):
                     print("Processing {0}".format(var_id[var_index]))
-                    for k, v in sbe16data.items():
+                    for k, v in sbe56data.items():
                         temp[k] = float(v[var_index])
                 elif var_id[var_index] == "timeJ:":  # timeJV2 for julian days
                     print("Processing {0}".format(var_id[var_index]))
                     time_instrument_doy = {}
-                    for k, v in sbe16data.items():
+                    for k, v in sbe56data.items():
                         time_instrument_doy[k] = float(v[var_index])
                     timedoy=True
                 elif var_id[var_index] == "timeK:":  # time in secods
                     print("Processing {0}".format(var_id[var_index]))
                     time_instrument_s = {}
-                    for k, v in sbe16data.items():
+                    for k, v in sbe56data.items():
                         time_instrument_s[k] = float(v[var_index])
                     timedoy=False
             if timedoy:
