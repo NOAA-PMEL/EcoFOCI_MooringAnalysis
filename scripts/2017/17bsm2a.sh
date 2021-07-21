@@ -1,15 +1,15 @@
 #!/bin/bash
 
-data_dir="/Volumes/WDC_internal/Users/bell/ecoraid/"
-prog_dir="/Volumes/WDC_internal/Users/bell/Programs/Python/EcoFOCI_MooringAnalysis/"
+data_dir="/Users/bell/ecoraid/"
+prog_dir="/Users/bell/Programs/Python/EcoFOCI_MooringAnalysis/"
 
 mooringID='17bsm2a'
 mooringYear='2017'
 lat='56 52.060 N'
 lon='164 03.340 W'
 site_depth=71
-deployment_date='2017-04-27 22:00:00'
-recovery_date='2017-09-23 17:00:00'
+deployment_date='2017-04-27T22:00:00'
+recovery_date='2017-09-23T17:00:00'
 
 echo $prog_dir
 echo $mooringID
@@ -21,6 +21,7 @@ echo "-------------------------------------------------------------"
 echo "MTR Processing"
 echo "-------------------------------------------------------------"
 
+: '
 serial_no=4134
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/mtr/4134_data_read.TXT
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/17bsm2a_mt4134_0004m
@@ -48,13 +49,25 @@ output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/17bsm2a_mt4068_00
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc mtr 0032 -kw 0 1.0934089576E-03 5.2952512041E-04 2.2686677990E-06 False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc mtr 0032 -kw 743 1.0934089576E-03 5.2952512041E-04 2.2686677990E-06 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Trim.py ${output}.interpolated.nc -sd ${deployment_date} -ed ${recovery_date}
+'
 
-: '
+
 
 echo "-------------------------------------------------------------"
 echo "SBE16 Processing"
 echo "-------------------------------------------------------------"
 
+#uaf
+serial_no=7333
+input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe16/SBE16plus_01607333_2017_10_20.cnv
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/17bsm2a_sc_0001m
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc sc 0001 -kw 0 time_instrument_doy True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc sc 0001 -kw 0 time_instrument_doy True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}netcdf_utils/NetCDF_Time_Tools.py ${output}.interpolated.nc Trim --trim_bounds ${deployment_date} ${recovery_date}
+python ${prog_dir}netcdf_utils/NetCDF_Time_Tools.py ${output}.unqcd.nc CF_Convert
+python ${prog_dir}netcdf_utils/NetCDF_Time_Tools.py ${output}.interpolated.trimmed_missing.nc CF_Convert
+
+: '
 serial_no=0653
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe16/17bsm2a_sbe16_653_44m.cnv
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/17bsm2a_sc_0044m

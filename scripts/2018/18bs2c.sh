@@ -9,7 +9,7 @@ lat='56 52.118 N'
 lon='164 03.608 W'
 site_depth=74
 deployment_date='2018-10-02T11:00:00'
-recovery_date='2019-04-24T16:00:00'
+recovery_date='2019-03-04T00:00:00'
 
 echo $prog_dir
 echo $mooringID
@@ -30,6 +30,15 @@ python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc sc 0012 -kw 0 tim
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc sc 0012 -kw 0 time_instrument_s True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Time_Tools.py   ${output}.interpolated.nc Trim  --trim_bounds ${deployment_date} ${recovery_date}
 '
+#uaf
+serial_no=7297
+input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/sbe16/SBE16plus_01607297_2019_07_24.cnv
+output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_sc_0066m
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc sc 0066 -kw 0 time_elapsed_s True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc sc 0066 -kw 0 time_elapsed_s True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}netcdf_utils/NetCDF_Time_Tools.py ${output}.interpolated.nc Trim --trim_bounds ${deployment_date} ${recovery_date}
+python ${prog_dir}netcdf_utils/NetCDF_Time_Tools.py ${output}.unqcd.nc CF_Convert
+python ${prog_dir}netcdf_utils/NetCDF_Time_Tools.py ${output}.interpolated.trimmed_missing.nc CF_Convert
 
 echo "-------------------------------------------------------------"
 echo "SBE37 Processing"
@@ -136,8 +145,10 @@ echo "-------------------------------------------------------------"
 echo "Seaguard Processing"
 echo "-------------------------------------------------------------"
 
+: '
 serial_no=1951
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/rcm/curr_oxy.csv
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18bs2c_sg_0015.unqcd.nc
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} rcmsg 0015 -dec 0 0 -kw false false indiv -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth 
 python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date}
+'
