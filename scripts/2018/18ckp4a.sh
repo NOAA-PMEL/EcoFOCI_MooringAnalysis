@@ -31,7 +31,7 @@ python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc sc 0045 -k
 #python ${prog_dir}NetCDF_Trim.py ${output} -sd ${deployment_date} -ed ${recovery_date}
 python ${prog_dir}NetCDF_Time_Tools.py ${output}.interpolated.nc Trim --trim_bounds ${deployment_date} ${recovery_date}
 
-
+'
 echo "-------------------------------------------------------------"
 echo "Wetlabs Processing"
 echo "-------------------------------------------------------------"
@@ -40,10 +40,11 @@ serial_no=flsb_1984
 input=${data_dir}${mooringYear}/Moorings/${mooringID}/raw/eco_fluor/18ckp4a_flsb_1984_44.5m.txt
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18ckp4a_eco_0045m
 
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc eco 0045 -kw 0 median 0.077 48 False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc eco 0045 -kw 185  median 0.077 48 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
-python ${prog_dir}NetCDF_Time_Tools.py ${output}.interpolated.nc Trim --trim_bounds ${deployment_date} ${recovery_date}
-'
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.unqcd.nc eco 0045 -kw 0 median 0.0077 48 0 0 False -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output}.interpolated.nc eco 0045 -kw 185  median 0.0077 48 0 0 True -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
+python ${prog_dir}netcdf_utils/NetCDF_Time_Tools.py ${output}.interpolated.nc Trim --trim_bounds ${deployment_date} ${recovery_date}
+
+: '
 echo "-------------------------------------------------------------"
 echo "RCMSG Processing"
 echo "-------------------------------------------------------------"
@@ -53,5 +54,5 @@ input=${data_dir}${mooringYear}/Moorings/${mooringID}/rawconverted/rcm/SG1982/18
 output=${data_dir}${mooringYear}/Moorings/${mooringID}/working/18ckp4a_sg_0045m.unqcd.nc
 python ${prog_dir}EcoFOCIraw2nc.py ${input} ${output} rcmsg 0045 -dec 71.0437 160.50355 -kw false false 'combined_manual_units' -latlon $lat $lon -add_meta $mooringID $serial_no $site_depth
 python ${prog_dir}NetCDF_Time_Tools.py   ${output} Trim  --trim_bounds ${deployment_date} ${recovery_date} 
-
+'
 
