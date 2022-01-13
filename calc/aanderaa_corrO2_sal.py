@@ -7,7 +7,6 @@ calculate salinity (and pressure) corrected oxygen concenration due to salinity.
 
 Most relevant for Aanderaa oxygen optodes that have salinity set at 0 (fresh water) for O2 calculations
 
-
 """
 # System Stack
 import datetime
