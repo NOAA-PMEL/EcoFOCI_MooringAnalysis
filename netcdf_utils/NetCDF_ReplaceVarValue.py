@@ -51,6 +51,9 @@ def repl_var(nchandle, var_name, val=1e35):
     ) * float(val)
     return
 
+def scale_var(nchandle, var_name, val=1):
+    nchandle.variables[var_name][:] = nchandle.variables[var_name][:] * float(val)
+    return
 
 """------------------------------- MAIN--------------------------------------------"""
 
@@ -64,6 +67,7 @@ parser.add_argument(
     "user_var", metavar="user_var", type=str, help="EPIC Key Code or variable name"
 )
 parser.add_argument("Value", metavar="Value", type=str, help="replacement value")
+parser.add_argument("--scale", type=float, help="Scale: amoutn to scale value by")
 
 args = parser.parse_args()
 
@@ -75,6 +79,9 @@ vars_dic = df.get_vars()
 data = df.ncreadfile_dic()
 
 print(ncfile.split("/")[-1])
-repl_var(df._getnchandle_(), args.user_var, val=args.Value)
+if args.scale:
+    scale_var(df._getnchandle_(), args.user_var, val=args.scale)
+else:
+    repl_var(df._getnchandle_(), args.user_var, val=args.Value)
 
 df.close()
