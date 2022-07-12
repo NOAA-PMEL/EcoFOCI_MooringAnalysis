@@ -1,6 +1,6 @@
 matplotlib==3.5.2
 numpy==1.21.5 #pinned for code using python<=3.7
-pandas==1.4.2
+pandas==1.4.3
 netcdf4==1.6.0
 pyyaml==6.0
 json==0.9.5
