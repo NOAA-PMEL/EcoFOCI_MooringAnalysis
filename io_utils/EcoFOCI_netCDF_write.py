@@ -171,7 +171,7 @@ class NetCDF_Create_Timeseries(object):
             try:
                 rec_var_FORTRAN.append(nchandle.variables[v_name].FORTRAN_format)
             except:
-                print("No FORTRAN attribute")
+                rec_var_FORTRAN.append("")
             rec_var_epic.append(EPIC_VARS_dict[evar]["EPIC_KEY"])
 
         rec_vars = ["time", "time2", "depth", "lat", "lon"] + rec_vars
@@ -425,7 +425,7 @@ class NetCDF_Create_Profile(object):
             try:
                 rec_var_FORTRAN.append(nchandle.variables[v_name].FORTRAN_format)
             except:
-                print("No FORTRAN attribute")
+                rec_var_FORTRAN.append("")
             rec_var_epic.append(EPIC_VARS_dict[evar]["EPIC_KEY"])
 
         rec_vars = ["time", "time2", "depth", "lat", "lon"] + rec_vars
@@ -682,7 +682,7 @@ class NetCDF_Trimmed(object):
                 try:
                     rec_var_FORTRAN.append(nchandle.variables[v_name].FORTRAN_format)
                 except:
-                    print("No FORTRAN attribute")
+                    rec_var_FORTRAN.append("")
                 rec_var_epic.append(nchandle.variables[v_name].epic_code)
 
         rec_vars = ["time", "time2", "depth", "lat", "lon"] + rec_vars
@@ -933,7 +933,7 @@ class NetCDF_Trimmed_2D(object):
                 try:
                     rec_var_FORTRAN.append(nchandle.variables[v_name].FORTRAN_format)
                 except:
-                    print("No FORTRAN attribute")
+                    rec_var_FORTRAN.append("")
                 rec_var_epic.append(nchandle.variables[v_name].epic_code)
 
         rec_vars = ["time", "time2", "depth", "lat", "lon"] + rec_vars
@@ -1183,7 +1183,7 @@ class NetCDF_BinRemoved_2D(object):
                 try:
                     rec_var_FORTRAN.append(nchandle.variables[v_name].FORTRAN_format)
                 except:
-                    print("No FORTRAN attribute")
+                    rec_var_FORTRAN.append("")
                 rec_var_epic.append(nchandle.variables[v_name].epic_code)
 
         rec_vars = ["time", "time2", "depth", "latitude", "longitude"] + rec_vars
@@ -1436,7 +1436,7 @@ class NetCDF_Copy_Struct(object):
                 try:
                     rec_var_FORTRAN.append(nchandle.variables[v_name].FORTRAN_format)
                 except:
-                    print("No FORTRAN attribute")
+                    rec_var_FORTRAN.append("")
                 rec_var_epic.append(variable_dic[v_name].epic_code)
 
         rec_vars = ["time", "time2", "depth", "lat", "lon"] + rec_vars
@@ -1699,7 +1699,7 @@ class CF_NC(object):
                 try:
                     rec_var_FORTRAN.append(nchandle.variables[v_name].FORTRAN_format)
                 except:
-                    print("No FORTRAN attribute")
+                    rec_var_FORTRAN.append("")
                 rec_var_epic.append(nchandle.variables[v_name].epic_code)
 
         rec_vars = ["time", "depth", "lat", "lon"] + rec_vars
@@ -2423,7 +2423,7 @@ class CF_NC_2D(object):
                 try:
                     rec_var_FORTRAN.append(nchandle.variables[v_name].FORTRAN_format)
                 except:
-                    print("No FORTRAN attribute")
+                    rec_var_FORTRAN.append("")
                 rec_var_epic.append(nchandle.variables[v_name].epic_code)
 
         rec_vars = ["time", "depth", "lat", "lon"] + rec_vars
