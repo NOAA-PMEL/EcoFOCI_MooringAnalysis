@@ -1,4 +1,4 @@
-matplotlib==3.5.3
+matplotlib==3.6.0
 numpy==1.21.5 #pinned for code using python<=3.7
 pandas==1.4.3
 netcdf4==1.6.0
